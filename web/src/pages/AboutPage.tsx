@@ -99,7 +99,14 @@ export function AboutPage() {
             accent="green"
             image="/about/alumni.jpg"
             imageAlt="Queen's University Alumni Union logo"
-            className="sm:col-span-2"
+          />
+          <RoleCard
+            role="Founder"
+            org="PPP TEAM AI"
+            location="Belfast, Northern Ireland"
+            accent="gold"
+            image="/about/ppp-team-ai.png"
+            imageAlt="PPP TEAM AI shield logo"
           />
         </div>
       </section>
