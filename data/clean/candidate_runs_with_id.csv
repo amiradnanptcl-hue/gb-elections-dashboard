@@ -232,9 +232,8 @@ GBA-7,2015,4,"Gh, Shehzad Agha",ITP,925.0,7.91,False,False,wikipedia_constituenc
 GBA-7,2015,5,Zahid Hussain,MWM,713.0,6.09,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached,zahid-hussain
 GBA-7,2015,6,Muzzafar Hussain,Independent,265.0,2.27,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached,muzaffar-hussain
 GBA-7,2015,7,Kamal Hussain,APML,179.0,1.53,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached,kamal-hussain
-GBA-7,2020,1,Raja Muhammad Zakaria Khan Maqpoon,PTI,5565.0,37.18,True,True,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,muhammad-zakaria-khan-maqpoon
-GBA-7,2020,2,Raja Zakarya Maqoon,PTI,5290.0,35.34,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached,zakaria-maqoon
-GBA-7,2020,3,Syed Mehdi Shah,PPP,4113.0,27.48,True,False,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,mehdi-shah
+GBA-7,2020,1,Raja Muhammad Zakaria Khan Maqpoon,PTI,5565.0,57.5,True,True,wikipedia_2020_summary+wikipedia_constituency_page,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,muhammad-zakaria-khan-maqpoon
+GBA-7,2020,2,Syed Mehdi Shah,PPP,4113.0,42.5,True,False,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,mehdi-shah
 GBA-8,2009,1,Sheikh Nisar,PPP,8077.0,44.61,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,sheikh-nisar
 GBA-8,2009,2,Syed Muhammad Ali Shah,Independent,5036.0,27.45,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,muhammad-ali-shah
 GBA-8,2009,3,Ghulam Nabi,Independent,4608.0,25.12,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,ghulam-nabi

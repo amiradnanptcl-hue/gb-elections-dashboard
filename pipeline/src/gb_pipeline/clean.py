@@ -93,6 +93,8 @@ TRANSLITERATION_CANON: dict[str, str] = {
     "kazem": "kazim",
     "zakarya": "zakaria",
     "zakariya": "zakaria",
+    "maqoon": "maqpoon",
+    "maqpooon": "maqpoon",
     "abdul": "abdul",
     "abdull": "abdul",
     "ghulam": "ghulam",
