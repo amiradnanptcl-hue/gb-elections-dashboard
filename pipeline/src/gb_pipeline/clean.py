@@ -375,10 +375,51 @@ def clean_candidate_runs(
             )
         )
 
+    # Apply manual overrides for cases where two raw sources disagree on a
+    # specific field and the authoritative source (deep research, ECGB
+    # Form-21, etc.) confirms one over the other. Recorded in
+    # data/raw/research/candidate_runs_overrides.csv with a citation.
+    overrides_path = raw_dir / "research" / "candidate_runs_overrides.csv"
+    overrides_applied: list[dict[str, Any]] = []
+    if overrides_path.exists():
+        overrides = _read_csv(overrides_path)
+        for ov in overrides:
+            cz = ov["constituency_id"]
+            yr = int(ov["election_year"])
+            name_match = ov["candidate_name_match"].lower()
+            field = ov["field"]
+            new_value = ov["new_value"]
+            for r in deduped:
+                if (
+                    r["constituency_id"] == cz
+                    and int(r["election_year"]) == yr
+                    and name_match in r["candidate_name"].lower()
+                ):
+                    old_value = r.get(field)
+                    if old_value != new_value:
+                        r[field] = new_value
+                        # Append the override source to provenance.
+                        r["source"] = (
+                            f"{r['source']}+override({ov['authoritative_source']})"
+                        )
+                        overrides_applied.append({
+                            "constituency_id": cz,
+                            "election_year": yr,
+                            "candidate_name": r["candidate_name"],
+                            "field": field,
+                            "old_value": old_value,
+                            "new_value": new_value,
+                            "authoritative_source": ov["authoritative_source"],
+                        })
+
     _rerank(deduped)
     _impute_vote_share(deduped)
 
     review_dir.mkdir(parents=True, exist_ok=True)
+    if overrides_applied:
+        pd.DataFrame(overrides_applied).to_csv(
+            review_dir / "overrides_applied.csv", index=False, encoding="utf-8"
+        )
     if merge_decisions:
         pd.DataFrame(merge_decisions).to_csv(
             review_dir / "merge_decisions.csv", index=False, encoding="utf-8"

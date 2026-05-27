@@ -225,6 +225,47 @@ export function MapPage() {
                             <ul className="space-y-1.5">
                               {known.map((n) => {
                                 const m = getParty(n.party);
+                                // Find this candidate's 2020 row (if any) in
+                                // the same seat. A simple last-token match on
+                                // the surname is enough for the candidates
+                                // we have today; we annotate party switches
+                                // visibly so visitors don't read the 2020 vs
+                                // 2026 party difference as a data bug.
+                                const nameTokens = n.candidate_name
+                                  .toLowerCase()
+                                  .replace(/[^a-z\s]/g, "")
+                                  .split(/\s+/)
+                                  .filter(Boolean);
+                                const distinctiveTokens = nameTokens.filter(
+                                  (t) =>
+                                    ![
+                                      "syed",
+                                      "raja",
+                                      "muhammad",
+                                      "mohammad",
+                                      "mohammed",
+                                      "khan",
+                                      "ali",
+                                      "shah",
+                                      "hafiz",
+                                      "haji",
+                                    ].includes(t),
+                                );
+                                const matched2020 = top3.find((r) => {
+                                  const rt = r.candidate_name
+                                    .toLowerCase()
+                                    .replace(/[^a-z\s]/g, "")
+                                    .split(/\s+/)
+                                    .filter(Boolean);
+                                  return distinctiveTokens.some((d) =>
+                                    rt.includes(d),
+                                  );
+                                });
+                                const switched =
+                                  matched2020 && matched2020.party !== n.party;
+                                const prevMeta = switched
+                                  ? getParty(matched2020.party)
+                                  : null;
                                 return (
                                   <li
                                     key={`${n.candidate_name}-${n.party}`}
@@ -240,6 +281,11 @@ export function MapPage() {
                                       flag={m.flag}
                                       variant="row"
                                     />
+                                    {switched && prevMeta && (
+                                      <span className="text-[10px] uppercase tracking-[0.14em] text-[color:var(--color-muted-foreground)]/80 inline-flex items-center gap-1">
+                                        was {prevMeta.shortDisplay} in 2020
+                                      </span>
+                                    )}
                                   </li>
                                 );
                               })}
