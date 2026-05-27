@@ -1,201 +1,443 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { useModelReport } from "@/lib/data";
-import { formatPercent } from "@/lib/utils";
+import { Link } from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function MethodologyPage() {
-  const reportQ = useModelReport();
-  const report = reportQ.data;
-
   return (
-    <div className="space-y-8 max-w-3xl">
-      <div>
-        <h1 className="text-3xl font-semibold tracking-tight">Methodology</h1>
-        <p className="text-[color:var(--color-muted-foreground)] mt-2">
-          How the forecast is built, what it cannot do, and how to reproduce it.
-        </p>
-      </div>
-
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold tracking-tight">Data sources</h2>
-        <ol className="list-decimal pl-6 space-y-2 text-sm">
-          <li>
-            Wikipedia constituency pages (`GBA-1` through `GBA-24`) for
-            historical winner + runner-up + sometimes third-place tallies.
-          </li>
-          <li>
-            Wikipedia election summary page for 2020 (constituency-level
-            turnout, registered voters, margin).
-          </li>
-          <li>
-            Electoral Commission of Gilgit-Baltistan (ECGB) result PDFs for
-            2009, 2015, 2020 (used as cross-validation). 2009 detail backfill
-            from these PDFs is a pending workstream.
-          </li>
-          <li>
-            Pakistan Bureau of Statistics 2023 Census, attributed at district
-            level only (no public constituency overlay).
-          </li>
-        </ol>
-        <p className="text-sm text-[color:var(--color-muted-foreground)]">
-          All scrapers respect robots.txt, rate-limit to one request per
-          two seconds per domain, and log retrieval timestamps. See{" "}
-          <code>data/raw/scrape_manifest.csv</code> for the audit trail.
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold tracking-tight">Model</h2>
-        <p className="text-sm">
-          Logistic regression with elastic-net regularisation
-          (<code>l1_ratio=0.5</code>), preceded by standard scaling and
-          followed by Platt scaling for calibration. Trained on candidate-runs
-          from 2009 + 2015. The 2020 election is held out as a true test set;
-          it is never touched during feature engineering or hyperparameter
-          search.
-        </p>
-        <p className="text-sm">
-          Features implemented in v1: federal-incumbent match, incumbent
-          running, party-switch flag, prior vote share, prior winner-party
-          match, prior margin, district one-hot dummies, and candidate
-          continuity score.
-        </p>
-        <p className="text-sm">
-          Deferred to v2: sect alignment (no public constituency-level sect
-          data), turnout delta 2015 to 2020 (we currently have 2020 turnout
-          only; 2015 turnout needs extraction from the constituency-page
-          tables).
-        </p>
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-xl font-semibold tracking-tight">Holdout results</h2>
-        {report ? (
-          <Card>
-            <CardHeader>
-              <CardTitle>Model v1 vs federal-incumbent baseline</CardTitle>
-              <CardDescription>2020 holdout, 24 general seats</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <table className="w-full text-sm">
-                <tbody>
-                  <tr className="border-b">
-                    <td className="py-2 pr-4">Best regularisation C</td>
-                    <td className="py-2 tabular text-right">{report.best_c}</td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="py-2 pr-4">CV Brier (training folds)</td>
-                    <td className="py-2 tabular text-right">
-                      {report.cv_brier_train.toFixed(4)}
-                    </td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="py-2 pr-4">Train Brier</td>
-                    <td className="py-2 tabular text-right">
-                      {report.train_brier.toFixed(4)}
-                    </td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="py-2 pr-4">Test Brier (2020 holdout)</td>
-                    <td className="py-2 tabular text-right">
-                      {report.test_brier.toFixed(4)}
-                    </td>
-                  </tr>
-                  <tr className="border-b">
-                    <td className="py-2 pr-4">Model accuracy on 2020</td>
-                    <td className="py-2 tabular text-right">
-                      {report.test_constituencies_correct}/
-                      {report.test_constituencies_total} (
-                      {formatPercent(report.test_constituency_accuracy * 100)})
-                    </td>
-                  </tr>
-                  {report.baseline_2020_accuracy != null && (
-                    <tr>
-                      <td className="py-2 pr-4">Baseline accuracy on 2020</td>
-                      <td className="py-2 tabular text-right">
-                        {report.baseline_2020_correct}/
-                        {report.test_constituencies_total} (
-                        {formatPercent(report.baseline_2020_accuracy * 100)})
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </CardContent>
-          </Card>
-        ) : (
-          <p className="text-sm text-[color:var(--color-muted-foreground)]">
-            Loading…
+    <div className="space-y-12 max-w-4xl">
+      <header className="space-y-4">
+        <Link
+          to="/"
+          className="text-sm text-[color:var(--color-muted-foreground)] hover:text-[color:var(--color-foreground)] inline-flex items-center gap-1"
+        >
+          ← Back to home
+        </Link>
+        <div className="space-y-2">
+          <div className="flex items-center gap-3">
+            <span className="inline-block h-px w-10 bg-[color:var(--color-accent-gold)]" />
+            <span className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
+              Data governance
+            </span>
+          </div>
+          <h1 className="font-display text-4xl sm:text-5xl leading-[1.05]">
+            What this dataset is, how we built it, what it cannot do
+          </h1>
+          <p className="text-[color:var(--color-muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
+            This is a public-records dashboard for the Gilgit-Baltistan
+            Legislative Assembly elections of 2009, 2015, 2020 and 2026. It
+            does not publish a forecast. It does not assign win probabilities
+            to candidates. It is a curated reference: who contested, who won,
+            how many voters are on the roll, how many polling stations are
+            planned, and where every number came from.
           </p>
-        )}
-        <Card>
-          <CardContent className="pt-6">
-            <p className="text-sm font-medium mb-2">Calibration</p>
-            <img
-              src="/data/calibration_plot.png"
-              alt="Reliability diagram for 2020 holdout"
-              className="rounded-md border"
-            />
-            <p className="text-xs text-[color:var(--color-muted-foreground)] mt-2">
-              The model is mildly under-confident below 0.25 and over-confident
-              around 0.5, reflecting that many federal-incumbent candidates did
-              not actually win their seats in the unusually fragmented 2020
-              election.
-            </p>
-          </CardContent>
-        </Card>
-      </section>
+        </div>
+      </header>
 
+      {/* What this site is */}
       <section className="space-y-3">
-        <h2 className="text-xl font-semibold tracking-tight">
-          Limitations
+        <h2 className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
+          Scope
         </h2>
-        <ul className="list-disc pl-6 space-y-2 text-sm">
+        <h3 className="font-display text-2xl sm:text-3xl">
+          What this site is, and what it is not
+        </h3>
+        <ul className="space-y-2 text-sm leading-relaxed list-disc pl-6">
           <li>
-            187-row training set. Even with elastic-net regularisation, variance
-            is high. Reported 80 percent confidence intervals are wide.
+            <strong>It is</strong> a curated public-records browser. Every
+            page is a view onto a CSV or JSON file in the open-source
+            repository.
           </li>
           <li>
-            2009 detail is winner-only for most constituencies on Wikipedia.
-            Roughly 60 percent of 2015 rows therefore have missing prior-margin
-            data. Filling this gap requires OCR of the ECGB 2009 PDF.
+            <strong>It is</strong> a place to look up who contested a
+            constituency in 2009, 2015 or 2020, what share they polled, and
+            who has been verified so far as contesting in 2026.
           </li>
           <li>
-            Two same-party candidates contesting one seat (e.g. GBA-13 2020 had
-            two PTI candidates with similar profiles) give the model very weak
-            signal to discriminate.
+            <strong>It is not</strong> a forecast. We do not publish per-seat
+            win probabilities. An earlier build did, but the only feature
+            with real signal was "the federal ruling party also wins in GB",
+            which made the 2026 output collapse to "PML-N wins all 24 seats"
+            and would have misled visitors. We removed that model and the
+            dashboard now consumes data only.
           </li>
           <li>
-            Wikipedia party labels may incorporate post-election defections.
-            The 2020 PTI count in our data (11) likely includes one or two
-            candidates who won as Independents and later joined the PTI bloc.
+            <strong>It is not</strong> a polling site or a sentiment tracker.
+            We have no 2026 polling data we trust to publish.
           </li>
           <li>
-            No sentiment, polling, or kinship features in v1 by design.
+            <strong>It is not</strong> a campaign tool. It is not commissioned
+            by, nor an official channel of, the Pakistan Peoples Party or any
+            other party.
           </li>
         </ul>
       </section>
 
-      <section className="space-y-2">
-        <h2 className="text-xl font-semibold tracking-tight">Reproducibility</h2>
-        <pre className="rounded-md bg-[color:var(--color-muted)] p-3 text-xs overflow-x-auto">
-{`# Data layer
-cd pipeline && uv sync --extra dev
-uv run python -m gb_pipeline.sweep
-uv run python -m gb_pipeline.clean
+      <div className="rule-gold" />
 
-# Model
-cd model && uv sync --extra dev
-uv run python -m gb_model.baseline
-uv run python -m gb_model.candidate_ids
-uv run python -m gb_model.features
-uv run python -m gb_model.train`}
-        </pre>
+      {/* Data sources */}
+      <section className="space-y-3">
+        <h2 className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
+          Data sources
+        </h2>
+        <h3 className="font-display text-2xl sm:text-3xl">
+          Where every number on the site comes from
+        </h3>
+        <p className="text-sm text-[color:var(--color-muted-foreground)] leading-relaxed">
+          Each row in the dataset carries its provenance. The sources are:
+        </p>
+        <ol className="space-y-3 text-sm list-decimal pl-6">
+          <li>
+            <strong>Wikipedia constituency pages</strong> (GBA-1 through
+            GBA-24). Compiled by Wikipedia editors from press reports and
+            official notifications. Primary source for the 2009, 2015 and
+            2020 winner + runner-up + sometimes third-place vote tallies.
+          </li>
+          <li>
+            <strong>Wikipedia 2020 election summary page</strong>.
+            Constituency-level turnout, registered voters and margins.
+          </li>
+          <li>
+            <strong>Election Commission of Gilgit-Baltistan (ECGB)</strong>{" "}
+            result PDFs for 2009, 2015 and 2020. Used as cross-validation
+            on the Wikipedia tallies.
+          </li>
+          <li>
+            <strong>ECGB Form-33 notifications</strong> and the official
+            symbol allotment sheet ("Antkhabi Nishanat"). Source for the
+            allotted party symbols and where verified, individual 2026
+            candidate names.
+          </li>
+          <li>
+            <strong>Vision Gilgit Baltistan portal</strong>. Source for the
+            2026 district-wise registered-voter roll (774,319 total, with
+            male / female split per district).
+          </li>
+          <li>
+            <strong>Pakistani media wire</strong>: Dawn, Express Tribune,
+            Geo, APP, The News, Pakistan Today, Pamir Times, Kashmir
+            English, Business Recorder, Click Pakistan, ARY News. Source
+            for ticket-announcement dates, alliance talks, tribunal
+            activity and the 14 May 2026 final-candidate count.
+          </li>
+          <li>
+            <strong>Wikipedia profiles</strong> of named GB politicians
+            (Amjad Hussain Azar, Hafiz Hafeezur Rehman, Gulbar Khan,
+            Mushtaq Hussain, etc.). Source for the 16 individually verified
+            2026 candidates currently in our roster.
+          </li>
+          <li>
+            <strong>The May 2026 deep-research report</strong>
+            (`deep-research-report.md`). Synthesis of the above, used to
+            cross-check candidate counts, historical results and the
+            current shape of the field.
+          </li>
+        </ol>
+        <p className="text-sm text-[color:var(--color-muted-foreground)] leading-relaxed">
+          Every scraper respects robots.txt and rate-limits to one request
+          per two seconds per domain. Retrieval timestamps are stored in{" "}
+          <code>data/raw/scrape_manifest.csv</code>.
+        </p>
+      </section>
+
+      <div className="rule-gold" />
+
+      {/* What the dataset contains */}
+      <section className="space-y-3">
+        <h2 className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
+          Schema
+        </h2>
+        <h3 className="font-display text-2xl sm:text-3xl">
+          What lives in the dataset
+        </h3>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">elections</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-[color:var(--color-muted-foreground)]">
+              Per-cycle metadata: poll date, federal ruling party,
+              registered-voter total, turnout %, polling-station total.
+              Years: 2009, 2015, 2020, 2026.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">constituencies</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-[color:var(--color-muted-foreground)]">
+              The 24 general seats with their district mapping and the
+              Wikipedia slug used during scraping.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">candidate_runs</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-[color:var(--color-muted-foreground)]">
+              One row per (candidate, constituency, year) tuple covering
+              2009 to 2020. Includes rank, party, votes, vote share, won
+              flag, source URL.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">candidates_2026_known</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-[color:var(--color-muted-foreground)]">
+              Sixteen 2026 candidates we have individually verified from
+              Wikipedia profiles and the news track. Partial; the full
+              403-candidate field is not yet machine-readable.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">voters_by_district_2026</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-[color:var(--color-muted-foreground)]">
+              Ten districts with their 2026 registered-voter totals plus a
+              female / male split. Source: Vision Gilgit Baltistan portal.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">parties</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-[color:var(--color-muted-foreground)]">
+              Canonical party id, display name, ECGB-allotted election
+              symbol, 2026 candidate count per party.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">notable_disqualifications</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-[color:var(--color-muted-foreground)]">
+              Currently lists Khalid Khurshid (2020 PTI chief minister,
+              disqualified 2023). Used to flag open seats on the map.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">candidate_fragmentation_2026</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-[color:var(--color-muted-foreground)]">
+              GB-wide fragmentation snapshot: 403 final candidates with
+              272 independents and 131 party-backed, 8 women candidates,
+              most contested seat = Gilgit-II.
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <div className="rule-gold" />
+
+      {/* Pipeline */}
+      <section className="space-y-3">
+        <h2 className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
+          Pipeline
+        </h2>
+        <h3 className="font-display text-2xl sm:text-3xl">
+          From raw scrape to dashboard page
+        </h3>
+        <ol className="space-y-2 text-sm leading-relaxed list-decimal pl-6">
+          <li>
+            <strong>Scrape.</strong> Wikipedia constituency pages and 2009
+            / 2015 / 2020 election summaries are scraped with a rate-limit
+            of one request per two seconds. Scrape manifest written to{" "}
+            <code>data/raw/scrape_manifest.csv</code>.
+          </li>
+          <li>
+            <strong>Reconcile.</strong> Two raw rows referring to the same
+            candidate within the same race (e.g. "Khalid Khurshid" and
+            "Muhammad Khalid Khurshid Khan") are merged when their surname
+            matches and their token sets overlap. Merge decisions are
+            logged to <code>data/manual_review/merge_decisions.csv</code>
+            for audit.
+          </li>
+          <li>
+            <strong>Cross-year identity.</strong> A second pass clusters
+            candidates across years even when they change party or change
+            seat. Each candidate ends up with a stable{" "}
+            <code>candidate_id</code> slug.
+          </li>
+          <li>
+            <strong>Canonicalise parties.</strong> Party strings are mapped
+            to canonical ids (PPP, PML-N, PTI, MWM, IPP, JUI-F, …) so
+            historical "PML-N" rows and 2026 "PML-N" rows share the same
+            colour, flag and symbol.
+          </li>
+          <li>
+            <strong>Export.</strong> Cleaned tables are written as
+            parquet, CSV and JSON. The dashboard reads the JSON files at{" "}
+            <code>web/public/data/</code>.
+          </li>
+        </ol>
+      </section>
+
+      <div className="rule-gold" />
+
+      {/* What the site shows */}
+      <section className="space-y-3">
+        <h2 className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
+          What you can do here
+        </h2>
+        <h3 className="font-display text-2xl sm:text-3xl">
+          The five views you can navigate
+        </h3>
+        <div className="space-y-2 text-sm">
+          <p>
+            <Link
+              to="/"
+              className="font-semibold underline-offset-2 hover:underline"
+            >
+              Home
+            </Link>{" "}
+            — top-line aggregates plus the 2026 party-by-party candidate
+            field.
+          </p>
+          <p>
+            <Link
+              to="/map"
+              className="font-semibold underline-offset-2 hover:underline"
+            >
+              Map
+            </Link>{" "}
+            — every constituency by district, with the 2020 top-3 finish
+            and any verified 2026 contestants.
+          </p>
+          <p>
+            <Link
+              to="/voters"
+              className="font-semibold underline-offset-2 hover:underline"
+            >
+              Voters
+            </Link>{" "}
+            — 2020 registered-voter rolls plus a Vision-GB-sourced 2026
+            district roll with the male / female split.
+          </p>
+          <p>
+            <Link
+              to="/polling-stations"
+              className="font-semibold underline-offset-2 hover:underline"
+            >
+              Polling stations
+            </Link>{" "}
+            — the ECGB's 2,220 station total distributed across the 24
+            seats in proportion to the 2020 roll.
+          </p>
+          <p>
+            <Link
+              to="/candidates"
+              className="font-semibold underline-offset-2 hover:underline"
+            >
+              Candidates
+            </Link>{" "}
+            — the 2026 field, grouped by party, with the ECGB symbol per
+            party.
+          </p>
+          <p>
+            Click any party badge on any page to reach a{" "}
+            <strong>party profile</strong> (e.g. <code>/party/PPP</code>).
+            Click any constituency code to reach a{" "}
+            <strong>constituency profile</strong> with its full 2009 to
+            2020 history.
+          </p>
+        </div>
+      </section>
+
+      <div className="rule-gold" />
+
+      {/* Limitations */}
+      <section className="space-y-3">
+        <h2 className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
+          Limitations
+        </h2>
+        <h3 className="font-display text-2xl sm:text-3xl">
+          What we cannot show you and why
+        </h3>
+        <ul className="space-y-2 text-sm leading-relaxed list-disc pl-6">
+          <li>
+            <strong>Only 16 of the 403 final 2026 candidates are
+            individually named here.</strong> The ECGB has not published the
+            per-seat Form-33 list as a machine-readable file we can ingest.
+            We are filling names in as we verify them through Wikipedia
+            profiles and reputable news coverage.
+          </li>
+          <li>
+            <strong>No 2026 polling.</strong> We did not identify a
+            transparent 2026 opinion poll in the reviewed source set, so
+            this dashboard does not show sentiment data.
+          </li>
+          <li>
+            <strong>2009 detail is partial.</strong> Some 2009 constituency
+            pages on Wikipedia only carry the winner and runner-up. The
+            lower ranks were never captured by editors.
+          </li>
+          <li>
+            <strong>Per-constituency polling-station counts are estimates,
+            not the official Form-21.</strong> The ECGB has published 2,220
+            stations GB-wide but not the per-seat breakdown. Our per-seat
+            number is each constituency's 2020 voter share applied to the
+            2,220 total. Replace with the Form-21 numbers when the ECGB
+            publishes them.
+          </li>
+          <li>
+            <strong>Sect, biradari and clan signal is not in the
+            dataset.</strong> GB politics is locally networked in ways that
+            our 24-seat tables cannot capture. Where the deep-research
+            report makes that point qualitatively, we surface it as text;
+            we do not encode it as a feature.
+          </li>
+        </ul>
+      </section>
+
+      <div className="rule-gold" />
+
+      {/* Reproducibility */}
+      <section className="space-y-3">
+        <h2 className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
+          Reproducibility and licence
+        </h2>
+        <h3 className="font-display text-2xl sm:text-3xl">
+          Open data, open code
+        </h3>
+        <ul className="space-y-2 text-sm leading-relaxed list-disc pl-6">
+          <li>
+            Code is MIT-licensed. Data is CC-BY 4.0. Both are published in
+            the repository alongside this site.
+          </li>
+          <li>
+            Every cleaned table is shipped as both <code>.parquet</code>
+            {" "}and <code>.csv</code> under <code>data/clean/</code>, plus
+            <code> .json</code> under <code>data/exports/</code> and at{" "}
+            <code>web/public/data/</code>.
+          </li>
+          <li>
+            Running the pipeline end-to-end takes one command:
+            {" "}<code>uv run python -m gb_pipeline.clean</code> followed by{" "}
+            <code>uv run python -m gb_pipeline.export_json</code>.
+          </li>
+          <li>
+            Manual-review trails (name merges, candidate-id clusters,
+            data-provenance notes) live under{" "}
+            <code>data/manual_review/</code> and are diff-able commit by
+            commit.
+          </li>
+        </ul>
+      </section>
+
+      <div className="rule-gold" />
+
+      {/* Closer */}
+      <section className="card-elevated card-accent-gold p-5 sm:p-6 space-y-2 top-edge relative">
+        <p className="text-[11px] uppercase tracking-[0.22em] text-[color:var(--color-accent-gold)] font-bold">
+          Editorial position
+        </p>
+        <p className="text-sm sm:text-base text-[color:var(--color-foreground)] leading-relaxed">
+          The strongest contribution this project can make is the dataset,
+          not a forecast. The dataset can be inspected, criticised,
+          extended and reused. A forecast on 72 historical rows would have
+          either been a tautology or a lie. We chose neither.
+        </p>
       </section>
     </div>
   );

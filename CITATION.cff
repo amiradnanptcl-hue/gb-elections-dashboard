@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: "GB Elections Dashboard: A Public-Records Dashboard for the Gilgit-Baltistan Legislative Assembly Elections"
+message: "If you use this dataset or dashboard in a publication, please cite as below."
+authors:
+  - family-names: Adnan
+    given-names: Syed Aamir
+    affiliation: "PPP TEAM AI · Queen's University Belfast"
+    orcid: ""
+type: dataset
+keywords:
+  - elections
+  - Pakistan
+  - Gilgit-Baltistan
+  - open-data
+  - public-records
+  - civic-technology
+license: MIT
+license-data: CC-BY-4.0
+repository-code: "https://github.com/amiradnanptcl-hue/gb-elections-dashboard"
+url: "https://gb-elections-dashboard.vercel.app"
+abstract: >
+  A public-records dashboard and open dataset for the Gilgit-Baltistan
+  Legislative Assembly elections of 2009, 2015, 2020, and 2026. Includes
+  cleaned per-constituency candidate records, district-level voter rolls,
+  verified 2026 candidate nominees, and ECGB party-symbol allocations.
+  Code is MIT-licensed; data is CC-BY 4.0.
+date-released: 2026-05-27
+version: "1.3.0"

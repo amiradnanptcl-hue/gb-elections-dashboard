@@ -1,7 +1,6 @@
 candidate_id,representative,n_runs,name_variants,distinct_parties,parties,distinct_constituencies,constituencies,needs_review
 dilbar-khan,Dilbar Khan,3,Dilbar Khan,2,"PPP, PTI",3,"GBA-16, GBA-17, GBA-18",True
 rana-farman-ali,Rana Farman Ali,4,Farman Ali | Rana Farman Ali,2,"Independent, PML-N",2,"GBA-13, GBA-8",False
-amina-bibi-ansari,Amina Bibi Ansari,4,Amina Ansari | Amina Bibi Ansari,1,PTI,2,"GBA-22, GBA-23",False
 imran-nadeem,Imran Nadeem,3,Imran Nadeem,1,PPP,1,GBA-12,False
 abdul-hameed-khan,Abdul Hameed Khan,3,Abdul Hameed Khan,1,PPP,1,GBA-13,False
 khalid-khurshid,Khalid Khurshid,3,Khalid Khurshid,2,"Independent, PTI",1,GBA-13,False
@@ -11,6 +10,7 @@ aftab-haider,Aftab Haider,3,Aftab Haider,1,PPP,1,GBA-3,False
 mehdi-shah,Syed Mehdi Shah,3,Syed Mehdi Shah,1,PPP,1,GBA-7,False
 amjad-hussain-azar,Amjad Hussain Azar,3,Amjad Hussain Azar,1,PPP,2,"GBA-1, GBA-4",False
 ghulam-abbas,Ghulam Abbas,3,Ghulam Abbas,2,"Independent, PML-N",2,"GBA-10, GBA-13",False
+amina-bibi-ansari,Amina Bibi Ansari,3,Amina Ansari | Amina Bibi Ansari,1,PTI,2,"GBA-22, GBA-23",False
 muhammad-azam-khan,Raja Muhammad Azam Khan,2,Raja Azam Khan | Raja Muhammad Azam Khan,2,"MQM, PML-N",1,GBA-12,False
 janbaz-khan,Janbaz Khan,2,Janbaz Khan,1,PML-N,1,GBA-16,False
 rehmat-khaliq,Rehmat Khaliq,2,Rehmat Khaliq,1,JUI-F,1,GBA-17,False
@@ -18,7 +18,6 @@ hafeezur-rehman,Hafiz Hafeezur Rehman,2,Hafiz Hafeezur Rehman,1,PML-N,1,GBA-2,Fa
 ali-madad-sher,Ali Madad Sher,2,Ali Madad Sher,1,PPP,1,GBA-20,False
 muhammad-ayub-shah,Muhammad Ayub Shah,2,Muhammad Ayub Shah,2,"Independent, PPP",1,GBA-21,False
 muhammad-ali-akhtar,Muhammad Ali Akhtar,2,Muhammad Ali Akhtar,2,"Independent, PPP",1,GBA-4,False
-muhammad-ali,Muhammad Ali,2,Dr Muhammad Ali | Muhammad Ali,2,"Independent, MWM",2,"GBA-12, GBA-4",False
 fida-hussain,Fida Hussain,2,Fida Hussain | Haji Fida Hussain,2,"Independent, PML-N",1,GBA-4,False
 muhammad-hassan,Muhammad Hassan,2,Muhammad Hassan,2,"MQM, PML-Q",2,"GBA-12, GBA-4",False
 mirza-hussain,Mirza Hussain,2,Mirza Hussain,2,"PML-Q, PTI",1,GBA-5,False
@@ -39,7 +38,6 @@ abdul-aziz,Abdul Aziz,2,Abdul Aziz,1,Independent,2,"GBA-16, GBA-17",False
 attaullah,Attaullah,2,Attaullah,1,Independent,1,GBA-16,False
 nawaz-khan-naji,Nawaz Khan Naji,2,Nawaz Khan Naji,1,BNF-N,1,GBA-19,False
 fatehullah-khan,Fatehullah Khan,2,Fatehullah Khan,1,PTI,1,GBA-2,False
-habib-ur-rehman,Habib Ur Rehman,2,Habib Ur Rehman | Habib ur Rehman,1,JI,1,GBA-2,False
 faqeer-shah,Faqeer Shah,2,Faqeer Shah,2,"ITP, Independent",1,GBA-2,False
 nadir-khan,Nadir Khan,2,Nadir Khan,2,"Independent, PAT",2,"GBA-20, GBA-21",False
 abdul-khaliq,Abdul Khaliq,2,Abdul Khaliq,2,"Independent, MQM",2,"GBA-20, GBA-21",False

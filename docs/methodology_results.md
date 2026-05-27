@@ -61,6 +61,30 @@ The reliability diagram for the 2020 holdout (in `model/artefacts/calibration_pl
 
 Brier-score gap of 0.08 between training (0.135) and test (0.213) indicates moderate overfitting at this dataset scale (187 training rows).
 
+## The 2020 PTI Seat Count: 11 or 16?
+
+You will see both numbers reported. They both refer to the 2020 election; they
+disagree because they count different things:
+
+- **11 (poll-time labels).** The seat label as it stood on polling day. Each
+  candidate is whichever party they actually filed under. Six of the 2020
+  winners filed as Independent.
+- **16 (post-bloc labels).** The seat label after the post-poll defections
+  that brought most of the Independent winners into PTI's GB Assembly bloc.
+
+The model in this repository trains on the poll-time labels, so its accuracy
+metrics are against the 11-PTI ground truth. Wikipedia editors have updated
+some constituency pages with the post-bloc label, which is why our scrape
+sometimes shows 11 PTI winners and sometimes shows nearly that many marked
+PTI even though they ran as Independent. Both views are valid for different
+questions:
+
+- For forecasting the next election: poll-time labels are the right target,
+  because that is what voters see on the ballot.
+- For summarising "who governs GB": the post-bloc count is closer to reality.
+
+`docs/research_pack.md` keeps both columns in one table for reference.
+
 ## Honest Limitations
 
 - **Training set size**: 187 rows is small for the number of features in play. Elastic net with l1_ratio=0.5 helps with feature selection, but variance remains high. Reported 80% CIs are wide.

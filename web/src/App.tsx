@@ -17,6 +17,28 @@ const MapPage = lazy(() =>
 const MethodologyPage = lazy(() =>
   import("@/pages/MethodologyPage").then((m) => ({ default: m.MethodologyPage })),
 );
+const PartyPage = lazy(() =>
+  import("@/pages/PartyPage").then((m) => ({ default: m.PartyPage })),
+);
+const SourcesPage = lazy(() =>
+  import("@/pages/SourcesPage").then((m) => ({ default: m.SourcesPage })),
+);
+const PollingStationsPage = lazy(() =>
+  import("@/pages/PollingStationsPage").then((m) => ({
+    default: m.PollingStationsPage,
+  })),
+);
+const VotersPage = lazy(() =>
+  import("@/pages/VotersPage").then((m) => ({ default: m.VotersPage })),
+);
+const CandidatesPage = lazy(() =>
+  import("@/pages/CandidatesPage").then((m) => ({
+    default: m.CandidatesPage,
+  })),
+);
+const AnthemsPage = lazy(() =>
+  import("@/pages/AnthemsPage").then((m) => ({ default: m.AnthemsPage })),
+);
 const AboutPage = lazy(() =>
   import("@/pages/AboutPage").then((m) => ({ default: m.AboutPage })),
 );
@@ -44,6 +66,12 @@ export default function App() {
       >
         <Route index element={<HomePage />} />
         <Route path="constituency/:id" element={<ConstituencyPage />} />
+        <Route path="party/:id" element={<PartyPage />} />
+        <Route path="sources" element={<SourcesPage />} />
+        <Route path="polling-stations" element={<PollingStationsPage />} />
+        <Route path="voters" element={<VotersPage />} />
+        <Route path="candidates" element={<CandidatesPage />} />
+        <Route path="anthems" element={<AnthemsPage />} />
         <Route path="map" element={<MapPage />} />
         <Route path="methodology" element={<MethodologyPage />} />
         <Route path="about" element={<AboutPage />} />

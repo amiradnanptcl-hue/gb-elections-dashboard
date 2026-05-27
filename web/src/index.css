@@ -1,49 +1,309 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+ * Design tokens
+ *
+ * Palette derived from the PPP flag (red, black, green) plus the gold from the
+ * shield logo. Dark by default; light mode flips the bands. OKLCH is used so
+ * that perceived lightness stays consistent across the wheel.
+ *
+ * Numbers are referenced in hand-crafted utility classes below the @theme
+ * block (so we can write tuned glass / hover / glow effects without long
+ * inline class strings on every component).
+ * ------------------------------------------------------------------------- */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-display: "Fraunces", "Instrument Serif", "Times New Roman", Times, "EB Garamond", Cambria, serif;
 
-  --color-background: oklch(1 0 0);
-  --color-foreground: oklch(0.15 0.005 250);
-  --color-muted: oklch(0.96 0.005 250);
-  --color-muted-foreground: oklch(0.45 0.01 250);
-  --color-border: oklch(0.92 0.005 250);
-  --color-card: oklch(1 0 0);
-  --color-card-foreground: oklch(0.15 0.005 250);
-  --color-primary: oklch(0.62 0.15 156);
-  --color-primary-foreground: oklch(0.98 0 0);
-  --color-accent: oklch(0.96 0.01 156);
-  --color-accent-foreground: oklch(0.25 0.05 156);
+  /* Surfaces */
+  --color-background: oklch(0.11 0.012 25);
+  --color-surface: oklch(0.13 0.014 25);
+  --color-surface-strong: oklch(0.17 0.016 25);
+  --color-foreground: oklch(0.97 0.005 85);
+  --color-muted: oklch(0.20 0.014 25);
+  --color-muted-foreground: oklch(0.66 0.012 85);
+  --color-border: oklch(0.24 0.014 25);
+  --color-border-strong: oklch(0.34 0.018 25);
+  --color-card: oklch(0.14 0.014 25);
+  --color-card-foreground: oklch(0.97 0.005 85);
+
+  /* Accents — PPP flag derived. Primary is green (the actionable colour),
+   * red is reserved for emphasis / danger / urgency, gold is for highlights. */
+  --color-primary: oklch(0.66 0.16 152);
+  --color-primary-foreground: oklch(0.13 0.04 152);
+  --color-primary-soft: oklch(0.30 0.07 152);
+  --color-accent-red: oklch(0.62 0.20 27);
+  --color-accent-red-soft: oklch(0.28 0.08 27);
+  --color-accent-gold: oklch(0.80 0.13 85);
+  --color-accent-gold-soft: oklch(0.36 0.07 85);
+  --color-success: var(--color-primary);
+  --color-danger: var(--color-accent-red);
+
+  /* Shadows: layered + colour-tinted for depth on dark surfaces */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 6px 16px -4px rgba(0, 0, 0, 0.55), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 18px 40px -10px rgba(0, 0, 0, 0.55), 0 6px 14px -6px rgba(0, 0, 0, 0.4);
+  --shadow-glow-green: 0 0 0 1px rgba(34, 197, 94, 0.18), 0 18px 40px -12px rgba(22, 163, 74, 0.35);
+  --shadow-glow-red: 0 0 0 1px rgba(220, 38, 38, 0.22), 0 18px 40px -12px rgba(220, 38, 38, 0.35);
+  --shadow-glow-gold: 0 0 0 1px rgba(202, 138, 4, 0.22), 0 18px 40px -12px rgba(202, 138, 4, 0.30);
+
+  /* Motion */
+  --ease-emphasised: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
+/* Light theme inversion. Keep the same accent ramp; flip surface bands. */
+@media (prefers-color-scheme: light) {
   @theme {
-    --color-background: oklch(0.16 0.01 250);
-    --color-foreground: oklch(0.95 0.005 250);
-    --color-muted: oklch(0.22 0.01 250);
-    --color-muted-foreground: oklch(0.65 0.01 250);
-    --color-border: oklch(0.28 0.01 250);
-    --color-card: oklch(0.19 0.01 250);
-    --color-card-foreground: oklch(0.95 0.005 250);
-    --color-primary: oklch(0.68 0.15 156);
-    --color-primary-foreground: oklch(0.15 0.01 156);
-    --color-accent: oklch(0.25 0.04 156);
-    --color-accent-foreground: oklch(0.92 0.02 156);
+    --color-background: oklch(0.985 0.004 85);
+    --color-surface: oklch(0.96 0.005 85);
+    --color-surface-strong: oklch(0.93 0.006 85);
+    --color-foreground: oklch(0.18 0.012 25);
+    --color-muted: oklch(0.94 0.006 85);
+    --color-muted-foreground: oklch(0.45 0.012 25);
+    --color-border: oklch(0.88 0.008 85);
+    --color-border-strong: oklch(0.78 0.012 85);
+    --color-card: oklch(1 0 0);
+    --color-card-foreground: oklch(0.18 0.012 25);
+    --color-primary: oklch(0.50 0.16 152);
+    --color-primary-foreground: oklch(0.98 0.005 85);
+    --color-primary-soft: oklch(0.92 0.05 152);
+    --color-accent-red: oklch(0.55 0.20 27);
+    --color-accent-red-soft: oklch(0.93 0.05 27);
+    --color-accent-gold: oklch(0.68 0.14 85);
+    --color-accent-gold-soft: oklch(0.92 0.06 85);
   }
 }
 
+/* ---------------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------------- */
 @layer base {
   * {
     border-color: var(--color-border);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: var(--font-sans);
-    font-feature-settings: "cv11", "ss01";
+    font-feature-settings: "cv11", "ss01", "ss03";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    /* Subtle ambient glow: faint red top-right, faint green bottom-left,
+     * fades into the deep base. Fixed so it doesn't move with content. */
+    background-image:
+      radial-gradient(900px 600px at 85% -10%, oklch(0.32 0.13 27 / 0.18), transparent 60%),
+      radial-gradient(800px 600px at -10% 110%, oklch(0.32 0.13 152 / 0.16), transparent 60%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
+
+  ::selection {
+    background-color: oklch(0.66 0.16 152 / 0.35);
+    color: var(--color-foreground);
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.01em;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    font-feature-settings: "ss01", "ss02";
+    letter-spacing: -0.018em;
+    font-weight: 700;
+  }
+  h1.font-display,
+  h2.font-display,
+  h3.font-display {
+    font-weight: 700;
+  }
+
+  /* Tracked uppercase eyebrow labels appear in nearly every section. Bumping
+   * their weight site-wide makes them act as real navigation cues rather than
+   * faint hints. Targets every Tailwind tracking-[…em] class commonly used
+   * for these small caps (excludes 0.05–0.12em which we use for body
+   * adjustments). */
+  [class*="tracking-[0.14em]"],
+  [class*="tracking-[0.16em]"],
+  [class*="tracking-[0.18em]"],
+  [class*="tracking-[0.20em]"],
+  [class*="tracking-[0.22em]"],
+  [class*="tracking-[0.24em]"],
+  [class*="tracking-[0.28em]"],
+  [class*="tracking-[0.3em]"] {
+    font-weight: 700;
+  }
+
   .font-mono,
   .tabular {
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Custom utilities
+ * ------------------------------------------------------------------------- */
+@layer utilities {
+  /* Glass surface: used by the sticky header. */
+  .glass {
+    background-color: color-mix(in oklab, var(--color-background) 70%, transparent);
+    backdrop-filter: saturate(150%) blur(14px);
+    -webkit-backdrop-filter: saturate(150%) blur(14px);
+  }
+
+  /* Card primitive shell with hover lift. */
+  .card-elevated {
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+    transition:
+      transform 220ms var(--ease-emphasised),
+      box-shadow 220ms var(--ease-emphasised),
+      border-color 220ms var(--ease-emphasised);
+  }
+  .card-elevated:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-border-strong);
+  }
+  .card-elevated.card-accent-green:hover {
+    box-shadow: var(--shadow-glow-green);
+    border-color: oklch(0.66 0.16 152 / 0.4);
+  }
+  .card-elevated.card-accent-red:hover {
+    box-shadow: var(--shadow-glow-red);
+    border-color: oklch(0.62 0.20 27 / 0.4);
+  }
+  .card-elevated.card-accent-gold:hover {
+    box-shadow: var(--shadow-glow-gold);
+    border-color: oklch(0.80 0.13 85 / 0.4);
+  }
+
+  /* Hairline divider in PPP gold for section breaks. */
+  .rule-gold {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      oklch(0.80 0.13 85 / 0.35),
+      transparent
+    );
+  }
+
+  /* Headline gradient text accent. */
+  .text-headline-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--color-foreground) 30%,
+      oklch(0.78 0.13 85) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Stat number display. */
+  .stat-display {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  /* Subtle inset top border highlight, like a brushed metal edge. */
+  .top-edge::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      oklch(0.80 0.13 85 / 0.5),
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  /* Winner pulse — applied to elements representing an actual winner
+   * (the "Won" badge, the winning constituency card in the holdout grid,
+   * the leading party in the 2026 forecast). A soft green pulse plus a
+   * subtle gold ring breathes attention onto the element without being
+   * obnoxious. Respects prefers-reduced-motion. */
+  @keyframes winnerPulse {
+    0%   {
+      box-shadow:
+        0 0 0 0 oklch(0.66 0.16 152 / 0.45),
+        0 0 0 0 oklch(0.80 0.13 85 / 0.0);
+      transform: scale(1);
+    }
+    50%  {
+      box-shadow:
+        0 0 0 6px oklch(0.66 0.16 152 / 0.0),
+        0 0 18px 2px oklch(0.80 0.13 85 / 0.25);
+      transform: scale(1.02);
+    }
+    100% {
+      box-shadow:
+        0 0 0 0 oklch(0.66 0.16 152 / 0.0),
+        0 0 0 0 oklch(0.80 0.13 85 / 0.0);
+      transform: scale(1);
+    }
+  }
+  .winner-pulse {
+    position: relative;
+    animation: winnerPulse 1800ms ease-in-out infinite;
+    will-change: transform, box-shadow;
+  }
+
+  /* Dot pulse for compact indicators (e.g. the green dot next to "Correct" /
+   * "Won" badges). Smaller scale, opacity-driven. */
+  @keyframes winnerDotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.45; transform: scale(1.4); }
+  }
+  .winner-dot {
+    display: inline-block;
+    animation: winnerDotPulse 1400ms ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .winner-pulse,
+    .winner-dot {
+      animation: none !important;
+    }
+  }
+
+  /* News-ticker party badge: flag tile on the left, abbreviation on the right.
+   * Spec values come from the project design brief. Background and border use
+   * theme tokens so the look stays correct in dark mode. */
+  .party-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-card);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-foreground);
+  }
+  .party-flag {
+    width: 28px;
+    height: 18px;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 1px solid var(--color-border);
   }
 }

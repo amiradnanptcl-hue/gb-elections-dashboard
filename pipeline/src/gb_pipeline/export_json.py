@@ -113,6 +113,32 @@ def export(repo_root: Path) -> None:
             baseline_path.read_text(encoding="utf-8")
         )
 
+    # 2026 confirmed nominees (research-pack roster). Read straight from the
+    # raw CSV; this file is curated by hand from ECGB Form-33 notifications
+    # and the news track, so there is no cleaner step to run on it.
+    known_2026_csv = repo_root / "data" / "raw" / "research" / "candidates_2026_known.csv"
+    if known_2026_csv.exists():
+        targets["candidates_2026_known.json"] = _df_to_records(
+            pd.read_csv(known_2026_csv)
+        )
+
+    # Notable disqualifications (e.g. Khalid Khurshid 2023). The dashboard
+    # uses this to flag open seats on the constituency page.
+    disq_csv = repo_root / "data" / "raw" / "research" / "notable_disqualifications.csv"
+    if disq_csv.exists():
+        targets["notable_disqualifications.json"] = _df_to_records(
+            pd.read_csv(disq_csv)
+        )
+
+    # 2026 district-wise voter rolls from Vision Gilgit Baltistan. Includes
+    # female + male totals per district and is the source for the
+    # district-level voter card on /voters.
+    voters_dist_csv = repo_root / "data" / "raw" / "research" / "voters_by_district_2026.csv"
+    if voters_dist_csv.exists():
+        targets["voters_by_district_2026.json"] = _df_to_records(
+            pd.read_csv(voters_dist_csv)
+        )
+
     # 2026 party-slate forecast.
     preds_2026 = clean_dir / "predictions_2026.parquet"
     if preds_2026.exists():

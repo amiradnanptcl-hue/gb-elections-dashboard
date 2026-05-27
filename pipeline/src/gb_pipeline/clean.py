@@ -60,10 +60,70 @@ NAME_TITLES = frozenset({
     "mir", "raja", "agha", "md", "sahib", "alhaj", "alhajj",
 })
 
+# Very-common name tokens that carry little identifying signal. Two strangers
+# in the same race who both happen to have 'Muhammad' or 'Khan' in their
+# names is unremarkable; sharing those tokens is not enough to consider them
+# the same person. Used inside the within-race dedup overlap rule.
+COMMON_NAME_TOKENS = frozenset({
+    "muhammad", "mohammed", "mohammad", "mohamed",
+    "khan", "ali", "ahmad", "ahmed",
+    "hussain", "hussein", "hussain", "hassan", "hasan",
+    "shah",
+})
+
 
 def _strip_titles(name: str) -> str:
-    tokens = [t for t in name.replace(".", "").lower().split() if t not in NAME_TITLES]
-    return " ".join(tokens) if tokens else name.lower()
+    # Treat hyphens and underscores as token separators so 'Hafeez-ur-Rehman'
+    # tokenises the same as 'Hafeez ur Rehman'.
+    text = name.replace("-", " ").replace("_", " ").replace(".", "").lower()
+    tokens = [t for t in text.split() if t not in NAME_TITLES]
+    return " ".join(tokens) if tokens else text
+
+
+def _names_compatible(a: str, b: str) -> bool:
+    """True iff two name strings plausibly refer to the same person.
+
+    This is the within-race dedup predicate. Looser than the cross-year
+    cluster predicate in model/src/gb_model/candidate_ids.py because we
+    have an upper bound here: a single seat in a single year fields ~8
+    candidates total, so two near-name candidates are almost always the
+    same human listed twice from two source pages.
+
+    A pair is treated as the same person if ANY of:
+      a) post-title-stripping the names are equal
+      b) one's token set is a strict subset of the other's (covers
+         "Khalid Khurshid" inside "Muhammad Khalid Khurshid Khan", or
+         "Shah Baig" inside "Haji Shah Baig")
+      c) both share at least two non-common name tokens AND the
+         token_sort_ratio is >= 70 (covers reordered names like
+         "Muhammad Maisam Kazim" vs "Muhammad Kazim Maisam")
+      d) full token-sort ratio >= 88 with the surname matching >= 90
+         (the conservative cross-year rule, kept for completeness)
+    """
+    sa = _strip_titles(a).strip()
+    sb = _strip_titles(b).strip()
+    if not sa or not sb:
+        return False
+    if sa == sb:
+        return True
+    a_toks = sa.split()
+    b_toks = sb.split()
+    if not a_toks or not b_toks:
+        return False
+    a_set = set(a_toks)
+    b_set = set(b_toks)
+    # (b) strict subset.
+    if a_set <= b_set or b_set <= a_set:
+        return True
+    # (c) two shared non-common tokens.
+    shared = a_set & b_set
+    distinctive = shared - COMMON_NAME_TOKENS
+    if len(distinctive) >= 2 and fuzz.token_sort_ratio(sa, sb) >= 70:
+        return True
+    # (d) high token-sort plus matching surname (legacy conservative path).
+    if fuzz.ratio(a_toks[-1], b_toks[-1]) >= 90 and fuzz.token_sort_ratio(sa, sb) >= 88:
+        return True
+    return False
 
 # District lookup keyed by constituency_id, from the 2020 delimitation.
 CONSTITUENCY_DISTRICT: dict[str, str] = {
@@ -160,20 +220,28 @@ def _dedup_within_constituency_year(
     for row in rows:
         name = row["candidate_name"]
         name_stripped = _strip_titles(name)
+        # Find the most plausible cluster member using the strict same-person
+        # predicate. Same-person matches that also have token-sort >= 75 are
+        # auto-merged. The token_sort threshold acts as a sanity gate so we
+        # don't merge "Khan" with "Ali Khan" purely on surname-match. Pairs
+        # that pass the predicate but score in [75, 88) are subset matches
+        # (different name lengths but same person, e.g. "Khalid Khurshid"
+        # inside "Muhammad Khalid Khurshid Khan") and are merged.
         best_idx = -1
         best_score = 0.0
         for i, k in enumerate(kept):
-            # Use order-aware sort_ratio on title-stripped names. token_set_ratio
-            # is too lenient: it treats subset names ("Muhammad Ali" inside
-            # "Muhammad Ali Akhtar") as 100% identical, which falsely merges
-            # different candidates who happen to share a personal-name prefix.
+            if not _names_compatible(name, k["candidate_name"]):
+                continue
             score = fuzz.token_sort_ratio(
                 name_stripped, _strip_titles(k["candidate_name"])
             )
             if score > best_score:
                 best_score = score
                 best_idx = i
-        if best_idx >= 0 and best_score >= CANDIDATE_MERGE_THRESHOLD:
+        if best_idx >= 0:
+            # _names_compatible already required surname match + (high token
+            # sort OR strict subset). Anything that passes is a same-person
+            # merge.
             merged = _merge_two_rows(kept[best_idx], row)
             merge_decisions.append({
                 "constituency_id": row["constituency_id"],
@@ -185,17 +253,22 @@ def _dedup_within_constituency_year(
                 "merged_votes": row.get("votes"),
             })
             kept[best_idx] = merged
-        elif best_idx >= 0 and best_score >= CANDIDATE_REVIEW_THRESHOLD:
-            name_review.append({
-                "constituency_id": row["constituency_id"],
-                "election_year": row["election_year"],
-                "name_a": kept[best_idx]["candidate_name"],
-                "name_b": name,
-                "score": round(best_score, 1),
-            })
-            kept.append(row)
-        else:
-            kept.append(row)
+            continue
+        # No compatible cluster found. Log low-confidence near-misses for a
+        # human review so we can audit any pair the predicate rejects.
+        for k in kept:
+            score = fuzz.token_sort_ratio(
+                name_stripped, _strip_titles(k["candidate_name"])
+            )
+            if score >= CANDIDATE_REVIEW_THRESHOLD:
+                name_review.append({
+                    "constituency_id": row["constituency_id"],
+                    "election_year": row["election_year"],
+                    "name_a": k["candidate_name"],
+                    "name_b": name,
+                    "score": round(score, 1),
+                })
+        kept.append(row)
     return kept
 
 
@@ -335,12 +408,34 @@ def main() -> int:
 
     # elections.csv: one row per year with the ruling party at the centre.
     # Sources: 2009 PPP-led, 2015 PML-N, 2020 PTI-led / PML-N coalition in GB
-    # (PML-N won GB in 2020 federally PTI was in power).
+    # (PML-N won GB in 2020 federally PTI was in power). Registered voters,
+    # turnout, and polling-station counts come from docs/research_pack.md
+    # and deep-research-report.md (May 2026). Turnout figures: 2009 60.7%
+    # and 2015 61.29% are cited in the deep research's historical summary;
+    # 2020 48.12% is the same number we had from the original research pack.
     elections_rows = [
-        {"year": 2009, "poll_date": "2009-11-12", "ruling_party_centre": "PPP"},
-        {"year": 2015, "poll_date": "2015-06-08", "ruling_party_centre": "PML-N"},
-        {"year": 2020, "poll_date": "2020-11-15", "ruling_party_centre": "PTI"},
-        {"year": 2026, "poll_date": "2026-06-07", "ruling_party_centre": "PML-N"},
+        {
+            "year": 2009, "poll_date": "2009-11-12", "ruling_party_centre": "PPP",
+            "registered_voters": None, "turnout_pct": 60.70, "polling_stations": None,
+        },
+        {
+            "year": 2015, "poll_date": "2015-06-08", "ruling_party_centre": "PML-N",
+            "registered_voters": 618364, "turnout_pct": 61.29, "polling_stations": None,
+        },
+        {
+            "year": 2020, "poll_date": "2020-11-15", "ruling_party_centre": "PTI",
+            "registered_voters": 745362, "turnout_pct": 48.12, "polling_stations": None,
+        },
+        {
+            # 2026 registered voters: 774,319 per the Vision Gilgit Baltistan
+            # official portal (female 373,995 + male 400,324, district sums
+            # check out to the same number). This supersedes the older
+            # 958,480 figure that came from secondary research; see
+            # data/raw/research/voters_by_district_2026.csv for the
+            # district-by-district roll.
+            "year": 2026, "poll_date": "2026-06-07", "ruling_party_centre": "PML-N",
+            "registered_voters": 774319, "turnout_pct": None, "polling_stations": 2220,
+        },
     ]
     elections_df = pd.DataFrame(elections_rows)
     write_parquet_and_csv(elections_df, clean_dir / "elections")
@@ -349,6 +444,13 @@ def main() -> int:
     summary_rows = _read_csv(raw_dir / "constituency_election_summary_2020.csv")
     summary_df = pd.DataFrame(summary_rows)
     if not summary_df.empty:
+        # election_year arrives as a string from the CSV reader; coerce so the
+        # parquet (and downstream JSON export) carries a real int64. Without
+        # this the dashboard's filter `s.election_year === 2020` never matches
+        # and every dependent table renders blank.
+        summary_df["election_year"] = pd.to_numeric(
+            summary_df["election_year"], errors="coerce"
+        ).astype("Int64")
         for col in ("registered_voters", "votes_cast", "margin"):
             summary_df[col] = pd.to_numeric(summary_df[col], errors="coerce").astype("Int64")
         summary_df["turnout_pct"] = pd.to_numeric(summary_df["turnout_pct"], errors="coerce")

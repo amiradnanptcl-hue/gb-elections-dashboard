@@ -54,14 +54,30 @@ PARTIES_2026 = [
 FEDERAL_INCUMBENT_2026 = "PML-N"
 
 NUMERIC_FEATURES = [
-    "federal_incumbent_match",
+    # v1.2: federal_incumbent_match removed — mirror of train.py. The 2026
+    # output of this script is kept for transparency / reproducibility but
+    # is NOT published in the dashboard. See README.md and the methodology
+    # page for the rationale.
     "incumbent_running",
     "party_switch_flag",
     "prior_vote_share",
     "prior_winner_party_match",
     "prior_margin",
     "candidate_continuity_score",
+    # v1.1 lean additions, mirrored from train.py.
+    "prior_vote_share_same_constituency",
+    "prior_rank_same_constituency",
+    "party_constituency_recent_share",
+    "winner_party_continuity",
 ]
+
+IMPUTABLE_FEATURES = (
+    "prior_vote_share",
+    "prior_margin",
+    "prior_vote_share_same_constituency",
+    "prior_rank_same_constituency",
+    "party_constituency_recent_share",
+)
 
 N_BOOTSTRAP = 1000
 BOOTSTRAP_SEED = 42
@@ -75,8 +91,9 @@ def _build_pipeline() -> Pipeline:
             LogisticRegression(
                 solver="saga",
                 l1_ratio=0.5,
-                max_iter=5000,
+                max_iter=10000,
                 random_state=42,
+                class_weight="balanced",
             ),
         ),
     ])
@@ -84,9 +101,8 @@ def _build_pipeline() -> Pipeline:
 
 def _feature_columns(df: pd.DataFrame) -> list[str]:
     district_cols = sorted(c for c in df.columns if c.startswith("district_"))
-    return NUMERIC_FEATURES + [
-        "prior_vote_share_missing", "prior_margin_missing",
-    ] + district_cols
+    missing_cols = [f"{c}_missing" for c in IMPUTABLE_FEATURES]
+    return NUMERIC_FEATURES + missing_cols + district_cols
 
 
 def build_2026_features(
@@ -108,6 +124,34 @@ def build_2026_features(
         .to_dict()
     )
 
+    # Per-(constituency, party) historical vote share lookup. Average of the
+    # party's vote shares across all prior elections in this seat. This is
+    # the 2026 instantiation of the new v1.1 feature.
+    party_share_lookup: dict[tuple[str, str], float] = {}
+    for (cz, pty), grp in feature_matrix.groupby(["constituency_id", "party"]):
+        shares = grp.dropna(subset=["prior_vote_share"])["prior_vote_share"].tolist()
+        # Use grp's vote share column from raw runs if available, falling back
+        # to prior_vote_share which is similar enough for stronghold detection.
+        share_series = grp.get("prior_vote_share_same_constituency")
+        if share_series is not None:
+            shares = share_series.dropna().tolist()
+        if shares:
+            party_share_lookup[(cz, pty)] = float(np.mean(shares))
+
+    # Per-constituency two-time winner continuity. If the same party won the
+    # two most recent elections, that party gets the continuity flag in 2026.
+    two_in_a_row: dict[str, str | None] = {}
+    for cz, grp in feature_matrix.groupby("constituency_id"):
+        winners = (
+            grp[grp["won"] == 1]
+            .sort_values("election_year", ascending=False)
+            ["party"].tolist()
+        )
+        if len(winners) >= 2 and winners[0] == winners[1]:
+            two_in_a_row[cz] = winners[0]
+        else:
+            two_in_a_row[cz] = None
+
     # Use the same district one-hot column set as training so the model sees
     # exactly the columns it was fit with.
     district_cols = sorted(c for c in feature_matrix.columns if c.startswith("district_"))
@@ -119,14 +163,15 @@ def build_2026_features(
         ].iloc[0]
         prior_winner_party = winner_party.get(cid)
         prior_margin = margin_lookup.get(cid)
+        continuity_party = two_in_a_row.get(cid)
 
         for party in parties:
+            party_share = party_share_lookup.get((cid, party))
             row: dict[str, object] = {
                 "constituency_id": cid,
                 "election_year": 2026,
                 "party": party,
                 "candidate_name": f"{party} candidate",
-                "federal_incumbent_match": int(party == FEDERAL_INCUMBENT_2026),
                 "incumbent_running": 0,
                 "party_switch_flag": 0,
                 "prior_vote_share": 0.0,
@@ -137,6 +182,20 @@ def build_2026_features(
                 "prior_margin": float(prior_margin) if prior_margin is not None else 0.0,
                 "prior_margin_missing": int(prior_margin is None),
                 "candidate_continuity_score": 0,
+                # v1.1 lean additions. Candidate-personal features stay at 0
+                # because the 2026 slate is partial; seat-level features
+                # (party stronghold, two-in-a-row) come from the historical
+                # data and are real signal.
+                "prior_vote_share_same_constituency": 0.0,
+                "prior_vote_share_same_constituency_missing": 1,
+                "prior_rank_same_constituency": 0.0,
+                "prior_rank_same_constituency_missing": 1,
+                "party_constituency_recent_share": float(party_share)
+                if party_share is not None else 0.0,
+                "party_constituency_recent_share_missing": int(party_share is None),
+                "winner_party_continuity": int(
+                    continuity_party is not None and continuity_party == party
+                ),
             }
             for col in district_cols:
                 row[col] = 1 if col == f"district_{district}" else 0
@@ -172,7 +231,7 @@ def _prepare_training_data(feature_matrix: pd.DataFrame) -> tuple[np.ndarray, np
     train_df = feature_matrix.loc[train_mask].reset_index(drop=True)
     # Apply the same missingness imputation as features.py used.
     train_df = train_df.copy()
-    for col in ("prior_vote_share", "prior_margin"):
+    for col in IMPUTABLE_FEATURES:
         train_df[f"{col}_missing"] = train_df[col].isna().astype(int)
         train_df[col] = train_df[col].fillna(0.0)
     cols = _feature_columns(train_df)

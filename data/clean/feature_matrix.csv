@@ -1,265 +1,260 @@
-candidate_id,constituency_id,election_year,district,party,candidate_name,federal_incumbent_match,incumbent_running,party_switch_flag,prior_vote_share,prior_winner_party_match,prior_margin,candidate_continuity_score,prior_winner_party,vote_share_pct_imputed,won,district_Astore,district_Diamer,district_Ghanche,district_Ghizer,district_Gilgit,district_Hunza,district_Kharmang,district_Nagar,district_Shigar,district_Skardu
-raziuddin-rizvi,GBA-1,2009,Gilgit,Independent,Syed Raziuddin Rizvi,0,0,0,,0,,0,,True,1,0,0,0,0,1,0,0,0,0,0
-jafarullah-khan,GBA-1,2015,Gilgit,PML-N,Jafarullah Khan,1,0,0,,0,,0,Independent,False,1,0,0,0,0,1,0,0,0,0,0
-amjad-hussain-azar,GBA-1,2015,Gilgit,PPP,Amjad Hussain Azar,0,0,0,,0,,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-nizam-ud-din-shah,GBA-1,2015,Gilgit,Independent,Syed Nizam Ud Din Shah,0,0,0,,1,,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-muhammad-ilyas-siddiqui,GBA-1,2015,Gilgit,MWM,Muhammad Ilyas Siddiqui,0,0,0,,0,,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-amjad-hussain-azar,GBA-1,2020,Gilgit,PPP,Amjad Hussain Azar,0,0,0,31.96,0,4.43,1,PML-N,True,1,0,0,0,0,1,0,0,0,0,0
-sultan-rais,GBA-1,2020,Gilgit,Independent,Maulana Sultan Rais,0,0,0,,0,4.43,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-johar-ali,GBA-1,2020,Gilgit,PTI,Johar Ali,1,0,0,,0,4.43,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-jafarullah-khan,GBA-1,2020,Gilgit,PML-N,Jafarullah Khan,0,1,0,36.39,1,4.43,1,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-wazir-hussain,GBA-10,2009,Skardu,PPP,Wazir Hussain,1,0,0,,0,,0,,True,1,0,0,0,0,0,0,0,0,0,1
-capt-r-sikander,GBA-10,2015,Skardu,ITP,Capt. (r) Sikander,0,0,0,,0,,0,PPP,False,1,0,0,0,0,0,0,0,0,0,1
-nasir-ali-khan,GBA-10,2015,Skardu,MWM,Raja Nasir Ali Khan,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-wazir-hassan,GBA-10,2015,Skardu,PPP,Wazir Hassan,0,0,0,,1,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-ghulam-abbas,GBA-10,2015,Skardu,PML-N,Ghulam Abbas,1,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-manzoor-hussain,GBA-10,2015,Skardu,Independent,Manzoor Hussain,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-jalil-haider,GBA-10,2015,Skardu,Independent,Jalil Haider,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-ali-hassan,GBA-10,2015,Skardu,MQM,Ali Hassan,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-najaf-ali,GBA-10,2015,Skardu,PTI,Najaf Ali,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-abbas-almosvi,GBA-10,2015,Skardu,APML,Syed Abbas Almosvi,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-nasir-ali-khan,GBA-10,2020,Skardu,Independent,Raja Nasir Ali Khan,0,0,1,32.34,0,0.09999999999999432,1,ITP,True,1,0,0,0,0,0,0,0,0,0,1
-nasir-ali-khan-maqpoon,GBA-10,2020,Skardu,Independent,Raja Nasir Ali Khan Maqpoon,0,0,0,,0,0.09999999999999432,0,ITP,False,0,0,0,0,0,0,0,0,0,0,1
-wazir-hassan,GBA-10,2020,Skardu,PTI,Wazir Hassan,1,0,1,20.04,0,0.09999999999999432,1,ITP,False,0,0,0,0,0,0,0,0,0,0,1
-muhammad-ali-shah-rizvi,GBA-11,2009,Kharmang,PPP,Syed Muhammad Ali Shah Rizvi,1,0,0,,0,,0,,True,1,0,0,0,0,0,0,1,0,0,0
-iqbal-hassan,GBA-11,2015,Kharmang,PML-N,Iqbal Hassan,1,0,0,,0,,0,PPP,False,1,0,0,0,0,0,0,1,0,0,0
-amjad-ali-zaidi,GBA-11,2015,Kharmang,PTI,Syed Amjad Ali Zaidi,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
-shujaat-hussain-mesam,GBA-11,2015,Kharmang,MWM,Shujaat Hussain Mesam,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
-kazim-saleem,GBA-11,2015,Kharmang,Independent,Kazim Saleem,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
-akbar-shah,GBA-11,2015,Kharmang,ITP,Syed Akbar Shah,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
-muzaffar-hussain,GBA-11,2015,Kharmang,APML,Muzaffar Hussain,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
-niaz-ali,GBA-11,2015,Kharmang,PPP,Niaz Ali,0,0,0,,1,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
-ghulam-muhhamd-parvi,GBA-11,2015,Kharmang,Independent,Ghulam Muhhamd Parvi,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
-amjad-ali-zaidi,GBA-11,2020,Kharmang,PTI,Syed Amjad Ali Zaidi,1,0,0,39.44,0,1.4200000000000017,1,PML-N,True,1,0,0,0,0,0,0,1,0,0,0
-muhsin-rizvi,GBA-11,2020,Kharmang,Independent,Syed Muhsin Rizvi,0,0,0,,0,1.4200000000000017,0,PML-N,True,0,0,0,0,0,0,0,1,0,0,0
-muhammad-azam-khan,GBA-12,2009,Shigar,MQM,Raja Muhammad Azam Khan,0,0,0,,0,,0,,False,1,0,0,0,0,0,0,0,0,1,0
-imran-nadeem,GBA-12,2009,Shigar,PPP,Imran Nadeem,1,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,0,1,0
-imran-nadeem,GBA-12,2015,Shigar,PPP,Imran Nadeem,0,0,0,45.59,0,8.809999999999995,1,MQM,False,1,0,0,0,0,0,0,0,0,1,0
-muhammad-azam-khan,GBA-12,2015,Shigar,PML-N,Raja Azam Khan,1,1,1,54.4,0,8.809999999999995,1,MQM,False,0,0,0,0,0,0,0,0,0,1,0
-muhammad-ali,GBA-12,2015,Shigar,MWM,Dr Muhammad Ali,0,0,1,32.74,0,8.809999999999995,1,MQM,False,0,0,0,0,0,0,0,0,0,1,0
-abid-hussain,GBA-12,2015,Shigar,PAT,Abid Hussain,0,0,0,,0,8.809999999999995,0,MQM,False,0,0,0,0,0,0,0,0,0,1,0
-azam-khan-amacha,GBA-12,2020,Shigar,PTI,Raja Azam Khan Amacha,1,0,0,,0,2.1699999999999946,0,PPP,True,1,0,0,0,0,0,0,0,0,1,0
-imran-nadeem,GBA-12,2020,Shigar,PPP,Imran Nadeem,0,1,0,46.05,1,2.1699999999999946,2,PPP,True,0,0,0,0,0,0,0,0,0,1,0
-muhammad-tahir,GBA-12,2020,Shigar,PML-N,Muhammad Tahir,0,0,0,,0,2.1699999999999946,0,PPP,True,0,0,0,0,0,0,0,0,0,1,0
-muhammad-hassan,GBA-12,2020,Shigar,PML-Q,Muhammad Hassan,0,0,1,7.23,0,2.1699999999999946,1,PPP,True,0,0,0,0,0,0,0,0,0,1,0
-abdul-hameed-khan,GBA-13,2009,Astore,PPP,Abdul Hameed Khan,1,0,0,,0,,0,,False,1,1,0,0,0,0,0,0,0,0,0
-rana-farman-ali,GBA-13,2009,Astore,PML-N,Rana Farman Ali,0,0,0,,0,,0,,False,0,1,0,0,0,0,0,0,0,0,0
-khalid-khurshid,GBA-13,2009,Astore,Independent,Khalid Khurshid,0,0,0,,0,,0,,False,0,1,0,0,0,0,0,0,0,0,0
-rana-farman-ali,GBA-13,2015,Astore,PML-N,Rana Farman Ali,1,0,0,35.52,0,2.25,1,PPP,False,1,1,0,0,0,0,0,0,0,0,0
-khalid-khurshid,GBA-13,2015,Astore,Independent,Khalid Khurshid,0,0,0,26.71,0,2.25,1,PPP,False,0,1,0,0,0,0,0,0,0,0,0
-abdul-hameed-khan,GBA-13,2015,Astore,PPP,Abdul Hameed Khan,0,1,0,37.77,1,2.25,1,PPP,False,0,1,0,0,0,0,0,0,0,0,0
-ghulam-abbas,GBA-13,2015,Astore,Independent,Ghulam Abbas,0,0,0,,0,2.25,0,PPP,False,0,1,0,0,0,0,0,0,0,0,0
-ghulam-akbar,GBA-13,2015,Astore,MWM,Ghulam Akbar,0,0,0,,0,2.25,0,PPP,False,0,1,0,0,0,0,0,0,0,0,0
-sanaullah,GBA-13,2015,Astore,PTI,Sanaullah,0,0,0,,0,2.25,0,PPP,False,0,1,0,0,0,0,0,0,0,0,0
-inayatullah,GBA-13,2015,Astore,JUI-F,Inayatullah Mir,0,0,0,,0,2.25,0,PPP,False,0,1,0,0,0,0,0,0,0,0,0
-khalid-khurshid,GBA-13,2020,Astore,PTI,Khalid Khurshid,1,0,1,24.99,0,11.960000000000004,2,PML-N,False,1,1,0,0,0,0,0,0,0,0,0
-muhammad-khalid-khurshid-khan,GBA-13,2020,Astore,PTI,Muhammad Khalid Khurshid Khan,1,0,0,,0,11.960000000000004,0,PML-N,True,0,1,0,0,0,0,0,0,0,0,0
-rana-farman-ali,GBA-13,2020,Astore,PML-N,Rana Farman Ali,0,1,1,1.56,1,11.960000000000004,3,PML-N,False,0,1,0,0,0,0,0,0,0,0,0
-abdul-hameed-khan,GBA-13,2020,Astore,PPP,Abdul Hameed Khan,0,0,0,23.68,0,11.960000000000004,2,PML-N,False,0,1,0,0,0,0,0,0,0,0,0
-ghulam-abbas,GBA-13,2020,Astore,Independent,Ghulam Abbas,0,0,0,10.88,0,11.960000000000004,2,PML-N,False,0,1,0,0,0,0,0,0,0,0,0
-muhammad-naseer,GBA-14,2009,Astore,PPP,Muhammad Naseer,1,0,0,,0,,0,,True,1,1,0,0,0,0,0,0,0,0,0
-barkat-jamil,GBA-14,2015,Astore,PML-N,Barkat Jamil,1,0,0,,0,,0,PPP,False,1,1,0,0,0,0,0,0,0,0,0
-shamsul-haq,GBA-14,2020,Astore,PTI,Shamsul Haq,1,0,0,,0,,0,PML-N,True,1,1,0,0,0,0,0,0,0,0,0
-shamsul-haq-lone,GBA-14,2020,Astore,PTI,Shamsul Haq Lone,1,0,0,,0,,0,PML-N,True,0,1,0,0,0,0,0,0,0,0,0
-muzaffar-ali,GBA-14,2020,Astore,PPP,Muzaffar Ali,0,0,0,,0,,0,PML-N,True,0,1,0,0,0,0,0,0,0,0,0
-bashir-ahmed,GBA-15,2009,Diamer,PML-Q,Bashir Ahmed,0,0,0,,0,,0,,True,1,0,1,0,0,0,0,0,0,0,0
-shah-baig,GBA-15,2015,Diamer,JUI-F,Haji Shah Baig,0,0,0,,0,,0,PML-Q,True,1,0,1,0,0,0,0,0,0,0,0
-fida-ullah,GBA-15,2015,Diamer,PPP,Fida Ullah,0,0,0,,0,,0,PML-Q,True,0,0,1,0,0,0,0,0,0,0,0
-noshad-alam,GBA-15,2015,Diamer,PTI,Noshad Alam,0,0,0,,0,,0,PML-Q,True,0,0,1,0,0,0,0,0,0,0,0
-shah-baig,GBA-15,2020,Diamer,Independent,Haji Shah Baig,0,1,1,34.37,0,1.4499999999999957,1,JUI-F,True,1,0,1,0,0,0,0,0,0,0,0
-muhammad-dilpazir,GBA-15,2020,Diamer,Independent,Muhammad Dilpazir,0,0,0,,0,1.4499999999999957,0,JUI-F,True,0,0,1,0,0,0,0,0,0,0,0
-janbaz-khan,GBA-16,2009,Diamer,PML-N,Janbaz Khan,0,0,0,,0,,0,,True,1,0,1,0,0,0,0,0,0,0,0
-janbaz-khan,GBA-16,2015,Diamer,PML-N,Janbaz Khan,1,1,0,100.0,1,,1,PML-N,False,1,0,1,0,0,0,0,0,0,0,0
-abdul-aziz,GBA-16,2015,Diamer,Independent,Abdul Aziz,0,0,0,,0,,0,PML-N,False,0,0,1,0,0,0,0,0,0,0,0
-attaullah,GBA-16,2015,Diamer,Independent,Attaullah,0,0,0,,0,,0,PML-N,False,0,0,1,0,0,0,0,0,0,0,0
-dilbar-khan,GBA-16,2015,Diamer,PPP,Dilbar Khan,0,0,0,,0,,0,PML-N,False,0,0,1,0,0,0,0,0,0,0,0
-atiqullah,GBA-16,2015,Diamer,PTI,Atiqullah,0,0,0,,0,,0,PML-N,False,0,0,1,0,0,0,0,0,0,0,0
-muhammad-anwar,GBA-16,2020,Diamer,PML-N,Muhammad Anwar,0,0,0,,1,1.4299999999999997,0,PML-N,True,1,0,1,0,0,0,0,0,0,0,0
-attaullah,GBA-16,2020,Diamer,Independent,Attaullah,0,0,0,19.15,0,1.4299999999999997,1,PML-N,True,0,0,1,0,0,0,0,0,0,0,0
-rehmat-khaliq,GBA-17,2009,Diamer,JUI-F,Rehmat Khaliq,0,0,0,,0,,0,,True,1,0,1,0,0,0,0,0,0,0,0
-barkat-jamil,GBA-17,2015,Diamer,PML-N,Barkat Jamil,1,0,0,,0,,0,JUI-F,False,1,0,1,0,0,0,0,0,0,0,0
-abdul-aziz,GBA-17,2015,Diamer,Independent,Abdul Aziz,0,0,0,,0,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
-atta-ullah,GBA-17,2015,Diamer,Independent,Atta Ullah,0,0,0,,0,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
-dilbar-khan,GBA-17,2015,Diamer,PPP,Dilbar Khan,0,0,0,,0,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
-atiq-ullah,GBA-17,2015,Diamer,PTI,Atiq Ullah,0,0,0,,0,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
-rehmat-khaliq,GBA-17,2020,Diamer,JUI-F,Rehmat Khaliq,0,1,0,100.0,0,4.0,1,PML-N,True,1,0,1,0,0,0,0,0,0,0,0
-kacho-imtiaz-haider-khan,GBA-17,2020,Diamer,PTI,Haider Khan,1,0,1,42.58,0,4.0,1,PML-N,True,0,0,1,0,0,0,0,0,0,0,0
-gulbar-khan,GBA-18,2009,Diamer,JUI-F,Gulbar Khan,0,0,0,,0,,0,,True,1,0,1,0,0,0,0,0,0,0,0
-muhammad-wakeel,GBA-18,2015,Diamer,PML-N,Muhammad Wakeel,1,0,0,,0,,0,JUI-F,False,1,0,1,0,0,0,0,0,0,0,0
-gulbar-khan,GBA-18,2015,Diamer,JUI-F,Gulbar Khan,0,1,0,100.0,1,,1,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
-shakrat-khan,GBA-18,2015,Diamer,PPP,Shakrat Khan,0,0,0,,0,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
-dilbar-khan,GBA-18,2015,Diamer,PTI,Dilbar Khan,0,0,0,,0,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
-gulbar-khan,GBA-18,2020,Diamer,PTI,Gulbar Khan,1,0,1,33.74,0,18.299999999999997,2,PML-N,True,1,0,1,0,0,0,0,0,0,0,0
-malik-kifayat-ur-rehman,GBA-18,2020,Diamer,Independent,Malik Kifayat Ur Rehman,0,0,0,,0,18.299999999999997,0,PML-N,True,0,0,1,0,0,0,0,0,0,0,0
-karam-ali-shah,GBA-19,2009,Ghizer,PPP,Karam Ali Shah,1,0,0,,0,,0,,False,1,0,0,0,1,0,0,0,0,0,0
-nawaz-khan-naji,GBA-19,2015,Ghizer,BNF-N,Nawaz Khan Naji,0,0,0,,0,,0,PPP,False,1,0,0,0,1,0,0,0,0,0,0
-shakeel-ahmad,GBA-19,2015,Ghizer,PML-N,Shakeel Ahmad,1,0,0,,0,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-zaffar-muhammad,GBA-19,2015,Ghizer,Independent,Zaffar Muhammad,0,0,0,,0,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-niamat-shah,GBA-19,2015,Ghizer,PTI,Niamat Shah,0,0,0,,0,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-madad-shah,GBA-19,2015,Ghizer,APML,Syed Madad Shah,0,0,0,,0,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-badr-u-din,GBA-19,2015,Ghizer,PPP,Badr-U-Din,0,0,0,,1,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-nawaz-khan-naji,GBA-19,2020,Ghizer,BNF-N,Nawaz Khan Naji,0,1,0,26.99,1,0.00999999999999801,1,BNF-N,True,1,0,0,0,1,0,0,0,0,0,0
-jalal-ali-shah,GBA-19,2020,Ghizer,PPP,Pir Jalal Ali Shah,0,0,0,,0,0.00999999999999801,0,BNF-N,True,0,0,0,0,1,0,0,0,0,0,0
-deedar-ali,GBA-2,2009,Gilgit,Independent,Deedar Ali,0,0,0,,0,,0,,False,1,0,0,0,0,1,0,0,0,0,0
-jamil-ahmad,GBA-2,2009,Gilgit,PPP,Jamil Ahmad,1,0,0,,0,,0,,False,0,0,0,0,0,1,0,0,0,0,0
-hafeezur-rehman,GBA-2,2009,Gilgit,PML-N,Hafiz Hafeezur Rehman,0,0,0,,0,,0,,False,0,0,0,0,0,1,0,0,0,0,0
-muhammad-aslam,GBA-2,2009,Gilgit,PML-Q,Muhammad Aslam,0,0,0,,0,,0,,False,0,0,0,0,0,1,0,0,0,0,0
-altaf-hussain,GBA-2,2009,Gilgit,MQM,Altaf Hussain,0,0,0,,0,,0,,False,0,0,0,0,0,1,0,0,0,0,0
-hafeez-ur-rehman,GBA-2,2015,Gilgit,PML-N,Hafiz Hafeez Ur Rehman,1,0,0,,0,3.25,0,Independent,False,1,0,0,0,0,1,0,0,0,0,0
-jamil-ahmad,GBA-2,2015,Gilgit,PPP,Jamil Ahmad,0,0,0,22.09,0,3.25,1,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-fatehullah-khan,GBA-2,2015,Gilgit,PTI,Fatehullah Khan,0,0,0,,0,3.25,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-habib-ur-rehman,GBA-2,2015,Gilgit,JI,Habib Ur Rehman,0,0,0,,0,3.25,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-faqeer-shah,GBA-2,2015,Gilgit,Independent,Faqeer Shah,0,0,0,,1,3.25,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-karim-khan,GBA-2,2015,Gilgit,APML,Karim Khan,0,0,0,,0,3.25,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-tariq-hussain,GBA-2,2015,Gilgit,MQM,Tariq Hussain,0,0,0,,0,3.25,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-parveen-ghazi,GBA-2,2015,Gilgit,Independent,Parveen Ghazi,0,0,0,,1,3.25,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-muhammad-mazhar-abbas,GBA-2,2015,Gilgit,MWM,Muhammad Mazhar Abbas,0,0,0,,0,3.25,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-shukat-alam,GBA-2,2015,Gilgit,PAT,Shukat Alam,0,0,0,,0,3.25,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-moulana-mujahid,GBA-2,2015,Gilgit,JUI-F,Moulana Mujahid,0,0,0,,0,3.25,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
-fatehullah-khan,GBA-2,2020,Gilgit,PTI,Fatehullah Khan,1,0,0,11.51,0,16.019999999999996,1,PML-N,False,1,0,0,0,0,1,0,0,0,0,0
-jamil-ahmad,GBA-2,2020,Gilgit,PPP,Jamil Ahmad,0,0,0,32.27,0,16.019999999999996,2,PML-N,False,0,0,0,0,0,1,0,0,0,0,0
-hafeezur-rehman,GBA-2,2020,Gilgit,PML-N,Hafiz Hafeezur Rehman,0,0,0,21.08,1,16.019999999999996,1,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-nasir,GBA-2,2020,Gilgit,PML-Q,Nasir Mir,0,0,0,,0,16.019999999999996,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-ghulam-shah,GBA-2,2020,Gilgit,Independent,Ghulam Shah,0,0,0,,0,16.019999999999996,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-habib-ur-rehman,GBA-2,2020,Gilgit,JI,Habib ur Rehman,0,0,0,3.79,0,16.019999999999996,1,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-ashfaq-hussain,GBA-2,2020,Gilgit,Independent,Ashfaq Hussain,0,0,0,,0,16.019999999999996,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-faqeer-shah,GBA-2,2020,Gilgit,ITP,Faqeer Shah,0,0,1,3.62,0,16.019999999999996,1,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-ali-madad-sher,GBA-20,2009,Ghizer,PPP,Ali Madad Sher,1,0,0,,0,,0,,True,1,0,0,0,1,0,0,0,0,0,0
-fida-khan,GBA-20,2015,Ghizer,Independent,Fida Khan,0,0,0,,0,,0,PPP,False,1,0,0,0,1,0,0,0,0,0,0
-sultan-madad,GBA-20,2015,Ghizer,PML-N,Sultan Madad,1,0,0,,0,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-nadir-khan,GBA-20,2015,Ghizer,Independent,Nadir Khan,0,0,0,,0,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-ali-madad-sher,GBA-20,2015,Ghizer,PPP,Ali Madad Sher,0,1,0,100.0,1,,1,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-abdul-khaliq,GBA-20,2015,Ghizer,Independent,Abdul Khaliq,0,0,0,,0,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-noor-wali-khan,GBA-20,2015,Ghizer,APML,Noor Wali Khan,0,0,0,,0,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-atta-ur-rehman,GBA-20,2015,Ghizer,PTI,Atta-ur-Rehman,0,0,0,,0,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
-nazir-ahmed,GBA-20,2020,Ghizer,PTI,Nazir Ahmed,1,0,0,,0,8.079999999999998,0,Independent,True,1,0,0,0,1,0,0,0,0,0,0
-m-akbar-khan,GBA-20,2020,Ghizer,PML-Q,Khan Akbar Khan,0,0,1,28.48,0,8.079999999999998,1,Independent,True,0,0,0,0,1,0,0,0,0,0,0
-muhammad-ayub-shah,GBA-21,2009,Ghizer,Independent,Muhammad Ayub Shah,0,0,0,,0,,0,,True,1,0,0,0,1,0,0,0,0,0,0
-jahanzaib,GBA-21,2015,Ghizer,PTI,Raja Jahanzaib,0,0,0,,0,,0,Independent,False,1,0,0,0,1,0,0,0,0,0,0
-ghulam-muhammad,GBA-21,2015,Ghizer,PML-N,Ghulam Muhammad,1,0,0,,0,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
-muhammad-ayub-shah,GBA-21,2015,Ghizer,PPP,Muhammad Ayub Shah,0,1,1,100.0,0,,1,Independent,False,0,0,0,0,1,0,0,0,0,0,0
-jamsheed-khan,GBA-21,2015,Ghizer,APML,Jamsheed khan,0,0,0,,0,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
-nadir-khan,GBA-21,2015,Ghizer,PAT,Nadir Khan,0,0,0,,0,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
-abdul-khaliq,GBA-21,2015,Ghizer,MQM,Abdul Khaliq,0,0,0,,0,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
-muhammad-aziz,GBA-21,2015,Ghizer,JUI-F,Muhammad Aziz,0,0,0,,0,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
-ghulam-muhammad,GBA-21,2020,Ghizer,PML-N,Ghulam Muhammad,0,0,0,30.26,0,8.91,1,PTI,True,1,0,0,0,1,0,0,0,0,0,0
-m-ayub-shah,GBA-21,2020,Ghizer,PPP,M. Ayub Shah,0,0,0,,0,8.91,0,PTI,True,0,0,0,0,1,0,0,0,0,0,0
-muhammad-jaffer,GBA-22,2009,Ghanche,PPP,Muhammad Jaffer,1,0,0,,0,,0,,True,1,0,0,1,0,0,0,0,0,0,0
-muhammad-ibrahim-sanai,GBA-22,2015,Ghanche,PML-N,Muhammad Ibrahim Sanai,1,0,0,,0,,0,PPP,False,1,0,0,1,0,0,0,0,0,0,0
-amina-bibi-ansari,GBA-22,2015,Ghanche,PTI,Amina Bibi Ansari,0,0,0,,0,,0,PPP,False,0,0,0,1,0,0,0,0,0,0,0
-mushtaq-hussain,GBA-22,2020,Ghanche,Independent,Mushtaq Hussain,0,0,0,,0,71.9,0,PML-N,True,1,0,0,1,0,0,0,0,0,0,0
-m-ibrahim-sanai,GBA-22,2020,Ghanche,PTI,M. Ibrahim Sanai,1,0,0,,0,71.9,0,PML-N,True,0,0,0,1,0,0,0,0,0,0,0
-muhammad-abdullah,GBA-23,2009,Ghanche,PML-N,Mufti Muhammad Abdullah,0,0,0,,0,,0,,True,1,0,0,1,0,0,0,0,0,0,0
-ghulam-hussain,GBA-23,2015,Ghanche,PML-N,Ghulam Hussain,1,0,0,,1,,0,PML-N,False,1,0,0,1,0,0,0,0,0,0,0
-amina-bibi-ansari,GBA-23,2015,Ghanche,PTI,Amina Bibi Ansari,0,0,0,,0,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
-zuhair-ahmad-khan,GBA-23,2015,Ghanche,MQM,Zuhair Ahmad Khan,0,0,0,,0,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
-shereen-fatima,GBA-23,2015,Ghanche,PPP,Shereen Fatima,0,0,0,,0,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
-khadim-hussain,GBA-23,2015,Ghanche,PAT,Khadim Hussain,0,0,0,,0,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
-abdul-hameed,GBA-23,2020,Ghanche,Independent,Abdul Hameed,0,0,0,,0,7.239999999999995,0,PML-N,False,1,0,0,1,0,0,0,0,0,0,0
-amina-bibi-ansari,GBA-23,2020,Ghanche,PTI,Amina Ansari,1,0,0,43.67,0,7.239999999999995,2,PML-N,True,0,0,0,1,0,0,0,0,0,0,0
-amina-bibi-ansari,GBA-23,2020,Ghanche,PTI,Amina Bibi Ansari,1,0,0,43.67,0,7.239999999999995,2,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
-asif-advocate,GBA-23,2020,Ghanche,Independent,Asif Advocate,0,0,0,,0,7.239999999999995,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
-ghulam-ali-haideri,GBA-23,2020,Ghanche,PPP,Ghulam Ali Haideri,0,0,0,,0,7.239999999999995,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
-mohammad-shafiq,GBA-24,2015,Ghanche,PML-N,Mohammad Shafiq,1,0,0,,0,,0,,False,1,0,0,1,0,0,0,0,0,0,0
-mohammad-ismail,GBA-24,2015,Ghanche,PPP,Engr Mohammad Ismail,0,0,0,,0,,0,,False,0,0,0,1,0,0,0,0,0,0,0
-muhammad-ishaq-saqib,GBA-24,2015,Ghanche,MWM,Muhammad Ishaq Saqib,0,0,0,,0,,0,,False,0,0,0,1,0,0,0,0,0,0,0
-mohammad-ismail,GBA-24,2020,Ghanche,PPP,Engr Mohammad Ismail,0,0,0,45.69,0,0.28999999999999915,1,PML-N,False,1,0,0,1,0,0,0,0,0,0,0
-shams-ud-din,GBA-24,2020,Ghanche,PTI,Syed Shams ud Din,1,0,0,,0,0.28999999999999915,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
-shamsuddin,GBA-24,2020,Ghanche,PTI,Syed Shamsuddin,1,0,0,,0,0.28999999999999915,0,PML-N,True,0,0,0,1,0,0,0,0,0,0,0
-muhammad-ibrahim,GBA-24,2020,Ghanche,PML,Muhammad Ibrahim,0,0,0,,0,0.28999999999999915,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
-manzoor-hussain,GBA-24,2020,Ghanche,PML-N,Manzoor Hussain,0,0,1,2.51,1,0.28999999999999915,1,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
-aftab-haider,GBA-3,2009,Gilgit,PPP,Aftab Haider,1,0,0,,0,,0,,True,1,0,0,0,0,1,0,0,0,0,0
-muhammad-iqbal,GBA-3,2015,Gilgit,PML-N,Doctor Muhammad Iqbal,1,0,0,,0,,0,PPP,False,1,0,0,0,0,1,0,0,0,0,0
-muhammad-shafi-khan,GBA-3,2015,Gilgit,ITP,Muhammad Shafi Khan,0,0,0,,0,,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
-aftab-haider,GBA-3,2015,Gilgit,PPP,Aftab Haider,0,1,0,100.0,1,,1,PPP,False,0,0,0,0,0,1,0,0,0,0,0
-allama-nayyar-abbas-mustfavi,GBA-3,2015,Gilgit,MWM,Allama Nayyar Abbas Mustfavi,0,0,0,,0,,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
-saeed-ur-rehman,GBA-3,2015,Gilgit,JUI-F,Saeed Ur Rehman,0,0,0,,0,,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
-sher-ghazi,GBA-3,2015,Gilgit,PTI,Sher Ghazi,0,0,0,,0,,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
-capt-rtd-hadi-hussain,GBA-3,2015,Gilgit,MQM,Capt(Rtd.) Hadi Hussain,0,0,0,,0,,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
-sohail-abbas-shah,GBA-3,2020,Gilgit,PTI,Syed Sohail Abbas Shah,1,0,0,,0,15.18,0,PML-N,True,1,0,0,0,0,1,0,0,0,0,0
-muhammad-iqbal,GBA-3,2020,Gilgit,Independent,Muhammad Iqbal,0,1,1,36.14,0,15.18,1,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-mohammad-shafiq,GBA-3,2020,Gilgit,PML-Q,Muhammad Shafi,0,0,1,45.98,0,15.18,1,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-aftab-haider,GBA-3,2020,Gilgit,PPP,Aftab Haider,0,0,0,19.36,0,15.18,2,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-zulfiqar-ali-tatu,GBA-3,2020,Gilgit,PML-N,Zulfiqar Ali Tatu,0,0,0,,1,15.18,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-sanan-ahmad,GBA-3,2020,Gilgit,Independent,Sanan Ahmad,0,0,0,,0,15.18,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-sher-ghazi,GBA-3,2020,Gilgit,Independent,Sher Ghazi,0,0,1,2.85,0,15.18,1,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-muhammad-nafees,GBA-3,2020,Gilgit,Independent,Muhammad Nafees,0,0,0,,0,15.18,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-akbar-hussain,GBA-3,2020,Gilgit,PSP,Maulana Akbar Hussain,0,0,0,,0,15.18,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
-muhammad-ali-akhtar,GBA-4,2009,Nagar,PPP,Muhammad Ali Akhtar,1,0,0,,0,,0,,False,1,0,0,0,0,0,0,0,1,0,0
-muhammad-ali,GBA-4,2009,Nagar,Independent,Muhammad Ali,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,1,0,0
-fida-hussain,GBA-4,2009,Nagar,Independent,Fida Hussain,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,1,0,0
-muhammad-hassan,GBA-4,2009,Nagar,MQM,Muhammad Hassan,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,1,0,0
-fida-ali,GBA-4,2009,Nagar,Independent,Fida Ali,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,1,0,0
-muhammad-ali-haidar,GBA-4,2015,Nagar,ITP,Doctor Muhammad Ali Haidar,0,0,0,,0,1.519999999999996,0,PPP,False,1,0,0,0,0,0,0,0,1,0,0
-kashif-ali,GBA-4,2015,Nagar,PPP,Kashif Ali,0,0,0,,1,1.519999999999996,0,PPP,False,0,0,0,0,0,0,0,0,1,0,0
-ali-muhammad,GBA-4,2015,Nagar,MWM,Ali Muhammad,0,0,0,,0,1.519999999999996,0,PPP,False,0,0,0,0,0,0,0,0,1,0,0
-fida-hussain,GBA-4,2015,Nagar,PML-N,Haji Fida Hussain,1,0,1,18.72,0,1.519999999999996,1,PPP,False,0,0,0,0,0,0,0,0,1,0,0
-muhammad-javid,GBA-4,2015,Nagar,PTI,Muhammad Javid,0,0,0,,0,1.519999999999996,0,PPP,False,0,0,0,0,0,0,0,0,1,0,0
-muhammad-ali-akhtar,GBA-4,2015,Nagar,Independent,Muhammad Ali Akhtar,0,1,1,34.26,0,1.519999999999996,1,PPP,False,0,0,0,0,0,0,0,0,1,0,0
-amjad-hussain-azar,GBA-4,2020,Nagar,PPP,Amjad Hussain Azar,0,0,0,31.96,0,6.989999999999995,1,ITP,True,1,0,0,0,0,0,0,0,1,0,0
-muhammad-ayub,GBA-4,2020,Nagar,ITP,Muhammad Ayub,0,0,0,,1,6.989999999999995,0,ITP,True,0,0,0,0,0,0,0,0,1,0,0
-mirza-hussain,GBA-5,2009,Nagar,PML-Q,Mirza Hussain,0,0,0,,0,,0,,False,1,0,0,0,0,0,0,0,1,0,0
-zulfiqar-ali-murad,GBA-5,2009,Nagar,PPP,Zulfiqar Ali Murad,1,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,1,0,0
-kalb-ali,GBA-5,2009,Nagar,Independent,Kalb Ali,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,1,0,0
-prince-barkat-ali,GBA-5,2009,Nagar,Independent,Prince Barkat Ali,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,1,0,0
-abdul-karim,GBA-5,2009,Nagar,MQM,Abdul Karim,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,1,0,0
-sajjad-hussian,GBA-5,2009,Nagar,Independent,Sajjad Hussian,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,1,0,0
-rizwan-ali,GBA-5,2015,Nagar,MWM,Doctor Rizwan Ali,0,0,0,,0,2.8400000000000034,0,PML-Q,False,1,0,0,0,0,0,0,0,1,0,0
-prince-qasim-ali-khan,GBA-5,2015,Nagar,Independent,Prince Qasim Ali Khan,0,0,0,,0,2.8400000000000034,0,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
-qalab-ali,GBA-5,2015,Nagar,PML-N,Haji Qalab Ali,1,0,0,,0,2.8400000000000034,0,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
-zulfiqar-ali-murad,GBA-5,2015,Nagar,PPP,Zulfiqar Ali Murad,0,0,0,32.76,0,2.8400000000000034,1,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
-mirza-hussain,GBA-5,2015,Nagar,PTI,Mirza Hussain,0,1,1,35.6,0,2.8400000000000034,1,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
-sheikh-mirza-ali,GBA-5,2015,Nagar,ITP,Sheikh Mirza Ali,0,0,0,,0,2.8400000000000034,0,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
-muhammad-issa,GBA-5,2015,Nagar,APML,Muhammad Issa,0,0,0,,0,2.8400000000000034,0,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
-javed-ali-manwa,GBA-5,2020,Nagar,Independent,Javed Ali Manwa,0,0,0,,0,8.060000000000002,0,MWM,True,1,0,0,0,0,0,0,0,1,0,0
-rizwan-ali,GBA-5,2020,Nagar,MWM,Rizwan Ali,0,1,0,29.03,1,8.060000000000002,1,MWM,True,0,0,0,0,0,0,0,0,1,0,0
-wazir-baig,GBA-6,2009,Hunza,PPP,Wazir Baig,1,0,0,,0,,0,,False,1,0,0,0,0,0,1,0,0,0,0
-kamil-jan,GBA-6,2009,Hunza,MQM,Kamil Jan,0,0,0,,0,,0,,False,0,0,0,0,0,0,1,0,0,0,0
-noor-muhammad,GBA-6,2009,Hunza,Independent,Noor Muhammad,0,0,0,,0,,0,,False,0,0,0,0,0,0,1,0,0,0,0
-prince-sher-yar-khan,GBA-6,2009,Hunza,PML-N,Prince Sher Yar Khan,0,0,0,,0,,0,,False,0,0,0,0,0,0,1,0,0,0,0
-arif-hussain,GBA-6,2009,Hunza,Independent,Arif Hussain,0,0,0,,0,,0,,False,0,0,0,0,0,0,1,0,0,0,0
-rehmatullah-baig,GBA-6,2009,Hunza,PML-Q,Rehmatullah Baig,0,0,0,,0,,0,,False,0,0,0,0,0,0,1,0,0,0,0
-shahbaz-khan,GBA-6,2009,Hunza,Independent,Raja Shahbaz Khan,0,0,0,,0,,0,,False,0,0,0,0,0,0,1,0,0,0,0
-ghazanfar-ali-khan,GBA-6,2015,Hunza,PML-N,Mir Ghazanfar Ali Khan,1,0,0,,0,6.699999999999999,0,PPP,False,1,0,0,0,0,0,1,0,0,0,0
-baba-jan,GBA-6,2015,Hunza,AWP,Baba Jan,0,0,0,,0,6.699999999999999,0,PPP,False,0,0,0,0,0,0,1,0,0,0,0
-zafar-iqbal,GBA-6,2015,Hunza,PPP,Zafar Iqbal,0,0,0,,1,6.699999999999999,0,PPP,False,0,0,0,0,0,0,1,0,0,0,0
-izhar-hunzai,GBA-6,2015,Hunza,PTI,Izhar Hunzai,0,0,0,,0,6.699999999999999,0,PPP,False,0,0,0,0,0,0,1,0,0,0,0
-sheikh-musa-karimi,GBA-6,2015,Hunza,MWM,Sheikh Musa Karimi,0,0,0,,0,6.699999999999999,0,PPP,False,0,0,0,0,0,0,1,0,0,0,0
-aman-ullah,GBA-6,2015,Hunza,APML,Aman Ullah,0,0,0,,0,6.699999999999999,0,PPP,False,0,0,0,0,0,0,1,0,0,0,0
-abaid-ullah-baig,GBA-6,2020,Hunza,PTI,Abaid Ullah Baig,1,0,0,,0,17.459999999999997,0,PML-N,True,1,0,0,0,0,0,1,0,0,0,0
-noor-muhammad,GBA-6,2020,Hunza,Independent,Noor Muhammad,0,0,0,19.84,0,17.459999999999997,1,PML-N,True,0,0,0,0,0,0,1,0,0,0,0
-mehdi-shah,GBA-7,2009,Skardu,PPP,Syed Mehdi Shah,1,0,0,,0,,0,,False,1,0,0,0,0,0,0,0,0,0,1
-prince-sher-yar-khan,GBA-7,2009,Skardu,PML-Q,Prince Sher Yar Khan,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,0,0,1
-zikria-maqpoon,GBA-7,2009,Skardu,MQM,Raja Zikria Maqpoon,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,0,0,1
-fida-muhammad-nishad,GBA-7,2009,Skardu,Independent,Fida Muhammad Nishad,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,0,0,1
-m-akbar-khan,GBA-7,2015,Skardu,PML-N,M. Akbar Khan,1,0,0,,0,50.739999999999995,0,PPP,False,1,0,0,0,0,0,0,0,0,0,1
-jalal-hussain-maqpoon,GBA-7,2015,Skardu,PTI,Raja Jalal Hussain Maqpoon,0,0,0,,0,50.739999999999995,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-mehdi-shah,GBA-7,2015,Skardu,PPP,Syed Mehdi Shah,0,1,0,62.98,1,50.739999999999995,1,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-gh-shehzad,GBA-7,2015,Skardu,ITP,"Gh, Shehzad Agha",0,0,0,,0,50.739999999999995,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-zahid-hussain,GBA-7,2015,Skardu,MWM,Zahid Hussain,0,0,0,,0,50.739999999999995,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-muzaffar-hussain,GBA-7,2015,Skardu,Independent,Muzzafar Hussain,0,0,0,,0,50.739999999999995,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-kamal-hussain,GBA-7,2015,Skardu,APML,Kamal Hussain,0,0,0,,0,50.739999999999995,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-muhammad-zakaria-khan-maqpoon,GBA-7,2020,Skardu,PTI,Raja Muhammad Zakaria Khan Maqpoon,1,0,0,,0,0.010000000000001563,0,PML-N,True,1,0,0,0,0,0,0,0,0,0,1
-zakarya-maqoon,GBA-7,2020,Skardu,PTI,Raja Zakarya Maqoon,1,0,0,,0,0.010000000000001563,0,PML-N,True,0,0,0,0,0,0,0,0,0,0,1
-mehdi-shah,GBA-7,2020,Skardu,PPP,Syed Mehdi Shah,0,0,0,23.02,0,0.010000000000001563,2,PML-N,True,0,0,0,0,0,0,0,0,0,0,1
-sheikh-nisar,GBA-8,2009,Skardu,PPP,Sheikh Nisar,1,0,0,,0,,0,,False,1,0,0,0,0,0,0,0,0,0,1
-muhammad-ali-shah,GBA-8,2009,Skardu,Independent,Syed Muhammad Ali Shah,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,0,0,1
-ghulam-nabi,GBA-8,2009,Skardu,Independent,Ghulam Nabi,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,0,0,1
-nisar-khan,GBA-8,2009,Skardu,MQM,Nisar Khan,0,0,0,,0,,0,,False,0,0,0,0,0,0,0,0,0,0,1
-kacho-imtiaz-haider-khan,GBA-8,2015,Skardu,MWM,Kacho Imtiaz Haider Khan,0,0,0,,0,17.16,0,PPP,False,1,0,0,0,0,0,0,0,0,0,1
-muhammad-ali-shah,GBA-8,2015,Skardu,PML-N,Syed Mohammad Ali Shah,1,0,1,27.45,0,17.16,1,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-mohammad-abbas-rizvi,GBA-8,2015,Skardu,ITP,Syed Mohammad Abbas Rizvi,0,0,0,,0,17.16,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-nisar-hussain-sarbaz,GBA-8,2015,Skardu,PPP,Nisar Hussain Sarbaz,0,0,0,,1,17.16,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-muhammad-zakir,GBA-8,2015,Skardu,PTI,Muhammad Zakir,0,0,0,,0,17.16,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-rana-farman-ali,GBA-8,2015,Skardu,Independent,Farman Ali,0,0,1,35.52,0,17.16,1,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-muhammad-maisam-kazim,GBA-8,2020,Skardu,MWM,Muhammad Maisam Kazim,0,0,0,,1,22.75,0,MWM,False,1,0,0,0,0,0,0,0,0,0,1
-m-ali-shah,GBA-8,2020,Skardu,PPP,Syed M. Ali Shah,0,0,0,,0,22.75,0,MWM,False,0,0,0,0,0,0,0,0,0,0,1
-wazir-shakeel,GBA-9,2009,Skardu,PPP,Wazir Shakeel,1,0,0,,0,,0,,True,1,0,0,0,0,0,0,0,0,0,1
-fida-muhammad-nashad,GBA-9,2015,Skardu,PML-N,Fida Muhammad Nashad,1,0,0,,0,,0,PPP,False,1,0,0,0,0,0,0,0,0,0,1
-wazir-muhammad-saleem,GBA-9,2015,Skardu,MWM,Wazir Muhammad Saleem,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-ghulam-raza-haidri,GBA-9,2015,Skardu,PPP,Ghulam Raza Haidri,0,0,0,,1,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-mohammad-abbas-rizvi,GBA-9,2015,Skardu,ITP,Syed Mohammad Abbas Rizvi,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-ali-kazim,GBA-9,2015,Skardu,PTI,Ali Kazim,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-abbas-almosvi,GBA-9,2015,Skardu,APML,Syed Abbas Almosvi,0,0,0,,0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
-wazir-muhammad-saleem,GBA-9,2020,Skardu,PTI,Wazir Muhammad Saleem,1,0,1,44.55,0,5.550000000000004,1,PML-N,True,1,0,0,0,0,0,0,0,0,0,1
-fida-muhammad-nashad,GBA-9,2020,Skardu,PTI,Fida Muhammad Nashad,1,1,1,50.1,0,5.550000000000004,1,PML-N,True,0,0,0,0,0,0,0,0,0,0,1
+candidate_id,constituency_id,election_year,district,party,candidate_name,incumbent_running,party_switch_flag,prior_vote_share,prior_winner_party_match,prior_margin,candidate_continuity_score,prior_vote_share_same_constituency,prior_rank_same_constituency,party_constituency_recent_share,winner_party_continuity,prior_winner_party,vote_share_pct_imputed,won,district_Astore,district_Diamer,district_Ghanche,district_Ghizer,district_Gilgit,district_Hunza,district_Kharmang,district_Nagar,district_Shigar,district_Skardu
+raziuddin-rizvi,GBA-1,2009,Gilgit,Independent,Syed Raziuddin Rizvi,0,0,,0,,0,,,,0,,True,1,0,0,0,0,1,0,0,0,0,0
+jafarullah-khan,GBA-1,2015,Gilgit,PML-N,Jafarullah Khan,0,0,,0,,0,,,,0,Independent,False,1,0,0,0,0,1,0,0,0,0,0
+amjad-hussain-azar,GBA-1,2015,Gilgit,PPP,Amjad Hussain Azar,0,0,,0,,0,,,,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+nizam-ud-din-shah,GBA-1,2015,Gilgit,Independent,Syed Nizam Ud Din Shah,0,0,,1,,0,,,100.0,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+muhammad-ilyas-siddiqui,GBA-1,2015,Gilgit,MWM,Muhammad Ilyas Siddiqui,0,0,,0,,0,,,,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+amjad-hussain-azar,GBA-1,2020,Gilgit,PPP,Amjad Hussain Azar,0,0,31.96,0,4.43,1,31.96,2.0,31.96,0,PML-N,True,1,0,0,0,0,1,0,0,0,0,0
+sultan-rais,GBA-1,2020,Gilgit,Independent,Maulana Sultan Rais,0,0,,0,4.43,0,,,55.795,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+johar-ali,GBA-1,2020,Gilgit,PTI,Johar Ali,0,0,,0,4.43,0,,,,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+jafarullah-khan,GBA-1,2020,Gilgit,PML-N,Jafarullah Khan,1,0,36.39,1,4.43,1,36.39,1.0,36.39,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+wazir-hussain,GBA-10,2009,Skardu,PPP,Wazir Hussain,0,0,,0,,0,,,,0,,True,1,0,0,0,0,0,0,0,0,0,1
+capt-r-sikander,GBA-10,2015,Skardu,ITP,Capt. (r) Sikander,0,0,,0,,0,,,,0,PPP,False,1,0,0,0,0,0,0,0,0,0,1
+nasir-ali-khan,GBA-10,2015,Skardu,MWM,Raja Nasir Ali Khan,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+wazir-hassan,GBA-10,2015,Skardu,PPP,Wazir Hassan,0,0,,1,,0,,,100.0,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+ghulam-abbas,GBA-10,2015,Skardu,PML-N,Ghulam Abbas,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+manzoor-hussain,GBA-10,2015,Skardu,Independent,Manzoor Hussain,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+jalil-haider,GBA-10,2015,Skardu,Independent,Jalil Haider,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+ali-hassan,GBA-10,2015,Skardu,MQM,Ali Hassan,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+najaf-ali,GBA-10,2015,Skardu,PTI,Najaf Ali,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+abbas-almosvi,GBA-10,2015,Skardu,APML,Syed Abbas Almosvi,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+nasir-ali-khan,GBA-10,2020,Skardu,Independent,Raja Nasir Ali Khan,0,1,32.34,0,0.09999999999999432,1,32.34,2.0,2.51,0,ITP,False,1,0,0,0,0,0,0,0,0,0,1
+wazir-hassan,GBA-10,2020,Skardu,PTI,Wazir Hassan,0,1,20.04,0,0.09999999999999432,1,20.04,3.0,0.77,0,ITP,False,0,0,0,0,0,0,0,0,0,0,1
+muhammad-ali-shah-rizvi,GBA-11,2009,Kharmang,PPP,Syed Muhammad Ali Shah Rizvi,0,0,,0,,0,,,,0,,True,1,0,0,0,0,0,0,1,0,0,0
+iqbal-hassan,GBA-11,2015,Kharmang,PML-N,Iqbal Hassan,0,0,,0,,0,,,,0,PPP,False,1,0,0,0,0,0,0,1,0,0,0
+amjad-ali-zaidi,GBA-11,2015,Kharmang,PTI,Syed Amjad Ali Zaidi,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
+shujaat-hussain-mesam,GBA-11,2015,Kharmang,MWM,Shujaat Hussain Mesam,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
+kazim-saleem,GBA-11,2015,Kharmang,Independent,Kazim Saleem,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
+akbar-shah,GBA-11,2015,Kharmang,ITP,Syed Akbar Shah,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
+muzaffar-hussain,GBA-11,2015,Kharmang,APML,Muzaffar Hussain,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
+niaz-ali,GBA-11,2015,Kharmang,PPP,Niaz Ali,0,0,,1,,0,,,100.0,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
+ghulam-muhhamd-parvi,GBA-11,2015,Kharmang,Independent,Ghulam Muhhamd Parvi,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,1,0,0,0
+amjad-ali-zaidi,GBA-11,2020,Kharmang,PTI,Syed Amjad Ali Zaidi,0,0,39.44,0,1.4200000000000017,1,39.44,2.0,39.44,0,PML-N,True,1,0,0,0,0,0,0,1,0,0,0
+muhsin-rizvi,GBA-11,2020,Kharmang,Independent,Syed Muhsin Rizvi,0,0,,0,1.4200000000000017,0,,,0.19,0,PML-N,True,0,0,0,0,0,0,0,1,0,0,0
+muhammad-azam-khan,GBA-12,2009,Shigar,MQM,Raja Muhammad Azam Khan,0,0,,0,,0,,,,0,,False,1,0,0,0,0,0,0,0,0,1,0
+imran-nadeem,GBA-12,2009,Shigar,PPP,Imran Nadeem,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,0,1,0
+imran-nadeem,GBA-12,2015,Shigar,PPP,Imran Nadeem,0,0,45.59,0,8.809999999999995,1,45.59,2.0,45.59,0,MQM,False,1,0,0,0,0,0,0,0,0,1,0
+muhammad-azam-khan,GBA-12,2015,Shigar,PML-N,Raja Azam Khan,1,1,54.4,0,8.809999999999995,1,54.4,1.0,,0,MQM,False,0,0,0,0,0,0,0,0,0,1,0
+muhammad-ali,GBA-12,2015,Shigar,MWM,Dr Muhammad Ali,0,0,,0,8.809999999999995,0,,,,0,MQM,False,0,0,0,0,0,0,0,0,0,1,0
+abid-hussain,GBA-12,2015,Shigar,PAT,Abid Hussain,0,0,,0,8.809999999999995,0,,,,0,MQM,False,0,0,0,0,0,0,0,0,0,1,0
+azam-khan-amacha,GBA-12,2020,Shigar,PTI,Raja Azam Khan Amacha,0,0,,0,2.1699999999999946,0,,,,0,PPP,True,1,0,0,0,0,0,0,0,0,1,0
+imran-nadeem,GBA-12,2020,Shigar,PPP,Imran Nadeem,1,0,46.05,1,2.1699999999999946,2,46.05,1.0,45.82,0,PPP,True,0,0,0,0,0,0,0,0,0,1,0
+muhammad-tahir,GBA-12,2020,Shigar,PML-N,Muhammad Tahir,0,0,,0,2.1699999999999946,0,,,43.88,0,PPP,True,0,0,0,0,0,0,0,0,0,1,0
+muhammad-hassan,GBA-12,2020,Shigar,PML-Q,Muhammad Hassan,0,1,7.23,0,2.1699999999999946,1,,,,0,PPP,True,0,0,0,0,0,0,0,0,0,1,0
+abdul-hameed-khan,GBA-13,2009,Astore,PPP,Abdul Hameed Khan,0,0,,0,,0,,,,0,,False,1,1,0,0,0,0,0,0,0,0,0
+rana-farman-ali,GBA-13,2009,Astore,PML-N,Rana Farman Ali,0,0,,0,,0,,,,0,,False,0,1,0,0,0,0,0,0,0,0,0
+khalid-khurshid,GBA-13,2009,Astore,Independent,Khalid Khurshid,0,0,,0,,0,,,,0,,False,0,1,0,0,0,0,0,0,0,0,0
+rana-farman-ali,GBA-13,2015,Astore,PML-N,Rana Farman Ali,0,0,35.52,0,2.25,1,35.52,2.0,35.52,0,PPP,False,1,1,0,0,0,0,0,0,0,0,0
+khalid-khurshid,GBA-13,2015,Astore,Independent,Khalid Khurshid,0,0,26.71,0,2.25,1,26.71,3.0,26.71,0,PPP,False,0,1,0,0,0,0,0,0,0,0,0
+abdul-hameed-khan,GBA-13,2015,Astore,PPP,Abdul Hameed Khan,1,0,37.77,1,2.25,1,37.77,1.0,37.77,0,PPP,False,0,1,0,0,0,0,0,0,0,0,0
+ghulam-abbas,GBA-13,2015,Astore,Independent,Ghulam Abbas,0,0,,0,2.25,0,,,26.71,0,PPP,False,0,1,0,0,0,0,0,0,0,0,0
+ghulam-akbar,GBA-13,2015,Astore,MWM,Ghulam Akbar,0,0,,0,2.25,0,,,,0,PPP,False,0,1,0,0,0,0,0,0,0,0,0
+sanaullah,GBA-13,2015,Astore,PTI,Sanaullah,0,0,,0,2.25,0,,,,0,PPP,False,0,1,0,0,0,0,0,0,0,0,0
+inayatullah,GBA-13,2015,Astore,JUI-F,Inayatullah Mir,0,0,,0,2.25,0,,,,0,PPP,False,0,1,0,0,0,0,0,0,0,0,0
+khalid-khurshid,GBA-13,2020,Astore,PTI,Khalid Khurshid,0,1,24.99,0,11.960000000000004,2,24.99,2.0,0.31,0,PML-N,False,1,1,0,0,0,0,0,0,0,0,0
+rana-farman-ali,GBA-13,2020,Astore,PML-N,Rana Farman Ali,1,1,1.56,1,11.960000000000004,3,36.95,1.0,36.235,0,PML-N,False,0,1,0,0,0,0,0,0,0,0,0
+abdul-hameed-khan,GBA-13,2020,Astore,PPP,Abdul Hameed Khan,0,0,23.68,0,11.960000000000004,2,23.68,3.0,30.725,0,PML-N,False,0,1,0,0,0,0,0,0,0,0,0
+ghulam-abbas,GBA-13,2020,Astore,Independent,Ghulam Abbas,0,0,10.88,0,11.960000000000004,2,10.88,4.0,25.85,0,PML-N,False,0,1,0,0,0,0,0,0,0,0,0
+muhammad-naseer,GBA-14,2009,Astore,PPP,Muhammad Naseer,0,0,,0,,0,,,,0,,True,1,1,0,0,0,0,0,0,0,0,0
+barkat-jamil,GBA-14,2015,Astore,PML-N,Barkat Jamil,0,0,,0,,0,,,,0,PPP,False,1,1,0,0,0,0,0,0,0,0,0
+shamsul-haq,GBA-14,2020,Astore,PTI,Shamsul Haq,0,0,,0,,0,,,,0,PML-N,True,1,1,0,0,0,0,0,0,0,0,0
+muzaffar-ali,GBA-14,2020,Astore,PPP,Muzaffar Ali,0,0,,0,,0,,,100.0,0,PML-N,True,0,1,0,0,0,0,0,0,0,0,0
+bashir-ahmed,GBA-15,2009,Diamer,PML-Q,Bashir Ahmed,0,0,,0,,0,,,,0,,True,1,0,1,0,0,0,0,0,0,0,0
+shah-baig,GBA-15,2015,Diamer,JUI-F,Haji Shah Baig,0,0,,0,,0,,,,0,PML-Q,True,1,0,1,0,0,0,0,0,0,0,0
+fida-ullah,GBA-15,2015,Diamer,PPP,Fida Ullah,0,0,,0,,0,,,,0,PML-Q,True,0,0,1,0,0,0,0,0,0,0,0
+noshad-alam,GBA-15,2015,Diamer,PTI,Noshad Alam,0,0,,0,,0,,,,0,PML-Q,True,0,0,1,0,0,0,0,0,0,0,0
+shah-baig,GBA-15,2020,Diamer,Independent,Haji Shah Baig,1,1,34.37,0,1.4499999999999957,1,34.37,1.0,,0,JUI-F,True,1,0,1,0,0,0,0,0,0,0,0
+muhammad-dilpazir,GBA-15,2020,Diamer,Independent,Muhammad Dilpazir,0,0,,0,1.4499999999999957,0,,,,0,JUI-F,True,0,0,1,0,0,0,0,0,0,0,0
+janbaz-khan,GBA-16,2009,Diamer,PML-N,Janbaz Khan,0,0,,0,,0,,,,0,,True,1,0,1,0,0,0,0,0,0,0,0
+janbaz-khan,GBA-16,2015,Diamer,PML-N,Janbaz Khan,1,0,100.0,1,,1,100.0,1.0,100.0,0,PML-N,False,1,0,1,0,0,0,0,0,0,0,0
+abdul-aziz,GBA-16,2015,Diamer,Independent,Abdul Aziz,0,0,,0,,0,,,,0,PML-N,False,0,0,1,0,0,0,0,0,0,0,0
+attaullah,GBA-16,2015,Diamer,Independent,Attaullah,0,0,,0,,0,,,,0,PML-N,False,0,0,1,0,0,0,0,0,0,0,0
+dilbar-khan,GBA-16,2015,Diamer,PPP,Dilbar Khan,0,0,,0,,0,,,,0,PML-N,False,0,0,1,0,0,0,0,0,0,0,0
+atiqullah,GBA-16,2015,Diamer,PTI,Atiqullah,0,0,,0,,0,,,,0,PML-N,False,0,0,1,0,0,0,0,0,0,0,0
+muhammad-anwar,GBA-16,2020,Diamer,PML-N,Muhammad Anwar,0,0,,1,1.4299999999999997,0,,,60.915,1,PML-N,True,1,0,1,0,0,0,0,0,0,0,0
+attaullah,GBA-16,2020,Diamer,Independent,Attaullah,0,0,19.15,0,1.4299999999999997,1,19.15,3.0,20.4,0,PML-N,True,0,0,1,0,0,0,0,0,0,0,0
+rehmat-khaliq,GBA-17,2009,Diamer,JUI-F,Rehmat Khaliq,0,0,,0,,0,,,,0,,True,1,0,1,0,0,0,0,0,0,0,0
+barkat-jamil,GBA-17,2015,Diamer,PML-N,Barkat Jamil,0,0,,0,,0,,,,0,JUI-F,False,1,0,1,0,0,0,0,0,0,0,0
+abdul-aziz,GBA-17,2015,Diamer,Independent,Abdul Aziz,0,0,,0,,0,,,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
+atta-ullah,GBA-17,2015,Diamer,Independent,Atta Ullah,0,0,,0,,0,,,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
+dilbar-khan,GBA-17,2015,Diamer,PPP,Dilbar Khan,0,0,,0,,0,,,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
+atiq-ullah,GBA-17,2015,Diamer,PTI,Atiq Ullah,0,0,,0,,0,,,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
+rehmat-khaliq,GBA-17,2020,Diamer,JUI-F,Rehmat Khaliq,1,0,100.0,0,4.0,1,100.0,1.0,100.0,0,PML-N,True,1,0,1,0,0,0,0,0,0,0,0
+kacho-imtiaz-haider-khan,GBA-17,2020,Diamer,PTI,Haider Khan,0,1,42.58,0,4.0,1,,,13.58,0,PML-N,True,0,0,1,0,0,0,0,0,0,0,0
+gulbar-khan,GBA-18,2009,Diamer,JUI-F,Gulbar Khan,0,0,,0,,0,,,,0,,True,1,0,1,0,0,0,0,0,0,0,0
+muhammad-wakeel,GBA-18,2015,Diamer,PML-N,Muhammad Wakeel,0,0,,0,,0,,,,0,JUI-F,False,1,0,1,0,0,0,0,0,0,0,0
+gulbar-khan,GBA-18,2015,Diamer,JUI-F,Gulbar Khan,1,0,100.0,1,,1,100.0,1.0,100.0,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
+shakrat-khan,GBA-18,2015,Diamer,PPP,Shakrat Khan,0,0,,0,,0,,,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
+dilbar-khan,GBA-18,2015,Diamer,PTI,Dilbar Khan,0,0,,0,,0,,,,0,JUI-F,False,0,0,1,0,0,0,0,0,0,0,0
+gulbar-khan,GBA-18,2020,Diamer,PTI,Gulbar Khan,0,1,33.74,0,18.299999999999997,2,33.74,2.0,1.22,0,PML-N,True,1,0,1,0,0,0,0,0,0,0,0
+malik-kifayat-ur-rehman,GBA-18,2020,Diamer,Independent,Malik Kifayat Ur Rehman,0,0,,0,18.299999999999997,0,,,,0,PML-N,True,0,0,1,0,0,0,0,0,0,0,0
+karam-ali-shah,GBA-19,2009,Ghizer,PPP,Karam Ali Shah,0,0,,0,,0,,,,0,,False,1,0,0,0,1,0,0,0,0,0,0
+nawaz-khan-naji,GBA-19,2015,Ghizer,BNF-N,Nawaz Khan Naji,0,0,,0,,0,,,,0,PPP,False,1,0,0,0,1,0,0,0,0,0,0
+shakeel-ahmad,GBA-19,2015,Ghizer,PML-N,Shakeel Ahmad,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+zaffar-muhammad,GBA-19,2015,Ghizer,Independent,Zaffar Muhammad,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+niamat-shah,GBA-19,2015,Ghizer,PTI,Niamat Shah,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+madad-shah,GBA-19,2015,Ghizer,APML,Syed Madad Shah,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+badr-u-din,GBA-19,2015,Ghizer,PPP,Badr-U-Din,0,0,,1,,0,,,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+nawaz-khan-naji,GBA-19,2020,Ghizer,BNF-N,Nawaz Khan Naji,1,0,26.99,1,0.00999999999999801,1,26.99,1.0,26.99,0,BNF-N,True,1,0,0,0,1,0,0,0,0,0,0
+jalal-ali-shah,GBA-19,2020,Ghizer,PPP,Pir Jalal Ali Shah,0,0,,0,0.00999999999999801,0,,,4.66,0,BNF-N,True,0,0,0,0,1,0,0,0,0,0,0
+deedar-ali,GBA-2,2009,Gilgit,Independent,Deedar Ali,0,0,,0,,0,,,,0,,False,1,0,0,0,0,1,0,0,0,0,0
+jamil-ahmad,GBA-2,2009,Gilgit,PPP,Jamil Ahmad,0,0,,0,,0,,,,0,,False,0,0,0,0,0,1,0,0,0,0,0
+hafeezur-rehman,GBA-2,2009,Gilgit,PML-N,Hafiz Hafeezur Rehman,0,0,,0,,0,,,,0,,False,0,0,0,0,0,1,0,0,0,0,0
+muhammad-aslam,GBA-2,2009,Gilgit,PML-Q,Muhammad Aslam,0,0,,0,,0,,,,0,,False,0,0,0,0,0,1,0,0,0,0,0
+altaf-hussain,GBA-2,2009,Gilgit,MQM,Altaf Hussain,0,0,,0,,0,,,,0,,False,0,0,0,0,0,1,0,0,0,0,0
+hafeez-ur-rehman,GBA-2,2015,Gilgit,PML-N,Hafiz Hafeez Ur Rehman,0,0,,0,3.25,0,,,21.08,0,Independent,False,1,0,0,0,0,1,0,0,0,0,0
+jamil-ahmad,GBA-2,2015,Gilgit,PPP,Jamil Ahmad,0,0,22.09,0,3.25,1,22.09,2.0,22.09,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+fatehullah-khan,GBA-2,2015,Gilgit,PTI,Fatehullah Khan,0,0,,0,3.25,0,,,,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+faqeer-shah,GBA-2,2015,Gilgit,Independent,Faqeer Shah,0,0,,1,3.25,0,,,25.34,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+karim-khan,GBA-2,2015,Gilgit,APML,Karim Khan,0,0,,0,3.25,0,,,,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+tariq-hussain,GBA-2,2015,Gilgit,MQM,Tariq Hussain,0,0,,0,3.25,0,,,1.27,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+parveen-ghazi,GBA-2,2015,Gilgit,Independent,Parveen Ghazi,0,0,,1,3.25,0,,,25.34,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+muhammad-mazhar-abbas,GBA-2,2015,Gilgit,MWM,Muhammad Mazhar Abbas,0,0,,0,3.25,0,,,,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+shukat-alam,GBA-2,2015,Gilgit,PAT,Shukat Alam,0,0,,0,3.25,0,,,,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+moulana-mujahid,GBA-2,2015,Gilgit,JUI-F,Moulana Mujahid,0,0,,0,3.25,0,,,,0,Independent,False,0,0,0,0,0,1,0,0,0,0,0
+fatehullah-khan,GBA-2,2020,Gilgit,PTI,Fatehullah Khan,0,0,11.51,0,16.019999999999996,1,11.51,3.0,11.51,0,PML-N,False,1,0,0,0,0,1,0,0,0,0,0
+jamil-ahmad,GBA-2,2020,Gilgit,PPP,Jamil Ahmad,0,0,32.27,0,16.019999999999996,2,32.27,2.0,27.18,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+jamil-ahmed,GBA-2,2020,Gilgit,PPP,Jamil Ahmed,0,0,,0,16.019999999999996,0,,,27.18,0,PML-N,False,0,0,0,0,0,1,0,0,0,0,0
+hafeezur-rehman,GBA-2,2020,Gilgit,PML-N,Hafiz Hafeezur Rehman,0,0,21.08,1,16.019999999999996,1,21.08,3.0,34.685,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+nasir,GBA-2,2020,Gilgit,PML-Q,Nasir Mir,0,0,,0,16.019999999999996,0,,,10.07,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+ghulam-shah,GBA-2,2020,Gilgit,Independent,Ghulam Shah,0,0,,0,16.019999999999996,0,,,14.48,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+habib-ur-rehman,GBA-2,2020,Gilgit,JI,Habib ur Rehman,0,0,,0,16.019999999999996,0,,,,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+ashfaq-hussain,GBA-2,2020,Gilgit,Independent,Ashfaq Hussain,0,0,,0,16.019999999999996,0,,,14.48,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+faqeer-shah,GBA-2,2020,Gilgit,ITP,Faqeer Shah,0,1,3.62,0,16.019999999999996,1,3.62,4.0,,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+ali-madad-sher,GBA-20,2009,Ghizer,PPP,Ali Madad Sher,0,0,,0,,0,,,,0,,True,1,0,0,0,1,0,0,0,0,0,0
+fida-khan,GBA-20,2015,Ghizer,Independent,Fida Khan,0,0,,0,,0,,,,0,PPP,False,1,0,0,0,1,0,0,0,0,0,0
+sultan-madad,GBA-20,2015,Ghizer,PML-N,Sultan Madad,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+nadir-khan,GBA-20,2015,Ghizer,Independent,Nadir Khan,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+ali-madad-sher,GBA-20,2015,Ghizer,PPP,Ali Madad Sher,1,0,100.0,1,,1,100.0,1.0,100.0,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+abdul-khaliq,GBA-20,2015,Ghizer,Independent,Abdul Khaliq,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+noor-wali-khan,GBA-20,2015,Ghizer,APML,Noor Wali Khan,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+atta-ur-rehman,GBA-20,2015,Ghizer,PTI,Atta-ur-Rehman,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,1,0,0,0,0,0,0
+nazir-ahmed,GBA-20,2020,Ghizer,PTI,Nazir Ahmed,0,0,,0,8.079999999999998,0,,,6.37,0,Independent,True,1,0,0,0,1,0,0,0,0,0,0
+nazir-ahmad,GBA-20,2020,Ghizer,PTI,Nazir Ahmad,0,0,,0,8.079999999999998,0,,,6.37,0,Independent,True,0,0,0,0,1,0,0,0,0,0,0
+m-akbar-khan,GBA-20,2020,Ghizer,PML-Q,Khan Akbar Khan,0,1,28.48,0,8.079999999999998,1,,,,0,Independent,True,0,0,0,0,1,0,0,0,0,0,0
+muhammad-ayub-shah,GBA-21,2009,Ghizer,Independent,Muhammad Ayub Shah,0,0,,0,,0,,,,0,,True,1,0,0,0,1,0,0,0,0,0,0
+jahanzaib,GBA-21,2015,Ghizer,PTI,Raja Jahanzaib,0,0,,0,,0,,,,0,Independent,False,1,0,0,0,1,0,0,0,0,0,0
+ghulam-muhammad,GBA-21,2015,Ghizer,PML-N,Ghulam Muhammad,0,0,,0,,0,,,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
+muhammad-ayub-shah,GBA-21,2015,Ghizer,PPP,Muhammad Ayub Shah,1,1,100.0,0,,1,100.0,1.0,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
+jamsheed-khan,GBA-21,2015,Ghizer,APML,Jamsheed khan,0,0,,0,,0,,,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
+nadir-khan,GBA-21,2015,Ghizer,PAT,Nadir Khan,0,0,,0,,0,,,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
+abdul-khaliq,GBA-21,2015,Ghizer,MQM,Abdul Khaliq,0,0,,0,,0,,,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
+muhammad-aziz,GBA-21,2015,Ghizer,JUI-F,Muhammad Aziz,0,0,,0,,0,,,,0,Independent,False,0,0,0,0,1,0,0,0,0,0,0
+ghulam-muhammad,GBA-21,2020,Ghizer,PML-N,Ghulam Muhammad,0,0,30.26,0,8.91,1,30.26,2.0,30.26,0,PTI,True,1,0,0,0,1,0,0,0,0,0,0
+m-ayub-shah,GBA-21,2020,Ghizer,PPP,M. Ayub Shah,0,0,,0,8.91,0,,,22.04,0,PTI,True,0,0,0,0,1,0,0,0,0,0,0
+muhammad-jaffer,GBA-22,2009,Ghanche,PPP,Muhammad Jaffer,0,0,,0,,0,,,,0,,True,1,0,0,1,0,0,0,0,0,0,0
+muhammad-ibrahim-sanai,GBA-22,2015,Ghanche,PML-N,Muhammad Ibrahim Sanai,0,0,,0,,0,,,,0,PPP,False,1,0,0,1,0,0,0,0,0,0,0
+amina-bibi-ansari,GBA-22,2015,Ghanche,PTI,Amina Bibi Ansari,0,0,,0,,0,,,,0,PPP,False,0,0,0,1,0,0,0,0,0,0,0
+mushtaq-hussain,GBA-22,2020,Ghanche,Independent,Mushtaq Hussain,0,0,,0,71.9,0,,,,0,PML-N,True,1,0,0,1,0,0,0,0,0,0,0
+m-ibrahim-sanai,GBA-22,2020,Ghanche,PTI,M. Ibrahim Sanai,0,0,,0,71.9,0,,,14.05,0,PML-N,True,0,0,0,1,0,0,0,0,0,0,0
+muhammad-abdullah,GBA-23,2009,Ghanche,PML-N,Mufti Muhammad Abdullah,0,0,,0,,0,,,,0,,True,1,0,0,1,0,0,0,0,0,0,0
+ghulam-hussain,GBA-23,2015,Ghanche,PML-N,Ghulam Hussain,0,0,,1,,0,,,100.0,0,PML-N,False,1,0,0,1,0,0,0,0,0,0,0
+amina-bibi-ansari,GBA-23,2015,Ghanche,PTI,Amina Bibi Ansari,0,0,,0,,0,,,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
+zuhair-ahmad-khan,GBA-23,2015,Ghanche,MQM,Zuhair Ahmad Khan,0,0,,0,,0,,,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
+shereen-fatima,GBA-23,2015,Ghanche,PPP,Shereen Fatima,0,0,,0,,0,,,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
+khadim-hussain,GBA-23,2015,Ghanche,PAT,Khadim Hussain,0,0,,0,,0,,,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
+abdul-hameed,GBA-23,2020,Ghanche,Independent,Abdul Hameed,0,0,,0,7.239999999999995,0,,,,0,PML-N,False,1,0,0,1,0,0,0,0,0,0,0
+amina-bibi-ansari,GBA-23,2020,Ghanche,PTI,Amina Ansari,0,0,43.67,0,7.239999999999995,2,43.67,2.0,43.67,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
+asif-advocate,GBA-23,2020,Ghanche,Independent,Asif Advocate,0,0,,0,7.239999999999995,0,,,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
+ghulam-ali-haideri,GBA-23,2020,Ghanche,PPP,Ghulam Ali Haideri,0,0,,0,7.239999999999995,0,,,1.39,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
+mohammad-shafiq,GBA-24,2015,Ghanche,PML-N,Mohammad Shafiq,0,0,,0,,0,,,,0,,False,1,0,0,1,0,0,0,0,0,0,0
+mohammad-ismail,GBA-24,2015,Ghanche,PPP,Engr Mohammad Ismail,0,0,,0,,0,,,,0,,False,0,0,0,1,0,0,0,0,0,0,0
+muhammad-ishaq-saqib,GBA-24,2015,Ghanche,MWM,Muhammad Ishaq Saqib,0,0,,0,,0,,,,0,,False,0,0,0,1,0,0,0,0,0,0,0
+mohammad-ismail,GBA-24,2020,Ghanche,PPP,Engr Mohammad Ismail,0,0,45.69,0,0.28999999999999915,1,45.69,2.0,45.69,0,PML-N,False,1,0,0,1,0,0,0,0,0,0,0
+shams-ud-din,GBA-24,2020,Ghanche,PTI,Syed Shams ud Din,0,0,,0,0.28999999999999915,0,,,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
+shamsuddin,GBA-24,2020,Ghanche,PTI,Syed Shamsuddin,0,0,,0,0.28999999999999915,0,,,,0,PML-N,True,0,0,0,1,0,0,0,0,0,0,0
+muhammad-ibrahim,GBA-24,2020,Ghanche,PML,Muhammad Ibrahim,0,0,,0,0.28999999999999915,0,,,,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
+manzoor-hussain,GBA-24,2020,Ghanche,PML-N,Manzoor Hussain,0,1,2.51,1,0.28999999999999915,1,,,45.98,0,PML-N,False,0,0,0,1,0,0,0,0,0,0,0
+aftab-haider,GBA-3,2009,Gilgit,PPP,Aftab Haider,0,0,,0,,0,,,,0,,True,1,0,0,0,0,1,0,0,0,0,0
+muhammad-iqbal,GBA-3,2015,Gilgit,PML-N,Doctor Muhammad Iqbal,0,0,,0,,0,,,,0,PPP,False,1,0,0,0,0,1,0,0,0,0,0
+muhammad-shafi-khan,GBA-3,2015,Gilgit,ITP,Muhammad Shafi Khan,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
+aftab-haider,GBA-3,2015,Gilgit,PPP,Aftab Haider,1,0,100.0,1,,1,100.0,1.0,100.0,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
+allama-nayyar-abbas-mustfavi,GBA-3,2015,Gilgit,MWM,Allama Nayyar Abbas Mustfavi,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
+saeed-ur-rehman,GBA-3,2015,Gilgit,JUI-F,Saeed Ur Rehman,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
+sher-ghazi,GBA-3,2015,Gilgit,PTI,Sher Ghazi,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
+capt-rtd-hadi-hussain,GBA-3,2015,Gilgit,MQM,Capt(Rtd.) Hadi Hussain,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,1,0,0,0,0,0
+sohail-abbas-shah,GBA-3,2020,Gilgit,PTI,Syed Sohail Abbas Shah,0,0,,0,15.18,0,,,2.85,0,PML-N,True,1,0,0,0,0,1,0,0,0,0,0
+muhammad-iqbal,GBA-3,2020,Gilgit,Independent,Muhammad Iqbal,1,1,36.14,0,15.18,1,36.14,1.0,,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+mohammad-shafiq,GBA-3,2020,Gilgit,PML-Q,Muhammad Shafi,0,1,45.98,0,15.18,1,,,,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+aftab-haider,GBA-3,2020,Gilgit,PPP,Aftab Haider,0,0,19.36,0,15.18,2,19.36,3.0,59.68,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+zulfiqar-ali-tatu,GBA-3,2020,Gilgit,PML-N,Zulfiqar Ali Tatu,0,0,,1,15.18,0,,,36.14,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+sanan-ahmad,GBA-3,2020,Gilgit,Independent,Sanan Ahmad,0,0,,0,15.18,0,,,,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+sher-ghazi,GBA-3,2020,Gilgit,Independent,Sher Ghazi,0,1,2.85,0,15.18,1,2.85,6.0,,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+muhammad-nafees,GBA-3,2020,Gilgit,Independent,Muhammad Nafees,0,0,,0,15.18,0,,,,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+akbar-hussain,GBA-3,2020,Gilgit,PSP,Maulana Akbar Hussain,0,0,,0,15.18,0,,,,0,PML-N,True,0,0,0,0,0,1,0,0,0,0,0
+muhammad-ali-akhtar,GBA-4,2009,Nagar,PPP,Muhammad Ali Akhtar,0,0,,0,,0,,,,0,,False,1,0,0,0,0,0,0,0,1,0,0
+fida-hussain,GBA-4,2009,Nagar,Independent,Fida Hussain,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,1,0,0
+muhammad-hassan,GBA-4,2009,Nagar,MQM,Muhammad Hassan,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,1,0,0
+fida-ali,GBA-4,2009,Nagar,Independent,Fida Ali,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,1,0,0
+muhammad-ali-haidar,GBA-4,2015,Nagar,ITP,Doctor Muhammad Ali Haidar,0,0,,0,15.54,0,,,,0,PPP,False,1,0,0,0,0,0,0,0,1,0,0
+kashif-ali,GBA-4,2015,Nagar,PPP,Kashif Ali,0,0,,1,15.54,0,,,34.26,0,PPP,False,0,0,0,0,0,0,0,0,1,0,0
+fida-hussain,GBA-4,2015,Nagar,PML-N,Haji Fida Hussain,0,1,18.72,0,15.54,1,18.72,2.0,,0,PPP,False,0,0,0,0,0,0,0,0,1,0,0
+muhammad-javid,GBA-4,2015,Nagar,PTI,Muhammad Javid,0,0,,0,15.54,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,1,0,0
+muhammad-ali-akhtar,GBA-4,2015,Nagar,Independent,Muhammad Ali Akhtar,1,1,34.26,0,15.54,1,34.26,1.0,18.72,0,PPP,False,0,0,0,0,0,0,0,0,1,0,0
+amjad-hussain-azar,GBA-4,2020,Nagar,PPP,Amjad Hussain Azar,0,0,31.96,0,6.989999999999995,1,,,32.215,0,ITP,True,1,0,0,0,0,0,0,0,1,0,0
+muhammad-ayub,GBA-4,2020,Nagar,ITP,Muhammad Ayub,0,0,,1,6.989999999999995,0,,,37.16,0,ITP,True,0,0,0,0,0,0,0,0,1,0,0
+mirza-hussain,GBA-5,2009,Nagar,PML-Q,Mirza Hussain,0,0,,0,,0,,,,0,,False,1,0,0,0,0,0,0,0,1,0,0
+zulfiqar-ali-murad,GBA-5,2009,Nagar,PPP,Zulfiqar Ali Murad,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,1,0,0
+kalb-ali,GBA-5,2009,Nagar,Independent,Kalb Ali,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,1,0,0
+prince-barkat-ali,GBA-5,2009,Nagar,Independent,Prince Barkat Ali,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,1,0,0
+abdul-karim,GBA-5,2009,Nagar,MQM,Abdul Karim,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,1,0,0
+sajjad-hussian,GBA-5,2009,Nagar,Independent,Sajjad Hussian,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,1,0,0
+rizwan-ali,GBA-5,2015,Nagar,MWM,Doctor Rizwan Ali,0,0,,0,2.8400000000000034,0,,,,0,PML-Q,False,1,0,0,0,0,0,0,0,1,0,0
+prince-qasim-ali-khan,GBA-5,2015,Nagar,Independent,Prince Qasim Ali Khan,0,0,,0,2.8400000000000034,0,,,14.96,0,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
+qalab-ali,GBA-5,2015,Nagar,PML-N,Haji Qalab Ali,0,0,,0,2.8400000000000034,0,,,,0,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
+zulfiqar-ali-murad,GBA-5,2015,Nagar,PPP,Zulfiqar Ali Murad,0,0,32.76,0,2.8400000000000034,1,32.76,2.0,32.76,0,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
+mirza-hussain,GBA-5,2015,Nagar,PTI,Mirza Hussain,1,1,35.6,0,2.8400000000000034,1,35.6,1.0,,0,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
+sheikh-mirza-ali,GBA-5,2015,Nagar,ITP,Sheikh Mirza Ali,0,0,,0,2.8400000000000034,0,,,,0,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
+muhammad-issa,GBA-5,2015,Nagar,APML,Muhammad Issa,0,0,,0,2.8400000000000034,0,,,,0,PML-Q,False,0,0,0,0,0,0,0,0,1,0,0
+javed-ali-manwa,GBA-5,2020,Nagar,Independent,Javed Ali Manwa,0,0,,0,8.060000000000002,0,,,17.965,0,MWM,True,1,0,0,0,0,0,0,0,1,0,0
+rizwan-ali,GBA-5,2020,Nagar,MWM,Rizwan Ali,1,0,29.03,1,8.060000000000002,1,29.03,1.0,29.03,0,MWM,True,0,0,0,0,0,0,0,0,1,0,0
+wazir-baig,GBA-6,2009,Hunza,PPP,Wazir Baig,0,0,,0,,0,,,,0,,False,1,0,0,0,0,0,1,0,0,0,0
+kamil-jan,GBA-6,2009,Hunza,MQM,Kamil Jan,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,1,0,0,0,0
+noor-muhammad,GBA-6,2009,Hunza,Independent,Noor Muhammad,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,1,0,0,0,0
+prince-sher-yar-khan,GBA-6,2009,Hunza,PML-N,Prince Sher Yar Khan,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,1,0,0,0,0
+arif-hussain,GBA-6,2009,Hunza,Independent,Arif Hussain,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,1,0,0,0,0
+rehmatullah-baig,GBA-6,2009,Hunza,PML-Q,Rehmatullah Baig,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,1,0,0,0,0
+shahbaz-khan,GBA-6,2009,Hunza,Independent,Raja Shahbaz Khan,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,1,0,0,0,0
+ghazanfar-ali-khan,GBA-6,2015,Hunza,PML-N,Mir Ghazanfar Ali Khan,0,0,,0,6.699999999999999,0,,,7.86,0,PPP,False,1,0,0,0,0,0,1,0,0,0,0
+baba-jan,GBA-6,2015,Hunza,AWP,Baba Jan,0,0,,0,6.699999999999999,0,,,,0,PPP,False,0,0,0,0,0,0,1,0,0,0,0
+zafar-iqbal,GBA-6,2015,Hunza,PPP,Zafar Iqbal,0,0,,1,6.699999999999999,0,,,28.79,0,PPP,False,0,0,0,0,0,0,1,0,0,0,0
+izhar-hunzai,GBA-6,2015,Hunza,PTI,Izhar Hunzai,0,0,,0,6.699999999999999,0,,,,0,PPP,False,0,0,0,0,0,0,1,0,0,0,0
+sheikh-musa-karimi,GBA-6,2015,Hunza,MWM,Sheikh Musa Karimi,0,0,,0,6.699999999999999,0,,,,0,PPP,False,0,0,0,0,0,0,1,0,0,0,0
+aman-ullah,GBA-6,2015,Hunza,APML,Aman Ullah,0,0,,0,6.699999999999999,0,,,,0,PPP,False,0,0,0,0,0,0,1,0,0,0,0
+abaid-ullah-baig,GBA-6,2020,Hunza,PTI,Abaid Ullah Baig,0,0,,0,17.459999999999997,0,,,11.13,0,PML-N,True,1,0,0,0,0,0,1,0,0,0,0
+noor-muhammad,GBA-6,2020,Hunza,Independent,Noor Muhammad,0,0,19.84,0,17.459999999999997,1,19.84,3.0,19.84,0,PML-N,True,0,0,0,0,0,0,1,0,0,0,0
+mehdi-shah,GBA-7,2009,Skardu,PPP,Syed Mehdi Shah,0,0,,0,,0,,,,0,,False,1,0,0,0,0,0,0,0,0,0,1
+prince-sher-yar-khan,GBA-7,2009,Skardu,PML-Q,Prince Sher Yar Khan,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,0,0,1
+zikria-maqpoon,GBA-7,2009,Skardu,MQM,Raja Zikria Maqpoon,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,0,0,1
+fida-muhammad-nishad,GBA-7,2009,Skardu,Independent,Fida Muhammad Nishad,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,0,0,1
+m-akbar-khan,GBA-7,2015,Skardu,PML-N,M. Akbar Khan,0,0,,0,50.739999999999995,0,,,,0,PPP,False,1,0,0,0,0,0,0,0,0,0,1
+jalal-hussain-maqpoon,GBA-7,2015,Skardu,PTI,Raja Jalal Hussain Maqpoon,0,0,,0,50.739999999999995,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+mehdi-shah,GBA-7,2015,Skardu,PPP,Syed Mehdi Shah,1,0,62.98,1,50.739999999999995,1,62.98,1.0,62.98,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+gh-shehzad,GBA-7,2015,Skardu,ITP,"Gh, Shehzad Agha",0,0,,0,50.739999999999995,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+zahid-hussain,GBA-7,2015,Skardu,MWM,Zahid Hussain,0,0,,0,50.739999999999995,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+muzaffar-hussain,GBA-7,2015,Skardu,Independent,Muzzafar Hussain,0,0,,0,50.739999999999995,0,,,2.76,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+kamal-hussain,GBA-7,2015,Skardu,APML,Kamal Hussain,0,0,,0,50.739999999999995,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+muhammad-zakaria-khan-maqpoon,GBA-7,2020,Skardu,PTI,Raja Muhammad Zakaria Khan Maqpoon,0,0,,0,0.010000000000001563,0,,,28.47,0,PML-N,True,1,0,0,0,0,0,0,0,0,0,1
+zakarya-maqoon,GBA-7,2020,Skardu,PTI,Raja Zakarya Maqoon,0,0,,0,0.010000000000001563,0,,,28.47,0,PML-N,True,0,0,0,0,0,0,0,0,0,0,1
+mehdi-shah,GBA-7,2020,Skardu,PPP,Syed Mehdi Shah,0,0,23.02,0,0.010000000000001563,2,23.02,3.0,43.0,0,PML-N,True,0,0,0,0,0,0,0,0,0,0,1
+sheikh-nisar,GBA-8,2009,Skardu,PPP,Sheikh Nisar,0,0,,0,,0,,,,0,,False,1,0,0,0,0,0,0,0,0,0,1
+muhammad-ali-shah,GBA-8,2009,Skardu,Independent,Syed Muhammad Ali Shah,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,0,0,1
+ghulam-nabi,GBA-8,2009,Skardu,Independent,Ghulam Nabi,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,0,0,1
+nisar-khan,GBA-8,2009,Skardu,MQM,Nisar Khan,0,0,,0,,0,,,,0,,False,0,0,0,0,0,0,0,0,0,0,1
+kacho-imtiaz-haider-khan,GBA-8,2015,Skardu,MWM,Kacho Imtiaz Haider Khan,0,0,,0,17.16,0,,,,0,PPP,False,1,0,0,0,0,0,0,0,0,0,1
+muhammad-ali-shah,GBA-8,2015,Skardu,PML-N,Syed Mohammad Ali Shah,0,1,27.45,0,17.16,1,27.45,2.0,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+mohammad-abbas-rizvi,GBA-8,2015,Skardu,ITP,Syed Mohammad Abbas Rizvi,0,0,,0,17.16,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+nisar-hussain-sarbaz,GBA-8,2015,Skardu,PPP,Nisar Hussain Sarbaz,0,0,,1,17.16,0,,,44.61,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+muhammad-zakir,GBA-8,2015,Skardu,PTI,Muhammad Zakir,0,0,,0,17.16,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+rana-farman-ali,GBA-8,2015,Skardu,Independent,Farman Ali,0,1,35.52,0,17.16,1,,,27.45,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+muhammad-maisam-kazim,GBA-8,2020,Skardu,MWM,Muhammad Maisam Kazim,0,0,,1,22.75,0,,,42.58,0,MWM,False,1,0,0,0,0,0,0,0,0,0,1
+m-ali-shah,GBA-8,2020,Skardu,PPP,Syed M. Ali Shah,0,0,,0,22.75,0,,,27.384999999999998,0,MWM,False,0,0,0,0,0,0,0,0,0,0,1
+wazir-shakeel,GBA-9,2009,Skardu,PPP,Wazir Shakeel,0,0,,0,,0,,,,0,,True,1,0,0,0,0,0,0,0,0,0,1
+fida-muhammad-nashad,GBA-9,2015,Skardu,PML-N,Fida Muhammad Nashad,0,0,,0,,0,,,,0,PPP,False,1,0,0,0,0,0,0,0,0,0,1
+wazir-muhammad-saleem,GBA-9,2015,Skardu,MWM,Wazir Muhammad Saleem,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+ghulam-raza-haidri,GBA-9,2015,Skardu,PPP,Ghulam Raza Haidri,0,0,,1,,0,,,100.0,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+mohammad-abbas-rizvi,GBA-9,2015,Skardu,ITP,Syed Mohammad Abbas Rizvi,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+ali-kazim,GBA-9,2015,Skardu,PTI,Ali Kazim,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+abbas-almosvi,GBA-9,2015,Skardu,APML,Syed Abbas Almosvi,0,0,,0,,0,,,,0,PPP,False,0,0,0,0,0,0,0,0,0,0,1
+wazir-muhammad-saleem,GBA-9,2020,Skardu,PTI,Wazir Muhammad Saleem,0,1,44.55,0,5.550000000000004,1,44.55,2.0,0.1,0,PML-N,True,1,0,0,0,0,0,0,0,0,0,1
+fida-muhammad-nashad,GBA-9,2020,Skardu,PTI,Fida Muhammad Nashad,1,1,50.1,0,5.550000000000004,1,50.1,1.0,0.1,0,PML-N,True,0,0,0,0,0,0,0,0,0,0,1

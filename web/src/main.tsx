@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import App from "@/App";
+import { SplashScreen } from "@/components/layout/SplashScreen";
 import "@/index.css";
 
 const queryClient = new QueryClient({
@@ -23,6 +24,7 @@ createRoot(rootElement).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+        <SplashScreen />
         <App />
       </BrowserRouter>
     </QueryClientProvider>

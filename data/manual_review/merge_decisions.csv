@@ -1,24 +1,29 @@
 constituency_id,election_year,kept_name,merged_name,score,kept_votes,merged_votes
 GBA-1,2020,Amjad Hussain Azar,Amjad Hussain Azar,100.0,11178,11178
 GBA-1,2020,Maulana Sultan Rais,Sultan Rais,100.0,8356,8356
+GBA-2,2015,Hafiz Hafeez Ur Rehman,Habib Ur Rehman,77.4,10739,844
 GBA-2,2020,Fatehullah Khan,Fatehullah Khan,100.0,6860,6698
-GBA-2,2020,Jamil Ahmad,Jamil Ahmed,90.9,6764,6694
 GBA-3,2020,Syed Sohail Abbas Shah,Syed Sohail Abbas Shah,100.0,6873,6807
 GBA-3,2020,Muhammad Iqbal,Muhammad Iqbal,100.0,4855,4678
+GBA-4,2009,Muhammad Ali Akhtar,Muhammad Ali,77.4,3890,3717
+GBA-4,2015,Doctor Muhammad Ali Haidar,Ali Muhammad,77.4,5039,3014
 GBA-5,2020,Javed Ali Manwa,Javed Ali Manwa,100.0,2570,2570
 GBA-6,2020,Abaid Ullah Baig,Abaid Ullah Baig,100.0,5710,5624
 GBA-8,2020,Muhammad Maisam Kazim,Muhammad Kazim Maisam,100.0,7998,7842
 GBA-9,2020,Wazir Muhammad Saleem,Wazir Muhammad Saleem,100.0,6865,6286
+GBA-10,2020,Raja Nasir Ali Khan,Raja Nasir Ali Khan Maqpoon,77.8,5124,4811
 GBA-11,2020,Syed Amjad Ali Zaidi,Syed Amjad Ali Zaidi,100.0,6858,5733
 GBA-12,2020,Raja Azam Khan Amacha,Raja Azam Khan Amacha,100.0,10674,10621
 GBA-12,2020,Imran Nadeem,Imran Nadeem,100.0,8919,8886
+GBA-13,2020,Khalid Khurshid,Muhammad Khalid Khurshid Khan,68.2,5297,4836
 GBA-13,2020,Abdul Hameed Khan,Abdul Hamid Khan,90.9,3546,3117
+GBA-14,2020,Shamsul Haq,Shamsul Haq Lone,81.5,5354,5237
 GBA-15,2020,Haji Shah Baig,Shah Baig,100.0,2779,2713
 GBA-16,2020,Muhammad Anwar,Muhammad Anwar,100.0,6415,4813
 GBA-17,2020,Rehmat Khaliq,Rehmat Khaliq,100.0,5389,5074
 GBA-18,2020,Gulbar Khan,Gulbar Khan,100.0,6793,4401
-GBA-20,2020,Nazir Ahmed,Nazir Ahmad,90.9,5592,5582
 GBA-21,2020,Ghulam Muhammad,Ghulam Muhammad,100.0,4609,4334
 GBA-22,2020,Mushtaq Hussain,Mushtaq Hussain,100.0,6051,5360
 GBA-23,2020,Abdul Hameed,Abdul Hameed,100.0,3666,3657
+GBA-23,2020,Amina Ansari,Amina Bibi Ansari,82.8,3296,3210
 GBA-24,2020,Engr Mohammad Ismail,Engr Mohammad Ismail,100.0,6239,6239

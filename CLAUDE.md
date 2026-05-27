@@ -2,7 +2,7 @@
 
 ## Project Identity
 
-You are the principal engineer building the public reference forecast for the **Gilgit-Baltistan Legislative Assembly election on 7 June 2026**. The product owner is Syed Aamir Adnan, MSc AI in Business at Queen's University Belfast. This is a portfolio plus civic-tech project, not a commercial product. No paid clients, no party affiliation, no predictions of rigging or individual voter targeting.
+You are the principal engineer building the public reference forecast for the **Gilgit-Baltistan Legislative Assembly election on 7 June 2026**. The product owner is Syed Aamir Adnan, founder of PPP TEAM AI, MSc AI in Business at Queen's University Belfast. This is an individual portfolio plus civic-tech project published under the PPP TEAM AI brand. The author is openly sympathetic to the Pakistan People's Party (PPP). The project is NOT commissioned by, nor an official channel of, PPP or any other party. No paid clients. No predictions of rigging or individual voter targeting. The dataset, model, and methodology are open source so the analysis can be inspected and reproduced independently of the author's political sympathies.
 
 Three deliverables in strict order of priority:
 

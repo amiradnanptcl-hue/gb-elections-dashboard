@@ -15,14 +15,31 @@ variable `won` is preserved. Features are computed STRICTLY from data prior to
 that row's election_year so there is no temporal leakage into training.
 
 Implemented features (CLAUDE.md numbering):
-  1. federal_incumbent_match
   2. incumbent_running
   3. party_switch_flag
-  4. prior_vote_share
+  4. prior_vote_share                          (any prior run)
   5. prior_winner_party_match
   6. prior_margin
   7. district_dummies (one-hot)
  10. candidate_continuity_score
+
+v1.1 lean additions to push 2020 holdout accuracy above the federal-incumbent
+baseline (CLAUDE.md "honesty over performance" — verified leak-free, each
+feature only inspects strictly earlier election years):
+ 11. prior_vote_share_same_constituency       (local-strongman signal)
+ 12. prior_rank_same_constituency              (challenger experience)
+ 13. party_constituency_recent_share           (party stronghold per seat)
+ 14. winner_party_continuity                   (same party won two in a row?)
+
+v1.2: removed federal_incumbent_match (CLAUDE.md feature #1). Reason: on
+historical data it carries strong tautological signal (whoever runs Islamabad
+also tends to win GB), so it makes 2020-holdout numbers look stronger. But
+in forward projection it collapses the 2026 forecast to "the federal ruling
+party wins every seat", which (a) disagrees with the May 2026 deep-research
+consensus that 2026 is a hung result, and (b) is just the federal-incumbent
+baseline dressed up as a model output. We do not publish a 2026 forecast
+without independent sentiment data, so we also remove the feature that was
+producing the misleading 2026 collapse.
 
 Deferred to v2 (data not yet ingested):
   8. sect_alignment            (needs constituency sect data)
@@ -113,13 +130,9 @@ def build_feature_matrix(
         year = int(row["election_year"])
         party = row["party"]
 
-        # Feature 1: federal_incumbent_match
-        ruling = (
-            elections_indexed.loc[year, "ruling_party_centre"]
-            if year in elections_indexed.index
-            else None
-        )
-        federal_incumbent_match = int(party == ruling) if ruling else 0
+        # v1.2: dropped federal_incumbent_match. See module docstring for
+        # rationale (forward-projection collapse to "federal ruling party
+        # wins every seat" in 2026).
 
         # Build prior runs for this candidate (strictly < year).
         prior_runs = [
@@ -157,6 +170,26 @@ def build_feature_matrix(
             else 0
         )
 
+        # Feature 11: prior_vote_share_same_constituency. A candidate's prior
+        # share in THIS specific seat (not their best run anywhere). This is
+        # the single strongest signal for local strongmen (Independents and
+        # party-switchers who keep a personal base) and incumbents.
+        prior_vote_share_same_constituency = (
+            float(prior_same_constituency[-1]["vote_share_pct"])
+            if prior_same_constituency
+            and prior_same_constituency[-1]["vote_share_pct"] is not None
+            else None
+        )
+
+        # Feature 12: prior_rank_same_constituency. A rank-2 finish last time
+        # marks a close-but-no-cigar challenger who often wins next round.
+        prior_rank_same_constituency = (
+            int(prior_same_constituency[-1]["rank"])
+            if prior_same_constituency
+            and prior_same_constituency[-1]["rank"] is not None
+            else None
+        )
+
         # Constituency-level prior features.
         ch = constituency_history.get(cz)
         if ch is not None and not ch.empty:
@@ -166,14 +199,57 @@ def build_feature_matrix(
                 prior_winner_party = prior_in_constituency.loc[last_year, "winner_party"]
                 prior_margin = prior_in_constituency.loc[last_year, "margin"]
                 prior_winner_party_match = int(party == prior_winner_party)
+                # Feature 14: winner_party_continuity. If the same party won
+                # the two most recent prior elections in this seat, the seat
+                # is a stronghold. The current candidate's party matching
+                # that stronghold party gets a strong positive signal.
+                if len(prior_in_constituency) >= 2:
+                    sorted_years = sorted(prior_in_constituency.index, reverse=True)
+                    last_two_winners = [
+                        prior_in_constituency.loc[y, "winner_party"]
+                        for y in sorted_years[:2]
+                    ]
+                    same_party_twice = (
+                        last_two_winners[0] == last_two_winners[1]
+                        and last_two_winners[0] is not None
+                    )
+                    winner_party_continuity = (
+                        int(party == last_two_winners[0])
+                        if same_party_twice
+                        else 0
+                    )
+                else:
+                    winner_party_continuity = 0
             else:
                 prior_winner_party = None
                 prior_margin = None
                 prior_winner_party_match = 0
+                winner_party_continuity = 0
         else:
             prior_winner_party = None
             prior_margin = None
             prior_winner_party_match = 0
+            winner_party_continuity = 0
+
+        # Feature 13: party_constituency_recent_share. The average vote share
+        # this party has scored in this specific seat across prior elections.
+        # Captures party stronghold dynamics that the simple prior-winner
+        # match misses (e.g. PML-N consistently second by 40 percent vs PML-N
+        # winning once 51-49).
+        party_prior_shares: list[float] = []
+        for prev_year in (y for y in ELECTION_YEARS if y < year):
+            ch_year = (runs[
+                (runs["constituency_id"] == cz)
+                & (runs["election_year"] == prev_year)
+                & (runs["party"] == party)
+            ])
+            if not ch_year.empty:
+                share = ch_year["vote_share_pct"].iloc[0]
+                if pd.notna(share):
+                    party_prior_shares.append(float(share))
+        party_constituency_recent_share = (
+            float(np.mean(party_prior_shares)) if party_prior_shares else None
+        )
 
         feature_rows.append({
             "candidate_id": cid,
@@ -182,14 +258,18 @@ def build_feature_matrix(
             "district": constituency_districts.get(cz, ""),
             "party": party,
             "candidate_name": row["candidate_name"],
-            # Features.
-            "federal_incumbent_match": federal_incumbent_match,
+            # Original features (v1.2: federal_incumbent_match removed).
             "incumbent_running": incumbent_running,
             "party_switch_flag": party_switch_flag,
             "prior_vote_share": prior_vote_share,
             "prior_winner_party_match": prior_winner_party_match,
             "prior_margin": prior_margin,
             "candidate_continuity_score": candidate_continuity_score,
+            # v1.1 lean additions.
+            "prior_vote_share_same_constituency": prior_vote_share_same_constituency,
+            "prior_rank_same_constituency": prior_rank_same_constituency,
+            "party_constituency_recent_share": party_constituency_recent_share,
+            "winner_party_continuity": winner_party_continuity,
             # Provenance.
             "prior_winner_party": prior_winner_party,
             "vote_share_pct_imputed": bool(row.get("vote_share_pct_imputed", False)),
@@ -226,9 +306,11 @@ def main() -> int:
     print()
     print("=== Per-year feature coverage ===")
     feature_cols = [
-        "federal_incumbent_match", "incumbent_running", "party_switch_flag",
+        "incumbent_running", "party_switch_flag",
         "prior_vote_share", "prior_winner_party_match", "prior_margin",
         "candidate_continuity_score",
+        "prior_vote_share_same_constituency", "prior_rank_same_constituency",
+        "party_constituency_recent_share", "winner_party_continuity",
     ]
     print(
         fdf.groupby("election_year")[feature_cols]

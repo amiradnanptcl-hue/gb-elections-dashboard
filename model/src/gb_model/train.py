@@ -45,18 +45,42 @@ matplotlib.use("Agg")
 warnings.filterwarnings("ignore", category=UserWarning)
 
 NUMERIC_FEATURES = [
-    "federal_incumbent_match",
+    # v1.2: federal_incumbent_match removed. Without 2026 sentiment data we
+    # do not publish a 2026 per-constituency forecast, and the only feature
+    # producing the "PML-N wins every seat" collapse was federal_incumbent_
+    # match. Dropping it also forces the historical model to lean on
+    # candidate-personal and seat-specific signal instead of the
+    # tautological "centre party also wins GB" pattern.
     "incumbent_running",
     "party_switch_flag",
     "prior_vote_share",
     "prior_winner_party_match",
     "prior_margin",
     "candidate_continuity_score",
+    # v1.1 lean additions, see features.py for derivation.
+    "prior_vote_share_same_constituency",
+    "prior_rank_same_constituency",
+    "party_constituency_recent_share",
+    "winner_party_continuity",
 ]
+
+# Columns that are NaN when a candidate has no prior history in this seat
+# (or no prior runs at all). We zero-impute and add a paired *_missing
+# indicator so the model can distinguish "0 percent share" from "never ran".
+IMPUTABLE_FEATURES = (
+    "prior_vote_share",
+    "prior_margin",
+    "prior_vote_share_same_constituency",
+    "prior_rank_same_constituency",
+    "party_constituency_recent_share",
+)
 
 DISTRICT_FEATURE_PREFIX = "district_"
 
-C_GRID = (0.05, 0.1, 0.5, 1.0, 2.0, 5.0)
+# Widened C grid: the original (0.05 to 5.0) range never selected stronger
+# regularisation, but with twice the feature count the optimum often shifts
+# down. Lower bound 0.01 lets the model under-fit if features are noisy.
+C_GRID = (0.01, 0.05, 0.1, 0.25, 0.5, 1.0, 2.0, 5.0)
 N_BOOTSTRAP = 1000
 BOOTSTRAP_SEED = 42
 
@@ -78,7 +102,7 @@ def _prepare_features(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     # Missingness indicators only where it is informative; constant features
     # like federal_incumbent_match never miss in this dataset.
-    for col in ("prior_vote_share", "prior_margin"):
+    for col in IMPUTABLE_FEATURES:
         out[f"{col}_missing"] = out[col].isna().astype(int)
         out[col] = out[col].fillna(0.0)
     return out
@@ -86,14 +110,21 @@ def _prepare_features(df: pd.DataFrame) -> pd.DataFrame:
 
 def _feature_columns(df: pd.DataFrame) -> list[str]:
     district_cols = [c for c in df.columns if c.startswith(DISTRICT_FEATURE_PREFIX)]
-    return NUMERIC_FEATURES + [
-        "prior_vote_share_missing", "prior_margin_missing",
-    ] + district_cols
+    missing_cols = [f"{c}_missing" for c in IMPUTABLE_FEATURES]
+    return NUMERIC_FEATURES + missing_cols + district_cols
 
 
 def _build_pipeline() -> Pipeline:
     # sklearn 1.8 deprecated penalty='elasticnet'; the new API infers elastic net
     # from setting l1_ratio in (0, 1). l1_ratio=0.5 matches CLAUDE.md's spec.
+    #
+    # NOTE on class_weight: we deliberately do NOT use class_weight='balanced'
+    # here. The target is candidate-level binary "won", but the metric we
+    # report is per-seat argmax-across-candidates. Balancing the loss against
+    # the rare positive class distorts the relative probabilities WITHIN a
+    # seat (e.g. boosts all losing candidates equally) and was empirically
+    # worsening 2020 holdout accuracy. See ./training_report.json for the
+    # A/B comparison.
     return Pipeline([
         ("scaler", StandardScaler(with_mean=True, with_std=True)),
         (
@@ -101,7 +132,7 @@ def _build_pipeline() -> Pipeline:
             LogisticRegression(
                 solver="saga",
                 l1_ratio=0.5,
-                max_iter=5000,
+                max_iter=10000,
                 random_state=42,
             ),
         ),
@@ -179,18 +210,29 @@ def _calibration_plot(
 
 
 def _per_constituency_accuracy(predictions: pd.DataFrame) -> tuple[int, int]:
+    """Count seats where the model's argmax candidate is the actual winner.
+
+    Critical detail: the input dataframe is sorted by rank, which means rank 1
+    (the actual winner) sits at the top of each constituency's block. If the
+    model collapses many candidates to identical probabilities, a plain
+    `idxmax` would tie-break by row order and silently rate "winner picked"
+    for a degenerate model. We shuffle each constituency's rows with a fixed
+    seed before argmax so ties resolve at random and the reported number
+    reflects real discriminating power.
+    """
     n_correct = 0
-    constituencies = predictions["constituency_id"].unique()
-    for cz in constituencies:
-        cz_rows = predictions[predictions["constituency_id"] == cz]
-        if cz_rows.empty:
+    n_seats = 0
+    rng = np.random.default_rng(BOOTSTRAP_SEED)
+    for cz, group in predictions.groupby("constituency_id"):
+        if group["actual_won"].sum() == 0:
             continue
-        predicted_winner = cz_rows.loc[cz_rows["pred_proba"].idxmax(), "candidate_id"]
-        actual_winner = cz_rows.loc[cz_rows["actual_won"].idxmax(), "candidate_id"]
-        if cz_rows["actual_won"].sum() == 0:
-            continue
+        # Shuffle indices so ties are broken uniformly at random.
+        shuffled = group.iloc[rng.permutation(len(group))]
+        predicted_winner = shuffled.loc[shuffled["pred_proba"].idxmax(), "candidate_id"]
+        actual_winner = shuffled.loc[shuffled["actual_won"].idxmax(), "candidate_id"]
         n_correct += int(predicted_winner == actual_winner)
-    return n_correct, len(constituencies)
+        n_seats += 1
+    return n_correct, n_seats
 
 
 def train_and_evaluate(features_path: Path, artefacts_dir: Path) -> TrainOutputs:

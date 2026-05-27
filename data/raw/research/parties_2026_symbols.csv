@@ -1,0 +1,21 @@
+party_id,canonical_party_id,party_name,candidate_count_2026,election_symbol,icon_asset,notes
+ANP,ANP,Awami National Party,1,Lantern,anp_lantern.svg,
+AP,AP,Awaam/Awami Pakistan,1,Wall Clock,ap_wall_clock.svg,New entry for 2026
+AWP,AWP,Awami Workers Party,4,Bulb,awp_bulb.svg,
+MML,MML,Central / Markazi Muslim League,1,Chair,mml_chair.svg,New entry for 2026
+IND,Independent,Independent Candidates,272,Variable,independent_symbol_variable.svg,Each independent receives a unique allotted symbol from the ECGB
+ITP,ITP,Islami Tehreek Pakistan,10,Two Swords,itp_two_swords.svg,
+IPP,IPP,Istehkam-e-Pakistan Party,15,Eagle,ipp_eagle.svg,
+JI,JI,Jamaat-e-Islami Pakistan,6,Scale,ji_scale.svg,
+JUI,JUI-F,Jamiat Ulema-e-Islam,9,Book,jui_book.svg,Canonical id JUI-F in this repo
+MWM,MWM,Majlis Wahdat-e-Muslimeen Pakistan,7,Tent,mwm_tent.svg,
+MQM_P,MQM,Muttahida Qaumi Movement Pakistan,6,Kite,mqmp_kite.svg,
+PML,PML,Pakistan Muslim League,11,Tractor,pml_tractor.svg,Faction unspecified
+PML_Q,PML-Q,Pakistan Muslim League-Quaid,1,Bicycle,pmlq_bicycle.svg,Verify symbol from Form-33
+PML_N,PML-N,Pakistan Muslim League-Nawaz,22,Tiger,pmln_tiger.svg,
+PNP,PNP,Pakistan Nazriyati Party,10,Railway Engine,pnp_railway_engine.svg,New entry for 2026
+PPPP,PPP,Pakistan Peoples Party Parliamentarians,23,Arrow,pppp_arrow.svg,Canonical id PPP in this repo
+PPP_TOWER,PPP-TOWER,PPP Tower Group,1,Tower,ppp_tower_pending.svg,Splinter group; verify from Form-33 before final training
+SIC,SIC,Sunni Ittehad Council,1,Horse,sic_horse.svg,New entry for 2026
+TTPP,TTPP,Tehreek Tahafuz Pakistan Party,1,Revolver,ttpp_revolver.svg,New entry for 2026
+TLP,TLP,Tehreek-e-Labbaik Pakistan,1,Crane,tlp_crane.svg,

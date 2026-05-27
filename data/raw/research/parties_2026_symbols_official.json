@@ -1,0 +1,40 @@
+{
+  "election": {
+    "name": "Gilgit-Baltistan Assembly Elections 2026",
+    "region": "Gilgit-Baltistan",
+    "symbol_type": "official_ballot_election_symbols",
+    "important_note": "Use election symbols, not party flags. Independent candidates have individual symbols and should not be mapped to one party icon.",
+    "official_symbol_sheet_url": "https://ecgb.gov.pk/storage/attachments/P60sv18v3lIzEcgBl3XooTUChhAKMXyqLj7h2FwZ.jpg",
+    "official_independent_symbols_sheet_url": "https://ecgb.gov.pk/storage/attachments/ZiSvNKGXOagYqNitD3uchdaeAObLurOOvxOFoXuW.jpg",
+    "ecp_symbol_allocation_pdf_2026": "https://ecp.gov.pk/storage/files/2/PF%20wing/13-1-2026/List%20of%20Allotted%20Symbols%2013-1-2026.pdf"
+  },
+  "parties": [
+    {"party_id": "pppp", "party_name": "Pakistan Peoples Party Parliamentarians", "short_name": "PPPP", "candidate_count_gb_2026": 23, "symbol": "Arrow", "symbol_code": 12, "verification_status": "officially_allocated"},
+    {"party_id": "pmln", "party_name": "Pakistan Muslim League (N)", "short_name": "PML-N", "candidate_count_gb_2026": 22, "symbol": "Tiger", "symbol_code": 284, "verification_status": "officially_allocated"},
+    {"party_id": "ipp", "party_name": "Istehkam-e-Pakistan Party", "short_name": "IPP", "candidate_count_gb_2026": 15, "symbol": "Eagle", "symbol_code": 93, "verification_status": "officially_allocated"},
+    {"party_id": "pml", "party_name": "Pakistan Muslim League", "short_name": "PML", "candidate_count_gb_2026": 11, "symbol": "Tractor", "symbol_code": 292, "verification_status": "officially_allocated"},
+    {"party_id": "pmlq", "party_name": "Pakistan Muslim League-Quaid", "short_name": "PML-Q", "candidate_count_gb_2026": 1, "symbol": "Tractor", "symbol_code": 292, "verification_status": "use_with_caution", "note": "Official ECP allocation lists Pakistan Muslim League with Tractor; PML and PML-Q effectively share the registered symbol."},
+    {"party_id": "itp", "party_name": "Islami Tehreek Pakistan", "short_name": "ITP", "candidate_count_gb_2026": 10, "symbol": "Two Swords", "symbol_code": 307, "verification_status": "officially_allocated"},
+    {"party_id": "pakistan_nazriyati_party", "party_name": "Pakistan Nazriyati Party", "short_name": "PNP", "candidate_count_gb_2026": 10, "symbol": "Railway Engine", "symbol_code": 216, "verification_status": "officially_allocated"},
+    {"party_id": "jui", "party_name": "Jamiat Ulama-e-Islam Pakistan", "short_name": "JUI", "candidate_count_gb_2026": 9, "symbol": "Book", "symbol_code": 31, "verification_status": "officially_allocated"},
+    {"party_id": "mwm", "party_name": "Majlis Wahdat-e-Muslimeen Pakistan", "short_name": "MWM", "candidate_count_gb_2026": 7, "symbol": "Tent", "symbol_code": 282, "verification_status": "officially_allocated"},
+    {"party_id": "ji", "party_name": "Jamaat-e-Islami Pakistan", "short_name": "JI", "candidate_count_gb_2026": 6, "symbol": "Scale", "symbol_code": 232, "verification_status": "officially_allocated"},
+    {"party_id": "mqm_p", "party_name": "Muttahida Qomi Movement Pakistan", "short_name": "MQM-P", "candidate_count_gb_2026": 6, "symbol": "Kite", "symbol_code": 159, "verification_status": "officially_allocated"},
+    {"party_id": "awp", "party_name": "Awami Workers Party", "short_name": "AWP", "candidate_count_gb_2026": 4, "symbol": "Bulb", "symbol_code": 40, "verification_status": "officially_allocated"},
+    {"party_id": "anp", "party_name": "Awami National Party", "short_name": "ANP", "candidate_count_gb_2026": 1, "symbol": "Lantern", "symbol_code": 162, "verification_status": "officially_allocated"},
+    {"party_id": "awaam_pakistan", "party_name": "Awaam Pakistan", "short_name": "AP", "candidate_count_gb_2026": 1, "symbol": "Clock", "symbol_code": 60, "verification_status": "officially_allocated"},
+    {"party_id": "central_muslim_league", "party_name": "Pakistan Markazi Muslim League", "short_name": "CML", "candidate_count_gb_2026": 1, "symbol": "Chair", "symbol_code": 55, "verification_status": "officially_allocated"},
+    {"party_id": "tehreek_tahafuz_pakistan", "party_name": "Tehreek-e-Tahafuz-e-Pakistan", "short_name": "TTPP", "candidate_count_gb_2026": 1, "symbol": "Revolver", "symbol_code": 218, "verification_status": "officially_allocated"},
+    {"party_id": "sic", "party_name": "Sunni Ittehad Council", "short_name": "SIC", "candidate_count_gb_2026": 1, "symbol": "Horse", "symbol_code": 137, "verification_status": "officially_allocated"},
+    {"party_id": "tlp", "party_name": "Tehreek Labbaik Pakistan", "short_name": "TLP", "candidate_count_gb_2026": 1, "symbol": "Crane", "symbol_code": 71, "verification_status": "officially_allocated"},
+    {"party_id": "ppp_tower_group", "party_name": "PPP Tower Group", "short_name": "PPP Tower", "candidate_count_gb_2026": 1, "symbol": "Tower", "symbol_code": 291, "verification_status": "needs_form_33_confirmation", "note": "Confirm exact symbol from final RO/ECGB Form-33 before production use."}
+  ],
+  "independents": {
+    "category_id": "independent",
+    "display_name": "Independent Candidates",
+    "candidate_count_gb_2026": 272,
+    "symbol_rule": "candidate_specific",
+    "important_note": "Do not assign one common independent icon. Each independent candidate receives a separate symbol from the independent-candidate symbol sheet.",
+    "official_independent_symbols_sheet_url": "https://ecgb.gov.pk/storage/attachments/ZiSvNKGXOagYqNitD3uchdaeAObLurOOvxOFoXuW.jpg"
+  }
+}
