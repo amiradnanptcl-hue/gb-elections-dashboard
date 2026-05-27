@@ -1,0 +1,93 @@
+{
+  "model_version": "v1-party-slate",
+  "election_date": "2026-06-07",
+  "federal_incumbent": "PML-N",
+  "total_general_seats": 24,
+  "parties_scored": [
+    "PPP",
+    "PML-N",
+    "PTI",
+    "JUI-F",
+    "MWM",
+    "ITP",
+    "BNF-N",
+    "PML-Q",
+    "Independent"
+  ],
+  "point_estimate_seats": {
+    "PPP": 0,
+    "PML-N": 24,
+    "PTI": 0,
+    "JUI-F": 0,
+    "MWM": 0,
+    "ITP": 0,
+    "BNF-N": 0,
+    "PML-Q": 0,
+    "Independent": 0
+  },
+  "bootstrap_80_ci_seats": {
+    "PPP": {
+      "median": 0.0,
+      "p10": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "PML-N": {
+      "median": 24.0,
+      "p10": 24.0,
+      "p90": 24.0,
+      "mean": 24.0
+    },
+    "PTI": {
+      "median": 0.0,
+      "p10": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "JUI-F": {
+      "median": 0.0,
+      "p10": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "MWM": {
+      "median": 0.0,
+      "p10": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "ITP": {
+      "median": 0.0,
+      "p10": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "BNF-N": {
+      "median": 0.0,
+      "p10": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "PML-Q": {
+      "median": 0.0,
+      "p10": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    },
+    "Independent": {
+      "median": 0.0,
+      "p10": 0.0,
+      "p90": 0.0,
+      "mean": 0.0
+    }
+  },
+  "n_bootstrap": 1000,
+  "forecast_is_informative": false,
+  "honest_finding": "Without candidate-level features, the model collapses to the federal-incumbent baseline. It predicts the federal ruling party (PML-N for 2026) wins every constituency, which is essentially the same prediction the 11-of-24 baseline gave us on the 2020 holdout. This is NOT a useful constituency-level forecast. We are publishing the numbers transparently rather than pretending they have predictive power they do not have.",
+  "caveats": [
+    "Per-candidate features set to neutral (no information) because the 2026 candidate slate is not yet published in a machine-readable form.",
+    "Probabilities represent 'if this party fields a competitive candidate here, our estimate of their win probability', NOT a calibrated forecast for the actual 2026 election.",
+    "Once the candidate list is available, individual-candidate features (incumbent_running, party_switch_flag, prior_vote_share) will refine these predictions.",
+    "2020 holdout accuracy of model v1 was 12 of 24 (50 percent), only marginally above the federal-incumbent baseline."
+  ]
+}

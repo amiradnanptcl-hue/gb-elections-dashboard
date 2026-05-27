@@ -1,0 +1,17 @@
+{
+  "model_version": "v1",
+  "training_years": [
+    2009,
+    2015
+  ],
+  "test_year": 2020,
+  "best_c": 0.1,
+  "cv_brier_train": 0.1344,
+  "train_brier": 0.1309,
+  "test_brier": 0.2122,
+  "test_constituency_accuracy": 0.5,
+  "test_constituencies_total": 24,
+  "test_constituencies_correct": 12,
+  "baseline_2020_accuracy": 0.4583,
+  "baseline_2020_correct": 11
+}

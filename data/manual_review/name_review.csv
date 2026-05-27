@@ -1,0 +1,14 @@
+constituency_id,election_year,name_a,name_b,score
+GBA-2,2015,Hafiz Hafeez Ur Rehman,Habib Ur Rehman,77.4
+GBA-3,2020,Muhammad Shafi,Muhammad Nafees,75.9
+GBA-4,2009,Muhammad Ali Akhtar,Muhammad Ali,77.4
+GBA-4,2015,Doctor Muhammad Ali Haidar,Ali Muhammad,77.4
+GBA-4,2015,Ali Muhammad,Muhammad Javid,84.6
+GBA-4,2015,Ali Muhammad,Muhammad Ali Akhtar,77.4
+GBA-10,2020,Raja Nasir Ali Khan,Raja Nasir Ali Khan Maqpoon,77.8
+GBA-13,2015,Ghulam Abbas,Ghulam Akbar,83.3
+GBA-14,2020,Shamsul Haq,Shamsul Haq Lone,81.5
+GBA-16,2015,Attaullah,Atiqullah,77.8
+GBA-17,2015,Atta Ullah,Atiq Ullah,80.0
+GBA-18,2015,Gulbar Khan,Dilbar Khan,81.8
+GBA-23,2020,Amina Ansari,Amina Bibi Ansari,82.8

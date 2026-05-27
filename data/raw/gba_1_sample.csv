@@ -1,0 +1,10 @@
+constituency_id,election_year,rank,candidate_name,party,votes,vote_share_pct,won,source_url,fetched_at
+GBA-1,2009,1,Syed Raziuddin Rizvi,Independent,10012,,True,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,2026-05-26T15:09:09Z
+GBA-1,2015,1,Jafarullah Khan,Pakistan Muslim League (N),7171,36.39,True,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,2026-05-26T15:09:09Z
+GBA-1,2015,2,Amjad Hussain Azar,Pakistan Peoples Party,6297,31.96,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,2026-05-26T15:09:09Z
+GBA-1,2015,3,Syed Nizam Ud Din Shah,Independent,2285,11.59,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,2026-05-26T15:09:09Z
+GBA-1,2015,4,Muhammad Ilyas Siddiqui,Majlis-e-Wahdat-e-Muslimeen,2109,10.7,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,2026-05-26T15:09:09Z
+GBA-1,2020,1,Amjad Hussain Azar,Pakistan Peoples Party,11178,,True,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,2026-05-26T15:09:09Z
+GBA-1,2020,2,Maulana Sultan Rais,Independent,8356,,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,2026-05-26T15:09:09Z
+GBA-1,2020,3,Johar Ali,Pakistan Tehreek-e-Insaf,2000,,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,2026-05-26T15:09:09Z
+GBA-1,2020,4,Jafarullah Khan,Pakistan Muslim League (N),85,,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,2026-05-26T15:09:09Z

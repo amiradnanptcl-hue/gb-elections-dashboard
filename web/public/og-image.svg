@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="60" height="60" rx="12" fill="#059669"/>
+  <text x="140" y="106" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="600" fill="#e2e8f0">GB Forecast 2026</text>
+  <text x="60" y="260" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700" fill="#f8fafc">Gilgit-Baltistan</text>
+  <text x="60" y="340" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700" fill="#f8fafc">Election 2026</text>
+  <text x="60" y="420" font-family="Inter, system-ui, sans-serif" font-size="30" fill="#94a3b8">A public reference forecast</text>
+  <text x="60" y="465" font-family="Inter, system-ui, sans-serif" font-size="30" fill="#94a3b8">for the 7 June 2026 election.</text>
+  <text x="60" y="555" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#10b981">Cleaned dataset · Open model · Honest uncertainty</text>
+</svg>

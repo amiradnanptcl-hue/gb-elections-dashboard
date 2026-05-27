@@ -1,0 +1,49 @@
+constituency_id,election_year,rank,candidate_name,party,votes,vote_share_pct,won,source_url,fetched_at
+GBA-1,2020,1,Amjad Hussain Azar,PPP,11178,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-1,2020,2,Sultan Rais,IND,8356,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-2,2020,1,Fatehullah Khan,PTI,6698,27.16,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-2,2020,2,Jamil Ahmed,PPP,6694,27.14,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-3,2020,1,Syed Sohail Abbas Shah,PTI,6873,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-3,2020,2,Muhammad Iqbal,IND,4678,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-4,2020,1,Amjad Hussain Azar,PPP,4716,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-4,2020,2,Muhammad Ayub,ITP,4291,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-5,2020,1,Javed Ali Manwa,IND,2570,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-5,2020,2,Rizwan Ali,MWM,1850,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-6,2020,1,Abaid Ullah Baig,PTI,5710,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-6,2020,2,Noor Muhammad,IND,4683,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-7,2020,1,Raja Muhammad Zakaria Khan Maqpoon,PTI,5565,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-7,2020,2,Syed Mehdi Shah,PPP,4113,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-8,2020,1,Muhammad Kazim Maisam,MWM,7842,35.35,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-8,2020,2,Syed M. Ali Shah,PPP,6904,31.12,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-9,2020,1,Wazir Muhammad Saleem,IND,6286,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-9,2020,2,Fida Muhammad Nashad,PTI,5187,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-10,2020,1,Raja Nasir Ali Khan Maqpoon,IND,4811,27.18,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-10,2020,2,Wazir Hassan,PTI,3439,19.43,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-11,2020,1,Syed Amjad Ali Zaidi,PTI,5733,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-11,2020,2,Syed Muhsin Rizvi,IND,2016,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-12,2020,1,Raja Azam Khan Amacha,PTI,10674,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-12,2020,2,Imran Nadeem,PPP,8886,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-13,2020,1,Muhammad Khalid Khurshid Khan,PTI,4836,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-13,2020,2,Abdul Hamid Khan,PPP,3117,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-14,2020,1,Shamsul Haq,PTI,5354,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-14,2020,2,Muzaffar Ali,PPP,3473,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-15,2020,1,Shah Baig,IND,2713,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-15,2020,2,Muhammad Dilpazir,IND,2309,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-16,2020,1,Muhammad Anwar,PML(N),4813,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-16,2020,2,Attaullah,IND,2576,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-17,2020,1,Rehmat Khaliq,JUI(F),5389,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-17,2020,2,Haider Khan,PTI,5126,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-18,2020,1,Gulbar Khan,PTI,6793,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-18,2020,2,Malik Kifayat Ur Rehman,IND,5986,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-19,2020,1,Nawaz Khan Naji,BNF(N),6208,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-19,2020,2,Pir Jalal Ali Shah,PPP,4967,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-20,2020,1,Nazir Ahmed,PTI,5592,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-20,2020,2,Khan Akbar Khan,PML(Q),3815,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-21,2020,1,Ghulam Muhammad,PML(N),4334,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-21,2020,2,M. Ayub Shah,PPP,3430,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-22,2020,1,Mushtaq Hussain,IND,6051,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-22,2020,2,M. Ibrahim Sanai,PTI,4945,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-23,2020,1,Abdul Hameed,IND,3666,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-23,2020,2,Amina Ansari,PTI,3296,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-24,2020,1,Engr Mohammad Ismail,PPP,6239,,True,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached
+GBA-24,2020,2,Syed Shamsuddin,PTI,5361,,False,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached

@@ -1,0 +1,240 @@
+constituency_id,election_year,rank,candidate_name,party,votes,vote_share_pct,won,source_url,fetched_at
+GBA-1,2009,1,Syed Raziuddin Rizvi,Independent,10012,,True,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,cached
+GBA-1,2015,1,Jafarullah Khan,Pakistan Muslim League (N),7171,36.39,True,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,cached
+GBA-1,2015,2,Amjad Hussain Azar,Pakistan Peoples Party,6297,31.96,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,cached
+GBA-1,2015,3,Syed Nizam Ud Din Shah,Independent,2285,11.59,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,cached
+GBA-1,2015,4,Muhammad Ilyas Siddiqui,Majlis-e-Wahdat-e-Muslimeen,2109,10.7,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,cached
+GBA-1,2020,1,Amjad Hussain Azar,Pakistan Peoples Party,11178,,True,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,cached
+GBA-1,2020,2,Maulana Sultan Rais,Independent,8356,,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,cached
+GBA-1,2020,3,Johar Ali,Pakistan Tehreek-e-Insaf,2000,,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,cached
+GBA-1,2020,4,Jafarullah Khan,Pakistan Muslim League (N),85,,False,https://en.wikipedia.org/wiki/GBA-1_Gilgit-I,cached
+GBA-2,2009,1,Deedar Ali,Independent,5486,25.34,True,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2009,2,Jamil Ahmad,PPPP,4782,22.09,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2009,3,Hafiz Hafeezur Rehman,PML-N,4563,21.08,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2009,4,Muhammad Aslam,PML (Q),2180,10.07,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2009,5,Altaf Hussain,MQM,281,1.27,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,1,Hafiz Hafeez Ur Rehman,PML-N,10739,48.29,True,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,2,Jamil Ahmad,PPPP,7176,32.27,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,3,Fatehullah Khan,PTI,2561,11.51,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,4,Habib Ur Rehman,JI,844,3.79,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,5,Faqeer Shah,Independent,683,3.62,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,6,Karim Khan,APML,583,2.62,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,7,Tariq Hussain,MQM,278,1.25,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,8,Parveen Ghazi,Independent,16,0.07,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,9,Muhammad Mazhar Abbas,MWM,8,0.03,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,10,Shukat Alam,PAT,3,0.01,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2015,11,Moulana Mujahid,JUI-F,1,0.0,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2020,1,Fatehullah Khan,Pakistan Tehreek-e-Insaf,6860,,True,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2020,2,Jamil Ahmad,Pakistan Peoples Party,6764,,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2020,3,Hafiz Hafeezur Rehman,Pakistan Muslim League (N),5820,,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2020,4,Nasir Mir,Pakistan Muslim League (Q),1540,,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2020,5,Ghulam Shah,Independent,1355,,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2020,6,Habib ur Rehman,Jamaat-e-Islami Pakistan,825,,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2020,7,Ashfaq Hussain,Independent,704,,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-2,2020,8,Faqeer Shah,Islami Tehreek Pakistan,494,,False,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached
+GBA-3,2009,1,Aftab Haider,Pakistan Peoples Party,6214,,True,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2015,1,Doctor Muhammad Iqbal,PML (N),7852,36.14,True,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2015,2,Muhammad Shafi Khan,ITP,4555,20.96,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2015,3,Aftab Haider,PPP,4207,19.36,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2015,4,Allama Nayyar Abbas Mustfavi,MWM,3612,16.62,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2015,5,Saeed Ur Rehman,JUI-F,839,3.86,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2015,6,Sher Ghazi,PTI,619,2.85,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2015,7,Capt(Rtd.) Hadi Hussain,MQM,44,0.2,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2020,1,Syed Sohail Abbas Shah,Pakistan Tehreek-e-Insaf,6807,,True,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2020,2,Muhammad Iqbal,Independent,4855,,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2020,3,Muhammad Shafi,Pakistan Muslim League (Q),4754,,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2020,4,Aftab Haider,Pakistan Peoples Party,3799,,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2020,5,Zulfiqar Ali Tatu,Pakistan Muslim League (N),2726,,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2020,6,Sanan Ahmad,Independent,1821,,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2020,7,Sher Ghazi,Independent,1136,,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2020,8,Muhammad Nafees,Independent,256,,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-3,2020,9,Maulana Akbar Hussain,Pak Sarzameen Party,180,,False,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached
+GBA-4,2009,1,Muhammad Ali Akhtar,PPP,3890,34.26,True,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-4,2009,2,Muhammad Ali,Independent,3717,32.74,False,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-4,2009,3,Fida Hussain,Independent,2126,18.72,False,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-4,2009,4,Muhammad Hassan,MQM,821,7.23,False,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-4,2009,5,Fida Ali,Independent,746,6.57,False,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-4,2015,1,Doctor Muhammad Ali Haidar,ITP,5039,37.16,True,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-4,2015,2,Kashif Ali,PPP,4091,30.17,False,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-4,2015,3,Ali Muhammad,MWN,3014,22.22,False,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-4,2015,4,Haji Fida Hussain,PML-N,1361,10.04,False,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-4,2015,5,Muhammad Javid,PTI,46,0.34,False,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-4,2015,6,Muhammad Ali Akhtar,Independent,11,0.08,False,https://en.wikipedia.org/wiki/GBA-4_Nagar-I,cached
+GBA-5,2009,1,Mirza Hussain,PML(Q),1890,35.6,True,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2009,2,Zulfiqar Ali Murad,PPP,1739,32.76,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2009,3,Kalb Ali,Independent,794,14.96,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2009,4,Prince Barkat Ali,Independent,390,7.35,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2009,5,Abdul Karim,MQM,384,7.23,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2009,6,Sajjad Hussian,Independent,111,2.09,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2015,1,Doctor Rizwan Ali,MWM,2141,29.03,True,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2015,2,Prince Qasim Ali Khan,Independent,1546,20.97,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2015,3,Haji Qalab Ali,PML-N,1376,18.66,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2015,4,Zulfiqar Ali Murad,PPP,1304,17.68,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2015,5,Mirza Hussain,PTI,1001,13.57,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2015,6,Sheikh Mirza Ali,ITP,5,0.67,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2015,7,Muhammad Issa,APML,1,0.01,False,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-5,2020,1,Javed Ali Manwa,Independent,2570,,True,https://en.wikipedia.org/wiki/GBA-5_Nagar-II,cached
+GBA-6,2009,1,Wazir Baig,PPPP,5270,28.79,True,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2009,2,Kamil Jan,MQM,4124,22.09,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2009,3,Noor Muhammad,Independent,3703,19.84,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2009,4,Prince Sher Yar Khan,PML-N,1360,7.86,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2009,5,Arif Hussain,Independent,1098,5.89,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2009,6,Rehmatullah Baig,PML (Q),734,3.93,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2009,7,Raja Shahbaz Khan,Independent,539,2.89,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2015,1,Mir Ghazanfar Ali Khan,PML-N,8245,40.01,True,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2015,2,Baba Jan,Awami Workers Party (AWP),4641,22.55,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2015,3,Zafar Iqbal,PPPP,3501,17.49,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2015,4,Izhar Hunzai,PTI,2291,11.13,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2015,5,Sheikh Musa Karimi,MWM,1041,5.06,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2015,6,Aman Ullah,APML,254,1.23,False,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-6,2020,1,Abaid Ullah Baig,Pakistan Tehreek-e-Insaf,5624,,True,https://en.wikipedia.org/wiki/GBA-6_Hunza,cached
+GBA-7,2009,1,Syed Mehdi Shah,PPPP,6997,62.98,True,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2009,2,Prince Sher Yar Khan,PML-Q,1360,12.24,False,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2009,3,Raja Zikria Maqpoon,MQM,1276,11.49,False,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2009,4,Fida Muhammad Nishad,Independent,307,2.76,False,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2015,1,M. Akbar Khan,PML-N,3331,28.48,True,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2015,2,Raja Jalal Hussain Maqpoon,PTI,3330,28.47,False,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2015,3,Syed Mehdi Shah,PPPP,2693,23.02,False,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2015,4,"Gh, Shehzad Agha",ITP,925,7.91,False,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2015,5,Zahid Hussain,MWM,713,6.09,False,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2015,6,Muzzafar Hussain,Independent,265,2.27,False,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2015,7,Kamal Hussain,APML,179,1.53,False,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-7,2020,1,Raja Zakarya Maqoon,Pakistan Tehreek-e-Insaf,5290,,True,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached
+GBA-8,2009,1,Sheikh Nisar,PPPP,8077,44.61,True,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-8,2009,2,Syed Muhammad Ali Shah,Independent,5036,27.45,False,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-8,2009,3,Ghulam Nabi,Independent,4608,25.12,False,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-8,2009,4,Nisar Khan,MQM,205,1.18,False,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-8,2015,1,Kacho Imtiaz Haider Khan,MWM,10411,42.58,True,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-8,2015,2,Syed Mohammad Ali Shah,PML-N,4841,19.83,False,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-8,2015,3,Syed Mohammad Abbas Rizvi,ITP,2945,12.04,False,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-8,2015,4,Nisar Hussain Sarbaz,PPPP,2485,10.16,False,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-8,2015,5,Muhammad Zakir,PTI,445,1.82,False,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-8,2015,6,Farman Ali,Independent,381,1.56,False,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-8,2020,1,Muhammad Maisam Kazim,Majlis Wahdat-e-Muslimeen,7998,,True,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached
+GBA-9,2009,1,Wazir Shakeel,Pakistan Peoples Party,6432,,True,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached
+GBA-9,2015,1,Fida Muhammad Nashad,PML-N,6246,50.1,True,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached
+GBA-9,2015,2,Wazir Muhammad Saleem,MWM,5554,44.55,False,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached
+GBA-9,2015,3,Ghulam Raza Haidri,PPP,462,3.71,False,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached
+GBA-9,2015,4,Syed Mohammad Abbas Rizvi,ITP,48,0.39,False,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached
+GBA-9,2015,5,Ali Kazim,PTI,13,0.1,False,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached
+GBA-9,2015,6,Syed Abbas Almosvi,APML,13,0.1,False,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached
+GBA-9,2020,1,Wazir Muhammad Saleem,Pakistan Tehreek-e-Insaf,6865,,True,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached
+GBA-10,2009,1,Wazir Hussain,Pakistan Peoples Party,3578,,True,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-10,2015,1,Capt. (r) Sikander,ITP,4949,32.44,True,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-10,2015,2,Raja Nasir Ali Khan,MWM,4933,32.34,False,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-10,2015,3,Wazir Hassan,PPP,3057,20.04,False,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-10,2015,4,Ghulam Abbas,PML-N,1522,9.98,False,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-10,2015,5,Manzoor Hussain,Independent,383,2.51,False,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-10,2015,6,Jalil Haider,Independent,148,0.97,False,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-10,2015,7,Ali Hassan,MQM,134,0.88,False,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-10,2015,8,Najaf Ali,PTI,118,0.77,False,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-10,2015,9,Syed Abbas Almosvi,APML,10,0.07,False,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-10,2020,1,Raja Nasir Ali Khan,Independent,5124,,True,https://en.wikipedia.org/wiki/GBA-10_Skardu-IV,cached
+GBA-11,2009,1,Syed Muhammad Ali Shah Rizvi,Pakistan Peoples Party,3145,,True,https://en.wikipedia.org/wiki/GBA-11_Kharmang,cached
+GBA-11,2015,1,Iqbal Hassan,PML-N,5165,40.86,True,https://en.wikipedia.org/wiki/GBA-11_Kharmang,cached
+GBA-11,2015,2,Syed Amjad Ali Zaidi,PTI,4985,39.44,False,https://en.wikipedia.org/wiki/GBA-11_Kharmang,cached
+GBA-11,2015,3,Shujaat Hussain Mesam,MWM,2424,19.18,False,https://en.wikipedia.org/wiki/GBA-11_Kharmang,cached
+GBA-11,2015,4,Kazim Saleem,Independent,24,0.19,False,https://en.wikipedia.org/wiki/GBA-11_Kharmang,cached
+GBA-11,2015,5,Syed Akbar Shah,ITP,18,0.14,False,https://en.wikipedia.org/wiki/GBA-11_Kharmang,cached
+GBA-11,2015,6,Muzaffar Hussain,APML,12,0.09,False,https://en.wikipedia.org/wiki/GBA-11_Kharmang,cached
+GBA-11,2015,7,Niaz Ali,PPP,9,0.07,False,https://en.wikipedia.org/wiki/GBA-11_Kharmang,cached
+GBA-11,2015,8,Ghulam Muhhamd Parvi,Independent,3,0.02,False,https://en.wikipedia.org/wiki/GBA-11_Kharmang,cached
+GBA-11,2020,1,Syed Amjad Ali Zaidi,Pakistan Tehreek-e-Insaf,6858,,True,https://en.wikipedia.org/wiki/GBA-11_Kharmang,cached
+GBA-12,2009,1,Raja Muhammad Azam Khan,MQM,10520,54.4,True,https://en.wikipedia.org/wiki/GBA-12_Shigar,cached
+GBA-12,2009,2,Imran Nadeem,PPP,8818,45.59,False,https://en.wikipedia.org/wiki/GBA-12_Shigar,cached
+GBA-12,2015,1,Imran Nadeem,PPP,10422,46.05,True,https://en.wikipedia.org/wiki/GBA-12_Shigar,cached
+GBA-12,2015,2,Raja Azam Khan,PML-N,9930,43.88,False,https://en.wikipedia.org/wiki/GBA-12_Shigar,cached
+GBA-12,2015,3,Dr Muhammad Ali,MWM,2183,9.65,False,https://en.wikipedia.org/wiki/GBA-12_Shigar,cached
+GBA-12,2015,4,Abid Hussain,PAT,97,0.43,False,https://en.wikipedia.org/wiki/GBA-12_Shigar,cached
+GBA-12,2020,1,Raja Azam Khan Amacha,PTI,10621,,True,https://en.wikipedia.org/wiki/GBA-12_Shigar,cached
+GBA-12,2020,2,Imran Nadeem,PPP,8919,,False,https://en.wikipedia.org/wiki/GBA-12_Shigar,cached
+GBA-12,2020,3,Muhammad Tahir,PML N,5433,,False,https://en.wikipedia.org/wiki/GBA-12_Shigar,cached
+GBA-12,2020,4,Muhammad Hassan,PML Q,488,,False,https://en.wikipedia.org/wiki/GBA-12_Shigar,cached
+GBA-13,2009,1,Abdul Hameed Khan,PPP,3771,37.77,True,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2009,2,Rana Farman Ali,PML(N),3546,35.52,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2009,3,Khalid Khurshid,Independent,2667,26.71,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2015,1,Rana Farman Ali,PML(N),5942,36.95,True,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2015,2,Khalid Khurshid,Independent,4019,24.99,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2015,3,Abdul Hameed Khan,PPP,3808,23.68,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2015,4,Ghulam Abbas,Independent,1750,10.88,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2015,5,Ghulam Akbar,MWM,453,2.82,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2015,6,Sanaullah,PTI,49,0.31,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2015,7,Inayatullah Mir,JUI (F),4,0.03,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2020,1,Khalid Khurshid,PTI,5297,32.5,True,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2020,2,Rana Farman Ali,PML(N),4033,24.75,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2020,3,Abdul Hameed Khan,PPP,3546,21.75,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-13,2020,4,Ghulam Abbas,Independent,2251,13.81,False,https://en.wikipedia.org/wiki/GBA-13_Astore-I,cached
+GBA-14,2009,1,Muhammad Naseer,Pakistan People's Party,1915,,True,https://en.wikipedia.org/wiki/GBA-14_Astore-II,cached
+GBA-14,2015,1,Barkat Jamil,Pakistan Muslim League (N),,,True,https://en.wikipedia.org/wiki/GBA-14_Astore-II,cached
+GBA-14,2020,1,Shamsul Haq Lone,Pakistan Tehreek-e-Insaf,5237,,True,https://en.wikipedia.org/wiki/GBA-14_Astore-II,cached
+GBA-15,2009,1,Bashir Ahmed,Pakistan Muslim League (Q),2356,,True,https://en.wikipedia.org/wiki/GBA-15_Diamer-I,cached
+GBA-15,2015,1,Haji Shah Baig,JUI-F,3713,,True,https://en.wikipedia.org/wiki/GBA-15_Diamer-I,cached
+GBA-15,2015,2,Fida Ullah,PPP,3557,,False,https://en.wikipedia.org/wiki/GBA-15_Diamer-I,cached
+GBA-15,2015,3,Noshad Alam,PTI,3534,,False,https://en.wikipedia.org/wiki/GBA-15_Diamer-I,cached
+GBA-15,2020,1,Haji Shah Baig,Independent,2779,,True,https://en.wikipedia.org/wiki/GBA-15_Diamer-I,cached
+GBA-16,2009,1,Janbaz Khan,Pakistan Muslim League (N),2403,,True,https://en.wikipedia.org/wiki/GBA-16_Diamer-II,cached
+GBA-16,2015,1,Janbaz Khan,PML-N,3327,21.83,True,https://en.wikipedia.org/wiki/GBA-16_Diamer-II,cached
+GBA-16,2015,2,Abdul Aziz,Independent,3109,20.4,False,https://en.wikipedia.org/wiki/GBA-16_Diamer-II,cached
+GBA-16,2015,3,Attaullah,Independent,2918,19.15,False,https://en.wikipedia.org/wiki/GBA-16_Diamer-II,cached
+GBA-16,2015,4,Dilbar Khan,PPP,2011,13.19,False,https://en.wikipedia.org/wiki/GBA-16_Diamer-II,cached
+GBA-16,2015,5,Atiqullah,PTI,1486,9.75,False,https://en.wikipedia.org/wiki/GBA-16_Diamer-II,cached
+GBA-16,2020,1,Muhammad Anwar,Pakistan Muslim League (N),6415,,True,https://en.wikipedia.org/wiki/GBA-16_Diamer-II,cached
+GBA-17,2009,1,Rehmat Khaliq,Jamiat Ulema-e-Islam (F),4403,,True,https://en.wikipedia.org/wiki/GBA-17_Diamer-III,cached
+GBA-17,2015,1,Barkat Jamil,PML-N,3622,31.56,True,https://en.wikipedia.org/wiki/GBA-17_Diamer-III,cached
+GBA-17,2015,2,Abdul Aziz,Independent,3162,27.56,False,https://en.wikipedia.org/wiki/GBA-17_Diamer-III,cached
+GBA-17,2015,3,Atta Ullah,Independent,3068,26.74,False,https://en.wikipedia.org/wiki/GBA-17_Diamer-III,cached
+GBA-17,2015,4,Dilbar Khan,PPP,2031,17.69,False,https://en.wikipedia.org/wiki/GBA-17_Diamer-III,cached
+GBA-17,2015,5,Atiq Ullah,PTI,1558,13.58,False,https://en.wikipedia.org/wiki/GBA-17_Diamer-III,cached
+GBA-17,2020,1,Rehmat Khaliq,Jamiat Ulema-e-Islam (F),5074,,True,https://en.wikipedia.org/wiki/GBA-17_Diamer-III,cached
+GBA-18,2009,1,Gulbar Khan,Jamiat Ulema-e-Islam (F),2741,,True,https://en.wikipedia.org/wiki/GBA-18_Diamer-IV,cached
+GBA-18,2015,1,Muhammad Wakeel,PML-N,3761,52.04,True,https://en.wikipedia.org/wiki/GBA-18_Diamer-IV,cached
+GBA-18,2015,2,Gulbar Khan,JUI F,2438,33.74,False,https://en.wikipedia.org/wiki/GBA-18_Diamer-IV,cached
+GBA-18,2015,3,Shakrat Khan,PPP,828,11.46,False,https://en.wikipedia.org/wiki/GBA-18_Diamer-IV,cached
+GBA-18,2015,4,Dilbar Khan,PTI,88,1.22,False,https://en.wikipedia.org/wiki/GBA-18_Diamer-IV,cached
+GBA-18,2020,1,Gulbar Khan,Pakistan Tehreek-e-Insaf,4401,,True,https://en.wikipedia.org/wiki/GBA-18_Diamer-IV,cached
+GBA-19,2009,1,Karam Ali Shah,Pakistan People's Party,,,True,https://en.wikipedia.org/wiki/GBA-19_Ghizer-I,cached
+GBA-19,2015,1,Nawaz Khan Naji,BNF,5259,26.99,True,https://en.wikipedia.org/wiki/GBA-19_Ghizer-I,cached
+GBA-19,2015,2,Shakeel Ahmad,PML-N,5158,26.98,False,https://en.wikipedia.org/wiki/GBA-19_Ghizer-I,cached
+GBA-19,2015,3,Zaffar Muhammad,Independent,5135,26.35,False,https://en.wikipedia.org/wiki/GBA-19_Ghizer-I,cached
+GBA-19,2015,4,Niamat Shah,PTI,1667,8.55,False,https://en.wikipedia.org/wiki/GBA-19_Ghizer-I,cached
+GBA-19,2015,5,Syed Madad Shah,APML,1010,5.18,False,https://en.wikipedia.org/wiki/GBA-19_Ghizer-I,cached
+GBA-19,2015,6,Badr-U-Din,PPP,909,4.66,False,https://en.wikipedia.org/wiki/GBA-19_Ghizer-I,cached
+GBA-20,2009,1,Ali Madad Sher,Pakistan Peoples Party,3206,,True,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached
+GBA-20,2015,1,Fida Khan,Independent,4991,24.74,True,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached
+GBA-20,2015,2,Sultan Madad,PML-N,3362,16.66,False,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached
+GBA-20,2015,3,Nadir Khan,Independent,2423,12.01,False,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached
+GBA-20,2015,4,Ali Madad Sher,PPP,2048,10.15,False,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached
+GBA-20,2015,5,Abdul Khaliq,Independent,1835,9.09,False,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached
+GBA-20,2015,6,Noor Wali Khan,APML,1529,7.58,False,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached
+GBA-20,2015,7,Atta-ur-Rehman,PTI,1286,6.37,False,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached
+GBA-20,2020,1,Nazir Ahmad,Pakistan Tehreek-e-Insaf,5582,,True,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached
+GBA-21,2009,1,Muhammad Ayub Shah,Independent,3206,,True,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached
+GBA-21,2015,1,Raja Jahanzaib,PTI,7252,39.17,True,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached
+GBA-21,2015,2,Ghulam Muhammad,PML-N,5602,30.26,False,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached
+GBA-21,2015,3,Muhammad Ayub Shah,PPP,4081,22.04,False,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached
+GBA-21,2015,4,Jamsheed khan,APML,887,4.79,False,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached
+GBA-21,2015,5,Nadir Khan,PAT,304,1.64,False,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached
+GBA-21,2015,6,Abdul Khaliq,MQM,150,0.81,False,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached
+GBA-21,2015,7,Muhammad Aziz,JUI-F,6,0.03,False,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached
+GBA-21,2020,1,Ghulam Muhammad,Pakistan Muslim League (N),4609,,True,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached
+GBA-22,2009,1,Muhammad Jaffer,Pakistan Peoples Party,3772,,True,https://en.wikipedia.org/wiki/GBA-22_Ghanche-I,cached
+GBA-22,2015,1,Muhammad Ibrahim Sanai,PML-N,11382,85.95,True,https://en.wikipedia.org/wiki/GBA-22_Ghanche-I,cached
+GBA-22,2015,2,Amina Bibi Ansari,PTI,1860,14.05,False,https://en.wikipedia.org/wiki/GBA-22_Ghanche-I,cached
+GBA-22,2020,1,Mushtaq Hussain,Independent,5360,,True,https://en.wikipedia.org/wiki/GBA-22_Ghanche-I,cached
+GBA-23,2009,1,Mufti Muhammad Abdullah,Pakistan Muslim League (N),4240,,True,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached
+GBA-23,2015,1,Ghulam Hussain,PML(N),6657,50.91,True,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached
+GBA-23,2015,2,Amina Bibi Ansari,PTI,5710,43.67,False,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached
+GBA-23,2015,3,Zuhair Ahmad Khan,MQM,227,1.74,False,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached
+GBA-23,2015,4,Shereen Fatima,PPP,182,1.39,False,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached
+GBA-23,2015,5,Khadim Hussain,PAT,140,1.07,False,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached
+GBA-23,2020,1,Abdul Hameed,Independent,3657,28.15,True,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached
+GBA-23,2020,2,Amina Bibi Ansari,PTI,3210,24.05,False,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached
+GBA-23,2020,3,Asif Advocate,Independent,2527,20.74,False,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached
+GBA-23,2020,4,Ghulam Ali Haideri,PPP,2182,17.03,False,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached
+GBA-24,2015,1,Mohammad Shafiq,PML-N,5226,45.98,True,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached
+GBA-24,2015,2,Engr Mohammad Ismail,PPP,5193,45.69,False,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached
+GBA-24,2015,3,Muhammad Ishaq Saqib,MWM,948,8.33,False,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached
+GBA-24,2020,1,Engr Mohammad Ismail,PPP,6239,49.45,True,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached
+GBA-24,2020,2,Syed Shams ud Din,PTI,5666,44.91,False,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached
+GBA-24,2020,3,Muhammad Ibrahim,PML,403,1.3,False,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached
+GBA-24,2020,4,Manzoor Hussain,PML(N),305,1.0,False,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached
