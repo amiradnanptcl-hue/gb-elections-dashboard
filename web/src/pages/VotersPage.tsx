@@ -273,14 +273,19 @@ export function VotersPage() {
                   <th className="px-4 py-3 font-medium text-right">Female</th>
                   <th className="px-4 py-3 font-medium text-right">Male</th>
                   <th className="px-4 py-3 font-medium text-right">Female %</th>
+                  <th className="px-4 py-3 font-medium text-right">Male %</th>
                 </tr>
               </thead>
               <tbody>
                 {[...districtVoters]
                   .sort((a, b) => b.total_voters_2026 - a.total_voters_2026)
                   .map((d) => {
+                    // Compute both percentages from the same denominator so
+                    // the row always sums to 100% (within rounding).
                     const femalePct =
                       (d.female_voters_2026 / d.total_voters_2026) * 100;
+                    const malePct =
+                      (d.male_voters_2026 / d.total_voters_2026) * 100;
                     return (
                       <tr
                         key={d.district}
@@ -300,6 +305,9 @@ export function VotersPage() {
                         </td>
                         <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
                           {formatPercent(femalePct, 1)}
+                        </td>
+                        <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
+                          {formatPercent(malePct, 1)}
                         </td>
                       </tr>
                     );
@@ -338,6 +346,20 @@ export function VotersPage() {
                     {formatPercent(
                       (districtVoters.reduce(
                         (s, d) => s + d.female_voters_2026,
+                        0,
+                      ) /
+                        districtVoters.reduce(
+                          (s, d) => s + d.total_voters_2026,
+                          0,
+                        )) *
+                        100,
+                      1,
+                    )}
+                  </td>
+                  <td className="px-4 py-3 text-right font-mono tabular">
+                    {formatPercent(
+                      (districtVoters.reduce(
+                        (s, d) => s + d.male_voters_2026,
                         0,
                       ) /
                         districtVoters.reduce(
