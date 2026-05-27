@@ -47,11 +47,36 @@ NAME_TITLES = frozenset({
 })
 
 
+# Mirror of pipeline/gb_pipeline/clean.py TRANSLITERATION_CANON. Keeping
+# the two in sync ensures the within-race dedup and cross-year cluster
+# both treat Ahmad / Ahmed (and similar) as the same token.
+TRANSLITERATION_CANON: dict[str, str] = {
+    "ahmed": "ahmad",
+    "mohammed": "muhammad",
+    "mohammad": "muhammad",
+    "mohamed": "muhammad",
+    "mohamad": "muhammad",
+    "hussein": "hussain",
+    "hossain": "hussain",
+    "hasan": "hassan",
+    "hafeez": "hafiz",
+    "rahman": "rehman",
+    "kazem": "kazim",
+    "zakarya": "zakaria",
+    "zakariya": "zakaria",
+    "abdull": "abdul",
+    "ghulaam": "ghulam",
+}
+
+
 def _strip_titles(name: str) -> str:
     # Treat hyphens, underscores, and periods as token separators so that
-    # 'Hafeez-ur-Rehman' tokenises the same as 'Hafeez ur Rehman'.
+    # 'Hafeez-ur-Rehman' tokenises the same as 'Hafeez ur Rehman'. Also
+    # canonicalise transliteration variants so 'Ahmad' and 'Ahmed' compare
+    # identically.
     text = name.replace("-", " ").replace("_", " ").replace(".", "").lower()
     tokens = [t for t in text.split() if t not in NAME_TITLES]
+    tokens = [TRANSLITERATION_CANON.get(t, t) for t in tokens]
     return " ".join(tokens) if tokens else text
 
 

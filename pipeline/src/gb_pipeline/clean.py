@@ -72,11 +72,42 @@ COMMON_NAME_TOKENS = frozenset({
 })
 
 
+# Transliteration variants of common Arabic / Urdu names that arrive from
+# different sources (Wikipedia uses one spelling, the ECGB another). We
+# canonicalise to one form BEFORE comparing token sets so "Jamil Ahmad" and
+# "Jamil Ahmed" hash identically and the dedup catches them. Verified
+# against the 2020 cleaned candidate_runs.
+TRANSLITERATION_CANON: dict[str, str] = {
+    "ahmed": "ahmad",
+    "mohammed": "muhammad",
+    "mohammad": "muhammad",
+    "mohamed": "muhammad",
+    "mohamad": "muhammad",
+    "hussein": "hussain",
+    "hossain": "hussain",
+    "hasan": "hassan",
+    "hafeez": "hafiz",
+    "rahman": "rehman",
+    "ur": "ur",  # noop, but keeps 'Hafiz ur Rehman' aligned
+    "kazim": "kazim",
+    "kazem": "kazim",
+    "zakarya": "zakaria",
+    "zakariya": "zakaria",
+    "abdul": "abdul",
+    "abdull": "abdul",
+    "ghulam": "ghulam",
+    "ghulaam": "ghulam",
+}
+
+
 def _strip_titles(name: str) -> str:
     # Treat hyphens and underscores as token separators so 'Hafeez-ur-Rehman'
-    # tokenises the same as 'Hafeez ur Rehman'.
+    # tokenises the same as 'Hafeez ur Rehman'. Also canonicalise
+    # transliteration variants (Ahmad / Ahmed, Muhammad / Mohammed, etc.)
+    # so the dedup predicate compares identical token sets across spellings.
     text = name.replace("-", " ").replace("_", " ").replace(".", "").lower()
     tokens = [t for t in text.split() if t not in NAME_TITLES]
+    tokens = [TRANSLITERATION_CANON.get(t, t) for t in tokens]
     return " ".join(tokens) if tokens else text
 
 

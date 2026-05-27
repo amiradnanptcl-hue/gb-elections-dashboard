@@ -167,7 +167,10 @@ export function MapPage() {
                   >
                     <Card className="hover:bg-[color:var(--color-muted)]/40 transition-colors h-full">
                       <CardContent className="py-5 space-y-4">
-                        {/* Header */}
+                        {/* Header. The top-right badge is explicitly the
+                          2020 winner's party so it can't be read as a
+                          claim about who currently holds the seat or who
+                          is contesting in 2026. */}
                         <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0">
                             <p className="font-mono text-sm font-semibold">
@@ -178,15 +181,20 @@ export function MapPage() {
                             </p>
                           </div>
                           {winnerMeta && (
-                            <span className="winner-pulse rounded-md shrink-0">
-                              <PartyBadge
-                                party={winnerMeta.shortDisplay}
-                                color={winnerMeta.color}
-                                textOnColor={winnerMeta.textOnColor}
-                                flag={winnerMeta.flag}
-                                variant="row"
-                              />
-                            </span>
+                            <div className="flex flex-col items-end gap-1 shrink-0">
+                              <span className="text-[9px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)] font-bold">
+                                2020 winner
+                              </span>
+                              <span className="winner-pulse rounded-md">
+                                <PartyBadge
+                                  party={winnerMeta.shortDisplay}
+                                  color={winnerMeta.color}
+                                  textOnColor={winnerMeta.textOnColor}
+                                  flag={winnerMeta.flag}
+                                  variant="row"
+                                />
+                              </span>
+                            </div>
                           )}
                         </div>
 

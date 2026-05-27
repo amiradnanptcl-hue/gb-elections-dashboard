@@ -59,7 +59,7 @@ GBA-14,2009,1,Muhammad Naseer,PPP,1915.0,100.0,True,True,wikipedia_constituency_
 GBA-14,2015,1,Barkat Jamil,PML-N,,,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-14_Astore-II,cached,barkat-jamil
 GBA-14,2020,1,Shamsul Haq,PTI,5354.0,60.65,True,True,wikipedia_2020_summary+wikipedia_constituency_page,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,shamsul-haq
 GBA-14,2020,2,Muzaffar Ali,PPP,3473.0,39.35,True,False,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,muzaffar-ali
-GBA-15,2009,1,Bashir Ahmed,PML-Q,2356.0,100.0,True,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-15_Diamer-I,cached,bashir-ahmed
+GBA-15,2009,1,Bashir Ahmed,PML-Q,2356.0,100.0,True,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-15_Diamer-I,cached,bashir-ahmad
 GBA-15,2015,1,Haji Shah Baig,JUI-F,3713.0,34.37,True,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-15_Diamer-I,cached,shah-baig
 GBA-15,2015,2,Fida Ullah,PPP,3557.0,32.92,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-15_Diamer-I,cached,fida-ullah
 GBA-15,2015,3,Noshad Alam,PTI,3534.0,32.71,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-15_Diamer-I,cached,noshad-alam
@@ -102,7 +102,7 @@ GBA-2,2009,2,Jamil Ahmad,PPP,4782.0,22.09,False,False,wikipedia_constituency_pag
 GBA-2,2009,3,Hafiz Hafeezur Rehman,PML-N,4563.0,21.08,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,hafeezur-rehman
 GBA-2,2009,4,Muhammad Aslam,PML-Q,2180.0,10.07,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,muhammad-aslam
 GBA-2,2009,5,Altaf Hussain,MQM,281.0,1.27,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,altaf-hussain
-GBA-2,2015,1,Hafiz Hafeez Ur Rehman,PML-N,10739.0,48.29,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,hafeez-ur-rehman
+GBA-2,2015,1,Hafiz Hafeez Ur Rehman,PML-N,10739.0,48.29,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,hafiz-ur-rehman
 GBA-2,2015,2,Jamil Ahmad,PPP,7176.0,32.27,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,jamil-ahmad
 GBA-2,2015,3,Fatehullah Khan,PTI,2561.0,11.51,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,fatehullah-khan
 GBA-2,2015,4,Faqeer Shah,Independent,683.0,3.62,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,faqeer-shah
@@ -113,14 +113,13 @@ GBA-2,2015,8,Muhammad Mazhar Abbas,MWM,8.0,0.03,False,False,wikipedia_constituen
 GBA-2,2015,9,Shukat Alam,PAT,3.0,0.01,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,shukat-alam
 GBA-2,2015,10,Moulana Mujahid,JUI-F,1.0,0.0,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,moulana-mujahid
 GBA-2,2020,1,Fatehullah Khan,PTI,6860.0,27.16,False,True,wikipedia_constituency_page+wikipedia_2020_summary,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,fatehullah-khan
-GBA-2,2020,2,Jamil Ahmad,PPP,6764.0,21.78,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,jamil-ahmad
-GBA-2,2020,3,Jamil Ahmed,PPP,6694.0,27.14,False,False,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,jamil-ahmed
-GBA-2,2020,4,Hafiz Hafeezur Rehman,PML-N,5820.0,18.74,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,hafeezur-rehman
-GBA-2,2020,5,Nasir Mir,PML-Q,1540.0,4.96,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,nasir
-GBA-2,2020,6,Ghulam Shah,Independent,1355.0,4.36,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,ghulam-shah
-GBA-2,2020,7,Habib ur Rehman,JI,825.0,2.66,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,habib-ur-rehman
-GBA-2,2020,8,Ashfaq Hussain,Independent,704.0,2.27,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,ashfaq-hussain
-GBA-2,2020,9,Faqeer Shah,ITP,494.0,1.59,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,faqeer-shah
+GBA-2,2020,2,Jamil Ahmad,PPP,6764.0,27.14,False,False,wikipedia_constituency_page+wikipedia_2020_summary,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,jamil-ahmad
+GBA-2,2020,3,Hafiz Hafeezur Rehman,PML-N,5820.0,23.89,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,hafeezur-rehman
+GBA-2,2020,4,Nasir Mir,PML-Q,1540.0,6.32,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,nasir
+GBA-2,2020,5,Ghulam Shah,Independent,1355.0,5.56,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,ghulam-shah
+GBA-2,2020,6,Habib ur Rehman,JI,825.0,3.39,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,habib-ur-rehman
+GBA-2,2020,7,Ashfaq Hussain,Independent,704.0,2.89,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,ashfaq-hussain
+GBA-2,2020,8,Faqeer Shah,ITP,494.0,2.03,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-2_Gilgit-II,cached,faqeer-shah
 GBA-20,2009,1,Ali Madad Sher,PPP,3206.0,100.0,True,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached,ali-madad-sher
 GBA-20,2015,1,Fida Khan,Independent,4991.0,24.74,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached,fida-khan
 GBA-20,2015,2,Sultan Madad,PML-N,3362.0,16.66,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached,sultan-madad
@@ -129,9 +128,8 @@ GBA-20,2015,4,Ali Madad Sher,PPP,2048.0,10.15,False,False,wikipedia_constituency
 GBA-20,2015,5,Abdul Khaliq,Independent,1835.0,9.09,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached,abdul-khaliq
 GBA-20,2015,6,Noor Wali Khan,APML,1529.0,7.58,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached,noor-wali-khan
 GBA-20,2015,7,Atta-ur-Rehman,PTI,1286.0,6.37,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached,atta-ur-rehman
-GBA-20,2020,1,Nazir Ahmed,PTI,5592.0,37.31,True,True,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,nazir-ahmed
-GBA-20,2020,2,Nazir Ahmad,PTI,5582.0,37.24,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-20_Ghizer-II,cached,nazir-ahmad
-GBA-20,2020,3,Khan Akbar Khan,PML-Q,3815.0,25.45,True,False,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,m-akbar-khan
+GBA-20,2020,1,Nazir Ahmed,PTI,5592.0,59.45,True,True,wikipedia_2020_summary+wikipedia_constituency_page,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,nazir-ahmad
+GBA-20,2020,2,Khan Akbar Khan,PML-Q,3815.0,40.55,True,False,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,m-akbar-khan
 GBA-21,2009,1,Muhammad Ayub Shah,Independent,3206.0,100.0,True,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached,muhammad-ayub-shah
 GBA-21,2015,1,Raja Jahanzaib,PTI,7252.0,39.17,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached,jahanzaib
 GBA-21,2015,2,Ghulam Muhammad,PML-N,5602.0,30.26,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-21_Ghizer-III,cached,ghulam-muhammad
@@ -157,10 +155,10 @@ GBA-23,2020,1,Abdul Hameed,Independent,3666.0,28.15,False,True,wikipedia_2020_su
 GBA-23,2020,2,Amina Ansari,PTI,3296.0,24.05,False,False,wikipedia_2020_summary+wikipedia_constituency_page,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,amina-bibi-ansari
 GBA-23,2020,3,Asif Advocate,Independent,2527.0,20.74,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached,asif-advocate
 GBA-23,2020,4,Ghulam Ali Haideri,PPP,2182.0,17.03,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-23_Ghanche-II,cached,ghulam-ali-haideri
-GBA-24,2015,1,Mohammad Shafiq,PML-N,5226.0,45.98,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached,mohammad-shafiq
-GBA-24,2015,2,Engr Mohammad Ismail,PPP,5193.0,45.69,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached,mohammad-ismail
+GBA-24,2015,1,Mohammad Shafiq,PML-N,5226.0,45.98,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached,muhammad-shafiq
+GBA-24,2015,2,Engr Mohammad Ismail,PPP,5193.0,45.69,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached,muhammad-ismail
 GBA-24,2015,3,Muhammad Ishaq Saqib,MWM,948.0,8.33,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached,muhammad-ishaq-saqib
-GBA-24,2020,1,Engr Mohammad Ismail,PPP,6239.0,49.45,False,True,wikipedia_constituency_page+wikipedia_2020_summary,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached,mohammad-ismail
+GBA-24,2020,1,Engr Mohammad Ismail,PPP,6239.0,49.45,False,True,wikipedia_constituency_page+wikipedia_2020_summary,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached,muhammad-ismail
 GBA-24,2020,2,Syed Shams ud Din,PTI,5666.0,44.91,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached,shams-ud-din
 GBA-24,2020,3,Syed Shamsuddin,PTI,5361.0,29.83,True,False,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,shamsuddin
 GBA-24,2020,4,Muhammad Ibrahim,PML,403.0,1.3,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-24_Ghanche-III,cached,muhammad-ibrahim
@@ -175,7 +173,7 @@ GBA-3,2015,6,Sher Ghazi,PTI,619.0,2.85,False,False,wikipedia_constituency_page,h
 GBA-3,2015,7,Capt(Rtd.) Hadi Hussain,MQM,44.0,0.2,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached,capt-rtd-hadi-hussain
 GBA-3,2020,1,Syed Sohail Abbas Shah,PTI,6873.0,26.03,True,True,wikipedia_2020_summary+wikipedia_constituency_page,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,sohail-abbas-shah
 GBA-3,2020,2,Muhammad Iqbal,Independent,4855.0,18.39,True,False,wikipedia_constituency_page+wikipedia_2020_summary,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached,muhammad-iqbal
-GBA-3,2020,3,Muhammad Shafi,PML-Q,4754.0,18.01,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached,mohammad-shafiq
+GBA-3,2020,3,Muhammad Shafi,PML-Q,4754.0,18.01,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached,muhammad-shafiq
 GBA-3,2020,4,Aftab Haider,PPP,3799.0,14.39,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached,aftab-haider
 GBA-3,2020,5,Zulfiqar Ali Tatu,PML-N,2726.0,10.33,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached,zulfiqar-ali-tatu
 GBA-3,2020,6,Sanan Ahmad,Independent,1821.0,6.9,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-3_Gilgit-III,cached,sanan-ahmad
@@ -235,7 +233,7 @@ GBA-7,2015,5,Zahid Hussain,MWM,713.0,6.09,False,False,wikipedia_constituency_pag
 GBA-7,2015,6,Muzzafar Hussain,Independent,265.0,2.27,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached,muzaffar-hussain
 GBA-7,2015,7,Kamal Hussain,APML,179.0,1.53,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached,kamal-hussain
 GBA-7,2020,1,Raja Muhammad Zakaria Khan Maqpoon,PTI,5565.0,37.18,True,True,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,muhammad-zakaria-khan-maqpoon
-GBA-7,2020,2,Raja Zakarya Maqoon,PTI,5290.0,35.34,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached,zakarya-maqoon
+GBA-7,2020,2,Raja Zakarya Maqoon,PTI,5290.0,35.34,True,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-7_Skardu-I,cached,zakaria-maqoon
 GBA-7,2020,3,Syed Mehdi Shah,PPP,4113.0,27.48,True,False,wikipedia_2020_summary,https://en.wikipedia.org/wiki/2020_Gilgit-Baltistan_Assembly_election,cached,mehdi-shah
 GBA-8,2009,1,Sheikh Nisar,PPP,8077.0,44.61,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,sheikh-nisar
 GBA-8,2009,2,Syed Muhammad Ali Shah,Independent,5036.0,27.45,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,muhammad-ali-shah
@@ -243,7 +241,7 @@ GBA-8,2009,3,Ghulam Nabi,Independent,4608.0,25.12,False,False,wikipedia_constitu
 GBA-8,2009,4,Nisar Khan,MQM,205.0,1.18,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,nisar-khan
 GBA-8,2015,1,Kacho Imtiaz Haider Khan,MWM,10411.0,42.58,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,kacho-imtiaz-haider-khan
 GBA-8,2015,2,Syed Mohammad Ali Shah,PML-N,4841.0,19.83,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,muhammad-ali-shah
-GBA-8,2015,3,Syed Mohammad Abbas Rizvi,ITP,2945.0,12.04,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,mohammad-abbas-rizvi
+GBA-8,2015,3,Syed Mohammad Abbas Rizvi,ITP,2945.0,12.04,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,muhammad-abbas-rizvi
 GBA-8,2015,4,Nisar Hussain Sarbaz,PPP,2485.0,10.16,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,nisar-hussain-sarbaz
 GBA-8,2015,5,Muhammad Zakir,PTI,445.0,1.82,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,muhammad-zakir
 GBA-8,2015,6,Farman Ali,Independent,381.0,1.56,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-8_Skardu-II,cached,rana-farman-ali
@@ -253,7 +251,7 @@ GBA-9,2009,1,Wazir Shakeel,PPP,6432.0,100.0,True,True,wikipedia_constituency_pag
 GBA-9,2015,1,Fida Muhammad Nashad,PML-N,6246.0,50.1,False,True,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached,fida-muhammad-nashad
 GBA-9,2015,2,Wazir Muhammad Saleem,MWM,5554.0,44.55,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached,wazir-muhammad-saleem
 GBA-9,2015,3,Ghulam Raza Haidri,PPP,462.0,3.71,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached,ghulam-raza-haidri
-GBA-9,2015,4,Syed Mohammad Abbas Rizvi,ITP,48.0,0.39,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached,mohammad-abbas-rizvi
+GBA-9,2015,4,Syed Mohammad Abbas Rizvi,ITP,48.0,0.39,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached,muhammad-abbas-rizvi
 GBA-9,2015,5,Ali Kazim,PTI,13.0,0.1,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached,ali-kazim
 GBA-9,2015,6,Syed Abbas Almosvi,APML,13.0,0.1,False,False,wikipedia_constituency_page,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached,abbas-almosvi
 GBA-9,2020,1,Wazir Muhammad Saleem,PTI,6865.0,56.96,True,True,wikipedia_constituency_page+wikipedia_2020_summary,https://en.wikipedia.org/wiki/GBA-9_Skardu-III,cached,wazir-muhammad-saleem
