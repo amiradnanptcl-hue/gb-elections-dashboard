@@ -439,23 +439,6 @@ function CandidatesSection() {
       title={`${nominees.length} verified 2026 nominees across 24 seats`}
       caption="PTI is not on the 2026 ballot; its allotted ticket-holders contest as Independents or under the MWM flagship."
     >
-      <DownloadStrip
-        title="Download the 2026 candidate roster"
-        files={[
-          {
-            href: "/data/candidates_2026_known.json",
-            filename: "candidates_2026_known.json",
-            label: "Flat (one row per candidate)",
-            sizeKb: 19,
-          },
-          {
-            href: "/data/candidates_2026_by_constituency.json",
-            filename: "candidates_2026_by_constituency.json",
-            label: "Grouped by constituency (GBA-1 to GBA-24)",
-            sizeKb: 24,
-          },
-        ]}
-      />
       <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
         {grouped.map(([cz, list]) => (
           <Link
@@ -1191,74 +1174,6 @@ function VotersSection() {
         .
       </p>
     </SectionShell>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* Download strip — gives visitors a real file-download CTA per section */
-/* ------------------------------------------------------------------ */
-
-interface DownloadFile {
-  href: string;
-  filename: string;
-  label: string;
-  sizeKb: number;
-}
-
-/** Strip of one or more download buttons. Uses the HTML5 `download` attribute
- * so the browser saves the file to disk instead of opening it in a tab. CC-BY
- * 4.0 licence note printed below for re-use clarity. */
-function DownloadStrip({
-  title,
-  files,
-}: {
-  title: string;
-  files: DownloadFile[];
-}) {
-  return (
-    <section className="card-elevated card-accent-gold p-4 sm:p-5 space-y-3 relative top-edge">
-      <div className="flex items-baseline justify-between gap-3 flex-wrap">
-        <div className="space-y-0.5">
-          <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[color:var(--color-accent-gold)]">
-            Open data
-          </p>
-          <p className="font-display text-lg sm:text-xl leading-tight">
-            {title}
-          </p>
-        </div>
-        <p className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
-          JSON · CC-BY 4.0
-        </p>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {files.map((f) => (
-          <a
-            key={f.href}
-            href={f.href}
-            download={f.filename}
-            className="inline-flex items-center gap-2 px-3 py-2 rounded-md border border-[color:var(--color-accent-gold)]/40 bg-[color:var(--color-accent-gold-soft)]/30 hover:bg-[color:var(--color-accent-gold-soft)]/60 hover:border-[color:var(--color-accent-gold)] transition-colors text-sm font-medium"
-          >
-            <span aria-hidden>↓</span>
-            <span>{f.label}</span>
-            <span className="font-mono tabular text-[10px] text-[color:var(--color-muted-foreground)]">
-              {f.sizeKb} KB
-            </span>
-          </a>
-        ))}
-      </div>
-      <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-relaxed">
-        Reuse permitted under CC-BY 4.0. Please attribute to{" "}
-        <em>GB Elections Dashboard, published by PPP TEAM AI</em>, with a link
-        back to{" "}
-        <a
-          href="https://www.gbelections.com"
-          className="underline underline-offset-4 text-[color:var(--color-primary)]"
-        >
-          gbelections.com
-        </a>
-        .
-      </p>
-    </section>
   );
 }
 
