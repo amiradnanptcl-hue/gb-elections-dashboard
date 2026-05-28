@@ -17,7 +17,7 @@ keywords:
 license: MIT
 license-data: CC-BY-4.0
 repository-code: "https://github.com/amiradnanptcl-hue/gb-elections-dashboard"
-url: "https://gb-elections-dashboard.vercel.app"
+url: "https://www.gbelections.com"
 abstract: >
   A public-records dashboard and open dataset for the Gilgit-Baltistan
   Legislative Assembly elections of 2009, 2015, 2020, and 2026. Includes

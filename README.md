@@ -6,8 +6,8 @@
   <p><strong>A public-records dashboard for the Gilgit-Baltistan Legislative Assembly elections of 2009, 2015, 2020, and 2026.</strong></p>
 
   <p>
-    <a href="https://gb-elections-dashboard.vercel.app">
-      <img src="https://img.shields.io/badge/live-gb--elections--dashboard.vercel.app-0070f3?style=flat-square" alt="Live site" />
+    <a href="https://www.gbelections.com">
+      <img src="https://img.shields.io/badge/live-www.gbelections.com-0070f3?style=flat-square" alt="Live site" />
     </a>
     <a href="./LICENSE">
       <img src="https://img.shields.io/badge/code-MIT-22c55e?style=flat-square" alt="Code: MIT" />
@@ -19,7 +19,7 @@
     <img src="https://img.shields.io/badge/no--forecast-database%20only-64748b?style=flat-square" alt="Database only, no forecast" />
   </p>
 
-  <p><a href="https://gb-elections-dashboard.vercel.app"><strong>Open the live dashboard ↗</strong></a></p>
+  <p><a href="https://www.gbelections.com"><strong>Open the live dashboard ↗</strong></a></p>
 </div>
 
 ---
@@ -57,7 +57,7 @@ The dashboard covers four election cycles:
 
 | Item | Value |
 | --- | --- |
-| Live URL | [gb-elections-dashboard.vercel.app](https://gb-elections-dashboard.vercel.app) |
+| Live URL | [www.gbelections.com](https://www.gbelections.com) (also reachable at the legacy `gb-elections-dashboard.vercel.app`) |
 | Election date | 7 June 2026 (postponed from 24 January 2026) |
 | General seats | 24 |
 | Final 2026 candidate field | 403 (272 independents + 131 party-backed) |
