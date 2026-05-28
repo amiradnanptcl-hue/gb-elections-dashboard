@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import {
   useCandidateRuns,
   useConstituencies,
@@ -75,6 +75,30 @@ const VALID_SLUGS = new Set<string>(SECTIONS.map((s) => s.slug));
 
 function isSectionSlug(value: string | undefined): value is SectionSlug {
   return value != null && VALID_SLUGS.has(value);
+}
+
+/**
+ * Returns the props to spread on a <tr> so the whole row behaves as a link.
+ * Adds mouse click, keyboard activation (Enter / Space), a pointer cursor,
+ * and the right ARIA role + label for screen readers. Used by every table
+ * inside the Records page so a click anywhere on a row navigates to the
+ * relevant detail page.
+ */
+function useRowNav(to: string, ariaLabel: string) {
+  const navigate = useNavigate();
+  return {
+    onClick: () => navigate(to),
+    onKeyDown: (e: React.KeyboardEvent<HTMLTableRowElement>) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        navigate(to);
+      }
+    },
+    role: "link" as const,
+    tabIndex: 0,
+    "aria-label": ariaLabel,
+    className: "cursor-pointer",
+  };
 }
 
 export function RecordsPage() {
@@ -243,80 +267,88 @@ function ConstituenciesSection() {
     <SectionShell
       eyebrow="Constituency-wise"
       title="24 general seats at a glance"
-      caption="Tap a row to open that seat's detail page."
+      caption="Tap any card to open that seat's full constituency profile."
     >
-      <div className="overflow-x-auto rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/40">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)] border-b border-[color:var(--color-border)]">
-              <th className="px-4 py-3 font-medium">Seat</th>
-              <th className="px-4 py-3 font-medium">District</th>
-              <th className="px-4 py-3 font-medium text-right">
-                Registered 2020
-              </th>
-              <th className="px-4 py-3 font-medium">2020 winner</th>
-              <th className="px-4 py-3 font-medium text-right">
-                2026 nominees verified
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((c) => {
-              const s = summaryByCz.get(c.constituency_id);
-              const w = winners2020.get(c.constituency_id);
-              const wParty = w ? getParty(w.party) : null;
-              const n = nomineeCountByCz.get(c.constituency_id) ?? 0;
-              return (
-                <tr
-                  key={c.constituency_id}
-                  className="border-b border-[color:var(--color-border)] last:border-b-0 hover:bg-[color:var(--color-muted)]/30 transition-colors"
-                >
-                  <td className="px-4 py-3">
-                    <Link
-                      to={`/constituency/${c.constituency_id}`}
-                      className="inline-flex flex-col"
-                    >
-                      <span className="font-mono font-semibold">
-                        {c.constituency_id}
-                      </span>
-                      <span className="text-[11px] text-[color:var(--color-muted-foreground)]">
-                        {c.name}
-                      </span>
-                    </Link>
-                  </td>
-                  <td className="px-4 py-3 text-[color:var(--color-muted-foreground)]">
-                    {c.district}
-                  </td>
-                  <td className="px-4 py-3 text-right font-mono tabular">
+      <div className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {rows.map((c) => {
+          const s = summaryByCz.get(c.constituency_id);
+          const w = winners2020.get(c.constituency_id);
+          const wParty = w ? getParty(w.party) : null;
+          const n = nomineeCountByCz.get(c.constituency_id) ?? 0;
+          return (
+            <Link
+              key={c.constituency_id}
+              to={`/constituency/${c.constituency_id}`}
+              aria-label={`Open ${c.constituency_id} ${c.name} constituency profile`}
+              className="card-elevated card-accent-green p-4 sm:p-5 space-y-3 relative top-edge block group"
+            >
+              <div className="flex items-start justify-between gap-2">
+                <div className="min-w-0">
+                  <p className="font-mono font-semibold text-[color:var(--color-foreground)] group-hover:text-[color:var(--color-primary)] transition-colors">
+                    {c.constituency_id}
+                  </p>
+                  <p className="text-sm font-display leading-tight truncate">
+                    {c.name}
+                  </p>
+                </div>
+                <span className="shrink-0 text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
+                  {c.district}
+                </span>
+              </div>
+              <dl className="space-y-1.5 text-[12px]">
+                <div className="flex items-baseline justify-between gap-3">
+                  <dt className="text-[color:var(--color-muted-foreground)] uppercase tracking-[0.14em] text-[10px]">
+                    Registered 2020
+                  </dt>
+                  <dd className="font-mono tabular">
                     {s?.registered_voters != null
                       ? formatNumber(s.registered_voters)
                       : "—"}
-                  </td>
-                  <td className="px-4 py-3">
+                  </dd>
+                </div>
+                <div className="flex items-baseline justify-between gap-3">
+                  <dt className="text-[color:var(--color-muted-foreground)] uppercase tracking-[0.14em] text-[10px]">
+                    2020 winner
+                  </dt>
+                  <dd className="text-right min-w-0">
                     {w && wParty ? (
-                      <div className="flex flex-col">
-                        <span className="text-sm">{w.candidate_name}</span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="truncate max-w-[140px]">
+                          {w.candidate_name}
+                        </span>
                         <span
-                          className="text-[11px] font-bold uppercase tracking-[0.18em]"
+                          className="text-[10px] font-bold uppercase tracking-[0.16em]"
                           style={{ color: wParty.color }}
                         >
                           {wParty.shortDisplay}
                         </span>
-                      </div>
+                      </span>
                     ) : (
                       <span className="text-[color:var(--color-muted-foreground)]">
                         —
                       </span>
                     )}
-                  </td>
-                  <td className="px-4 py-3 text-right font-mono tabular font-semibold">
-                    {n}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                  </dd>
+                </div>
+                <div className="flex items-baseline justify-between gap-3">
+                  <dt className="text-[color:var(--color-muted-foreground)] uppercase tracking-[0.14em] text-[10px]">
+                    2026 nominees
+                  </dt>
+                  <dd className="font-mono tabular font-semibold">{n}</dd>
+                </div>
+              </dl>
+              <p className="pt-1 text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)] group-hover:text-[color:var(--color-primary)] transition-colors inline-flex items-center gap-1">
+                Open seat profile
+                <span
+                  aria-hidden
+                  className="transition-transform group-hover:translate-x-0.5"
+                >
+                  →
+                </span>
+              </p>
+            </Link>
+          );
+        })}
       </div>
     </SectionShell>
   );
@@ -433,62 +465,77 @@ function PartiesSection() {
             {field.map((p) => {
               const meta = getParty(p.id);
               return (
-                <tr
-                  key={p.id}
-                  className="border-b border-[color:var(--color-border)] last:border-b-0 hover:bg-[color:var(--color-muted)]/30 transition-colors"
-                >
-                  <td className="px-4 py-3">
-                    <Link
-                      to={`/party/${encodeURIComponent(p.id)}`}
-                      className="inline-flex items-center gap-2"
-                    >
-                      <img
-                        src={meta.flag}
-                        alt=""
-                        width="28"
-                        height="18"
-                        className="party-flag"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <span
-                        className="font-mono font-semibold"
-                        style={{ color: meta.color }}
-                      >
-                        {meta.shortDisplay}
-                      </span>
-                    </Link>
-                  </td>
-                  <td className="px-4 py-3 text-[color:var(--color-muted-foreground)]">
-                    {meta.display}
-                  </td>
-                  <td className="px-4 py-3">
-                    {meta.electionSymbol ? (
-                      <span className="inline-flex items-center gap-1.5">
-                        <span aria-hidden className="text-base">
-                          {meta.electionSymbolIcon ?? "•"}
-                        </span>
-                        <span className="text-xs">{meta.electionSymbol}</span>
-                      </span>
-                    ) : (
-                      <span className="text-[color:var(--color-muted-foreground)]">
-                        —
-                      </span>
-                    )}
-                  </td>
-                  <td className="px-4 py-3 text-right font-mono tabular font-semibold">
-                    {p.candidates2026 ?? 0}
-                  </td>
-                  <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
-                    {meta.electionSymbolCode ?? "—"}
-                  </td>
-                </tr>
+                <PartyRow key={p.id} party={meta} count={p.candidates2026 ?? 0} />
               );
             })}
           </tbody>
         </table>
       </div>
     </SectionShell>
+  );
+}
+
+/** One row of the parties table, wired so a click anywhere on the row
+ * routes to that party's profile. Kept as its own component so the
+ * onClick / keyboard handler can be attached cleanly without polluting
+ * the .map() in PartiesSection. */
+function PartyRow({
+  party,
+  count,
+}: {
+  party: ReturnType<typeof getParty>;
+  count: number;
+}) {
+  const nav = useRowNav(
+    `/party/${encodeURIComponent(party.id)}`,
+    `Open ${party.display} party profile`,
+  );
+  return (
+    <tr
+      {...nav}
+      className={`${nav.className} border-b border-[color:var(--color-border)] last:border-b-0 hover:bg-[color:var(--color-muted)]/30 transition-colors`}
+    >
+      <td className="px-4 py-3">
+        <span className="inline-flex items-center gap-2">
+          <img
+            src={party.flag}
+            alt=""
+            width="28"
+            height="18"
+            className="party-flag"
+            loading="lazy"
+            decoding="async"
+          />
+          <span
+            className="font-mono font-semibold"
+            style={{ color: party.color }}
+          >
+            {party.shortDisplay}
+          </span>
+        </span>
+      </td>
+      <td className="px-4 py-3 text-[color:var(--color-muted-foreground)]">
+        {party.display}
+      </td>
+      <td className="px-4 py-3">
+        {party.electionSymbol ? (
+          <span className="inline-flex items-center gap-1.5">
+            <span aria-hidden className="text-base">
+              {party.electionSymbolIcon ?? "•"}
+            </span>
+            <span className="text-xs">{party.electionSymbol}</span>
+          </span>
+        ) : (
+          <span className="text-[color:var(--color-muted-foreground)]">—</span>
+        )}
+      </td>
+      <td className="px-4 py-3 text-right font-mono tabular font-semibold">
+        {count}
+      </td>
+      <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
+        {party.electionSymbolCode ?? "—"}
+      </td>
+    </tr>
   );
 }
 
@@ -568,85 +615,15 @@ function OldResultsSection() {
                     </tr>
                   </thead>
                   <tbody>
-                    {ordered.map(([cz, { winner, runnerUp }]) => {
-                      const wParty = winner ? getParty(winner.party) : null;
-                      const rParty = runnerUp ? getParty(runnerUp.party) : null;
-                      const margin =
-                        winner?.votes != null && runnerUp?.votes != null
-                          ? winner.votes - runnerUp.votes
-                          : null;
-                      return (
-                        <tr
-                          key={`${year}-${cz}`}
-                          className="border-b border-[color:var(--color-border)] last:border-b-0 hover:bg-[color:var(--color-muted)]/30 transition-colors"
-                        >
-                          <td className="px-4 py-3">
-                            <Link
-                              to={`/constituency/${cz}`}
-                              className="inline-flex flex-col"
-                            >
-                              <span className="font-mono font-semibold">
-                                {cz}
-                              </span>
-                              <span className="text-[11px] text-[color:var(--color-muted-foreground)]">
-                                {czName.get(cz) ?? ""}
-                              </span>
-                            </Link>
-                          </td>
-                          <td className="px-4 py-3">
-                            {winner ? (
-                              <div className="flex flex-col">
-                                <span>{winner.candidate_name}</span>
-                                {wParty && (
-                                  <span
-                                    className="text-[11px] font-bold uppercase tracking-[0.18em]"
-                                    style={{ color: wParty.color }}
-                                  >
-                                    {wParty.shortDisplay}
-                                  </span>
-                                )}
-                              </div>
-                            ) : (
-                              <span className="text-[color:var(--color-muted-foreground)]">
-                                —
-                              </span>
-                            )}
-                          </td>
-                          <td className="px-4 py-3 text-right font-mono tabular">
-                            {winner?.votes != null
-                              ? formatNumber(winner.votes)
-                              : "—"}
-                          </td>
-                          <td className="px-4 py-3">
-                            {runnerUp ? (
-                              <div className="flex flex-col">
-                                <span>{runnerUp.candidate_name}</span>
-                                {rParty && (
-                                  <span
-                                    className="text-[11px] font-bold uppercase tracking-[0.18em]"
-                                    style={{ color: rParty.color }}
-                                  >
-                                    {rParty.shortDisplay}
-                                  </span>
-                                )}
-                              </div>
-                            ) : (
-                              <span className="text-[color:var(--color-muted-foreground)]">
-                                —
-                              </span>
-                            )}
-                          </td>
-                          <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
-                            {runnerUp?.votes != null
-                              ? formatNumber(runnerUp.votes)
-                              : "—"}
-                          </td>
-                          <td className="px-4 py-3 text-right font-mono tabular font-semibold">
-                            {margin != null ? formatNumber(margin) : "—"}
-                          </td>
-                        </tr>
-                      );
-                    })}
+                    {ordered.map(([cz, { winner, runnerUp }]) => (
+                      <OldResultRow
+                        key={`${year}-${cz}`}
+                        cz={cz}
+                        czName={czName.get(cz) ?? ""}
+                        winner={winner}
+                        runnerUp={runnerUp}
+                      />
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -675,6 +652,88 @@ function OldResultsSection() {
         )}
       </div>
     </SectionShell>
+  );
+}
+
+/** One row of an old-results table. Click anywhere → constituency profile. */
+function OldResultRow({
+  cz,
+  czName,
+  winner,
+  runnerUp,
+}: {
+  cz: string;
+  czName: string;
+  winner?: CandidateRun;
+  runnerUp?: CandidateRun;
+}) {
+  const nav = useRowNav(
+    `/constituency/${cz}`,
+    `Open ${cz} ${czName} constituency profile`,
+  );
+  const wParty = winner ? getParty(winner.party) : null;
+  const rParty = runnerUp ? getParty(runnerUp.party) : null;
+  const margin =
+    winner?.votes != null && runnerUp?.votes != null
+      ? winner.votes - runnerUp.votes
+      : null;
+  return (
+    <tr
+      {...nav}
+      className={`${nav.className} border-b border-[color:var(--color-border)] last:border-b-0 hover:bg-[color:var(--color-muted)]/30 transition-colors`}
+    >
+      <td className="px-4 py-3">
+        <span className="inline-flex flex-col">
+          <span className="font-mono font-semibold">{cz}</span>
+          <span className="text-[11px] text-[color:var(--color-muted-foreground)]">
+            {czName}
+          </span>
+        </span>
+      </td>
+      <td className="px-4 py-3">
+        {winner ? (
+          <div className="flex flex-col">
+            <span>{winner.candidate_name}</span>
+            {wParty && (
+              <span
+                className="text-[11px] font-bold uppercase tracking-[0.18em]"
+                style={{ color: wParty.color }}
+              >
+                {wParty.shortDisplay}
+              </span>
+            )}
+          </div>
+        ) : (
+          <span className="text-[color:var(--color-muted-foreground)]">—</span>
+        )}
+      </td>
+      <td className="px-4 py-3 text-right font-mono tabular">
+        {winner?.votes != null ? formatNumber(winner.votes) : "—"}
+      </td>
+      <td className="px-4 py-3">
+        {runnerUp ? (
+          <div className="flex flex-col">
+            <span>{runnerUp.candidate_name}</span>
+            {rParty && (
+              <span
+                className="text-[11px] font-bold uppercase tracking-[0.18em]"
+                style={{ color: rParty.color }}
+              >
+                {rParty.shortDisplay}
+              </span>
+            )}
+          </div>
+        ) : (
+          <span className="text-[color:var(--color-muted-foreground)]">—</span>
+        )}
+      </td>
+      <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
+        {runnerUp?.votes != null ? formatNumber(runnerUp.votes) : "—"}
+      </td>
+      <td className="px-4 py-3 text-right font-mono tabular font-semibold">
+        {margin != null ? formatNumber(margin) : "—"}
+      </td>
+    </tr>
   );
 }
 
@@ -874,36 +933,7 @@ function PollingStationsSection() {
           </thead>
           <tbody>
             {rows.map((r) => (
-              <tr
-                key={r.constituency_id}
-                className="border-b border-[color:var(--color-border)] last:border-b-0 hover:bg-[color:var(--color-muted)]/30 transition-colors"
-              >
-                <td className="px-4 py-3">
-                  <Link
-                    to={`/constituency/${r.constituency_id}`}
-                    className="inline-flex flex-col"
-                  >
-                    <span className="font-mono font-semibold">
-                      {r.constituency_id}
-                    </span>
-                    <span className="text-[11px] text-[color:var(--color-muted-foreground)]">
-                      {r.name}
-                    </span>
-                  </Link>
-                </td>
-                <td className="px-4 py-3 text-[color:var(--color-muted-foreground)]">
-                  {r.district}
-                </td>
-                <td className="px-4 py-3 text-right font-mono tabular">
-                  {r.reg != null ? formatNumber(r.reg) : "—"}
-                </td>
-                <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
-                  {r.share != null ? formatPercent(r.share * 100) : "—"}
-                </td>
-                <td className="px-4 py-3 text-right font-mono tabular font-semibold">
-                  {r.estStations != null ? formatNumber(r.estStations) : "—"}
-                </td>
-              </tr>
+              <PollingStationRow key={r.constituency_id} {...r} />
             ))}
           </tbody>
         </table>
@@ -919,6 +949,55 @@ function PollingStationsSection() {
         .
       </p>
     </SectionShell>
+  );
+}
+
+/** One row of the polling-stations table. Click anywhere → constituency profile. */
+function PollingStationRow({
+  constituency_id,
+  name,
+  district,
+  reg,
+  share,
+  estStations,
+}: {
+  constituency_id: string;
+  name: string;
+  district: string;
+  reg: number | null;
+  share: number | null;
+  estStations: number | null;
+}) {
+  const nav = useRowNav(
+    `/constituency/${constituency_id}`,
+    `Open ${constituency_id} ${name} constituency profile`,
+  );
+  return (
+    <tr
+      {...nav}
+      className={`${nav.className} border-b border-[color:var(--color-border)] last:border-b-0 hover:bg-[color:var(--color-muted)]/30 transition-colors`}
+    >
+      <td className="px-4 py-3">
+        <span className="inline-flex flex-col">
+          <span className="font-mono font-semibold">{constituency_id}</span>
+          <span className="text-[11px] text-[color:var(--color-muted-foreground)]">
+            {name}
+          </span>
+        </span>
+      </td>
+      <td className="px-4 py-3 text-[color:var(--color-muted-foreground)]">
+        {district}
+      </td>
+      <td className="px-4 py-3 text-right font-mono tabular">
+        {reg != null ? formatNumber(reg) : "—"}
+      </td>
+      <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
+        {share != null ? formatPercent(share * 100) : "—"}
+      </td>
+      <td className="px-4 py-3 text-right font-mono tabular font-semibold">
+        {estStations != null ? formatNumber(estStations) : "—"}
+      </td>
+    </tr>
   );
 }
 
