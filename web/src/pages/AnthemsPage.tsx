@@ -11,14 +11,20 @@ interface Anthem {
   note?: string;
 }
 
-// Sourced from the team's PPP TEAM AI campaign output. The first item is the
-// flagship reel and is rendered as a hero card; the remaining ten render as
-// a tile grid below. Numbers are display indexes only.
+// Sourced from the team's PPP TEAM AI campaign output. The first two items
+// are the flagship reels and render side-by-side inside the gold-accent
+// showcase box; the remaining items render as a tile grid below. Numbers are
+// display indexes only.
 const ANTHEMS: Anthem[] = [
   {
     title: "Showcase reel",
     url: "https://www.facebook.com/reel/1376764577618071/?s=single_unit",
     note: "Flagship anthem reel by PPP TEAM AI.",
+  },
+  {
+    title: "Just-released anthem",
+    url: "https://www.facebook.com/share/r/18zUPSZWC1/",
+    note: "Latest anthem from PPP TEAM AI, released 28 May 2026.",
   },
   {
     title: "Anthem · v.2479487155836107",
@@ -70,8 +76,18 @@ const ANTHEMS: Anthem[] = [
   },
 ];
 
+/** Last non-empty path segment before any query string. Used as the small
+ * reel-id chip inside each showcase card so visitors can match a card back
+ * to its Facebook URL at a glance. */
+function extractReelId(url: string): string {
+  const path = url.split("?")[0].replace(/\/$/, "");
+  const segments = path.split("/");
+  return segments[segments.length - 1] ?? "";
+}
+
 export function AnthemsPage() {
-  const [showcase, ...rest] = ANTHEMS;
+  const [showcase, newRelease, ...rest] = ANTHEMS;
+  const showcasePair = [showcase, newRelease];
 
   return (
     <div className="space-y-10 max-w-5xl">
@@ -100,40 +116,53 @@ export function AnthemsPage() {
         </div>
       </header>
 
-      {/* Showcase reel */}
+      {/* Showcase: flagship reel + just-released anthem, side by side in one box. */}
       <section className="space-y-3">
         <div className="space-y-1">
           <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-accent-gold)] font-bold">
             Showcase
           </p>
           <h2 className="font-display text-3xl">
-            Open the flagship reel
+            Open the flagship reels
           </h2>
         </div>
-        <a
-          href={showcase.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="card-elevated card-accent-gold p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group block"
-        >
-          <div className="space-y-2 min-w-0">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-accent-gold)] font-bold">
-              Reel · 1376764577618071
-            </p>
-            <p className="text-xl sm:text-2xl font-display leading-tight">
-              {showcase.title}
-            </p>
-            <p className="text-sm text-[color:var(--color-muted-foreground)] max-w-xl">
-              {showcase.note}
-            </p>
-          </div>
-          <div className="shrink-0 flex items-center gap-2 text-sm font-semibold text-[color:var(--color-foreground)] group-hover:text-[color:var(--color-accent-gold)] transition-colors whitespace-nowrap">
-            Watch on Facebook
-            <span aria-hidden className="text-base transition-transform group-hover:translate-x-1">
-              ↗
-            </span>
-          </div>
-        </a>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {showcasePair.map((item, i) => {
+            const isJustReleased = i === 1;
+            return (
+              <a
+                key={item.url}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-elevated card-accent-gold p-6 sm:p-7 flex flex-col gap-4 group block relative top-edge"
+              >
+                {isJustReleased && (
+                  <span className="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--color-accent-gold)] bg-[color:var(--color-accent-gold-soft)]/40 px-2 py-0.5 rounded-md border border-[color:var(--color-accent-gold)]/40">
+                    Just released
+                  </span>
+                )}
+                <div className="space-y-2 min-w-0">
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-accent-gold)] font-bold">
+                    Reel · {extractReelId(item.url)}
+                  </p>
+                  <p className="text-xl sm:text-2xl font-display leading-tight">
+                    {item.title}
+                  </p>
+                  <p className="text-sm text-[color:var(--color-muted-foreground)]">
+                    {item.note}
+                  </p>
+                </div>
+                <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-[color:var(--color-foreground)] group-hover:text-[color:var(--color-accent-gold)] transition-colors whitespace-nowrap">
+                  Watch on Facebook
+                  <span aria-hidden className="text-base transition-transform group-hover:translate-x-1">
+                    ↗
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </section>
 
       {/* Grid of remaining anthems */}
@@ -156,7 +185,7 @@ export function AnthemsPage() {
               className="card-elevated p-4 space-y-2 group block"
             >
               <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
-                {String(idx + 2).padStart(2, "0")} · Facebook
+                {String(idx + 3).padStart(2, "0")} · Facebook
               </p>
               <p className="text-sm font-medium leading-snug break-words">
                 {a.title}
