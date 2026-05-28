@@ -119,12 +119,14 @@ export function MapPage() {
         </article>
         <article className="card-elevated card-accent-red p-5 space-y-2">
           <p className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
-            Open seats
+            2020 incumbent disqualified
           </p>
           <p className="stat-display text-4xl">{disqByCz.size}</p>
           <p className="text-xs text-[color:var(--color-muted-foreground)]">
-            Seats whose 2020 winner has been disqualified and is not
-            contesting. Updated from notable_disqualifications.csv.
+            Seats where the 2020 winner is barred from contesting in 2026.
+            Currently GBA-13 only (Khalid Khurshid, 2020 PTI CM, disqualified
+            2023). All three 2026 nominees for GBA-13 are otherwise on the
+            ballot.
           </p>
         </article>
       </section>
