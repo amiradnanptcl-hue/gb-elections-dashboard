@@ -71,10 +71,6 @@ const ANTHEMS: Anthem[] = [
     url: "https://www.facebook.com/share/r/1CjWWHaMHd/",
   },
   {
-    title: "Reel · 1005586135538533",
-    url: "https://www.facebook.com/reel/1005586135538533",
-  },
-  {
     title: "Anthem · v.4985037495116120",
     url: "https://www.facebook.com/watch/?ref=saved&v=4985037495116120",
   },
