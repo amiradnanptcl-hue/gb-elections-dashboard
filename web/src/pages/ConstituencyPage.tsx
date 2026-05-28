@@ -211,7 +211,7 @@ export function ConstituencyPage() {
         female split, 2026 polling stations). Estimates are explicitly
         labelled so visitors know which is which. */}
       <section className="space-y-3">
-        <div className="flex items-baseline justify-between gap-3">
+        <div className="flex items-start sm:items-baseline justify-between gap-3 flex-wrap">
           <div className="space-y-0.5">
             <p className="text-[10px] uppercase tracking-[0.22em] font-bold text-[color:var(--color-muted-foreground)]">
               Key metrics
@@ -220,13 +220,42 @@ export function ConstituencyPage() {
               {cz} at a glance
             </h2>
           </div>
-          {winnerParty2020 && (
-            <span className="text-[11px] uppercase tracking-[0.16em] text-[color:var(--color-muted-foreground)]">
-              2020 winner: {winner2020?.candidate_name} ·{" "}
-              <span className="text-[color:var(--color-foreground)] font-semibold">
+          {winnerParty2020 && winner2020 && (
+            <Link
+              to={`/party/${encodeURIComponent(winnerParty2020.id)}`}
+              className="winner-chip shrink-0 group max-w-full"
+              style={{
+                ["--winner-color" as string]: winnerParty2020.color,
+              } as React.CSSProperties}
+              aria-label={`2020 winner: ${winner2020.candidate_name}, ${winnerParty2020.display}. Open party profile.`}
+            >
+              <span
+                aria-hidden
+                className="winner-dot inline-block h-1.5 w-1.5 rounded-full"
+                style={{ backgroundColor: winnerParty2020.color }}
+              />
+              <img
+                src={winnerParty2020.flag}
+                alt=""
+                width="20"
+                height="13"
+                className="h-3.5 w-5 object-cover rounded-sm ring-1 ring-[color:var(--color-border)] shrink-0"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>2020 winner</span>
+              <span aria-hidden className="opacity-40">·</span>
+              <span className="normal-case tracking-tight text-[12px] font-semibold text-[color:var(--color-foreground)] truncate max-w-[160px]">
+                {winner2020.candidate_name}
+              </span>
+              <span aria-hidden className="opacity-40">·</span>
+              <span
+                className="font-bold"
+                style={{ color: winnerParty2020.color }}
+              >
                 {winnerParty2020.shortDisplay}
               </span>
-            </span>
+            </Link>
           )}
         </div>
         <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">

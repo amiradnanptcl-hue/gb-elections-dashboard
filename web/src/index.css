@@ -284,6 +284,63 @@
     }
   }
 
+  /* Winner-glow chip: a clickable pill that announces who took the seat in
+   * the previous cycle. The `--winner-color` CSS custom property is set on
+   * the element inline from the party palette, so the glow tint adapts to
+   * the winning party (PPP red on a PPP-won seat, PML-N green elsewhere,
+   * MWM blue, Independent slate, etc.).
+   *
+   * Two breathing layers: a halo that pulses out from the border, and a
+   * background tint that strengthens with the same rhythm. CSS color-mix()
+   * keeps the recipe declarative — one variable drives every shade.
+   * Respects prefers-reduced-motion. */
+  .winner-chip {
+    --winner-color: oklch(0.66 0.16 152);
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in oklab, var(--winner-color) 55%, transparent);
+    background: color-mix(in oklab, var(--winner-color) 8%, var(--color-card));
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    color: var(--color-foreground);
+    animation: winnerChipGlow 2200ms ease-in-out infinite;
+    transition:
+      transform 220ms var(--ease-emphasised),
+      background-color 220ms var(--ease-emphasised);
+    will-change: box-shadow, border-color, background-color;
+  }
+  .winner-chip:hover {
+    transform: translateY(-1px);
+    background: color-mix(in oklab, var(--winner-color) 16%, var(--color-card));
+  }
+  @keyframes winnerChipGlow {
+    0%, 100% {
+      box-shadow:
+        0 0 0 0 color-mix(in oklab, var(--winner-color) 0%, transparent),
+        0 0 10px -2px color-mix(in oklab, var(--winner-color) 18%, transparent);
+      border-color: color-mix(in oklab, var(--winner-color) 50%, transparent);
+    }
+    50% {
+      box-shadow:
+        0 0 0 5px color-mix(in oklab, var(--winner-color) 0%, transparent),
+        0 0 22px 3px color-mix(in oklab, var(--winner-color) 45%, transparent);
+      border-color: color-mix(in oklab, var(--winner-color) 85%, transparent);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .winner-chip {
+      animation: none;
+      box-shadow: 0 0 0 1px var(--winner-color);
+    }
+  }
+
   /* News-ticker party badge: flag tile on the left, abbreviation on the right.
    * Spec values come from the project design brief. Background and border use
    * theme tokens so the look stays correct in dark mode. */
