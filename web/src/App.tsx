@@ -39,6 +39,9 @@ const CandidatesPage = lazy(() =>
 const AnthemsPage = lazy(() =>
   import("@/pages/AnthemsPage").then((m) => ({ default: m.AnthemsPage })),
 );
+const RecordsPage = lazy(() =>
+  import("@/pages/RecordsPage").then((m) => ({ default: m.RecordsPage })),
+);
 const AboutPage = lazy(() =>
   import("@/pages/AboutPage").then((m) => ({ default: m.AboutPage })),
 );
@@ -65,6 +68,8 @@ export default function App() {
         }
       >
         <Route index element={<HomePage />} />
+        <Route path="records" element={<RecordsPage />} />
+        <Route path="records/:section" element={<RecordsPage />} />
         <Route path="constituency/:id" element={<ConstituencyPage />} />
         <Route path="party/:id" element={<PartyPage />} />
         <Route path="sources" element={<SourcesPage />} />
