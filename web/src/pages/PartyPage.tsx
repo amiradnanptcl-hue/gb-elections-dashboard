@@ -6,6 +6,7 @@ import {
   useConstituencies,
   useKnownNominees2026,
 } from "@/lib/data";
+import { useDocumentMeta } from "@/lib/seo";
 import { formatNumber } from "@/lib/utils";
 
 interface CandidateAggregate {
@@ -26,6 +27,11 @@ export function PartyPage() {
   const [searchParams] = useSearchParams();
   const partyId = id ?? "";
   const meta = getParty(partyId);
+  useDocumentMeta({
+    title: `${meta.display} (${meta.shortDisplay}) in Gilgit-Baltistan elections — gbelections.com`,
+    description: `${meta.display} performance in every GB Assembly election since 2009. 2026 ticket-holders, historical winners, per-seat vote share. ${meta.electionSymbol ? `Election symbol: ${meta.electionSymbol}.` : ""}`,
+    path: `/party/${encodeURIComponent(partyId)}`,
+  });
 
   // Optional filters from the URL. /party/PTI?year=2020&filter=winners restricts
   // the roster to the 11 PTI candidates who actually won in 2020. Use this

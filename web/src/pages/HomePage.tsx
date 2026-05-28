@@ -3,9 +3,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getCandidateField2026, getParty } from "@/lib/parties";
 import { useCandidateRuns, useElections } from "@/lib/data";
+import { useDocumentMeta } from "@/lib/seo";
 import { formatNumber } from "@/lib/utils";
 
 export function HomePage() {
+  useDocumentMeta({
+    title: "GB Elections 2026 — Gilgit-Baltistan Assembly election dashboard",
+    description:
+      "Public-records dashboard for the Gilgit-Baltistan Legislative Assembly election on 7 June 2026. 24 general seats, 403 candidates, 774,319 voters, ECGB polling-station data. Historical results 2009, 2015, 2020.",
+    path: "/",
+  });
   const navigate = useNavigate();
   const runsQ = useCandidateRuns();
   const electionsQ = useElections();

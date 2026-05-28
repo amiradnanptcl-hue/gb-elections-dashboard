@@ -5,15 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#059669" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="robots" content="index,follow" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="bingbot" content="index,follow" />
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="canonical" href="https://www.gbelections.com/" />
 
-    <title>GB Elections Dashboard — Gilgit-Baltistan Legislative Assembly</title>
-    <meta name="description" content="Public-records dashboard for the Gilgit-Baltistan Legislative Assembly elections of 2009, 2015, 2020 and 2026. Open dataset, traceable sources. Published by PPP TEAM AI." />
+    <!-- Region + language targeting. en-PK = English as used in Pakistan;
+         geo.region PK-GB = Gilgit-Baltistan ISO 3166-2 subdivision. These
+         tags help Google route the site to Pakistani search-result pages
+         and surface it for Gilgit-Baltistan-specific queries. -->
+    <link rel="alternate" hreflang="en-PK" href="https://www.gbelections.com/" />
+    <link rel="alternate" hreflang="en" href="https://www.gbelections.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.gbelections.com/" />
+    <meta name="geo.region" content="PK-GB" />
+    <meta name="geo.placename" content="Gilgit-Baltistan, Pakistan" />
+    <meta name="geo.position" content="35.9208;74.3144" />
+    <meta name="ICBM" content="35.9208, 74.3144" />
+
+    <title>GB Elections 2026 — Gilgit-Baltistan Assembly election dashboard, candidates, results</title>
+    <meta name="description" content="Official public-records dashboard for the Gilgit-Baltistan Legislative Assembly election on 7 June 2026. All 24 general seats, every verified candidate, 2009 / 2015 / 2020 historical results, district voter rolls, ECGB polling-station data. Open dataset, traceable sources, published by PPP TEAM AI." />
+    <meta name="keywords" content="Gilgit-Baltistan election 2026, GB election 2026, GBA-1 GBA-2 GBA-3 candidates, GB Assembly election, Gilgit Baltistan Legislative Assembly, ECGB results, Pakistan election Gilgit, GB polling stations, GB voter roll 2026, PPP PML-N PTI MWM Gilgit, 7 June 2026 election" />
     <meta name="author" content="Syed Aamir Adnan, PPP TEAM AI" />
+    <meta name="publisher" content="PPP TEAM AI" />
+    <meta name="copyright" content="PPP TEAM AI. Code: MIT. Data: CC-BY 4.0." />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GB Elections Dashboard" />
@@ -39,6 +56,153 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+
+    <!-- Structured data (Schema.org JSON-LD).
+         Lets Google show rich results (sitelinks search box, dataset card,
+         organisation panel) and understand that this site is the canonical
+         publisher of an Election dataset. Each block is independently
+         valid; multiple JSON-LD blocks are allowed per page. -->
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "GB Elections Dashboard",
+      "alternateName": ["GB Elections 2026", "Gilgit Baltistan Elections Dashboard"],
+      "url": "https://www.gbelections.com/",
+      "inLanguage": "en-PK",
+      "description": "Public-records dashboard for the Gilgit-Baltistan Legislative Assembly election on 7 June 2026 and the 2009, 2015, 2020 historical record.",
+      "publisher": { "@id": "https://www.gbelections.com/#organisation" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.gbelections.com/records/candidates?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@id": "https://www.gbelections.com/#organisation",
+      "@type": "Organization",
+      "name": "PPP TEAM AI",
+      "alternateName": "Pakistan Peoples Party Team AI",
+      "url": "https://www.gbelections.com/",
+      "logo": "https://www.gbelections.com/logo.png",
+      "image": "https://www.gbelections.com/og-image.jpg",
+      "founder": {
+        "@type": "Person",
+        "name": "Syed Aamir Adnan",
+        "jobTitle": "Founder",
+        "alumniOf": "Queen's University Belfast",
+        "sameAs": "https://www.linkedin.com/in/sa-adnan/"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Gilgit-Baltistan",
+        "containedInPlace": { "@type": "Country", "name": "Pakistan" }
+      },
+      "knowsAbout": [
+        "Gilgit-Baltistan elections",
+        "GB Legislative Assembly",
+        "Pakistani political parties",
+        "Election data analysis"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Gilgit-Baltistan Legislative Assembly elections (2009, 2015, 2020, 2026)",
+      "description": "Cleaned per-constituency dataset of every Gilgit-Baltistan Legislative Assembly election since the 2009 inaugural cycle. Includes winners, runners-up, vote shares, margins, turnout, registered voters, district-level voter rolls, the 2026 candidate field (403 final candidates) and ECGB polling-station logistics. Schema covers 24 general seats plus reserved seats.",
+      "keywords": [
+        "Gilgit-Baltistan",
+        "GB elections",
+        "GBA-1",
+        "GBA-2",
+        "ECGB",
+        "Legislative Assembly",
+        "Pakistan",
+        "elections 2026",
+        "open data"
+      ],
+      "url": "https://www.gbelections.com/",
+      "sameAs": "https://github.com/amiradnanptcl-hue/gb-elections-dashboard",
+      "creator": { "@id": "https://www.gbelections.com/#organisation" },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "isAccessibleForFree": true,
+      "temporalCoverage": "2009/2026",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Gilgit-Baltistan, Pakistan",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 35.9208,
+          "longitude": 74.3144
+        }
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://www.gbelections.com/data/candidate_runs.json"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://www.gbelections.com/data/candidates_2026_known.json"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://www.gbelections.com/data/constituencies.json"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://www.gbelections.com/data/elections.json"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://www.gbelections.com/data/voters_by_district_2026.json"
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Gilgit-Baltistan Legislative Assembly election 2026",
+      "alternateName": "GB Assembly election 2026",
+      "startDate": "2026-06-07",
+      "endDate": "2026-06-07",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "description": "The fourth general election to the Gilgit-Baltistan Legislative Assembly. 403 candidates (272 independents, 131 party-backed) contest 24 general seats across 10 districts. 774,319 registered voters; 2,220 polling stations planned by the ECGB.",
+      "location": {
+        "@type": "Place",
+        "name": "Gilgit-Baltistan, Pakistan",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 35.9208,
+          "longitude": 74.3144
+        }
+      },
+      "organizer": {
+        "@type": "GovernmentOrganization",
+        "name": "Election Commission of Gilgit-Baltistan",
+        "alternateName": "ECGB",
+        "url": "https://ecgb.gov.pk"
+      },
+      "url": "https://www.gbelections.com/"
+    }
+    </script>
   </head>
   <body class="bg-background text-foreground antialiased">
     <div id="root"></div>

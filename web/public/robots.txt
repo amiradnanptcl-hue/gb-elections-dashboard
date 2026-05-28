@@ -1,4 +1,12 @@
+# GB Elections Dashboard — robots policy
+# Public-records dashboard for the Gilgit-Baltistan Legislative Assembly elections.
+# Open data, MIT-licensed code, CC-BY 4.0 dataset.
+
 User-agent: *
 Allow: /
 
-Sitemap: https://gb-forecast-2026.vercel.app/sitemap.xml
+# Googlebot, Bingbot, etc. are explicitly welcome on every public asset
+# including the /data/ JSON exports so structured data feeds (e.g. Dataset
+# schema) can be discovered.
+
+Sitemap: https://www.gbelections.com/sitemap.xml

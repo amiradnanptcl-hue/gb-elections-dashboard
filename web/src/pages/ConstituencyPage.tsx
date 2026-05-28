@@ -28,6 +28,7 @@ import {
   useKnownNominees2026,
   useNotableDisqualifications,
 } from "@/lib/data";
+import { useDocumentMeta } from "@/lib/seo";
 import { formatNumber, formatPercent } from "@/lib/utils";
 
 export function ConstituencyPage() {
@@ -45,6 +46,15 @@ export function ConstituencyPage() {
   const constituency = constituenciesQ.data?.find(
     (c) => c.constituency_id === cz,
   );
+  useDocumentMeta({
+    title: constituency
+      ? `${cz} ${constituency.name} 2026 candidates and results — GB Elections`
+      : `${cz || "Constituency"} — GB Elections 2026`,
+    description: constituency
+      ? `${cz} ${constituency.name} (${constituency.district} district) profile: 2026 candidates, 2009-2020 historical winners, vote shares, margins, registered voters, polling-station logistics. Source-traceable open data.`
+      : "Constituency profile from the GB Elections 2026 dashboard.",
+    path: `/constituency/${cz}`,
+  });
   const runs = (runsQ.data ?? []).filter((r) => r.constituency_id === cz);
   const summaries = (summaryQ.data ?? []).filter(
     (s) => s.constituency_id === cz,

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Top-level pages -->
+  <url><loc>https://www.gbelections.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.gbelections.com/records</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/map</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/candidates</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/voters</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gbelections.com/polling-stations</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gbelections.com/methodology</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.gbelections.com/sources</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.gbelections.com/anthems</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.gbelections.com/about</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Records hub sub-sections -->
+  <url><loc>https://www.gbelections.com/records/constituencies</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/records/candidates</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/records/parties</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gbelections.com/records/old-results</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.gbelections.com/records/voting-stations</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.gbelections.com/records/polling-stations</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.gbelections.com/records/voters</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- 24 general-seat constituency profiles (GBA-1 through GBA-24) -->
+  <url><loc>https://www.gbelections.com/constituency/GBA-1</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-2</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-3</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-4</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-5</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-6</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-7</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-8</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-9</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-10</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-11</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-12</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-13</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-14</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-15</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-16</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-17</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-18</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-19</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-20</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-21</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-22</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-23</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gbelections.com/constituency/GBA-24</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+
+  <!-- Party profiles (every party currently on the 2026 ballot or with historical GB Assembly representation) -->
+  <url><loc>https://www.gbelections.com/party/PPP</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gbelections.com/party/PML-N</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gbelections.com/party/PTI</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gbelections.com/party/MWM</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gbelections.com/party/IPP</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gbelections.com/party/JUI-F</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.gbelections.com/party/JI</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.gbelections.com/party/ITP</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.gbelections.com/party/PNP</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.gbelections.com/party/PML</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.gbelections.com/party/PML-Q</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.gbelections.com/party/MQM</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.gbelections.com/party/AWP</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.gbelections.com/party/ANP</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.gbelections.com/party/TLP</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.gbelections.com/party/AP</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.gbelections.com/party/MML</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.gbelections.com/party/SIC</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.gbelections.com/party/TTPP</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.gbelections.com/party/PPP-TOWER</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.gbelections.com/party/PAT</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.gbelections.com/party/APML</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.gbelections.com/party/BNF-N</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.gbelections.com/party/PSP</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.gbelections.com/party/Independent</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+</urlset>

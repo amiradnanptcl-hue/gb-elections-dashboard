@@ -11,7 +11,49 @@ import {
   type CandidateRun,
 } from "@/lib/data";
 import { getCandidateField2026, getParty } from "@/lib/parties";
+import { useDocumentMeta } from "@/lib/seo";
 import { cn, formatNumber, formatPercent } from "@/lib/utils";
+
+const SECTION_META: Record<
+  string,
+  { title: string; description: string }
+> = {
+  constituencies: {
+    title: "GB constituencies — all 24 seats, GBA-1 to GBA-24 | gbelections.com",
+    description:
+      "Every Gilgit-Baltistan constituency: district, registered voters, 2020 winner, 2026 nominees. Click any seat for full profile.",
+  },
+  candidates: {
+    title: "GB 2026 candidates list — 75 verified nominees | gbelections.com",
+    description:
+      "Every verified 2026 candidate for the Gilgit-Baltistan Legislative Assembly election, grouped by constituency. Party tag + source on every entry.",
+  },
+  parties: {
+    title: "Political parties on the 2026 GB ballot | gbelections.com",
+    description:
+      "Every party contesting the 2026 GB Assembly election: PPP, PML-N, MWM, IPP, JUI-F, JI, and more. Election symbols, ECP codes, 2026 candidate counts.",
+  },
+  "old-results": {
+    title: "GB election historical results — 2009, 2015, 2020 | gbelections.com",
+    description:
+      "Winners and runners-up of every Gilgit-Baltistan Assembly election since 2009. Per-seat vote counts and margins. Source-traceable open data.",
+  },
+  "voting-stations": {
+    title: "GB polling-day logistics — 2,220 stations | gbelections.com",
+    description:
+      "Polling-day footprint for the 2026 GB Assembly election: 2,220 stations across 24 seats, 774,319 registered voters, all-cycle logistics comparison.",
+  },
+  "polling-stations": {
+    title: "Polling stations per GB seat — 2026 estimates | gbelections.com",
+    description:
+      "Per-constituency polling-station estimate for the 2026 GB Assembly election, derived from each seat's share of the 2020 voter roll.",
+  },
+  voters: {
+    title: "GB district voter roll 2026 — 774,319 voters | gbelections.com",
+    description:
+      "District-level registered voters for the 2026 GB Assembly election from Vision Gilgit Baltistan. Male and female split per district.",
+  },
+};
 
 // Section catalogue. The URL slug drives which sub-view renders; if no slug
 // is present we show the index grid with all 7 tiles. Each entry carries a
@@ -104,6 +146,19 @@ function useRowNav(to: string, ariaLabel: string) {
 export function RecordsPage() {
   const { section } = useParams<{ section?: string }>();
   const active: SectionSlug | null = isSectionSlug(section) ? section : null;
+
+  const meta = active
+    ? SECTION_META[active]
+    : {
+        title: "Records hub — every GB election dataset in one place | gbelections.com",
+        description:
+          "All seven Gilgit-Baltistan election datasets: constituencies, candidates, parties, historical results, voting stations, polling stations, voters. One click each.",
+      };
+  useDocumentMeta({
+    title: meta.title,
+    description: meta.description,
+    path: active ? `/records/${active}` : "/records",
+  });
 
   return (
     <div className="space-y-10 max-w-6xl">
