@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "GB Elections Dashboard: A Public-Records Dashboard for the Gilgit-Baltistan Legislative Assembly Elections"
+title: "GB Elections Dashboard: A Public-Records Dashboard for the Gilgit-Baltistan Assembly Elections"
 message: "If you use this dataset or dashboard in a publication, please cite as below."
 authors:
   - family-names: Adnan
@@ -20,7 +20,7 @@ repository-code: "https://github.com/amiradnanptcl-hue/gb-elections-dashboard"
 url: "https://www.gbelections.com"
 abstract: >
   A public-records dashboard and open dataset for the Gilgit-Baltistan
-  Legislative Assembly elections of 2009, 2015, 2020, and 2026. Includes
+  Assembly elections of 2009, 2015, 2020, and 2026. Includes
   cleaned per-constituency candidate records, district-level voter rolls,
   verified 2026 candidate nominees, and ECGB party-symbol allocations.
   Code is MIT-licensed; data is CC-BY 4.0.

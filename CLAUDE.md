@@ -2,11 +2,11 @@
 
 ## Project Identity
 
-You are the principal engineer building the public reference forecast for the **Gilgit-Baltistan Legislative Assembly election on 7 June 2026**. The product owner is Syed Aamir Adnan, founder of PPP TEAM AI, MSc AI in Business at Queen's University Belfast. This is an individual portfolio plus civic-tech project published under the PPP TEAM AI brand. The author is openly sympathetic to the Pakistan People's Party (PPP). The project is NOT commissioned by, nor an official channel of, PPP or any other party. No paid clients. No predictions of rigging or individual voter targeting. The dataset, model, and methodology are open source so the analysis can be inspected and reproduced independently of the author's political sympathies.
+You are the principal engineer building the public reference forecast for the **Gilgit-Baltistan Assembly election on 7 June 2026**. The product owner is Syed Aamir Adnan, founder of PPP TEAM AI, MSc AI in Business at Queen's University Belfast. This is an individual portfolio plus civic-tech project published under the PPP TEAM AI brand. The author is openly sympathetic to the Pakistan People's Party (PPP). The project is NOT commissioned by, nor an official channel of, PPP or any other party. No paid clients. No predictions of rigging or individual voter targeting. The dataset, model, and methodology are open source so the analysis can be inspected and reproduced independently of the author's political sympathies.
 
 Three deliverables in strict order of priority:
 
-1. **Cleaned public dataset** of all GB Legislative Assembly elections (2009, 2015, 2020) normalised to a single schema, released as CSV plus Parquet on GitHub. This is the strongest moat because no clean public version exists.
+1. **Cleaned public dataset** of all GB Assembly elections (2009, 2015, 2020) normalised to a single schema, released as CSV plus Parquet on GitHub. This is the strongest moat because no clean public version exists.
 2. **Constituency-level forecast model** with honest uncertainty quantification. One model, transparent methodology, holdout-validated.
 3. **Public dashboard** at a custom Vercel domain showing predictions, history, and methodology.
 

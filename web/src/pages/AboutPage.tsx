@@ -114,7 +114,7 @@ export function AboutPage() {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold tracking-tight">Why</h2>
         <p>
-          No clean public version of the Gilgit-Baltistan Legislative Assembly
+          No clean public version of the Gilgit-Baltistan Assembly
           election data has existed before, so the strongest contribution this
           project can make is the dataset itself. The dashboard is a viewer
           on top of that dataset — every figure is traceable to a source. We

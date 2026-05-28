@@ -10,7 +10,7 @@ export function HomePage() {
   useDocumentMeta({
     title: "GB Elections 2026 — Gilgit-Baltistan Assembly election dashboard",
     description:
-      "Public-records dashboard for the Gilgit-Baltistan Legislative Assembly election on 7 June 2026. 24 general seats, 403 candidates, 774,319 voters, ECGB polling-station data. Historical results 2009, 2015, 2020.",
+      "Public-records dashboard for the Gilgit-Baltistan Assembly election on 7 June 2026. 24 general seats, 403 candidates, 774,319 voters, ECGB polling-station data. Historical results 2009, 2015, 2020.",
     path: "/",
   });
   const navigate = useNavigate();
@@ -44,13 +44,13 @@ export function HomePage() {
           <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.02]">
             Gilgit-Baltistan{" "}
             <span className="text-headline-gradient">
-              Legislative Assembly
+              Assembly
             </span>
             <br />
             Election Records 2026
           </h1>
           <p className="text-[color:var(--color-muted-foreground)] text-lg max-w-xl leading-relaxed">
-            A public-records dashboard for the GB Legislative Assembly
+            A public-records dashboard for the GB Assembly
             elections of 2009, 2015, 2020 and 2026. Open dataset,
             traceable sources, no forecast. Browse the seats, the parties,
             the candidates and the voter rolls — each figure linked to

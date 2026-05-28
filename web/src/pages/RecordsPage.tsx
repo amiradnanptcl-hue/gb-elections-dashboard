@@ -26,7 +26,7 @@ const SECTION_META: Record<
   candidates: {
     title: "GB 2026 candidates list — 75 verified nominees | gbelections.com",
     description:
-      "Every verified 2026 candidate for the Gilgit-Baltistan Legislative Assembly election, grouped by constituency. Party tag + source on every entry.",
+      "Every verified 2026 candidate for the Gilgit-Baltistan Assembly election, grouped by constituency. Party tag + source on every entry.",
   },
   parties: {
     title: "Political parties on the 2026 GB ballot | gbelections.com",

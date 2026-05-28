@@ -3,7 +3,7 @@
 
   <h1>GB Elections Dashboard</h1>
 
-  <p><strong>A public-records dashboard for the Gilgit-Baltistan Legislative Assembly elections of 2009, 2015, 2020, and 2026.</strong></p>
+  <p><strong>A public-records dashboard for the Gilgit-Baltistan Assembly elections of 2009, 2015, 2020, and 2026.</strong></p>
 
   <p>
     <a href="https://www.gbelections.com">
@@ -27,7 +27,7 @@
 ## What this is
 
 This repository is an **open-source dataset and dashboard** for the 24
-general seats of the Gilgit-Baltistan Legislative Assembly. Every figure on
+general seats of the Gilgit-Baltistan Assembly. Every figure on
 the live site traces back to a CSV or JSON file in this repository, and
 every file in this repository cites its source.
 

@@ -23,7 +23,7 @@ export function MethodologyPage() {
           </h1>
           <p className="text-[color:var(--color-muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
             This is a public-records dashboard for the Gilgit-Baltistan
-            Legislative Assembly elections of 2009, 2015, 2020 and 2026. It
+            Assembly elections of 2009, 2015, 2020 and 2026. It
             does not publish a forecast. It does not assign win probabilities
             to candidates. It is a curated reference: who contested, who won,
             how many voters are on the roll, how many polling stations are

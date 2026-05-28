@@ -83,6 +83,6 @@ artefacts remain in the repository for audit.)
 
 ### Added
 * Initial public release. Cleaned candidate-runs dataset for 2009, 2015,
-  and 2020 across all 24 GB Legislative Assembly constituencies.
+  and 2020 across all 24 GB Assembly constituencies.
 * Vite + React + TypeScript dashboard with five routes.
 * Vercel deployment.

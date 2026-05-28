@@ -1,4 +1,4 @@
-"""Wikipedia constituency-page scraper for the Gilgit-Baltistan Legislative Assembly.
+"""Wikipedia constituency-page scraper for the Gilgit-Baltistan Assembly.
 
 Each constituency has a Wikipedia page (e.g. GBA-1 (Gilgit-I)) with one results
 table per election (2009, 2015, 2020). This module fetches a page, parses every

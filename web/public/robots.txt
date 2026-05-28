@@ -1,5 +1,5 @@
 # GB Elections Dashboard — robots policy
-# Public-records dashboard for the Gilgit-Baltistan Legislative Assembly elections.
+# Public-records dashboard for the Gilgit-Baltistan Assembly elections.
 # Open data, MIT-licensed code, CC-BY 4.0 dataset.
 
 User-agent: *

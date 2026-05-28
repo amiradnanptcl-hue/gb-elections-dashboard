@@ -1,7 +1,7 @@
 [project]
 name = "gb-model"
 version = "0.1.0"
-description = "Forecast model for the 2026 Gilgit-Baltistan Legislative Assembly election"
+description = "Forecast model for the 2026 Gilgit-Baltistan Assembly election"
 requires-python = "==3.11.*"
 authors = [{ name = "Syed Aamir Adnan" }]
 license = { text = "MIT" }
