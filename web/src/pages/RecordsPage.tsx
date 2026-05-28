@@ -352,17 +352,16 @@ function CandidatesSection() {
     >
       <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
         {grouped.map(([cz, list]) => (
-          <article
+          <Link
             key={cz}
-            className="card-elevated p-4 sm:p-5 space-y-3 relative top-edge"
+            to={`/constituency/${cz}`}
+            aria-label={`Open ${cz} constituency profile`}
+            className="card-elevated card-accent-gold p-4 sm:p-5 space-y-3 relative top-edge block group"
           >
             <div className="flex items-baseline justify-between gap-3">
-              <Link
-                to={`/constituency/${cz}`}
-                className="font-mono font-semibold text-[color:var(--color-foreground)] hover:underline underline-offset-4"
-              >
+              <span className="font-mono font-semibold text-[color:var(--color-foreground)] group-hover:text-[color:var(--color-accent-gold)] transition-colors">
                 {cz}
-              </Link>
+              </span>
               <span className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
                 {list.length} nominee{list.length === 1 ? "" : "s"}
               </span>
@@ -388,7 +387,16 @@ function CandidatesSection() {
                 );
               })}
             </ul>
-          </article>
+            <p className="pt-1 text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)] group-hover:text-[color:var(--color-accent-gold)] transition-colors inline-flex items-center gap-1">
+              Open seat profile
+              <span
+                aria-hidden
+                className="transition-transform group-hover:translate-x-0.5"
+              >
+                →
+              </span>
+            </p>
+          </Link>
         ))}
       </div>
     </SectionShell>
