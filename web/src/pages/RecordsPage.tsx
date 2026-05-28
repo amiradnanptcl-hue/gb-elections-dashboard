@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { PartyBadge } from "@/components/ui/badge";
 import {
   useCandidateRuns,
   useConstituencies,
@@ -367,16 +368,17 @@ function ConstituenciesSection() {
                   </dt>
                   <dd className="text-right min-w-0">
                     {w && wParty ? (
-                      <span className="inline-flex items-center gap-1.5">
+                      <span className="inline-flex items-center gap-1.5 flex-wrap justify-end">
                         <span className="truncate max-w-[140px]">
                           {w.candidate_name}
                         </span>
-                        <span
-                          className="text-[10px] font-bold uppercase tracking-[0.16em]"
-                          style={{ color: wParty.color }}
-                        >
-                          {wParty.shortDisplay}
-                        </span>
+                        <PartyBadge
+                          party={wParty.shortDisplay}
+                          color={wParty.color}
+                          textOnColor={wParty.textOnColor}
+                          flag={wParty.flag}
+                          variant="row"
+                        />
                       </span>
                     ) : (
                       <span className="text-[color:var(--color-muted-foreground)]">
@@ -464,11 +466,14 @@ function CandidatesSection() {
                     <span className="text-sm leading-snug">
                       {n.candidate_name}
                     </span>
-                    <span
-                      className="shrink-0 text-[10px] font-bold uppercase tracking-[0.18em]"
-                      style={{ color: meta.color }}
-                    >
-                      {meta.shortDisplay}
+                    <span className="shrink-0">
+                      <PartyBadge
+                        party={meta.shortDisplay}
+                        color={meta.color}
+                        textOnColor={meta.textOnColor}
+                        flag={meta.flag}
+                        variant="row"
+                      />
                     </span>
                   </li>
                 );
@@ -747,15 +752,16 @@ function OldResultRow({
       </td>
       <td className="px-4 py-3">
         {winner ? (
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-1 items-start">
             <span>{winner.candidate_name}</span>
             {wParty && (
-              <span
-                className="text-[11px] font-bold uppercase tracking-[0.18em]"
-                style={{ color: wParty.color }}
-              >
-                {wParty.shortDisplay}
-              </span>
+              <PartyBadge
+                party={wParty.shortDisplay}
+                color={wParty.color}
+                textOnColor={wParty.textOnColor}
+                flag={wParty.flag}
+                variant="row"
+              />
             )}
           </div>
         ) : (
@@ -767,15 +773,16 @@ function OldResultRow({
       </td>
       <td className="px-4 py-3">
         {runnerUp ? (
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-1 items-start">
             <span>{runnerUp.candidate_name}</span>
             {rParty && (
-              <span
-                className="text-[11px] font-bold uppercase tracking-[0.18em]"
-                style={{ color: rParty.color }}
-              >
-                {rParty.shortDisplay}
-              </span>
+              <PartyBadge
+                party={rParty.shortDisplay}
+                color={rParty.color}
+                textOnColor={rParty.textOnColor}
+                flag={rParty.flag}
+                variant="row"
+              />
             )}
           </div>
         ) : (
