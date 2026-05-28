@@ -7,9 +7,9 @@ This file consolidates all public data from official election records, news repo
 
 | Year | Polling Date | Assembly | Seats (General/Women/Technocrat) | Registered Voters | Turnout |
 |------|--------------|----------|----------------------------------|-------------------|---------|
-| 2015 | 8 June 2015 | 2nd | 24 / 6 / 3 | 618,364 | — |
+| 2015 | 8 June 2015 | 2nd | 24 / 6 / 3 | 618,364 | 61.29% |
 | 2020 | 15 November 2020 | 3rd | 24 / 6 / 3 | 745,362 | 48.12% |
-| 2026 | 7 June 2026 (final) | 4th | 24 / 6 / 3 | 958,480 | — |
+| 2026 | 7 June 2026 (final) | 4th | 24 / 6 / 3 | 774,319 | — |
 
 Notes:
 - 2026 date was initially proposed as 24 January 2026, then revised to 7 June 2026 due to winter weather concerns.
@@ -64,7 +64,7 @@ Independents represent ~67% of the field (272 of 403 per Pamir Times briefing), 
 |------|------------|------|--------|------------|
 | 2015 | 618,364 | — | — | — |
 | 2020 | 745,362 | 405,365 | 339,997 | 9% |
-| 2026 | 958,480 | — | — | — |
+| 2026 | 774,319 | 400,324 | 373,995 | 3.4% |
 
 Growth 2020-2026: +28.6%
 
