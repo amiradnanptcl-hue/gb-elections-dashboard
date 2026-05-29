@@ -490,13 +490,18 @@ interface TopBloc {
 /**
  * Appointed CM nominees, keyed by canonical party id.
  *
- * MWM has formally put Maisam Kazim (Muhammad Kazim Maisam, GBA-8
- * Skardu-II) forward as its Chief Minister candidate. PML-N's CM face
- * is former CM Hafiz Hafeezur Rehman (GBA-2 Gilgit-II); the Rev 4.0
- * survey actually projects Jameel Ahmed (PPP) winning GBA-2, but
- * Hafeezur Rehman remains the bloc's CM nominee regardless.
+ *   MWM    Maisam Kazim (Muhammad Kazim Maisam) at GBA-8 Skardu-II.
+ *   PML-N  Hafiz Hafeezur Rehman (former Chief Minister) at GBA-2
+ *          Gilgit-II. The Rev 4.0 survey projects Jameel Ahmed (PPP)
+ *          winning GBA-2, but Hafeezur Rehman remains the bloc's CM
+ *          face regardless.
+ *   IPP    Gulbar Khan (outgoing Chief Minister) at GBA-18 Diamer-IV.
+ *          Gulbar Khan is already the projected GBA-18 winner under
+ *          IPP; flagging him as the appointed nominee just promotes
+ *          him over Shamul Haq Lone (GBA-14) and Atiqullah (GBA-16)
+ *          on the bloc's podium card.
  *
- * In both cases the appointed face matters more for the CM Race than
+ * In every case the appointed face matters more for the CM Race than
  * whichever of the bloc's projected seat winners happens to top the
  * model-internal vote estimate. This override is per-party and
  * intentional. Revision 4.0 treats MWM as a standalone Shia bloc
@@ -518,6 +523,13 @@ const APPOINTED_CM_NOMINEE: Record<
     constituency_id: "GBA-2",
     area_name: "Gilgit-II",
     party_id: "PML-N",
+    pti_proxy: false,
+  },
+  IPP: {
+    candidate_name: "Gulbar Khan",
+    constituency_id: "GBA-18",
+    area_name: "Diamer-IV",
+    party_id: "IPP",
     pti_proxy: false,
   },
 };
