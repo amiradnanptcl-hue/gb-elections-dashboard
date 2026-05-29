@@ -110,7 +110,7 @@ export function CMRaceMeter() {
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2.5 min-w-0">
                     <span
-                      className="inline-flex items-center justify-center font-mono text-[10px] font-bold uppercase tracking-[0.22em] h-5 w-7 rounded text-[color:var(--color-muted-foreground)] border border-[color:var(--color-border)]"
+                      className="inline-flex items-center justify-center font-mono text-[10px] font-bold uppercase tracking-[0.22em] h-5 w-7 rounded text-[color:var(--color-muted-foreground)] border border-[color:var(--color-border)] shrink-0"
                       aria-hidden
                     >
                       {i + 1}
@@ -124,11 +124,14 @@ export function CMRaceMeter() {
                       loading="eager"
                       decoding="async"
                     />
-                    <span
-                      className="font-bold text-sm sm:text-base truncate"
-                      style={{ color: meta.color }}
-                    >
-                      {p.label}
+                    <span className="font-bold text-sm sm:text-base min-w-0 truncate">
+                      <span style={{ color: meta.color }}>{p.label}</span>
+                      {p.topCandidate && (
+                        <span className="text-[color:var(--color-muted-foreground)] font-medium">
+                          {" "}
+                          ({p.topCandidate.candidate_name})
+                        </span>
+                      )}
                     </span>
                   </div>
                   <div className="shrink-0 inline-flex items-baseline gap-1.5">
