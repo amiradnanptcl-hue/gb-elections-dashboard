@@ -23,11 +23,15 @@ export function MethodologyPage() {
           </h1>
           <p className="text-[color:var(--color-muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
             This is a public-records dashboard for the Gilgit-Baltistan
-            Assembly elections of 2009, 2015, 2020 and 2026. It
-            does not publish a forecast. It does not assign win probabilities
-            to candidates. It is a curated reference: who contested, who won,
-            how many voters are on the roll, how many polling stations are
-            planned, and where every number came from.
+            Assembly elections of 2009, 2015, 2020 and 2026. As of revision
+            2.0 (28 May 2026) it also publishes a qualitative human-analyst
+            seat-by-seat prediction for the 24 general seats. It does{" "}
+            <em>not</em> assign machine-derived win probabilities to
+            candidates. It is a curated reference plus a reasoned forecast:
+            who contested, who won, how many voters are on the roll, how many
+            polling stations are planned, where every number came from, and
+            who the model says is likely to take each seat in 2026 (with the
+            reasoning attached).
           </p>
         </div>
       </header>
@@ -52,12 +56,27 @@ export function MethodologyPage() {
             who has been verified so far as contesting in 2026.
           </li>
           <li>
-            <strong>It is not</strong> a forecast. We do not publish per-seat
-            win probabilities. An earlier build did, but the only feature
-            with real signal was "the federal ruling party also wins in GB",
-            which made the 2026 output collapse to "PML-N wins all 24 seats"
-            and would have misled visitors. We removed that model and the
-            dashboard now consumes data only.
+            <strong>It now publishes</strong> a qualitative seat-by-seat
+            prediction at{" "}
+            <Link
+              to="/predictions"
+              className="underline underline-offset-4 text-[color:var(--color-primary)]"
+            >
+              /predictions
+            </Link>{" "}
+            — a human-analyst framework (revision 2.0, 28 May 2026) that
+            weights ground organisation, party machinery, biraderi networks
+            and incumbent vulnerability above social-media volume.
+          </li>
+          <li>
+            <strong>It is not</strong> a machine-learning probability output.
+            An earlier build trained a logistic regression on the 72-row
+            historical record; the only feature with real signal was "the
+            federal ruling party also wins in GB", which made the 2026
+            output collapse to "PML-N wins all 24 seats" and would have
+            misled visitors. That model was removed in v1.3. The new
+            prediction layer is qualitative and human-reasoned, not a
+            classifier.
           </li>
           <li>
             <strong>It is not</strong> a polling site or a sentiment tracker.
@@ -69,6 +88,119 @@ export function MethodologyPage() {
             other party.
           </li>
         </ul>
+      </section>
+
+      <div className="rule-gold" />
+
+      {/* Predictive model methodology */}
+      <section className="space-y-4">
+        <h2 className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
+          Predictive model
+        </h2>
+        <h3 className="font-display text-2xl sm:text-3xl">
+          The 2026 seat-by-seat prediction framework (Revision 2.0)
+        </h3>
+        <p className="text-sm leading-relaxed">
+          The{" "}
+          <Link
+            to="/predictions"
+            className="underline underline-offset-4 text-[color:var(--color-primary)]"
+          >
+            /predictions
+          </Link>{" "}
+          page calls every general seat by name. The model is a
+          human-analyst framework that was revised on 28 May 2026 after
+          three errors in the initial pass: it had over-weighted federal
+          alignment, ignored PPP's ground machinery, and missed the
+          "turncoat" stigma on IPP candidates. The revised framework
+          weights inputs as follows:
+        </p>
+        <div className="grid gap-3 sm:grid-cols-5 text-xs">
+          <Card>
+            <CardHeader className="pb-1">
+              <CardTitle className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
+                Ground organisation
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pb-3 space-y-1">
+              <p className="stat-display text-xl">30%</p>
+              <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-snug">
+                UC-level coordinators, WhatsApp groups, shumaliyati programmes, biraderi networks.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="pb-1">
+              <CardTitle className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
+                Historical baseline
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pb-3 space-y-1">
+              <p className="stat-display text-xl">25%</p>
+              <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-snug">
+                2020 results, margins, incumbency, party-switching history.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="pb-1">
+              <CardTitle className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
+                Structural factors
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pb-3 space-y-1">
+              <p className="stat-display text-xl">20%</p>
+              <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-snug">
+                Federal alignment, PTI symbol ban, CM patronage, caretaker neutrality.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="pb-1">
+              <CardTitle className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
+                Candidate strength
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pb-3 space-y-1">
+              <p className="stat-display text-xl">20%</p>
+              <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-snug">
+                Name recognition, professional credibility, biraderi reach, gender dynamics.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="pb-1">
+              <CardTitle className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
+                Social-media signal
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pb-3 space-y-1">
+              <p className="stat-display text-xl">5%</p>
+              <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-snug">
+                X, TikTok, Facebook sentiment. Directional only — not predictive on its own.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+        <p className="text-sm leading-relaxed">
+          <strong>Confidence bands.</strong> Every seat call ships with a
+          High / Medium / Low rating. High = clear historical pattern plus
+          strong incumbent plus weak opposition plus no wildcards. Medium =
+          competitive race with 2–3 credible candidates within roughly
+          2,000 votes. Low = multi-cornered contest or a known wildcard
+          (BNF entry in GBA-19, AAC protest vote, GBA-24 delay).
+        </p>
+        <p className="text-sm leading-relaxed">
+          <strong>Headline projection.</strong> PPP 12, PML-N 9,
+          PTI-backed 3–4, IPP 0–1, JUI-F 1, Independent 1. Hung Assembly
+          with PPP as the largest single bloc and most likely the senior
+          partner in a continued PPP–PML-N coalition.
+        </p>
+        <p className="text-sm leading-relaxed">
+          <strong>Post-mortem.</strong> Every per-seat call will be
+          compared against the ECGB result after 7 June and the accuracy
+          rate published here. This is what holds the model honest.
+        </p>
       </section>
 
       <div className="rule-gold" />

@@ -301,3 +301,64 @@ export function useForecast2026Summary() {
       fetchJson<Forecast2026Summary>("/data/forecast_summary_2026.json"),
   });
 }
+
+/* -------------------------------------------------------------------------- */
+/* Revised qualitative model (28 May 2026)                                    */
+/* -------------------------------------------------------------------------- */
+
+export interface Prediction2026Row {
+  constituency_id: string;
+  area_name: string;
+  rank: number;
+  candidate_name: string;
+  party_id: string;
+  party_raw: string;
+  pti_proxy: boolean;
+  predicted_votes_text: string;
+  predicted_votes_estimate: number | null;
+  margin: string;
+  social_media_sentiment: string;
+  ground_reality: string;
+}
+
+export interface Predictions2026Summary {
+  title_lines: string[];
+  party_projection: { party_or_bloc: string; seats: string; driver: string }[];
+  critical_flips: { constituency: string; flip: string; reason: string }[];
+  government_formation_scenarios: { label: string; description: string }[];
+  election_date: string;
+  gba24_delay_note: string;
+}
+
+export interface Predictions2026Methodology {
+  title: string;
+  revision: string;
+  prediction_date: string;
+  full_text: string;
+}
+
+export function usePredictions2026() {
+  return useQuery({
+    queryKey: ["predictions_2026_revised"],
+    queryFn: () =>
+      fetchJson<Prediction2026Row[]>("/data/predictions_2026_revised.json"),
+  });
+}
+
+export function usePredictions2026Summary() {
+  return useQuery({
+    queryKey: ["predictions_2026_summary"],
+    queryFn: () =>
+      fetchJson<Predictions2026Summary>("/data/predictions_2026_summary.json"),
+  });
+}
+
+export function usePredictions2026Methodology() {
+  return useQuery({
+    queryKey: ["predictions_2026_methodology"],
+    queryFn: () =>
+      fetchJson<Predictions2026Methodology>(
+        "/data/predictions_2026_methodology.json",
+      ),
+  });
+}

@@ -42,6 +42,11 @@ const AnthemsPage = lazy(() =>
 const RecordsPage = lazy(() =>
   import("@/pages/RecordsPage").then((m) => ({ default: m.RecordsPage })),
 );
+const PredictionsPage = lazy(() =>
+  import("@/pages/PredictionsPage").then((m) => ({
+    default: m.PredictionsPage,
+  })),
+);
 const AboutPage = lazy(() =>
   import("@/pages/AboutPage").then((m) => ({ default: m.AboutPage })),
 );
@@ -70,6 +75,7 @@ export default function App() {
         <Route index element={<HomePage />} />
         <Route path="records" element={<RecordsPage />} />
         <Route path="records/:section" element={<RecordsPage />} />
+        <Route path="predictions" element={<PredictionsPage />} />
         <Route path="constituency/:id" element={<ConstituencyPage />} />
         <Route path="party/:id" element={<PartyPage />} />
         <Route path="sources" element={<SourcesPage />} />
