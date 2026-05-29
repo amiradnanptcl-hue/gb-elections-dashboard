@@ -80,11 +80,27 @@ export function AppLayout() {
               />
             </span>
             <div className="flex flex-col min-w-0">
-              <span className="font-semibold tracking-tight leading-none truncate text-sm sm:text-base">
-                GB Elections Forecast 2026
+              <span
+                className="font-display font-bold tracking-tight leading-none truncate text-base sm:text-lg lg:text-xl"
+                style={{
+                  fontFeatureSettings: '"ss01", "ss02", "liga", "calt"',
+                  letterSpacing: "-0.018em",
+                }}
+              >
+                GB Elections Forecast{" "}
+                <span
+                  className="text-headline-gradient italic font-black brand-2026"
+                  style={{ letterSpacing: "-0.02em" }}
+                >
+                  2026
+                </span>
               </span>
-              <span className="hidden sm:block text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)] mt-1">
-                PPP TEAM AI · Civic-tech
+              <span className="hidden sm:flex items-center gap-1.5 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)] mt-1.5 font-bold">
+                <span
+                  aria-hidden
+                  className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent-gold)] shadow-[0_0_6px_var(--color-accent-gold)]"
+                />
+                <span>PPP TEAM AI · Civic-tech</span>
               </span>
             </div>
           </NavLink>

@@ -199,6 +199,28 @@
     );
   }
 
+  /* Brand-mark "2026" treatment — subtle halo behind the headline-gradient
+   * text so the year reads as a focal point in the navbar. Uses an
+   * underlay pseudo-element for the glow so the gradient text stays
+   * crisp; text-shadow on background-clip text muddies the gradient. */
+  .brand-2026 {
+    position: relative;
+    isolation: isolate;
+  }
+  .brand-2026::before {
+    content: "";
+    position: absolute;
+    inset: -0.15em -0.35em;
+    background: radial-gradient(
+      closest-side,
+      oklch(0.80 0.13 85 / 0.28),
+      transparent 70%
+    );
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(2px);
+  }
+
   /* Headline gradient text accent. */
   .text-headline-gradient {
     background: linear-gradient(
