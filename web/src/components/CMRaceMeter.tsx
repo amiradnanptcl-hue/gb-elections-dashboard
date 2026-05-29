@@ -488,12 +488,19 @@ interface TopBloc {
 }
 
 /**
- * Appointed CM nominees. The MWM bloc has formally put Maisam Kazim
- * (Muhammad Kazim Maisam, GBA-8 Skardu-II) forward as its Chief Minister
- * candidate. Even if the per-seat tally awards another MWM seat the
- * higher vote, the bloc's CM face is who matters for the CM Race. This
- * override is per-party and intentional. Revision 4.0 treats MWM as a
- * standalone Shia bloc rather than a PTI proxy.
+ * Appointed CM nominees, keyed by canonical party id.
+ *
+ * MWM has formally put Maisam Kazim (Muhammad Kazim Maisam, GBA-8
+ * Skardu-II) forward as its Chief Minister candidate. PML-N's CM face
+ * is former CM Hafiz Hafeezur Rehman (GBA-2 Gilgit-II); the Rev 4.0
+ * survey actually projects Jameel Ahmed (PPP) winning GBA-2, but
+ * Hafeezur Rehman remains the bloc's CM nominee regardless.
+ *
+ * In both cases the appointed face matters more for the CM Race than
+ * whichever of the bloc's projected seat winners happens to top the
+ * model-internal vote estimate. This override is per-party and
+ * intentional. Revision 4.0 treats MWM as a standalone Shia bloc
+ * rather than a PTI proxy.
  */
 const APPOINTED_CM_NOMINEE: Record<
   string,
@@ -504,6 +511,13 @@ const APPOINTED_CM_NOMINEE: Record<
     constituency_id: "GBA-8",
     area_name: "Skardu-II",
     party_id: "MWM",
+    pti_proxy: false,
+  },
+  "PML-N": {
+    candidate_name: "Hafiz Hafeezur Rehman",
+    constituency_id: "GBA-2",
+    area_name: "Gilgit-II",
+    party_id: "PML-N",
     pti_proxy: false,
   },
 };
