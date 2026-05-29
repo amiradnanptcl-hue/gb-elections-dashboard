@@ -12,33 +12,25 @@ import { cn } from "@/lib/utils";
 /**
  * 2026 CM Race — the headline component on the home page.
  *
- * Reads the qualitative prediction model (Revision 2.0, 28 May 2026) and
- * renders a semicircular SVG speedometer showing all three top contenders
- * on the SAME 0..24-seat scale, so a visitor can see who is ahead, by
- * how much, and against whom — at a glance, before reading a single line
- * of prose.
+ * Renders the qualitative prediction model (Revision 2.0, 28 May 2026) as
+ * a semicircular speedometer with all three top contenders shown on the
+ * SAME 0..24-seat scale. The previous revision had a sign error in the
+ * needle rotation that flipped PML-N and MWM to the wrong side of the dial
+ * and a chip layout that overlapped near the 13 tick. This revision:
  *
- * Design rationale:
- *   - One gauge, three party-coloured needles (PPP red, PML-N green, MWM
- *     blue). Needle angle = projected seat count. Right side = winning.
- *   - Faint stacked tint zones in the background (red / green / blue)
- *     anchor each party's "territory" on the dial, so the eye learns the
- *     scale even before reading the numbers.
- *   - Majority threshold tick marks at 13 (simple majority of general
- *     seats) and 17 (assembly majority of 33).
- *   - Centre overlay: leader's party name and seat count, in the party
- *     colour. No prose; just the verdict.
- *   - Below the gauge: three podium cards (1st / 2nd / 3rd, gold / silver /
- *     bronze) each carrying:
- *       * Party flag + abbreviation + projected seats
- *       * THE TOP CANDIDATE — the strongest rank-1 winner the party has
- *         in the model (highest projected vote count). This is the
- *         entity-level "CM candidate" the model implies.
- *       * The constituency they will contest.
- *       * The one-line driver-of-change rationale.
+ *   - Corrects needle geometry: angle = (seats/24)*180 - 90. seats=0 maps
+ *     to -90 (full left), seats=12 maps to 0 (top), seats=24 maps to +90
+ *     (full right). Both chips and needles now sit on the same side of
+ *     the dial.
+ *   - Drops the floating chip-pills that previously cluttered the arc.
+ *     Identification moves to a single legend strip directly under the
+ *     gauge: three party tiles side by side with flag + shortDisplay +
+ *     seats. Zero overlap regardless of how close the seat counts are.
+ *   - Centre overlay tightened so it fits cleanly inside the inner circle.
  *
- * The PTI-pact bloc contests under the MWM flagship for 2026, so we use
- * the MWM flag and colour throughout (PTI itself is not on the ballot).
+ * The PTI-pact bloc contests under the MWM flagship for 2026 (PTI is not
+ * on the ballot), so MWM flag and blue tint are used wherever the bloc
+ * appears.
  */
 export function CMRaceMeter() {
   const summaryQ = usePredictions2026Summary();
@@ -60,26 +52,33 @@ export function CMRaceMeter() {
   const SIMPLE_MAJORITY = 13;
   const ASSEMBLY_MAJORITY = 17;
 
-  // SVG geometry. viewBox = 0..440 wide so the dial sits inside generous
-  // padding for the flag chips that float outside the arc.
-  const CX = 220;
-  const CY = 230;
-  const R = 170;
-  const STROKE = 22;
+  // SVG geometry. viewBox 0..400 wide, 260 tall — enough headroom above
+  // the arc for the tick labels without cramping anything.
+  const CX = 200;
+  const CY = 220;
+  const R = 160;
+  const STROKE = 24;
 
-  // 0 seats → π rad (full left). 24 seats → 0 rad (full right).
-  const seatsToAngle = (seats: number) =>
+  // Polar coordinates. For the arc-point math we use standard angle
+  // convention where seats=0 -> angle π (left), seats=24 -> angle 0
+  // (right). For the needle rotation we use SVG rotate() angle where
+  // seats=0 -> -90 (counterclockwise), seats=24 -> +90 (clockwise),
+  // because SVG rotate() spins the needle around the pivot and SVG's
+  // y-axis is flipped. The two conventions render the same points; the
+  // critical fix vs. the previous revision is the rotation sign.
+  const seatsToArcAngle = (seats: number) =>
     Math.PI * (1 - clamp(seats, 0, TOTAL_GENERAL_SEATS) / TOTAL_GENERAL_SEATS);
+  const seatsToNeedleDeg = (seats: number) =>
+    (clamp(seats, 0, TOTAL_GENERAL_SEATS) / TOTAL_GENERAL_SEATS) * 180 - 90;
   const arcPoint = (seats: number, radius: number = R) => {
-    const a = seatsToAngle(seats);
+    const a = seatsToArcAngle(seats);
     return { x: CX + radius * Math.cos(a), y: CY - radius * Math.sin(a) };
   };
 
   const fullArcPath = `M ${CX - R} ${CY} A ${R} ${R} 0 0 1 ${CX + R} ${CY}`;
 
-  // Stacked-tint segments — faint coloured zones along the dial showing
-  // each party's "territory". Each segment runs from the cumulative-low
-  // to the cumulative-high seat count.
+  // Faint stacked tint per party — anchors each bloc's "territory" on
+  // the arc behind the needles.
   const cumulative: { partyId: string; from: number; to: number }[] = [];
   let running = 0;
   for (const p of top3) {
@@ -90,7 +89,6 @@ export function CMRaceMeter() {
     });
     running += p.seatsHigh;
   }
-
   const segmentPath = (from: number, to: number) => {
     const start = arcPoint(from);
     const end = arcPoint(to);
@@ -102,9 +100,7 @@ export function CMRaceMeter() {
   const tickThirteen = arcPoint(SIMPLE_MAJORITY);
   const tickSeventeen = arcPoint(ASSEMBLY_MAJORITY);
 
-  // Sort needles by seat count desc so the leader's needle renders LAST
-  // (i.e. on top). That keeps the leader's chip in front of the others
-  // when they overlap.
+  // Render lower-seat needles first so the leader's needle stays on top.
   const orderedForDraw = [...top3].sort((a, b) => a.seatsHigh - b.seatsHigh);
 
   return (
@@ -112,7 +108,6 @@ export function CMRaceMeter() {
       aria-labelledby="cm-race-heading"
       className="relative space-y-7 p-6 sm:p-8 rounded-2xl border border-[color:var(--color-border-strong)] bg-[color:var(--color-card)]/60 overflow-hidden top-edge"
     >
-      {/* Subtle background glow tinted by the leader */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10 opacity-60 pointer-events-none"
@@ -136,9 +131,9 @@ export function CMRaceMeter() {
       </header>
 
       {/* Speedometer */}
-      <div className="relative mx-auto w-full max-w-[520px]">
+      <div className="relative mx-auto w-full max-w-[460px]">
         <svg
-          viewBox="0 0 440 280"
+          viewBox="0 0 400 260"
           className="block w-full h-auto"
           role="img"
           aria-label={`Race for Gilgit-Baltistan Chief Minister 2026. ${top3
@@ -147,8 +142,8 @@ export function CMRaceMeter() {
         >
           <defs>
             <linearGradient id="cmTrackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="var(--color-border)" stopOpacity="0.55" />
-              <stop offset="100%" stopColor="var(--color-border-strong)" stopOpacity="0.55" />
+              <stop offset="0%" stopColor="var(--color-border)" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="var(--color-border-strong)" stopOpacity="0.6" />
             </linearGradient>
             {top3.map((p) => {
               const meta = getParty(p.partyId);
@@ -161,7 +156,7 @@ export function CMRaceMeter() {
                   x2="100%"
                   y2="0%"
                 >
-                  <stop offset="0%" stopColor={meta.color} stopOpacity="0.18" />
+                  <stop offset="0%" stopColor={meta.color} stopOpacity="0.22" />
                   <stop offset="100%" stopColor={meta.color} stopOpacity="0.55" />
                 </linearGradient>
               );
@@ -184,7 +179,7 @@ export function CMRaceMeter() {
             fill="none"
           />
 
-          {/* Faint stacked tint per party — anchors each bloc's territory */}
+          {/* Stacked tint zones */}
           {cumulative.map((seg) => (
             <path
               key={`seg-${seg.partyId}`}
@@ -202,20 +197,20 @@ export function CMRaceMeter() {
             />
           ))}
 
-          {/* Tick: simple majority (13) */}
+          {/* Tick 13 (grey) */}
           <g aria-hidden>
             <line
               x1={tickThirteen.x}
               y1={tickThirteen.y}
-              x2={CX + (R + 16) * Math.cos(seatsToAngle(SIMPLE_MAJORITY))}
-              y2={CY - (R + 16) * Math.sin(seatsToAngle(SIMPLE_MAJORITY))}
+              x2={CX + (R + 18) * Math.cos(seatsToArcAngle(SIMPLE_MAJORITY))}
+              y2={CY - (R + 18) * Math.sin(seatsToArcAngle(SIMPLE_MAJORITY))}
               stroke="var(--color-foreground)"
-              strokeOpacity="0.55"
+              strokeOpacity="0.5"
               strokeWidth="2"
             />
             <text
-              x={CX + (R + 30) * Math.cos(seatsToAngle(SIMPLE_MAJORITY))}
-              y={CY - (R + 30) * Math.sin(seatsToAngle(SIMPLE_MAJORITY))}
+              x={CX + (R + 32) * Math.cos(seatsToArcAngle(SIMPLE_MAJORITY))}
+              y={CY - (R + 32) * Math.sin(seatsToArcAngle(SIMPLE_MAJORITY))}
               textAnchor="middle"
               fontFamily="var(--font-mono)"
               fontSize="11"
@@ -227,19 +222,19 @@ export function CMRaceMeter() {
             </text>
           </g>
 
-          {/* Tick: assembly majority (17) */}
+          {/* Tick 17 (gold — the meaningful one) */}
           <g aria-hidden>
             <line
               x1={tickSeventeen.x}
               y1={tickSeventeen.y}
-              x2={CX + (R + 16) * Math.cos(seatsToAngle(ASSEMBLY_MAJORITY))}
-              y2={CY - (R + 16) * Math.sin(seatsToAngle(ASSEMBLY_MAJORITY))}
+              x2={CX + (R + 18) * Math.cos(seatsToArcAngle(ASSEMBLY_MAJORITY))}
+              y2={CY - (R + 18) * Math.sin(seatsToArcAngle(ASSEMBLY_MAJORITY))}
               stroke="var(--color-accent-gold)"
               strokeWidth="2.5"
             />
             <text
-              x={CX + (R + 30) * Math.cos(seatsToAngle(ASSEMBLY_MAJORITY))}
-              y={CY - (R + 30) * Math.sin(seatsToAngle(ASSEMBLY_MAJORITY))}
+              x={CX + (R + 32) * Math.cos(seatsToArcAngle(ASSEMBLY_MAJORITY))}
+              y={CY - (R + 32) * Math.sin(seatsToArcAngle(ASSEMBLY_MAJORITY))}
               textAnchor="middle"
               fontFamily="var(--font-mono)"
               fontSize="11"
@@ -251,20 +246,20 @@ export function CMRaceMeter() {
             </text>
           </g>
 
-          {/* 0 and 24 endpoint labels */}
-          <text x={CX - R} y={CY + 28} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="11" fontWeight="700" fill="var(--color-muted-foreground)">
+          {/* Endpoint labels */}
+          <text x={CX - R} y={CY + 26} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="11" fontWeight="700" fill="var(--color-muted-foreground)">
             0
           </text>
-          <text x={CX + R} y={CY + 28} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="11" fontWeight="700" fill="var(--color-muted-foreground)">
+          <text x={CX + R} y={CY + 26} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="11" fontWeight="700" fill="var(--color-muted-foreground)">
             24
           </text>
 
-          {/* Needles — one per top-3 party */}
+          {/* Needles — corrected angle convention */}
           {orderedForDraw.map((p, idx) => {
             const meta = getParty(p.partyId);
-            const angleDeg = (1 - p.seatsHigh / TOTAL_GENERAL_SEATS) * 180 - 90;
-            const tip = arcPoint(p.seatsHigh, R - STROKE / 2 - 4);
+            const angleDeg = seatsToNeedleDeg(p.seatsHigh);
             const isLeader = p.partyId === leader.partyId;
+            const needleLen = R - STROKE / 2 - 6;
             return (
               <g
                 key={`needle-${p.partyId}`}
@@ -285,64 +280,25 @@ export function CMRaceMeter() {
                     x1={CX}
                     y1={CY}
                     x2={CX}
-                    y2={CY - (R - STROKE / 2 - 4)}
+                    y2={CY - needleLen}
                     stroke={meta.color}
-                    strokeWidth={isLeader ? 4 : 3}
-                    strokeOpacity={isLeader ? 1 : 0.85}
+                    strokeWidth={isLeader ? 4.5 : 3.5}
+                    strokeOpacity={isLeader ? 1 : 0.9}
                     strokeLinecap="round"
                     filter={isLeader ? "url(#cmGlow)" : undefined}
                   />
                   <circle
                     cx={CX}
-                    cy={CY - (R - STROKE / 2 - 4)}
-                    r={isLeader ? 7 : 5}
+                    cy={CY - needleLen}
+                    r={isLeader ? 8 : 6}
                     fill={meta.color}
                     filter="url(#cmGlow)"
                   />
-                </g>
-                {/* Floating seat-count chip OUTSIDE the arc at the needle tip */}
-                <g>
-                  {(() => {
-                    const out = arcPoint(p.seatsHigh, R + 38);
-                    return (
-                      <g>
-                        <rect
-                          x={out.x - 22}
-                          y={out.y - 11}
-                          width="44"
-                          height="22"
-                          rx="11"
-                          fill={meta.color}
-                          opacity="0.95"
-                          stroke="var(--color-card)"
-                          strokeWidth="1.5"
-                        />
-                        <text
-                          x={out.x}
-                          y={out.y}
-                          textAnchor="middle"
-                          fontFamily="var(--font-mono)"
-                          fontSize="11"
-                          fontWeight="800"
-                          fill={meta.textOnColor === "light" ? "white" : "#0f172a"}
-                          dominantBaseline="middle"
-                        >
-                          {meta.shortDisplay} {p.seatsText}
-                        </text>
-                      </g>
-                    );
-                  })()}
-                </g>
-                <g aria-hidden>
-                  <line
-                    x1={tip.x}
-                    y1={tip.y}
-                    x2={arcPoint(p.seatsHigh, R + 16).x}
-                    y2={arcPoint(p.seatsHigh, R + 16).y}
-                    stroke={meta.color}
-                    strokeOpacity="0.6"
-                    strokeWidth="1.5"
-                    strokeDasharray="2 3"
+                  <circle
+                    cx={CX}
+                    cy={CY - needleLen}
+                    r={isLeader ? 3 : 2}
+                    fill="var(--color-card)"
                   />
                 </g>
               </g>
@@ -353,14 +309,14 @@ export function CMRaceMeter() {
           <circle cx={CX} cy={CY} r="14" fill="var(--color-card)" stroke="var(--color-border-strong)" strokeWidth="2" />
           <circle cx={CX} cy={CY} r="6" fill={leaderMeta.color} className="winner-dot" />
 
-          {/* Centre overlay: leader verdict */}
+          {/* Centre overlay — tightened */}
           <g>
-            <text x={CX} y={CY - 50} textAnchor="middle" fontSize="11" fontWeight="700" letterSpacing="0.22em" fill="var(--color-muted-foreground)">
+            <text x={CX} y={CY - 60} textAnchor="middle" fontSize="11" fontWeight="700" letterSpacing="0.22em" fill="var(--color-muted-foreground)">
               LEADER
             </text>
             <text
               x={CX}
-              y={CY - 18}
+              y={CY - 30}
               textAnchor="middle"
               fontFamily="var(--font-display)"
               fontSize="22"
@@ -372,21 +328,20 @@ export function CMRaceMeter() {
             </text>
             <text
               x={CX}
-              y={CY + 32}
+              y={CY + 20}
               textAnchor="middle"
               fontFamily="var(--font-display)"
-              fontSize="46"
+              fontSize="40"
               fontWeight="800"
               fill={leaderMeta.color}
             >
               {leader.seatsText}
             </text>
-            <text x={CX} y={CY + 50} textAnchor="middle" fontSize="10" fontWeight="700" letterSpacing="0.18em" fill="var(--color-muted-foreground)">
+            <text x={CX} y={CY + 40} textAnchor="middle" fontSize="10" fontWeight="700" letterSpacing="0.18em" fill="var(--color-muted-foreground)">
               OF 24
             </text>
           </g>
 
-          {/* Keyframes + reduced-motion respect */}
           <style>{`
             @keyframes cmSegSweep { to { stroke-dashoffset: 0; } }
             @media (prefers-reduced-motion: reduce) {
@@ -396,6 +351,46 @@ export function CMRaceMeter() {
           `}</style>
         </svg>
       </div>
+
+      {/* Legend strip — clear party identification BELOW the dial.
+         No overlap with the gauge ever, no matter how close the seat
+         counts are. */}
+      <ol className="grid grid-cols-3 gap-2 sm:gap-3 max-w-[460px] mx-auto -mt-2">
+        {top3.map((p) => {
+          const meta = getParty(p.partyId);
+          return (
+            <li
+              key={`legend-${p.partyId}`}
+              className="flex items-center gap-2 px-2.5 py-2 rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-card)]/80"
+              style={{ borderColor: `${meta.color}55` }}
+            >
+              <span
+                aria-hidden
+                className="h-2.5 w-2.5 rounded-full shrink-0"
+                style={{ backgroundColor: meta.color }}
+              />
+              <img
+                src={meta.flag}
+                alt=""
+                width="24"
+                height="15"
+                className="h-4 w-6 rounded-sm ring-1 ring-[color:var(--color-border)] shrink-0"
+                loading="lazy"
+                decoding="async"
+              />
+              <span
+                className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] truncate"
+                style={{ color: meta.color }}
+              >
+                {meta.shortDisplay}
+              </span>
+              <span className="ml-auto font-mono tabular text-sm font-bold text-[color:var(--color-foreground)] shrink-0">
+                {p.seatsText}
+              </span>
+            </li>
+          );
+        })}
+      </ol>
 
       {/* Majority indicators */}
       <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-[11px] uppercase tracking-[0.16em] font-bold">
@@ -413,7 +408,7 @@ export function CMRaceMeter() {
         </span>
       </div>
 
-      {/* Podium — three contenders with named candidates */}
+      {/* Podium */}
       <ol className="grid gap-3 sm:gap-4 sm:grid-cols-3 mt-2">
         {top3.map((p, i) => {
           const meta = getParty(p.partyId);
@@ -483,7 +478,6 @@ export function CMRaceMeter() {
         })}
       </ol>
 
-      {/* Verdict + CTA */}
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
         <p className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)] font-bold">
           Verdict · Hung Assembly · PPP senior partner
@@ -501,8 +495,6 @@ export function CMRaceMeter() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Top-3 derivation                                                   */
-/* ------------------------------------------------------------------ */
 
 interface TopBloc {
   partyId: string;
@@ -518,16 +510,6 @@ function clamp(v: number, lo: number, hi: number) {
   return Math.max(lo, Math.min(hi, v));
 }
 
-/**
- * Pick the three blocs by projected seats, attach each one's strongest
- * rank-1 candidate from the per-seat predictions for "candidate-wise"
- * recognition on the podium.
- *
- * For the "PTI-backed" bloc, we treat MWM-flagged AND
- * Independent-with-pti_proxy-true winners as part of the same bloc and
- * pick whichever projects the highest vote count. Visually the bloc
- * uses the MWM flag.
- */
 function pickTopThree(
   summary: Predictions2026Summary,
   predictions: Prediction2026Row[],
@@ -539,14 +521,10 @@ function pickTopThree(
     const seatsLow = nums.length ? Math.min(...nums) : 0;
     const seatsHigh = nums.length ? Math.max(...nums) : 0;
     const pti = /PTI[\s-]?backed/i.test(labelRaw);
-    // PTI-backed → MWM flag (PTI is not on the 2026 GB ballot).
     let partyId = labelRaw;
     if (pti) partyId = "MWM";
     else if (/Independent/i.test(labelRaw)) partyId = "Independent";
 
-    // Top candidate. For PTI-backed, scan both MWM and Independent-with-
-    // pti_proxy rank-1 rows; for everyone else, just rows with matching
-    // party_id.
     const rank1 = predictions.filter((r) => r.rank === 1);
     const candidates = pti
       ? rank1.filter((r) => r.party_id === "MWM" || (r.party_id === "Independent" && r.pti_proxy))

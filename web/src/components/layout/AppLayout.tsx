@@ -89,7 +89,7 @@ export function AppLayout() {
               >
                 GB Elections Forecast{" "}
                 <span
-                  className="text-headline-gradient italic font-black brand-2026"
+                  className="text-headline-gradient font-black brand-2026"
                   style={{ letterSpacing: "-0.02em" }}
                 >
                   2026

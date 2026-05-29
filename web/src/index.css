@@ -199,26 +199,52 @@
     );
   }
 
-  /* Brand-mark "2026" treatment — subtle halo behind the headline-gradient
-   * text so the year reads as a focal point in the navbar. Uses an
-   * underlay pseudo-element for the glow so the gradient text stays
-   * crisp; text-shadow on background-clip text muddies the gradient. */
+  /* Brand-mark "2026" treatment — a breathing gold halo behind the
+   * headline-gradient text so the year reads as the focal point of the
+   * navbar. Two layered glow underlays (a soft halo + a tighter core
+   * glow) keep the gradient text crisp; CSS text-shadow on
+   * background-clip text muddies the gradient itself. The halo animates
+   * in a 2.4s ease loop so the eye is drawn back to it. */
   .brand-2026 {
     position: relative;
     isolation: isolate;
   }
   .brand-2026::before {
+    /* Outer breathing halo */
     content: "";
     position: absolute;
-    inset: -0.15em -0.35em;
+    inset: -0.35em -0.55em;
     background: radial-gradient(
       closest-side,
-      oklch(0.80 0.13 85 / 0.28),
-      transparent 70%
+      oklch(0.80 0.13 85 / 0.55),
+      oklch(0.80 0.13 85 / 0.18) 55%,
+      transparent 80%
+    );
+    z-index: -2;
+    pointer-events: none;
+    filter: blur(6px);
+    animation: brand2026Glow 2400ms ease-in-out infinite;
+  }
+  .brand-2026::after {
+    /* Inner core glow — tighter, brighter */
+    content: "";
+    position: absolute;
+    inset: -0.1em -0.2em;
+    background: radial-gradient(
+      closest-side,
+      oklch(0.80 0.13 85 / 0.45),
+      transparent 75%
     );
     z-index: -1;
     pointer-events: none;
     filter: blur(2px);
+  }
+  @keyframes brand2026Glow {
+    0%, 100% { opacity: 0.7; transform: scale(0.96); }
+    50%      { opacity: 1;   transform: scale(1.04); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .brand-2026::before { animation: none; opacity: 0.85; transform: none; }
   }
 
   /* Headline gradient text accent. */
