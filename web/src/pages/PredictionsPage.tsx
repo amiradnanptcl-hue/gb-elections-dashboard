@@ -100,9 +100,15 @@ export function PredictionsPage() {
           </div>
           <div className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {summary.party_projection.map((p) => {
-              const partyId = p.party_or_bloc
+              const labelRaw = p.party_or_bloc
                 .replace(/\s*Seats\s*$/i, "")
                 .trim();
+              // PTI-backed bloc contests under the MWM flagship; use the
+              // MWM flag/colour so the headline card matches the ballot
+              // reality. PTI itself is not on the 2026 GB ballot.
+              const partyId = /PTI[\s-]?backed/i.test(labelRaw)
+                ? "MWM"
+                : labelRaw;
               const meta = getParty(partyId);
               const isPpp = meta.id === "PPP";
               return (
@@ -136,65 +142,6 @@ export function PredictionsPage() {
             scenario: PPP + PML-N coalition continues, but PPP is now the{" "}
             <em>senior</em> partner, not junior. Possible PPP Chief Minister.
           </p>
-        </section>
-      )}
-
-      {/* Critical flips */}
-      {summary && summary.critical_flips.length > 0 && (
-        <section className="space-y-4">
-          <div className="space-y-1">
-            <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
-              Critical flips vs. the initial model
-            </p>
-            <h2 className="font-display text-2xl sm:text-3xl">
-              {summary.critical_flips.length} seats that moved
-            </h2>
-          </div>
-          <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
-            {summary.critical_flips.map((f) => {
-              const [oldP, newP] = f.flip
-                .split(/\s*[→\->]+\s*/)
-                .map((s) => s.trim());
-              const oldMeta = oldP ? getParty(oldP) : null;
-              const newMeta = newP ? getParty(newP) : null;
-              return (
-                <article
-                  key={f.constituency}
-                  className="card-elevated card-accent-red p-5 space-y-3 relative top-edge"
-                >
-                  <div className="flex items-center justify-between gap-3 flex-wrap">
-                    <p className="font-mono font-semibold">{f.constituency}</p>
-                    <div className="inline-flex items-center gap-2">
-                      {oldMeta && (
-                        <PartyBadge
-                          party={oldMeta.shortDisplay}
-                          color={oldMeta.color}
-                          textOnColor={oldMeta.textOnColor}
-                          flag={oldMeta.flag}
-                          variant="row"
-                        />
-                      )}
-                      <span aria-hidden className="text-[color:var(--color-muted-foreground)]">
-                        →
-                      </span>
-                      {newMeta && (
-                        <PartyBadge
-                          party={newMeta.shortDisplay}
-                          color={newMeta.color}
-                          textOnColor={newMeta.textOnColor}
-                          flag={newMeta.flag}
-                          variant="row"
-                        />
-                      )}
-                    </div>
-                  </div>
-                  <p className="text-[12px] text-[color:var(--color-foreground)]/85 leading-relaxed">
-                    {f.reason}
-                  </p>
-                </article>
-              );
-            })}
-          </div>
         </section>
       )}
 

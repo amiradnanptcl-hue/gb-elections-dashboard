@@ -459,11 +459,12 @@ function pickTopThree(summary: Predictions2026Summary): TopBloc[] {
     const nums = matches.map((s) => parseInt(s, 10));
     const seatsLow = nums.length ? Math.min(...nums) : 0;
     const seatsHigh = nums.length ? Math.max(...nums) : 0;
-    // Canonicalise to party ID. "PTI-backed" maps to PTI's colour even though
-    // they aren't formally on the ballot — the user has consistently used
-    // PTI orange to mark PTI-backed seats elsewhere on the dashboard.
+    // Canonicalise to party ID. The PTI-backed bloc contests under the MWM
+    // flagship (per the PTI Central Secretariat notification, 11 May 2026),
+    // so we use the MWM flag and colour for it. PTI is not on the 2026
+    // ballot itself.
     let partyId = labelRaw;
-    if (/PTI[\s-]?backed/i.test(labelRaw)) partyId = "PTI";
+    if (/PTI[\s-]?backed/i.test(labelRaw)) partyId = "MWM";
     else if (/Independent/i.test(labelRaw)) partyId = "Independent";
     return {
       partyId,
