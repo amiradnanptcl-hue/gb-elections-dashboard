@@ -5,6 +5,55 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] — 2026-05-29
+
+### Changed
+* **Predictive model upgraded to Revision 4.0** (Independent Survey
+  2026). The same six-pillar weighting framework from Revision 3.0
+  (Ground 30, Historical 20, Religious / Sectarian 15, Structural 15,
+  Candidate 15, Social 5) is re-applied against the new survey input.
+  Source page archived at
+  `docs/sources/independent_survey_2026_v4.jpg`.
+* **Bloc totals revised.** PPP 12 (was 11), PML-N 3 (was 8),
+  MWM 2 (was 0; previously rolled into PTI-backed proxy),
+  IPP 3 (was 0), ITP 2 (new entrant), Independent 2 (was 1),
+  JUI-F 0 (was 1), PTI-backed 0 (was 3; bloc retired).
+* **PTI-backed bloc retired.** Where Revision 3.0 counted MWM-aligned
+  candidates as PTI proxies, the Independent Survey 2026 treats MWM
+  and ITP as standalone Shia blocs. The "PTI-backed (MWM)" framing
+  is dropped from the BlocSeatList and lane labels.
+* **CM Race lanes expand to six blocs.** PPP, PML-N, MWM, IPP, ITP and
+  Independent. Every party with at least one projected seat gets a
+  lane. Podium keeps the gold / silver / bronze top three.
+* Maisam Kazim (MWM, GBA-8 Skardu-II) remains the formally appointed
+  MWM CM nominee. The override now flags `pti_proxy: false` because
+  MWM is its own bloc, not a PTI proxy.
+* `MethodologyPage`, `PredictionsPage` and `CMRaceMeter` copy bumped
+  to Rev 4.0 with the new headline projection and the Independent
+  Survey 2026 attribution.
+
+### Added
+* `pipeline/src/gb_pipeline/convert_predictions_v4.py`. Self-
+  validating converter that hardcodes the Rev 4.0 winners (PPP 12,
+  PML-N 3, MWM 2, IPP 3, ITP 2, Independent 2 = 24) and emits the
+  three JSON files to both `data/exports/` and `web/public/data/`.
+  Cross-checks per-seat winner tallies against the declared bloc
+  totals at runtime.
+* `pipeline/src/gb_pipeline/ocr_image.ps1`,
+  `pipeline/src/gb_pipeline/upscale_image.ps1` and
+  `pipeline/src/gb_pipeline/crop_image.ps1`. Windows OCR / image
+  helpers used to read the survey page reliably.
+* `docs/sources/independent_survey_2026_v4.jpg` archived as the
+  permanent primary-source reference for the Rev 4.0 projection.
+
+### Note
+* The source page's printed summary strip sums to 23 seats (PPP 10 +
+  PML-N 3 + MWM 2 + IPP 3 + ITP 2 + Independent 3). The 24 per-row
+  Winner-Party cells, verified at high resolution, sum to 24
+  (PPP 12, PML-N 3, MWM 2, ITP 2, IPP 3, Independent 2). The per-row
+  reading is adopted because every cell is individually verifiable
+  and reconciles cleanly to the 24-seat Assembly count.
+
 ## [1.5.0] — 2026-05-29
 
 ### Changed

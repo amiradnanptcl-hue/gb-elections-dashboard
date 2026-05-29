@@ -11,27 +11,13 @@
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Strong personal vote + high TikTok/social media engagement."
+    "ground_reality": "Strong personal vote. Runner-up Independent, third PML-N. Per the survey table."
   },
   {
     "constituency_id": "GBA-2",
     "area_name": "Gilgit-II",
     "rank": 1,
-    "candidate_name": "Hafiz Hafeezur Rehman",
-    "party_id": "PML-N",
-    "party_raw": "PML-N",
-    "pti_proxy": false,
-    "predicted_votes_text": "",
-    "predicted_votes_estimate": null,
-    "margin": "",
-    "social_media_sentiment": "",
-    "ground_reality": "Established base + former CM status; Sunni voter consolidation."
-  },
-  {
-    "constituency_id": "GBA-3",
-    "area_name": "Gilgit-III",
-    "rank": 1,
-    "candidate_name": "Aftab Haider",
+    "candidate_name": "Jameel Ahmed",
     "party_id": "PPP",
     "party_raw": "PPP",
     "pti_proxy": false,
@@ -39,7 +25,21 @@
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Flip from PTI. Ground campaign > fading PTI symbol vote."
+    "ground_reality": "PPP holds Gilgit-II. Runner-up PML-N, third IPP."
+  },
+  {
+    "constituency_id": "GBA-3",
+    "area_name": "Gilgit-III",
+    "rank": 1,
+    "candidate_name": "Dr. Muhammad Iqbal",
+    "party_id": "PML-N",
+    "party_raw": "PML-N",
+    "pti_proxy": false,
+    "predicted_votes_text": "",
+    "predicted_votes_estimate": null,
+    "margin": "",
+    "social_media_sentiment": "",
+    "ground_reality": "PML-N flips Gilgit-III. Runner-up MWM, third PPP. Federal alignment + Sunni consolidation."
   },
   {
     "constituency_id": "GBA-4",
@@ -53,21 +53,21 @@
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Flip from PTI. Reversion to PPP mean without PTI symbol."
+    "ground_reality": "PPP holds Nagar-I. Runner-up ITP, third PML-N. Reversion to PPP-leaning mean."
   },
   {
     "constituency_id": "GBA-5",
     "area_name": "Nagar-II",
     "rank": 1,
-    "candidate_name": "Rizwan Ali",
+    "candidate_name": "Riaz Akber",
     "party_id": "MWM",
-    "party_raw": "PTI-backed",
-    "pti_proxy": true,
+    "party_raw": "MWM",
+    "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Core PTI base remains strong in Nagar-II; MWM support."
+    "ground_reality": "MWM mobilisation through the Shia network. Runner-up PPP, third ITP."
   },
   {
     "constituency_id": "GBA-6",
@@ -81,77 +81,77 @@
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Military background + progressive Hunza appeal; high youth support."
+    "ground_reality": "PPP retains Hunza-I. Runner-up Independent, third PTI. Military background + progressive Hunza appeal."
   },
   {
     "constituency_id": "GBA-7",
     "area_name": "Skardu-I",
     "rank": 1,
-    "candidate_name": "Raja Zakaria Khan Maqpoon",
-    "party_id": "PPP",
-    "party_raw": "PPP",
+    "candidate_name": "M. Akber Khan",
+    "party_id": "PML-N",
+    "party_raw": "PML-N",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Strong Baltistan organization; Bilawal-Aseefa roadshow impact."
+    "ground_reality": "PML-N flips Skardu-I. Runner-up IPP, third PPP. Targeted PML-N strongholds in Baltistan."
   },
   {
     "constituency_id": "GBA-8",
     "area_name": "Skardu-II",
     "rank": 1,
-    "candidate_name": "Kachoo Imtiaz Haider",
+    "candidate_name": "M. Kazim Masum",
     "party_id": "MWM",
-    "party_raw": "PTI-backed",
-    "pti_proxy": true,
+    "party_raw": "MWM",
+    "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Persecution narrative mobilizing base; strong local family legacy."
+    "ground_reality": "MWM Chief Minister nominee Maisam Kazim. Runner-up PPP, third PML-N. Appointed CM candidate of the MWM bloc."
   },
   {
     "constituency_id": "GBA-9",
     "area_name": "Skardu-III",
     "rank": 1,
-    "candidate_name": "Wazir Saleem",
-    "party_id": "JUI-F",
-    "party_raw": "JUI-F",
+    "candidate_name": "Fida M Nashad",
+    "party_id": "PPP",
+    "party_raw": "PPP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Personal vote + religious network; effective local mobilization."
+    "ground_reality": "PPP flips Skardu-III. Runner-up MWM, third Independent. Strong organisational depth in Baltistan."
   },
   {
     "constituency_id": "GBA-10",
     "area_name": "Skardu-IV",
     "rank": 1,
-    "candidate_name": "Raja Nasir Abbas",
-    "party_id": "PPP",
-    "party_raw": "PPP",
+    "candidate_name": "Wazir Ejaz Hussain",
+    "party_id": "ITP",
+    "party_raw": "ITP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Consolidation of Shia votes; PPP's deep organizational strength."
+    "ground_reality": "ITP (Islami Tehreek Pakistan) flips Skardu-IV through the Shia religious network. Runner-up MWM, third PPP."
   },
   {
     "constituency_id": "GBA-11",
     "area_name": "Skardu-V",
     "rank": 1,
-    "candidate_name": "Syed Amjad Ali Zaidi",
-    "party_id": "PPP",
-    "party_raw": "PPP",
+    "candidate_name": "Amjad Zadi",
+    "party_id": "ITP",
+    "party_raw": "ITP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Incumbent strength + alignment with PPP's rising momentum."
+    "ground_reality": "ITP holds Skardu-V. Runner-up PPP, third Independent."
   },
   {
     "constituency_id": "GBA-12",
@@ -165,91 +165,91 @@
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Flip from PML-N. Youth energy + UC network > traditional biraderi."
+    "ground_reality": "PPP holds Shigar. Runner-up ITP, third PML-N. Youth + UC network outweigh traditional biraderi."
   },
   {
     "constituency_id": "GBA-13",
     "area_name": "Astore-I",
     "rank": 1,
-    "candidate_name": "Rana Farman Ali",
-    "party_id": "PML-N",
-    "party_raw": "PML-N",
+    "candidate_name": "Maj Fahad Haneef",
+    "party_id": "PPP",
+    "party_raw": "PPP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Strong PML-N base in Astore; federal alignment advantage."
+    "ground_reality": "PPP flips Astore-I. Runner-up PTI, third PML-N. Strong personal vote + party organisation."
   },
   {
     "constituency_id": "GBA-14",
     "area_name": "Astore-II",
     "rank": 1,
     "candidate_name": "Shamsul Haq Lone",
-    "party_id": "PML-N",
-    "party_raw": "PML-N",
+    "party_id": "IPP",
+    "party_raw": "IPP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Established local influence + PML-N's organizational edge."
+    "ground_reality": "Shamsul Haq Lone retained with party switch PML-N -> IPP. Runner-up PPP, third PML-N."
   },
   {
     "constituency_id": "GBA-15",
     "area_name": "Diamer-I",
     "rank": 1,
-    "candidate_name": "Engr. Muhammad Anwar",
-    "party_id": "PML-N",
-    "party_raw": "PML-N",
+    "candidate_name": "M. Dilpazir",
+    "party_id": "Independent",
+    "party_raw": "Independent",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Sunni-dominated area; traditional PML-N stronghold."
+    "ground_reality": "Diamer-I open contest. Runner-up IPP, third PTI. Local personal vote."
   },
   {
     "constituency_id": "GBA-16",
     "area_name": "Diamer-II",
     "rank": 1,
-    "candidate_name": "Engr. Muhammad Ismail",
-    "party_id": "PML-N",
-    "party_raw": "PML-N",
+    "candidate_name": "Atiqullah",
+    "party_id": "IPP",
+    "party_raw": "IPP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Local development focus + strong biraderi support."
+    "ground_reality": "IPP flips Diamer-II. Runner-up PPP, third PML-N."
   },
   {
     "constituency_id": "GBA-17",
     "area_name": "Diamer-III",
     "rank": 1,
-    "candidate_name": "Haider Khan",
-    "party_id": "PML-N",
-    "party_raw": "PML-N",
+    "candidate_name": "Muhammad Naseem",
+    "party_id": "PPP",
+    "party_raw": "PPP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Consolidation of conservative votes; PML-N's local dominance."
+    "ground_reality": "PPP flips Diamer-III. Runner-up Independent, third JUI-F. Personal vote consolidation."
   },
   {
     "constituency_id": "GBA-18",
     "area_name": "Diamer-IV",
     "rank": 1,
-    "candidate_name": "Malik Kifayat-ur-Rehman",
-    "party_id": "PML-N",
-    "party_raw": "PML-N",
+    "candidate_name": "Gulbar Khan",
+    "party_id": "IPP",
+    "party_raw": "IPP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Flip from IPP. CM Gulbar Khan (IPP) fatigue + biraderi shift."
+    "ground_reality": "Outgoing CM Gulbar Khan retains Diamer-IV under IPP. Runner-up PML-N, third JUI-F."
   },
   {
     "constituency_id": "GBA-19",
@@ -263,27 +263,27 @@
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Religious influence + PPP's historical Ghizer base."
+    "ground_reality": "PPP holds Ghizer-I. Runner-up Independent, third PML-N. Religious influence + historical PPP base."
   },
   {
     "constituency_id": "GBA-20",
     "area_name": "Ghizer-II",
     "rank": 1,
-    "candidate_name": "Nazir Ahmed",
-    "party_id": "MWM",
-    "party_raw": "PTI-backed",
-    "pti_proxy": true,
+    "candidate_name": "Abdul Jahan",
+    "party_id": "PML-N",
+    "party_raw": "PML-N",
+    "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Strong youth mobilization; PTI base intact despite symbol ban."
+    "ground_reality": "PML-N flips Ghizer-II. Runner-up PPP, third IPP. Federal alignment + organisational edge."
   },
   {
     "constituency_id": "GBA-21",
     "area_name": "Ghizer-III",
     "rank": 1,
-    "candidate_name": "Ghulam Muhammad",
+    "candidate_name": "Ayoub Shah",
     "party_id": "PPP",
     "party_raw": "PPP",
     "pti_proxy": false,
@@ -291,7 +291,7 @@
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Veteran politician status + PPP's organizational resurgence."
+    "ground_reality": "PPP holds Ghizer-III. Runner-up PML-N, third PTI."
   },
   {
     "constituency_id": "GBA-22",
@@ -305,13 +305,13 @@
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Flip from IPP. 'Doctor vs. turncoat' narrative hurts IPP."
+    "ground_reality": "PPP holds Ghanche-I. Runner-up PML-N, third Independent. 'Doctor vs turncoat' narrative continues to favour PPP."
   },
   {
     "constituency_id": "GBA-23",
     "area_name": "Ghanche-II",
     "rank": 1,
-    "candidate_name": "Amina Ansari",
+    "candidate_name": "Independent (name TBC)",
     "party_id": "Independent",
     "party_raw": "Independent",
     "pti_proxy": false,
@@ -319,20 +319,20 @@
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Multi-cornered fragmentation; strong local personal vote."
+    "ground_reality": "Ghanche-II open contest. Per the survey, an Independent leads with PPP runner-up. Candidate name not printed in the source table."
   },
   {
     "constituency_id": "GBA-24",
     "area_name": "Ghanche-III",
     "rank": 1,
-    "candidate_name": "Haji Fida Muhammad Nashad",
-    "party_id": "PML-N",
-    "party_raw": "PML-N",
+    "candidate_name": "Muhammad Ismail",
+    "party_id": "PPP",
+    "party_raw": "PPP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Strong personal vote + PML-N's traditional Ghanche support."
+    "ground_reality": "PPP flips Ghanche-III. Runner-up Independent. Election scheduling subject to ECGB revision."
   }
 ]

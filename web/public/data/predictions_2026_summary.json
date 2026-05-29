@@ -1,85 +1,110 @@
 {
   "title_lines": [
-    "GILGIT-BALTISTAN ELECTION 2026 — REVISION 3.0 PREDICTION SUMMARY (29 May 2026)",
-    "REVISED MODEL: PPP resurgence in Baltistan and Nagar; PML-N gains from IPP collapse; PTI base fragmented by symbol ban.",
+    "GILGIT-BALTISTAN ELECTION 2026 — REVISION 4.0 PREDICTION SUMMARY (29 May 2026)",
+    "ADOPTED THE INDEPENDENT SURVEY 2026 SINGLE-PAGE REPORT AS PRIMARY INPUT. PPP DOMINANT BLOC AT 12. MWM AND ITP ENTER AS STANDALONE SHIA BLOCS. IPP RETAINS THREE SEATS.",
     "Election Date: 7 June 2026 (GBA-24 polling separately scheduled per ECGB notification)."
   ],
   "party_projection": [
     {
       "party_or_bloc": "PPP Seats",
-      "seats": "11",
-      "driver": "Resurgence in Baltistan and Nagar, deep organizational strength, Bilawal-Aseefa roadshow impact, consolidation of Shia votes."
+      "seats": "12",
+      "driver": "Resurgence across Gilgit, Nagar, Hunza, Baltistan, Astore, Ghizer and Ghanche. Deep organisational network, Bilawal-Aseefa roadshow impact, and the consolidation of Shia and progressive votes."
     },
     {
       "party_or_bloc": "PML-N Seats",
-      "seats": "8",
-      "driver": "Gains from IPP collapse; strongholds in Diamer, parts of Astore, and Ghanche; federal alignment in Sunni-majority seats."
-    },
-    {
-      "party_or_bloc": "PTI-backed Seats",
       "seats": "3",
-      "driver": "Persecution narrative mobilising base. Symbol ban hurts but core vote intact in Nagar-II, Skardu-II, Ghizer-II."
+      "driver": "Targeted strongholds in Gilgit-III, Skardu-I and Ghizer-II. Federal alignment advantage in Sunni-leaning urban seats."
     },
     {
-      "party_or_bloc": "JUI-F Seats",
-      "seats": "1",
-      "driver": "Wazir Saleem personal vote and religious network in GBA-9 Skardu-III."
-    },
-    {
-      "party_or_bloc": "Independent Seats",
-      "seats": "1",
-      "driver": "GBA-23 Ghanche-II multi-cornered fragmentation; Amina Ansari personal vote."
+      "party_or_bloc": "MWM Seats",
+      "seats": "2",
+      "driver": "Shia mobilisation in Nagar-II and Skardu-II. Maisam Kazim (GBA-8) is the bloc's appointed Chief Minister nominee."
     },
     {
       "party_or_bloc": "IPP Seats",
-      "seats": "0",
-      "driver": "Collapse due to 'turncoat' narrative. CM Gulbar Khan loses GBA-18."
+      "seats": "3",
+      "driver": "Incumbent CM Gulbar Khan retains Diamer-IV; party flips in Astore-II and Diamer-II as PML-N candidates switch to IPP."
+    },
+    {
+      "party_or_bloc": "ITP Seats",
+      "seats": "2",
+      "driver": "Islami Tehreek Pakistan Shia religious network flips Skardu-IV and Skardu-V."
+    },
+    {
+      "party_or_bloc": "Independent Seats",
+      "seats": "2",
+      "driver": "Diamer-I personal vote and Ghanche-II open-seat fragmentation."
     }
   ],
   "critical_flips": [
     {
       "constituency": "GBA-3 Gilgit-III",
-      "flip": "PTI -> PPP",
-      "reason": "Aftab Haider's 18-month ground campaign + Bilawal roadshow outpaces Sohail Abbas's fading PTI-symbol vote."
+      "flip": "PPP -> PML-N",
+      "reason": "Dr. Muhammad Iqbal flips Gilgit-III for PML-N versus the Rev 3.0 projection of an Aftab Haider PPP win. MWM runner-up indicates Shia bloc presence."
     },
     {
-      "constituency": "GBA-4 Nagar-I",
-      "flip": "PTI -> PPP",
-      "reason": "Without the PTI bat symbol, Nagar-I reverts to its pre-2020 PPP-leaning mean. Muhammad Ali Akhter's family legacy + Shia base."
+      "constituency": "GBA-5 Nagar-II",
+      "flip": "PTI-backed -> MWM",
+      "reason": "Riaz Akber wins for MWM as a standalone bloc; the Rev 3.0 PTI-backed proxy framing is retired."
     },
     {
-      "constituency": "GBA-6 Hunza-I",
-      "flip": "Independent (PTI) -> PPP",
-      "reason": "Col (R) Imtiaz ul Haq's military background + progressive Hunza appeal lift PPP back into the seat."
+      "constituency": "GBA-9 Skardu-III",
+      "flip": "JUI-F -> PPP",
+      "reason": "Fida M Nashad takes Skardu-III for PPP. The Rev 3.0 JUI-F projection (Wazir Saleem) collapses; JUI-F now wins zero seats."
     },
     {
-      "constituency": "GBA-12 Shigar",
+      "constituency": "GBA-10 Skardu-IV",
+      "flip": "PPP -> ITP",
+      "reason": "ITP enters the Assembly through Wazir Ejaz Hussain's Shia religious-network mobilisation."
+    },
+    {
+      "constituency": "GBA-11 Skardu-V",
+      "flip": "PPP -> ITP",
+      "reason": "ITP picks up a second Skardu seat. Survey reports Amjad Zadi as the winner."
+    },
+    {
+      "constituency": "GBA-14 Astore-II",
+      "flip": "PML-N -> IPP",
+      "reason": "Shamsul Haq Lone holds Astore-II but switches from PML-N to IPP. Marks IPP's first general-seat win in this revision."
+    },
+    {
+      "constituency": "GBA-16 Diamer-II",
+      "flip": "PML-N -> IPP",
+      "reason": "Atiqullah delivers Diamer-II to IPP. Confirms IPP's three-seat foothold."
+    },
+    {
+      "constituency": "GBA-17 Diamer-III",
       "flip": "PML-N -> PPP",
-      "reason": "Imran Nadeem's UC network + TLP vote collapse + PPP youth energy outweigh Shigri's traditional biraderi."
+      "reason": "Muhammad Naseem consolidates Diamer-III for PPP. JUI-F third indicates residual religious vote."
     },
     {
       "constituency": "GBA-18 Diamer-IV",
-      "flip": "IPP -> PML-N",
-      "reason": "CM Gulbar Khan loses. Anti-IPP sentiment + Malik Kifayat's biraderi + CM fatigue flip the seat."
+      "flip": "(retained) IPP",
+      "reason": "Outgoing CM Gulbar Khan retains Diamer-IV for IPP. Rev 3.0 had predicted a PML-N flip; survey reverses that call."
     },
     {
-      "constituency": "GBA-22 Ghanche-I",
-      "flip": "IPP -> PPP",
-      "reason": "Mushtaq Hussain's IPP label toxic. 'Doctor vs. turncoat' narrative helps Dr Ashiq Hussain."
+      "constituency": "GBA-20 Ghizer-II",
+      "flip": "PTI-backed -> PML-N",
+      "reason": "Abdul Jahan delivers Ghizer-II to PML-N. PTI proxy vote concentrates at third position only."
+    },
+    {
+      "constituency": "GBA-24 Ghanche-III",
+      "flip": "PML-N -> PPP",
+      "reason": "Muhammad Ismail flips Ghanche-III to PPP. GBA-24 polling date subject to ECGB revision."
     }
   ],
   "government_formation_scenarios": [
     {
-      "label": "PPP-Led Coalition (65 percent)",
-      "description": "PPP (11) + PML-N (8) = 19 seats. PPP becomes the senior partner; coalition continues but the leadership balance flips from the 2020-2026 era. Possible PPP Chief Minister."
+      "label": "PPP-Led Coalition (70 percent)",
+      "description": "PPP (12) alone is one seat short of a simple majority of 13. A PPP + MWM (2) bloc reaches 14 cleanly; adding either ITP (2) or any Independent (2) widens the cushion. Most likely Chief Minister: PPP."
     },
     {
-      "label": "PPP-PTI Alternative (25 percent)",
-      "description": "PPP (11) + PTI-backed (3) + Independent (1) + JUI-F (1) = 16 seats. PPP-led coalition without PML-N. Possible if federal balance shifts and PTI proxies cooperate."
+      "label": "Cross-Bench Coalition (20 percent)",
+      "description": "PML-N (3) + IPP (3) + ITP (2) + Independents (2) = 10 seats. Falls short of a majority but could combine with MWM or split PPP loyalists in a horse-trading round to challenge the PPP-led formation."
     },
     {
       "label": "Hung Assembly (10 percent)",
-      "description": "No clear majority. Heavy post-election horse-trading expected. Reserved-seat allocation becomes decisive."
+      "description": "No coalition consolidates cleanly. Reserved-seat allocation and post-poll defections become decisive. CM selection deferred to the federal arbitration round."
     }
   ],
   "election_date": "2026-06-07",

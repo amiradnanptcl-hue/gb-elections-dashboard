@@ -24,14 +24,15 @@ export function MethodologyPage() {
           <p className="text-[color:var(--color-muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
             This is a public-records dashboard for the Gilgit-Baltistan
             Assembly elections of 2009, 2015, 2020 and 2026. As of revision
-            2.0 (28 May 2026) it also publishes a qualitative human-analyst
-            seat-by-seat prediction for the 24 general seats. It does{" "}
-            <em>not</em> assign machine-derived win probabilities to
-            candidates. It is a curated reference plus a reasoned forecast:
-            who contested, who won, how many voters are on the roll, how many
-            polling stations are planned, where every number came from, and
-            who the model says is likely to take each seat in 2026 (with the
-            reasoning attached).
+            4.0 (29 May 2026) it also publishes a qualitative human-analyst
+            seat-by-seat prediction for the 24 general seats, now seeded
+            from the Independent Survey 2026 report. It does <em>not</em>{" "}
+            assign machine-derived win probabilities to candidates. It is a
+            curated reference plus a reasoned forecast: who contested, who
+            won, how many voters are on the roll, how many polling stations
+            are planned, where every number came from, and who the model
+            says is likely to take each seat in 2026 (with the reasoning
+            attached).
           </p>
         </div>
       </header>
@@ -64,10 +65,11 @@ export function MethodologyPage() {
             >
               /predictions
             </Link>{" "}
-            — a human-analyst framework (revision 3.0, 29 May 2026) that
-            weights ground organisation, religious / sectarian dynamics,
-            party machinery, biraderi networks and incumbent vulnerability
-            above social-media volume.
+            — a human-analyst framework (revision 4.0, 29 May 2026) that
+            seeds its per-seat winners from the Independent Survey 2026
+            report and weights ground organisation, religious / sectarian
+            dynamics, party machinery, biraderi networks and incumbent
+            vulnerability above social-media volume.
           </li>
           <li>
             <strong>It is not</strong> a machine-learning probability output.
@@ -99,7 +101,7 @@ export function MethodologyPage() {
           Predictive model
         </h2>
         <h3 className="font-display text-2xl sm:text-3xl">
-          The 2026 seat-by-seat prediction framework (Revision 3.0)
+          The 2026 seat-by-seat prediction framework (Revision 4.0)
         </h3>
         <p className="text-sm leading-relaxed">
           The{" "}
@@ -110,13 +112,13 @@ export function MethodologyPage() {
             /predictions
           </Link>{" "}
           page calls every general seat by name. The model was revised on
-          29 May 2026 (Revision 3.0). Rev 2.0 (28 May) had over-weighted
-          federal alignment, ignored PPP's ground machinery, and missed
-          the "turncoat" stigma on IPP candidates. Rev 3.0 also adds an
-          explicit religious / sectarian dynamics input — Shia, Sunni,
-          and Ismaili population balance per seat plus the influence of
-          religious organisations (MWM, JUI-F, JIP). The revised framework
-          weights inputs as follows:
+          29 May 2026 (Revision 4.0). Rev 4.0 adopts the{" "}
+          <em>Independent Survey 2026</em> single-page report as the
+          per-seat ground truth and re-runs the six-pillar weighting
+          framework from Rev 3.0 against it. The PTI-backed proxy bloc
+          is retired; MWM and ITP are now standalone Shia blocs and IPP
+          retains three seats through party-switching incumbents. The
+          framework weights inputs as follows:
         </p>
         <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6 text-xs">
           <Card>
@@ -154,7 +156,7 @@ export function MethodologyPage() {
             <CardContent className="pb-3 space-y-1">
               <p className="stat-display text-xl">15%</p>
               <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-snug">
-                Shia / Sunni / Ismaili population balance. MWM, JUI-F and JIP mobilisation. <em>New in Rev 3.0.</em>
+                Shia / Sunni / Ismaili population balance. MWM, ITP, JUI-F and JIP mobilisation. Added Rev 3.0, expanded Rev 4.0.
               </p>
             </CardContent>
           </Card>
@@ -207,11 +209,12 @@ export function MethodologyPage() {
           (BNF entry in GBA-19, AAC protest vote, GBA-24 schedule).
         </p>
         <p className="text-sm leading-relaxed">
-          <strong>Headline projection (Rev 3.0).</strong> PPP 11, PML-N 8,
-          PTI-backed 3, JUI-F 1, Independent 1, IPP 0. Coalition government
-          expected, with PPP as the largest single bloc (+3 vs the initial
-          model) and most likely the senior partner in a continued PPP +
-          PML-N coalition.
+          <strong>Headline projection (Rev 4.0).</strong> PPP 12, PML-N 3,
+          MWM 2, IPP 3, ITP 2, Independent 2, JUI-F 0, PTI-backed 0
+          (bloc retired). Coalition government expected, with PPP as the
+          largest single bloc by a wide margin and most likely the senior
+          partner; Maisam Kazim (MWM, GBA-8 Skardu-II) is the formally
+          appointed CM nominee of the MWM bloc.
         </p>
         <p className="text-sm leading-relaxed">
           <strong>Post-mortem.</strong> Every per-seat call will be

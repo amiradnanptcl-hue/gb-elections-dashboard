@@ -11,13 +11,18 @@ import { useDocumentMeta } from "@/lib/seo";
 import { cn, formatNumber } from "@/lib/utils";
 
 /**
- * Author's qualitative prediction model, revised 29 May 2026 (Revision 3.0; supersedes Revision 2.0 of 28 May).
+ * Author's qualitative prediction model, revised 29 May 2026 (Revision 4.0;
+ * supersedes Revision 3.0 of 29 May).
  *
- * This page is the dashboard surface for the user-supplied model that lives
- * in GB_2026_REVISED_Predictions_28May.xlsx. It is *not* the old logistic-
- * regression model we removed in v1.3 — that was a 72-row ML attempt that
- * collapsed to "federal incumbent wins everything." This is a human-analyst
- * model that weights ground organisation (30%) and religious/sectarian dynamics (15%, new in Rev 3) above structural factors (15%) and explicitly downgrades social media (5%).
+ * This page is the dashboard surface for the human-analyst model. Rev 4.0
+ * adopts the Independent Survey 2026 single-page report as the per-seat
+ * ground truth and re-runs the six-pillar weighting framework from Rev
+ * 3.0 against it: ground organisation 30 percent, historical baseline 20
+ * percent, religious and sectarian dynamics 15 percent, structural
+ * factors 15 percent, candidate strength 15 percent, social media 5
+ * percent. The PTI-backed proxy bloc is retired; MWM and ITP are
+ * standalone Shia blocs and IPP retains three seats through party-
+ * switching incumbents.
  *
  * Render order: hero + headline projection → critical flips → government
  * formation scenarios → 24 per-seat blocks in GBA-1..GBA-24 order. Every
@@ -28,7 +33,7 @@ export function PredictionsPage() {
     title:
       "2026 Predictions — Gilgit-Baltistan Assembly seat-by-seat forecast | gbelections.com",
     description:
-      "Qualitative predictive model for the 24 general seats of the Gilgit-Baltistan Assembly, 7 June 2026. PPP 11, PML-N 8, PTI-backed 3, JUI-F 1, Independent 1, IPP 0. Coalition government expected with PPP as the senior partner.",
+      "Qualitative predictive model for the 24 general seats of the Gilgit-Baltistan Assembly, 7 June 2026. PPP 12, PML-N 3, MWM 2, IPP 3, ITP 2, Independent 2. Coalition government expected with PPP as the senior partner; Maisam Kazim is the appointed MWM CM nominee.",
     path: "/predictions",
   });
 
@@ -72,7 +77,7 @@ export function PredictionsPage() {
           <div className="flex items-center gap-3">
             <span className="inline-block h-px w-10 bg-[color:var(--color-accent-gold)]" />
             <span className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
-              Author's model · Revision 3.0 · 29 May 2026
+              Author's model · Revision 4.0 · 29 May 2026 · Independent Survey 2026
             </span>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.02]">

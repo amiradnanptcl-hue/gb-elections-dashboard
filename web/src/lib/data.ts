@@ -330,7 +330,7 @@ export function useForecast2026Summary() {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Revised qualitative model (29 May 2026, Revision 3.0)                                    */
+/* Revised qualitative model (29 May 2026, Revision 4.0; Independent Survey 2026)           */
 /* -------------------------------------------------------------------------- */
 
 export interface Prediction2026Row {

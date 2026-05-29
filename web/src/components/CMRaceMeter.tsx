@@ -33,8 +33,9 @@ import { cn } from "@/lib/utils";
  *   4) Podium cards (1st gold / 2nd silver / 3rd bronze) with the
  *      projected top candidate for each bloc.
  *
- * Party flags are everywhere. PTI-pact bloc renders as MWM (PTI is not
- * on the 2026 GB ballot).
+ * Party flags are everywhere. Revision 4.0 of the model treats MWM and
+ * ITP as standalone Shia blocs rather than PTI proxies, so every lane
+ * is its own party label.
  */
 export function CMRaceMeter() {
   const summaryQ = usePredictions2026Summary();
@@ -85,15 +86,15 @@ export function CMRaceMeter() {
       {/* Heading */}
       <header className="space-y-2 text-center">
         <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.32em] text-[color:var(--color-accent-gold)]">
-          Forecast 2026 · Polling 7 June · Model rev 3.0
+          Forecast 2026 · Polling 7 June · Model rev 4.0
         </p>
         <h2 id="cm-race-heading" className="font-display text-3xl sm:text-5xl leading-[1.02]">
           2026 <span className="text-headline-gradient">CM Race</span>
         </h2>
         <p className="text-sm sm:text-base text-[color:var(--color-muted-foreground)] max-w-xl mx-auto">
-          Three parties racing toward an assembly majority. Each lane below
-          is one bloc; the gold flag is the 17-seat finish line. No bloc
-          crosses it on its own — so the verdict is a coalition government.
+          Six blocs racing toward an assembly majority. Each lane below is
+          one party; the gold flag is the 17-seat finish line. No bloc
+          crosses it on its own, so the verdict is a coalition government.
         </p>
       </header>
 
@@ -431,7 +432,7 @@ export function CMRaceMeter() {
 
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
         <p className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)] font-bold">
-          Model · qualitative human-analyst, Revision 3.0
+          Model · qualitative human-analyst, Revision 4.0 · Independent Survey 2026
         </p>
         <Link
           to="/predictions"
@@ -462,11 +463,12 @@ interface TopBloc {
 }
 
 /**
- * Appointed CM nominees. The PTI-backed (MWM) bloc has formally put
- * Maisam Kazim (Muhammad Kazim Maisam, GBA-8 Skardu-II) forward as its
- * Chief Minister candidate. Even if Rev 3.0 of the model projects a
- * different MWM seat as having the highest vote, the bloc's CM face is
- * who matters for the CM Race. This override is per-party and intentional.
+ * Appointed CM nominees. The MWM bloc has formally put Maisam Kazim
+ * (Muhammad Kazim Maisam, GBA-8 Skardu-II) forward as its Chief Minister
+ * candidate. Even if the per-seat tally awards another MWM seat the
+ * higher vote, the bloc's CM face is who matters for the CM Race. This
+ * override is per-party and intentional. Revision 4.0 treats MWM as a
+ * standalone Shia bloc rather than a PTI proxy.
  */
 const APPOINTED_CM_NOMINEE: Record<
   string,
@@ -477,7 +479,7 @@ const APPOINTED_CM_NOMINEE: Record<
     constituency_id: "GBA-8",
     area_name: "Skardu-II",
     party_id: "MWM",
-    pti_proxy: true,
+    pti_proxy: false,
   },
 };
 
@@ -613,9 +615,7 @@ function BlocSeatList({
             Seat-by-seat breakdown
           </p>
           <h3 className="font-display text-xl sm:text-2xl leading-tight">
-            <span style={{ color: meta.color }}>
-              {ptiBacked ? "PTI-backed (MWM)" : meta.shortDisplay}
-            </span>{" "}
+            <span style={{ color: meta.color }}>{meta.shortDisplay}</span>{" "}
             ·{" "}
             <span className="font-mono tabular">{seatsText}</span>{" "}
             <span className="text-[color:var(--color-muted-foreground)] text-sm">
@@ -624,8 +624,8 @@ function BlocSeatList({
           </h3>
           <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-relaxed">
             Every seat below is one the model calls for{" "}
-            {ptiBacked ? "the PTI-backed (MWM) bloc" : meta.shortDisplay}.
-            Tap any row to open the constituency profile.
+            {meta.shortDisplay}. Tap any row to open the constituency
+            profile.
           </p>
         </div>
         <button
