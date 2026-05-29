@@ -302,17 +302,17 @@
     0%, 100% { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 0 4px rgba(0,0,0,0.3)); }
     50%      { transform: scale(1.08) rotate(2deg); filter: drop-shadow(0 0 12px rgba(255,255,255,0.45)); }
   }
+  /* Only the leader (gold) card pulses. Silver and bronze keep their
+   * coloured rings + gradient fills + medal pulse, but no box-shadow
+   * animation — too much glow on three cards at once was distracting. */
   .podium-glow-gold {
-    --podium-color: rgba(251, 191, 36, 0.55);
+    --podium-color: rgba(251, 191, 36, 0.7);
     animation: podiumGlowPulse 2600ms ease-in-out infinite 0ms;
   }
-  .podium-glow-silver {
-    --podium-color: rgba(203, 213, 225, 0.55);
-    animation: podiumGlowPulse 2600ms ease-in-out infinite 350ms;
-  }
+  .podium-glow-silver,
   .podium-glow-bronze {
-    --podium-color: rgba(234, 88, 12, 0.55);
-    animation: podiumGlowPulse 2600ms ease-in-out infinite 700ms;
+    /* Static, no animation. Class kept so TSX accent.glow assignment
+     * stays uniform, but the visual treatment is silent. */
   }
   .podium-medal {
     display: inline-block;
