@@ -283,7 +283,7 @@ export function ConstituencyPage() {
                 : "—"}
             </p>
             <p className="text-[10px] text-[color:var(--color-muted-foreground)]/80">
-              Share of district roll · Vision GB.
+              Share of district roll · ECGB Final Electoral Roll 2026.
             </p>
           </article>
 

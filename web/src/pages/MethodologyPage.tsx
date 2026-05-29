@@ -239,8 +239,8 @@ export function MethodologyPage() {
             candidate names.
           </li>
           <li>
-            <strong>Vision Gilgit Baltistan portal</strong>. Source for the
-            2026 district-wise registered-voter roll (774,319 total, with
+            <strong>ECGB Final Electoral Roll 2026</strong>. Source for the
+            2026 district-wise registered-voter roll (958,480 total, with
             male / female split per district).
           </li>
           <li>
@@ -326,7 +326,7 @@ export function MethodologyPage() {
             </CardHeader>
             <CardContent className="text-sm text-[color:var(--color-muted-foreground)]">
               Ten districts with their 2026 registered-voter totals plus a
-              female / male split. Source: Vision Gilgit Baltistan portal.
+              female / male split. Source: ECGB Final Electoral Roll 2026.
             </CardContent>
           </Card>
           <Card>

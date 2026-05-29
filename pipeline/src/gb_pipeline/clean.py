@@ -501,14 +501,16 @@ def main() -> int:
             "registered_voters": 745362, "turnout_pct": 48.12, "polling_stations": None,
         },
         {
-            # 2026 registered voters: 774,319 per the Vision Gilgit Baltistan
-            # official portal (female 373,995 + male 400,324, district sums
-            # check out to the same number). This supersedes the older
-            # 958,480 figure that came from secondary research; see
-            # data/raw/research/voters_by_district_2026.csv for the
-            # district-by-district roll.
+            # 2026 registered voters: 958,480 per the Election Commission of
+            # Gilgit-Baltistan FINAL Electoral Roll 2026 (male 503,772 +
+            # female 454,708, per-constituency breakdown in
+            # data/raw/research/voters_by_constituency_2026.csv and the
+            # district aggregation in voters_by_district_2026.csv). This is
+            # the official ECP/ECGB figure and SUPERSEDES the earlier
+            # 774,319 Vision Gilgit Baltistan figure I had briefly adopted.
+            # 24-seat / 10-district sums all reconcile exactly to 958,480.
             "year": 2026, "poll_date": "2026-06-07", "ruling_party_centre": "PML-N",
-            "registered_voters": 774319, "turnout_pct": None, "polling_stations": 2220,
+            "registered_voters": 958480, "turnout_pct": None, "polling_stations": 2220,
         },
     ]
     elections_df = pd.DataFrame(elections_rows)

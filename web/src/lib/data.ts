@@ -211,16 +211,43 @@ export interface DistrictVoters2026 {
 }
 
 /**
- * District-wise registered-voter rolls for 2026, sourced from the Vision
- * Gilgit Baltistan portal. Includes a female + male split per district.
- * District totals sum to 774,319 (GB-wide) and reconcile against the
- * elections.json 2026 registered_voters figure.
+ * District-wise registered-voter rolls for 2026, sourced from the
+ * Election Commission of Gilgit-Baltistan FINAL Electoral Roll 2026
+ * (aggregated up from the per-constituency rows). Includes a female +
+ * male split per district. District totals sum to 958,480 (GB-wide)
+ * and reconcile against the elections.json 2026 registered_voters
+ * figure.
  */
 export function useDistrictVoters2026() {
   return useQuery({
     queryKey: ["voters_by_district_2026"],
     queryFn: () =>
       fetchJson<DistrictVoters2026[]>("/data/voters_by_district_2026.json"),
+  });
+}
+
+export interface ConstituencyVoters2026 {
+  constituency_id: string;
+  area_name: string;
+  total_voters_2026: number;
+  male_voters_2026: number;
+  female_voters_2026: number;
+  source: string;
+}
+
+/**
+ * Per-constituency registered-voter rolls for 2026, sourced directly
+ * from the ECGB Final Electoral Roll 2026. One row per general seat
+ * (GBA-1 through GBA-24) with total / male / female. Sum across the
+ * 24 rows = 958,480 (matches elections.json).
+ */
+export function useConstituencyVoters2026() {
+  return useQuery({
+    queryKey: ["voters_by_constituency_2026"],
+    queryFn: () =>
+      fetchJson<ConstituencyVoters2026[]>(
+        "/data/voters_by_constituency_2026.json",
+      ),
   });
 }
 

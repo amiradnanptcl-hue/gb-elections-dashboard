@@ -42,7 +42,7 @@ const SECTION_META: Record<
   "voting-stations": {
     title: "GB polling-day logistics — 2,220 stations | gbelections.com",
     description:
-      "Polling-day footprint for the 2026 GB Assembly election: 2,220 stations across 24 seats, 774,319 registered voters, all-cycle logistics comparison.",
+      "Polling-day footprint for the 2026 GB Assembly election: 2,220 stations across 24 seats, 958,480 registered voters, all-cycle logistics comparison.",
   },
   "polling-stations": {
     title: "Polling stations per GB seat — 2026 estimates | gbelections.com",
@@ -50,9 +50,9 @@ const SECTION_META: Record<
       "Per-constituency polling-station estimate for the 2026 GB Assembly election, derived from each seat's share of the 2020 voter roll.",
   },
   voters: {
-    title: "GB district voter roll 2026 — 774,319 voters | gbelections.com",
+    title: "GB district voter roll 2026 — 958,480 voters | gbelections.com",
     description:
-      "District-level registered voters for the 2026 GB Assembly election from Vision Gilgit Baltistan. Male and female split per district.",
+      "District-level registered voters for the 2026 GB Assembly election from the ECGB Final Electoral Roll 2026. Male and female split per district. GB-wide total 958,480.",
   },
 };
 
@@ -107,7 +107,7 @@ const SECTIONS = [
     slug: "voters",
     label: "Voters",
     blurb:
-      "District-level registered voters for 2026, with male and female split, per the Vision Gilgit Baltistan roll.",
+      "District-level registered voters for 2026, with male and female split, per the ECGB Final Electoral Roll 2026.",
     accent: "card-accent-green" as const,
   },
 ];
@@ -1088,7 +1088,7 @@ function VotersSection() {
     <SectionShell
       eyebrow="Voters"
       title="District-level registered voters for 2026"
-      caption="Sourced from the Vision Gilgit Baltistan district roll. Totals reconcile against the GB-wide registered_voters figure."
+      caption="Sourced from the ECGB Final Electoral Roll 2026. Totals reconcile against the GB-wide registered_voters figure."
     >
       <div className="overflow-x-auto rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/40">
         <table className="w-full text-sm">

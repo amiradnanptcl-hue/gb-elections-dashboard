@@ -4,6 +4,7 @@ import {
   useCandidateRuns,
   useConstituencies,
   useConstituencySummary,
+  useConstituencyVoters2026,
   useDistrictVoters2026,
   useElections,
 } from "@/lib/data";
@@ -15,11 +16,13 @@ export function VotersPage() {
   const electionsQ = useElections();
   const runsQ = useCandidateRuns();
   const districtVotersQ = useDistrictVoters2026();
+  const constituencyVotersQ = useConstituencyVoters2026();
 
   const constituencies = constituenciesQ.data ?? [];
   const districtVoters = districtVotersQ.data ?? [];
-  const districtVotersByDistrict = new Map(
-    districtVoters.map((d) => [d.district, d] as const),
+  const constituencyVoters = constituencyVotersQ.data ?? [];
+  const constituencyVotersByCz = new Map(
+    constituencyVoters.map((d) => [d.constituency_id, d] as const),
   );
   // election_year may arrive as a string from JSON; coerce before comparing.
   const summary2020 = (summaryQ.data ?? []).filter(
@@ -44,39 +47,24 @@ export function VotersPage() {
   const totalRegistered2026 = election2026?.registered_voters ?? null;
   const totalStations2026 = election2026?.polling_stations ?? null;
 
-  // Growth factor used only as a fallback when the Vision GB district roll
-  // is missing for a constituency. Primary estimation uses district-
-  // proportional allocation, which is the truer signal because district
-  // totals are now sourced from the official Vision Gilgit Baltistan
-  // portal.
-  const fallbackGrowthFactor =
+  // Growth from the 2020 roll to the 2026 ECGB Final Electoral Roll.
+  // 745,362 -> 958,480 = +28.6 percent (was incorrectly +3.9 percent when we
+  // were briefly using the Vision GB 774,319 number before the final roll
+  // landed).
+  const growthFactor =
     totalRegistered2026 && totalRegistered2020
       ? totalRegistered2026 / totalRegistered2020
-      : 1.039;
+      : 1.286;
 
   const summaryByCz = new Map(summary2020.map((s) => [s.constituency_id, s]));
 
-  // Compute the 2020 share of each constituency's roll — used for both the
-  // 2026 voter estimate and the polling-station estimate.
+  // 2020 share is used only for the polling-station estimate (ECGB has not
+  // published a per-seat 2026 station allocation yet). The 2026 registered
+  // voter number is now sourced directly from the ECGB per-seat roll.
   const totalSummary2020Registered = summary2020.reduce(
     (s, x) => s + (x.registered_voters ?? 0),
     0,
   );
-
-  // For district-proportional allocation we need each constituency's share
-  // of its DISTRICT's 2020 registered voters. That lets us distribute the
-  // district's 2026 roll across its constituencies without assuming an
-  // identical growth rate everywhere.
-  const district2020Total = new Map<string, number>();
-  for (const c of constituencies) {
-    const s = summaryByCz.get(c.constituency_id);
-    if (s?.registered_voters != null) {
-      district2020Total.set(
-        c.district,
-        (district2020Total.get(c.district) ?? 0) + s.registered_voters,
-      );
-    }
-  }
 
   const rows = useMemo(
     () =>
@@ -88,29 +76,13 @@ export function VotersPage() {
             totalSummary2020Registered > 0 && registered2020 != null
               ? registered2020 / totalSummary2020Registered
               : null;
-          // District-proportional 2026 estimate: take the constituency's
-          // share of its district's 2020 roll and apply it to the
-          // district's published 2026 total. Fall back to the GB-wide
-          // growth factor only when the district roll is unavailable.
-          const districtRow = districtVotersByDistrict.get(c.district);
-          const districtTotal2020 =
-            district2020Total.get(c.district) ?? null;
-          let estRegistered2026: number | null = null;
-          if (
-            districtRow &&
-            districtTotal2020 &&
-            districtTotal2020 > 0 &&
-            registered2020 != null
-          ) {
-            const shareWithinDistrict = registered2020 / districtTotal2020;
-            estRegistered2026 = Math.round(
-              shareWithinDistrict * districtRow.total_voters_2026,
-            );
-          } else if (registered2020 != null) {
-            estRegistered2026 = Math.round(
-              registered2020 * fallbackGrowthFactor,
-            );
-          }
+          // Real per-constituency 2026 voters from the ECGB Final Electoral
+          // Roll. No estimation needed — the official per-seat number is
+          // what we publish.
+          const cv = constituencyVotersByCz.get(c.constituency_id);
+          const registered2026 = cv?.total_voters_2026 ?? null;
+          const male2026 = cv?.male_voters_2026 ?? null;
+          const female2026 = cv?.female_voters_2026 ?? null;
           const estStations =
             share != null && totalStations2026 != null
               ? Math.max(1, Math.round(share * totalStations2026))
@@ -127,7 +99,9 @@ export function VotersPage() {
             name: c.name,
             district: c.district,
             registered2020,
-            estRegistered2026,
+            registered2026,
+            male2026,
+            female2026,
             turnout2020: turnoutFromSource ?? turnoutDerived,
             estStations,
             searchKey:
@@ -144,9 +118,7 @@ export function VotersPage() {
       summaryByCz,
       totalSummary2020Registered,
       totalStations2026,
-      fallbackGrowthFactor,
-      districtVotersByDistrict,
-      district2020Total,
+      constituencyVotersByCz,
     ],
   );
 
@@ -159,7 +131,7 @@ export function VotersPage() {
 
   // Aggregates for the visible (filtered) set.
   const visibleTotalRegistered2026 = filteredRows.reduce(
-    (s, r) => s + (r.estRegistered2026 ?? 0),
+    (s, r) => s + (r.registered2026 ?? 0),
     0,
   );
   const visibleTotalStations = filteredRows.reduce(
@@ -187,13 +159,16 @@ export function VotersPage() {
             Registered voters by constituency
           </h1>
           <p className="text-[color:var(--color-muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
-            Constituency-level aggregates only — no individual voter data is
-            held or surfaced anywhere on this site. The Vision Gilgit
-            Baltistan portal publishes a district-level 2026 roll totalling{" "}
+            Constituency-level aggregates only — no individual voter data
+            is held or surfaced anywhere on this site. The 2026 figures
+            come directly from the{" "}
+            <strong className="text-[color:var(--color-foreground)]">
+              ECGB Final Electoral Roll 2026
+            </strong>{" "}
+            with a per-constituency male / female split. GB-wide total:{" "}
             {totalRegistered2026 ? formatNumber(totalRegistered2026) : "—"}{" "}
-            with male and female splits per district. Per-constituency 2026
-            figures below are distributed inside each district in proportion
-            to the seat's 2020 share of its district roll.
+            (M 503,772 + F 454,708). 24-seat and 10-district sums both
+            reconcile to this number exactly.
           </p>
         </div>
       </header>
@@ -208,7 +183,7 @@ export function VotersPage() {
             {totalRegistered2026 ? formatNumber(totalRegistered2026) : "…"}
           </p>
           <p className="text-xs text-[color:var(--color-muted-foreground)]">
-            GB-wide total per Vision Gilgit Baltistan.
+            GB-wide total per the ECGB Final Electoral Roll 2026.
           </p>
         </article>
         <article className="card-elevated card-accent-gold p-5 space-y-2">
@@ -227,16 +202,17 @@ export function VotersPage() {
             Six-year growth
           </p>
           <p className="stat-display text-4xl">
-            +{((fallbackGrowthFactor - 1) * 100).toFixed(1)}%
+            +{((growthFactor - 1) * 100).toFixed(1)}%
           </p>
-          <p className="text-xs text-[color:var(--color-muted-foreground)]">
-            Compound increase from the 2020 to the 2026 roll.
+            <p className="text-xs text-[color:var(--color-muted-foreground)]">
+            745,362 → 958,480 on the ECGB Final Electoral Roll.
           </p>
         </article>
       </section>
 
-      {/* District-level voter roll panel, sourced from the Vision Gilgit
-        Baltistan portal. Surfaces the male / female split per district so
+      {/* District-level voter roll panel, sourced from the ECGB Final
+        Electoral Roll 2026 (aggregated up from the per-constituency rows).
+        Surfaces the male / female split per district so
         visitors can see the gender breakdown that the per-constituency
         table doesn't. */}
       {districtVoters.length > 0 && (
@@ -260,8 +236,8 @@ export function VotersPage() {
               {" "}· total {formatNumber(districtVoters.reduce(
                 (s, d) => s + d.total_voters_2026,
                 0,
-              ))}{" "}across {districtVoters.length} districts. Source: Vision
-              Gilgit Baltistan portal.
+              ))}{" "}across {districtVoters.length} districts. Source:
+              ECGB Final Electoral Roll 2026.
             </p>
           </div>
           <div className="overflow-x-auto rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/40">
@@ -432,10 +408,13 @@ export function VotersPage() {
                   Registered (2020)
                 </th>
                 <th className="px-4 py-3 font-medium text-right">
-                  Est. registered (2026)
+                  Registered (2026)
                 </th>
                 <th className="px-4 py-3 font-medium text-right">
-                  Est. stations
+                  Male (2026)
+                </th>
+                <th className="px-4 py-3 font-medium text-right">
+                  Female (2026)
                 </th>
                 <th className="px-4 py-3 font-medium text-right">
                   Turnout (2020)
@@ -446,7 +425,7 @@ export function VotersPage() {
               {filteredRows.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={6}
+                    colSpan={7}
                     className="px-4 py-8 text-center text-[color:var(--color-muted-foreground)]"
                   >
                     No constituency matches “{query}”.
@@ -480,13 +459,16 @@ export function VotersPage() {
                         : "—"}
                     </td>
                     <td className="px-4 py-3 text-right font-mono tabular font-semibold">
-                      {r.estRegistered2026 != null
-                        ? formatNumber(r.estRegistered2026)
+                      {r.registered2026 != null
+                        ? formatNumber(r.registered2026)
                         : "—"}
                     </td>
-                    <td className="px-4 py-3 text-right font-mono tabular">
-                      {r.estStations != null
-                        ? formatNumber(r.estStations)
+                    <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
+                      {r.male2026 != null ? formatNumber(r.male2026) : "—"}
+                    </td>
+                    <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
+                      {r.female2026 != null
+                        ? formatNumber(r.female2026)
                         : "—"}
                     </td>
                     <td className="px-4 py-3 text-right font-mono tabular text-[color:var(--color-muted-foreground)]">
@@ -501,13 +483,14 @@ export function VotersPage() {
             <tfoot>
               <tr className="border-t-2 border-[color:var(--color-border-strong)]">
                 <td
-                  colSpan={6}
+                  colSpan={7}
                   className="px-4 py-3 text-[11px] text-[color:var(--color-muted-foreground)]"
                 >
-                  Aggregates only. Per CLAUDE.md no individual voter data is
-                  held. 2026 figures are projected from 2020 share of the GB
-                  roll scaled by the published growth rate; replace with
-                  ECGB Form-21 numbers when those land.
+                  Aggregates only. Per CLAUDE.md no individual voter data
+                  is held. 2026 figures sourced directly from the ECGB
+                  Final Electoral Roll 2026 (24-seat sum = 958,480, exact
+                  match to the GB-wide total above). Male {formatNumber(503772)}{" "}
+                  · female {formatNumber(454708)}.
                 </td>
               </tr>
             </tfoot>

@@ -11,13 +11,13 @@
 | 2009 | 12 November 2009 | 1st | 24 / 6 / 3 | not recorded | 60.70 percent |
 | 2015 | 8 June 2015 | 2nd | 24 / 6 / 3 | 618,364 | 61.29 percent |
 | 2020 | 15 November 2020 | 3rd | 24 / 6 / 3 | 745,362 | 48.12 percent |
-| 2026 | 7 June 2026 | 4th | 24 / 6 / 3 | 774,319 | (pending) |
+| 2026 | 7 June 2026 | 4th | 24 / 6 / 3 | 958,480 | (pending) |
 
 Notes:
 
 - 2026 was initially proposed for 24 January 2026, then revised to 7 June 2026 because of winter weather concerns over polling-station access in the higher-altitude districts.
-- 2,220 polling stations are planned for 2026 (ECGB planning figure across the 24 general seats). At 774,319 registered voters that's an average of ~349 voters per station, well below the Pakistan-wide guidance of ~1,000 voters per station, consistent with GB's mountainous terrain dispersing voters across many small high-altitude polling sites.
-- The 2026 registered-voter figure (774,319) comes from the Vision Gilgit Baltistan district roll, which reconciles district by district (sum of all 10 districts = 774,319 exactly; female 373,995 + male 400,324). This supersedes an earlier 958,480 figure that appeared in pre-roll secondary reporting.
+- 2,220 polling stations are planned for 2026 (ECGB planning figure across the 24 general seats). At 958,480 registered voters that's an average of ~349 voters per station, well below the Pakistan-wide guidance of ~1,000 voters per station, consistent with GB's mountainous terrain dispersing voters across many small high-altitude polling sites.
+- The 2026 registered-voter figure (958,480) comes from the ECGB Final Electoral Roll 2026, which reconciles BOTH by district (sum of all 10 districts = 958,480 exactly) AND by constituency (sum of GBA-1 through GBA-24 = 958,480 exactly). Male 503,772 + female 454,708 also reconcile to the same total. This is the official Election Commission figure and supersedes an earlier 774,319 Vision Gilgit Baltistan number we had briefly adopted before the final roll was published.
 
 ## 2. 2020 Results — Baseline for Modelling
 
@@ -85,9 +85,9 @@ Independents are roughly 67 percent of the field (272 of 403 per a Pamir Times b
 |------|------------|------|--------|------------|
 | 2015 | 618,364 | not split | not split | not recorded |
 | 2020 | 745,362 | 405,365 | 339,997 | 9 percent |
-| 2026 | 774,319 | 400,324 | 373,995 | 3.4 percent |
+| 2026 | 958,480 | 503,772 | 454,708 | 3.4 percent |
 
-Registered-voter growth 2020 to 2026: +3.9 percent (using the Vision Gilgit Baltistan 774,319 figure; female roll grew faster than male, closing the 2020 gender gap from 9 percent down to 3.4 percent).
+Registered-voter growth 2020 to 2026: +28.6 percent (745,362 → 958,480 per the ECGB Final Electoral Roll 2026; female roll grew faster than male, closing the 2020 gender gap from 9 percent down to 3.4 percent).
 
 ## 5. Social Media Signals (public Meta posts only)
 

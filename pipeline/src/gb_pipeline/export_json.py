@@ -130,13 +130,22 @@ def export(repo_root: Path) -> None:
             pd.read_csv(disq_csv)
         )
 
-    # 2026 district-wise voter rolls from Vision Gilgit Baltistan. Includes
-    # female + male totals per district and is the source for the
-    # district-level voter card on /voters.
+    # 2026 district-wise voter rolls from the ECGB Final Electoral Roll
+    # (aggregated up from the per-constituency rows below). Female + male
+    # totals per district.
     voters_dist_csv = repo_root / "data" / "raw" / "research" / "voters_by_district_2026.csv"
     if voters_dist_csv.exists():
         targets["voters_by_district_2026.json"] = _df_to_records(
             pd.read_csv(voters_dist_csv)
+        )
+
+    # 2026 per-constituency voter rolls from the official ECGB Final
+    # Electoral Roll. One row per GBA-1..GBA-24 with total / male / female.
+    # 24-seat sum reconciles to 958,480.
+    voters_cz_csv = repo_root / "data" / "raw" / "research" / "voters_by_constituency_2026.csv"
+    if voters_cz_csv.exists():
+        targets["voters_by_constituency_2026.json"] = _df_to_records(
+            pd.read_csv(voters_cz_csv)
         )
 
     # 2026 party-slate forecast.

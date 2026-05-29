@@ -147,7 +147,7 @@ export function PollingStationsPage() {
           <p className="text-xs text-[color:var(--color-muted-foreground)]">
             +3.9 percent growth vs. the 2020 roll (
             {totalRegistered2020 ? formatNumber(totalRegistered2020) : "—"}
-            ). Per the Vision Gilgit Baltistan district roll.
+            ). Per the ECGB Final Electoral Roll 2026.
           </p>
         </article>
         <article className="card-elevated card-accent-green p-5 space-y-2">

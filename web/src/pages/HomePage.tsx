@@ -11,7 +11,7 @@ export function HomePage() {
   useDocumentMeta({
     title: "GB Elections 2026 — Gilgit-Baltistan Assembly election dashboard",
     description:
-      "Public-records dashboard for the Gilgit-Baltistan Assembly election on 7 June 2026. 24 general seats, 403 candidates, 774,319 voters, ECGB polling-station data. Historical results 2009, 2015, 2020.",
+      "Public-records dashboard for the Gilgit-Baltistan Assembly election on 7 June 2026. 24 general seats, 403 candidates, 958,480 voters, ECGB polling-station data. Historical results 2009, 2015, 2020.",
     path: "/",
   });
   const navigate = useNavigate();
@@ -117,7 +117,7 @@ export function HomePage() {
                 ? formatNumber(election2026.registered_voters)
                 : "…"
             }
-            blurb="+3.9 percent growth versus the 2020 roll (745,362). Female 373,995 · male 400,324 per Vision GB."
+            blurb="+28.6 percent growth versus the 2020 roll (745,362). Male 503,772 · female 454,708 per ECGB Final Electoral Roll 2026."
             accent="green"
             href="/voters"
           />
@@ -357,9 +357,10 @@ export function HomePage() {
             and 2020 results come from Wikipedia constituency pages and
             ECGB notifications. The 2026 candidate names that appear here
             are individually verified from Wikipedia profiles and Pakistani
-            news outlets. The 2026 voter rolls come from the Vision Gilgit
-            Baltistan portal. The party symbols come from the ECGB
-            allotted-symbol sheet.
+            news outlets. The 2026 voter rolls come straight from the
+            ECGB Final Electoral Roll 2026 (per-constituency totals
+            reconcile to 958,480 GB-wide). The party symbols come from
+            the ECGB allotted-symbol sheet.
           </p>
           <p className="text-base sm:text-lg leading-relaxed">
             We do not publish a forecast. An earlier build trained a

@@ -38,7 +38,7 @@ The dashboard covers four election cycles:
 * **2026** &nbsp;The candidate field as it stands today: 403 final
   candidates (272 independents and 131 party-backed), the verified named
   nominees we have so far, the ECGB-allotted party symbols, and the
-  district-level voter rolls from Vision Gilgit Baltistan.
+  per-constituency and per-district voter rolls from the ECGB Final Electoral Roll 2026.
 
 ## What this is not
 
@@ -62,7 +62,7 @@ The dashboard covers four election cycles:
 | General seats | 24 |
 | Final 2026 candidate field | 403 (272 independents + 131 party-backed) |
 | Verified 2026 nominees in this repo | 16 |
-| 2026 registered voters | 774,319 (F 373,995 + M 400,324) |
+| 2026 registered voters | 958,480 (M 503,772 + F 454,708) |
 | ECGB polling-station total for 2026 | 2,220 |
 | Historical training rows | 72 (across 2009 + 2015 + 2020) |
 | Frontend | Vite + React 18 + TypeScript + Tailwind |
@@ -124,8 +124,9 @@ Every figure in this repository carries provenance. The primary sources are:
   2015, and 2020 winner / runner-up / vote tallies.
 * **Election Commission of Gilgit-Baltistan** result PDFs and the
   *Antkhabi Nishanat* (Form-33) symbol-allotment sheet.
-* **Vision Gilgit Baltistan** portal for the district-level 2026 voter
-  rolls including the female / male split.
+* **Election Commission of Gilgit-Baltistan** *Final Electoral Roll 2026*
+  for the per-constituency and per-district 2026 voter rolls including
+  the male / female split (GB-wide total 958,480; M 503,772 + F 454,708).
 * **Wikipedia profiles of named GB politicians** for the verified 2026
   candidate roster.
 * **Pakistani media wire**: Dawn, Express Tribune, Geo, APP, The News,

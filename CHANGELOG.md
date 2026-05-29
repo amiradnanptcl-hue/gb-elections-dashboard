@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 * District-wise 2026 voter rolls (female / male split) sourced from the
-  Vision Gilgit Baltistan portal: total 774,319 (F 373,995 + M 400,324).
+  ECGB Final Electoral Roll 2026: total 958,480 (M 503,772 + F 454,708).
 * `useDistrictVoters2026` data hook plus a district panel on `/voters`
   with the gender breakdown per district.
 * Key-metrics panel on every constituency page (registered voters,
