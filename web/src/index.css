@@ -199,6 +199,88 @@
     );
   }
 
+  /* CM Race lane animations — each lane starts at 0 width and grows out
+   * to var(--final-pct) over the same duration, with ease-out so the
+   * longer bars look faster (more distance covered in the same time).
+   * Stripes scroll continuously after the race so each lane keeps a
+   * sense of momentum. The leader gets a brief finish-line flash when
+   * the bar reaches its end. Respects prefers-reduced-motion. */
+  @keyframes cmLaneRace {
+    from { width: 0%; }
+    to   { width: var(--final-pct, 0%); }
+  }
+  @keyframes cmStripeScroll {
+    from { background-position: 0 0; }
+    to   { background-position: 28px 0; }
+  }
+  /* Runner glyph slides from the start line to the bar's leading edge
+   * in lockstep with the lane width animation. Same easing curve so
+   * the runner appears glued to the front of the bar. */
+  @keyframes cmRunnerSlide {
+    from { left: -12px; }
+    to   { left: var(--target-left, 0px); }
+  }
+  .cm-runner {
+    will-change: left;
+  }
+  @keyframes cmFinishFlash {
+    0%, 100% { box-shadow: 0 0 0 1px var(--lane-color, var(--color-accent-gold)),
+                           0 2px 12px -2px var(--lane-color, var(--color-accent-gold)); }
+    50%      { box-shadow: 0 0 0 2px var(--lane-color, var(--color-accent-gold)),
+                           0 0 28px 4px var(--lane-color, var(--color-accent-gold)); }
+  }
+  .cm-lane-fill {
+    width: 0%;
+    animation:
+      cmLaneRace 1800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .cm-lane-fill.cm-leader-finish {
+    animation:
+      cmLaneRace 1800ms cubic-bezier(0.22, 1, 0.36, 1) forwards,
+      cmFinishFlash 1600ms 1900ms ease-in-out 2;
+  }
+  .cm-lane-fill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0.22;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.5) 0 6px,
+      transparent 6px 14px
+    );
+    background-size: 28px 100%;
+    animation: cmStripeScroll 900ms linear infinite;
+  }
+  /* Leading-edge highlight — a brighter strip at the right edge of the
+   * filled bar so it feels like the racer's body is "leaning forward". */
+  .cm-lane-fill::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 14px;
+    border-radius: 0 999px 999px 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.45)
+    );
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cm-lane-fill {
+      width: var(--final-pct, 0%);
+      animation: none !important;
+    }
+    .cm-lane-fill::after { animation: none !important; }
+    .cm-lane-fill.cm-leader-finish { animation: none !important; }
+    .cm-runner { animation: none !important; left: var(--target-left, 0px) !important; }
+  }
+
   /* Brand-mark "2026" treatment — a breathing gold halo behind the
    * headline-gradient text so the year reads as the focal point of the
    * navbar. Two layered glow underlays (a soft halo + a tighter core
