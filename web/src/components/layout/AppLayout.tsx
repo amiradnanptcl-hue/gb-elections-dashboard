@@ -81,13 +81,14 @@ export function AppLayout() {
             </span>
             <div className="flex flex-col min-w-0">
               <span
-                className="font-display font-bold tracking-tight leading-none truncate text-base sm:text-lg lg:text-xl"
+                className="font-display font-bold tracking-tight leading-none truncate text-base sm:text-xl lg:text-2xl"
                 style={{
                   fontFeatureSettings: '"ss01", "ss02", "liga", "calt"',
                   letterSpacing: "-0.018em",
                 }}
               >
-                GB Elections Forecast{" "}
+                <span className="text-[color:var(--color-foreground)]">GB</span>{" "}
+                <span className="text-[color:var(--color-foreground)]">Elections</span>{" "}
                 <span
                   className="text-headline-gradient font-black brand-2026"
                   style={{ letterSpacing: "-0.02em" }}
@@ -95,7 +96,7 @@ export function AppLayout() {
                   2026
                 </span>
               </span>
-              <span className="hidden sm:flex items-center gap-1.5 text-[10px] uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)] mt-1.5 font-bold">
+              <span className="hidden sm:flex items-center gap-1.5 text-[10px] lg:text-[11px] uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)] mt-1.5 font-bold">
                 <span
                   aria-hidden
                   className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent-gold)] shadow-[0_0_6px_var(--color-accent-gold)]"
@@ -140,8 +141,9 @@ export function AppLayout() {
             ))}
           </nav>
 
-          {/* Mobile + tablet hamburger trigger. Big, labelled, with a visible
-             border so it doesn't get lost on a light photo header. */}
+          {/* Mobile + tablet hamburger trigger. Compact on very small
+             screens so the brand has room to breathe; gains a "Menu"
+             label from sm and up. */}
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
@@ -149,7 +151,7 @@ export function AppLayout() {
             aria-controls="mobile-nav-drawer"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             className={cn(
-              "lg:hidden inline-flex items-center gap-2 px-3 h-11 rounded-lg border-2 shrink-0",
+              "lg:hidden inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 h-11 min-w-[44px] rounded-lg border-2 shrink-0",
               "font-bold tracking-wide text-sm uppercase",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-background)]",
               "transition-colors",
@@ -159,7 +161,9 @@ export function AppLayout() {
             )}
           >
             {mobileOpen ? <CloseIcon /> : <HamburgerIcon />}
-            <span>{mobileOpen ? "Close" : "Menu"}</span>
+            <span className="hidden sm:inline">
+              {mobileOpen ? "Close" : "Menu"}
+            </span>
           </button>
         </div>
 
