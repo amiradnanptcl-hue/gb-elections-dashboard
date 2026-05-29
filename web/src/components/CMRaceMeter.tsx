@@ -86,10 +86,10 @@ export function CMRaceMeter() {
       {/* Heading */}
       <header className="space-y-2 text-center">
         <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.32em] text-[color:var(--color-accent-gold)]">
-          Forecast 2026 · Polling 7 June · Model rev 4.0
+          Forecast 2026 · As of 30 May 2026 · Updated every 24 hours
         </p>
         <h2 id="cm-race-heading" className="font-display text-3xl sm:text-5xl leading-[1.02]">
-          2026 <span className="text-headline-gradient">CM Race</span>
+          2026 <span className="text-headline-gradient">Predictions</span>
         </h2>
         <p className="text-sm sm:text-base text-[color:var(--color-muted-foreground)] max-w-xl mx-auto">
           Six blocs racing toward an assembly majority. Each lane below is
@@ -127,14 +127,11 @@ export function CMRaceMeter() {
                       loading="eager"
                       decoding="async"
                     />
-                    <span className="font-bold text-sm sm:text-base min-w-0 truncate">
-                      <span style={{ color: meta.color }}>{p.label}</span>
-                      {p.topCandidate && (
-                        <span className="text-[color:var(--color-muted-foreground)] font-medium">
-                          {" "}
-                          ({p.topCandidate.candidate_name})
-                        </span>
-                      )}
+                    <span
+                      className="font-bold text-sm sm:text-base min-w-0 truncate"
+                      style={{ color: meta.color }}
+                    >
+                      {meta.display}
                     </span>
                   </div>
                   <div className="shrink-0 inline-flex items-baseline gap-1.5">
@@ -429,6 +426,34 @@ export function CMRaceMeter() {
           onClose={() => setExpandedBloc(null)}
         />
       )}
+
+      {/* Sources + methodology disclaimer. Small print so readers know
+         the per-seat call is sourced externally, not self-attributed. */}
+      <div className="rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-muted)]/30 px-4 py-3 text-[11px] leading-relaxed text-[color:var(--color-muted-foreground)]">
+        <p className="font-bold uppercase tracking-[0.18em] text-[color:var(--color-accent-gold)] mb-1.5">
+          Sources and methodology
+        </p>
+        <p>
+          Per-seat winners sourced from the{" "}
+          <strong>Independent Survey 2026</strong> single-page report (29
+          May 2026), cross-checked against the ECGB Final Candidate List,
+          Wikipedia constituency pages and Pakistani press coverage (Dawn,
+          Express Tribune, Pamir Times). Calls are scored under a
+          six-pillar framework: Ground organisation 30 percent, Historical
+          baseline 20 percent, Religious and sectarian dynamics 15
+          percent, Structural factors 15 percent, Candidate strength 15
+          percent, Social-media signal 5 percent. This is an independent
+          reading published for public reference, not a self-prediction.
+          Full breakdown on the{" "}
+          <Link
+            to="/methodology"
+            className="underline underline-offset-2 text-[color:var(--color-accent-gold)] font-semibold"
+          >
+            Methodology page
+          </Link>
+          .
+        </p>
+      </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
         <p className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)] font-bold">
