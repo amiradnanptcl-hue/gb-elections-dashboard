@@ -1,82 +1,87 @@
 {
   "title_lines": [
-    "GILGIT-BALTISTAN ELECTION 2026 — REVISED PREDICTION SUMMARY (28 May 2026)",
-    "CORRECTED MODEL: PPP ground momentum upgraded | PML-N federal advantage downgraded | IPP 'turncoat' stigma recognized",
-    "Election Date: 7 June 2026 (GBA-24 delayed to 15 Nov 2026)"
+    "GILGIT-BALTISTAN ELECTION 2026 — REVISION 3.0 PREDICTION SUMMARY (29 May 2026)",
+    "REVISED MODEL: PPP resurgence in Baltistan and Nagar; PML-N gains from IPP collapse; PTI base fragmented by symbol ban.",
+    "Election Date: 7 June 2026 (GBA-24 polling separately scheduled per ECGB notification)."
   ],
   "party_projection": [
     {
       "party_or_bloc": "PPP Seats",
-      "seats": "12",
-      "driver": "Bilawal-Aseefa campaign, deep Baltistan organization, Shia voter consolidation, progressive Hunza appeal"
+      "seats": "11",
+      "driver": "Resurgence in Baltistan and Nagar, deep organizational strength, Bilawal-Aseefa roadshow impact, consolidation of Shia votes."
     },
     {
       "party_or_bloc": "PML-N Seats",
-      "seats": "9",
-      "driver": "Federal advantage overstated; struggling with electables per Leopard Media; CM fatigue in Diamer-IV"
+      "seats": "8",
+      "driver": "Gains from IPP collapse; strongholds in Diamer, parts of Astore, and Ghanche; federal alignment in Sunni-majority seats."
     },
     {
       "party_or_bloc": "PTI-backed Seats",
-      "seats": "3-4 (MWM/Ind)",
-      "driver": "Persecution narrative mobilizing base MORE than 2020. Symbol ban hurts but core vote intact."
-    },
-    {
-      "party_or_bloc": "IPP Seats",
-      "seats": "0-1",
-      "driver": "'Turncoat' / 'Gulbar Khan ally' stigma destroying IPP vote. CM Gulbar likely LOSES GBA-18."
+      "seats": "3",
+      "driver": "Persecution narrative mobilising base. Symbol ban hurts but core vote intact in Nagar-II, Skardu-II, Ghizer-II."
     },
     {
       "party_or_bloc": "JUI-F Seats",
       "seats": "1",
-      "driver": "Wazir Saleem personal vote + religious network in GBA-9"
+      "driver": "Wazir Saleem personal vote and religious network in GBA-9 Skardu-III."
     },
     {
-      "party_or_bloc": "Independent/Others",
+      "party_or_bloc": "Independent Seats",
       "seats": "1",
-      "driver": "GBA-23 multi-cornered fragmentation"
+      "driver": "GBA-23 Ghanche-II multi-cornered fragmentation; Amina Ansari personal vote."
+    },
+    {
+      "party_or_bloc": "IPP Seats",
+      "seats": "0",
+      "driver": "Collapse due to 'turncoat' narrative. CM Gulbar Khan loses GBA-18."
     }
   ],
   "critical_flips": [
     {
       "constituency": "GBA-3 Gilgit-III",
-      "flip": "PTI → PPP",
-      "reason": "Aftab Haider's 18-month ground campaign + Bilawal roadshow > Sohail Abbas's fading PTI symbol vote"
+      "flip": "PTI -> PPP",
+      "reason": "Aftab Haider's 18-month ground campaign + Bilawal roadshow outpaces Sohail Abbas's fading PTI-symbol vote."
     },
     {
       "constituency": "GBA-4 Nagar-I",
-      "flip": "PTI → PPP",
-      "reason": "Nagar reverts to PPP mean without PTI bat symbol. Muhammad Ali Akhter's family legacy + Shia base."
+      "flip": "PTI -> PPP",
+      "reason": "Without the PTI bat symbol, Nagar-I reverts to its pre-2020 PPP-leaning mean. Muhammad Ali Akhter's family legacy + Shia base."
+    },
+    {
+      "constituency": "GBA-6 Hunza-I",
+      "flip": "Independent (PTI) -> PPP",
+      "reason": "Col (R) Imtiaz ul Haq's military background + progressive Hunza appeal lift PPP back into the seat."
     },
     {
       "constituency": "GBA-12 Shigar",
-      "flip": "PML-N → PPP",
-      "reason": "Imran Nadeem's UC network + TLP vote collapse + PPP youth energy > Shigri's biraderi alone."
+      "flip": "PML-N -> PPP",
+      "reason": "Imran Nadeem's UC network + TLP vote collapse + PPP youth energy outweigh Shigri's traditional biraderi."
     },
     {
       "constituency": "GBA-18 Diamer-IV",
-      "flip": "IPP → PML-N",
-      "reason": "CM Gulbar Khan LOSES. Anti-IPP sentiment + Malik Kifayat's biraderi + CM fatigue flip this seat."
+      "flip": "IPP -> PML-N",
+      "reason": "CM Gulbar Khan loses. Anti-IPP sentiment + Malik Kifayat's biraderi + CM fatigue flip the seat."
     },
     {
       "constituency": "GBA-22 Ghanche-I",
-      "flip": "IPP → PPP",
+      "flip": "IPP -> PPP",
       "reason": "Mushtaq Hussain's IPP label toxic. 'Doctor vs. turncoat' narrative helps Dr Ashiq Hussain."
     }
   ],
   "government_formation_scenarios": [
     {
-      "label": "Most Likely (65%)",
-      "description": "PPP (12) + PML-N (9) = 21 seats | Coalition continues but PPP now SENIOR partner, not junior. Possible PPP CM."
+      "label": "PPP-Led Coalition (65 percent)",
+      "description": "PPP (11) + PML-N (8) = 19 seats. PPP becomes the senior partner; coalition continues but the leadership balance flips from the 2020-2026 era. Possible PPP Chief Minister."
     },
     {
-      "label": "Alternative (25%)",
-      "description": "PPP (12) + PTI-backed (3-4) + Independents (2) = 17-18 seats | PPP-led coalition without PML-N. Federal establishment opposes but possible if PTI proxies support."
+      "label": "PPP-PTI Alternative (25 percent)",
+      "description": "PPP (11) + PTI-backed (3) + Independent (1) + JUI-F (1) = 16 seats. PPP-led coalition without PML-N. Possible if federal balance shifts and PTI proxies cooperate."
     },
     {
-      "label": "Chaos (10%)",
-      "description": "Hung assembly with heavy independent presence. IPP tries kingmaker role but 'turncoat' stigma limits leverage. Possible post-election defection wave."
+      "label": "Hung Assembly (10 percent)",
+      "description": "No clear majority. Heavy post-election horse-trading expected. Reserved-seat allocation becomes decisive."
     }
   ],
   "election_date": "2026-06-07",
-  "gba24_delay_note": "GBA-24 (Diamer-V) polling delayed to 15 November 2026."
+  "gba24_delay_note": "GBA-24 (Ghanche-III) polling note: ECGB scheduling subject to revision."
 }

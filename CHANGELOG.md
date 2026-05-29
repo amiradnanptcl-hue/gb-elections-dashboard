@@ -5,6 +5,35 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] — 2026-05-29
+
+### Changed
+* **Predictive model upgraded to Revision 3.0.** Source report archived
+  at `docs/predictive_model_report_rev3.md`. Revised bloc totals: PPP 11
+  (was 12), PML-N 8 (was 9), PTI-backed 3 (was 3-4), JUI-F 1,
+  Independent 1, IPP 0 (was 0-1, now confirmed zero).
+* **Religious / sectarian dynamics added as a 15 percent input** — Shia
+  / Sunni / Ismaili population balance per seat plus the influence of
+  MWM, JUI-F and JIP. New weighting framework: Ground 30, Historical 20,
+  Religious-Sectarian 15 (NEW), Structural 15, Candidate 15, Social
+  media 5.
+* Specific seat-level candidate / party refinements across 11 seats
+  (GBA-5, 6, 7, 8, 10, 11, 14, 20, 21, 23, 24).
+* `MethodologyPage` weighting grid grew from 5 cards to 6 and the
+  copy now flags Rev 3.0 changes vs Rev 2.0.
+* `CMRaceMeter` eyebrow text bumped to "Model rev 3.0".
+* `PredictionsPage` hero, SEO description and "How to read this page"
+  paragraph reflect Rev 3.0 totals and methodology.
+
+### Added
+* `pipeline/src/gb_pipeline/convert_predictions_v3.py` — self-
+  validating converter that hardcodes the Rev 3.0 winners and emits the
+  three JSON files to both `data/exports/` and `web/public/data/`.
+  Cross-checks per-seat winner tallies against the declared party
+  totals at runtime to catch typos.
+* `docs/predictive_model_report_rev3.md` archived for permanent
+  reference (29 May 2026 report).
+
 ## [1.3.0] — 2026-05-27
 
 ### Changed

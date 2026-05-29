@@ -64,9 +64,10 @@ export function MethodologyPage() {
             >
               /predictions
             </Link>{" "}
-            — a human-analyst framework (revision 2.0, 28 May 2026) that
-            weights ground organisation, party machinery, biraderi networks
-            and incumbent vulnerability above social-media volume.
+            — a human-analyst framework (revision 3.0, 29 May 2026) that
+            weights ground organisation, religious / sectarian dynamics,
+            party machinery, biraderi networks and incumbent vulnerability
+            above social-media volume.
           </li>
           <li>
             <strong>It is not</strong> a machine-learning probability output.
@@ -98,7 +99,7 @@ export function MethodologyPage() {
           Predictive model
         </h2>
         <h3 className="font-display text-2xl sm:text-3xl">
-          The 2026 seat-by-seat prediction framework (Revision 2.0)
+          The 2026 seat-by-seat prediction framework (Revision 3.0)
         </h3>
         <p className="text-sm leading-relaxed">
           The{" "}
@@ -108,14 +109,16 @@ export function MethodologyPage() {
           >
             /predictions
           </Link>{" "}
-          page calls every general seat by name. The model is a
-          human-analyst framework that was revised on 28 May 2026 after
-          three errors in the initial pass: it had over-weighted federal
-          alignment, ignored PPP's ground machinery, and missed the
-          "turncoat" stigma on IPP candidates. The revised framework
+          page calls every general seat by name. The model was revised on
+          29 May 2026 (Revision 3.0). Rev 2.0 (28 May) had over-weighted
+          federal alignment, ignored PPP's ground machinery, and missed
+          the "turncoat" stigma on IPP candidates. Rev 3.0 also adds an
+          explicit religious / sectarian dynamics input — Shia, Sunni,
+          and Ismaili population balance per seat plus the influence of
+          religious organisations (MWM, JUI-F, JIP). The revised framework
           weights inputs as follows:
         </p>
-        <div className="grid gap-3 sm:grid-cols-5 text-xs">
+        <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-6 text-xs">
           <Card>
             <CardHeader className="pb-1">
               <CardTitle className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)]">
@@ -136,9 +139,22 @@ export function MethodologyPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="pb-3 space-y-1">
-              <p className="stat-display text-xl">25%</p>
+              <p className="stat-display text-xl">20%</p>
               <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-snug">
                 2020 results, margins, incumbency, party-switching history.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="pb-1">
+              <CardTitle className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-accent-gold)]">
+                Religious / sectarian
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pb-3 space-y-1">
+              <p className="stat-display text-xl">15%</p>
+              <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-snug">
+                Shia / Sunni / Ismaili population balance. MWM, JUI-F and JIP mobilisation. <em>New in Rev 3.0.</em>
               </p>
             </CardContent>
           </Card>
@@ -149,7 +165,7 @@ export function MethodologyPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="pb-3 space-y-1">
-              <p className="stat-display text-xl">20%</p>
+              <p className="stat-display text-xl">15%</p>
               <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-snug">
                 Federal alignment, PTI symbol ban, CM patronage, caretaker neutrality.
               </p>
@@ -162,7 +178,7 @@ export function MethodologyPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="pb-3 space-y-1">
-              <p className="stat-display text-xl">20%</p>
+              <p className="stat-display text-xl">15%</p>
               <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-snug">
                 Name recognition, professional credibility, biraderi reach, gender dynamics.
               </p>
@@ -188,13 +204,14 @@ export function MethodologyPage() {
           strong incumbent plus weak opposition plus no wildcards. Medium =
           competitive race with 2–3 credible candidates within roughly
           2,000 votes. Low = multi-cornered contest or a known wildcard
-          (BNF entry in GBA-19, AAC protest vote, GBA-24 delay).
+          (BNF entry in GBA-19, AAC protest vote, GBA-24 schedule).
         </p>
         <p className="text-sm leading-relaxed">
-          <strong>Headline projection.</strong> PPP 12, PML-N 9,
-          PTI-backed 3–4, IPP 0–1, JUI-F 1, Independent 1. Hung Assembly
-          with PPP as the largest single bloc and most likely the senior
-          partner in a continued PPP–PML-N coalition.
+          <strong>Headline projection (Rev 3.0).</strong> PPP 11, PML-N 8,
+          PTI-backed 3, JUI-F 1, Independent 1, IPP 0. Coalition government
+          expected, with PPP as the largest single bloc (+3 vs the initial
+          model) and most likely the senior partner in a continued PPP +
+          PML-N coalition.
         </p>
         <p className="text-sm leading-relaxed">
           <strong>Post-mortem.</strong> Every per-seat call will be

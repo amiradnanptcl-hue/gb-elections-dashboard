@@ -11,14 +11,13 @@ import { useDocumentMeta } from "@/lib/seo";
 import { cn, formatNumber } from "@/lib/utils";
 
 /**
- * Author's qualitative prediction model, revised 28 May 2026.
+ * Author's qualitative prediction model, revised 29 May 2026 (Revision 3.0; supersedes Revision 2.0 of 28 May).
  *
  * This page is the dashboard surface for the user-supplied model that lives
  * in GB_2026_REVISED_Predictions_28May.xlsx. It is *not* the old logistic-
  * regression model we removed in v1.3 — that was a 72-row ML attempt that
  * collapsed to "federal incumbent wins everything." This is a human-analyst
- * model that weights ground organisation (30%) above structural factors
- * (20%) and explicitly downgrades social media (5%).
+ * model that weights ground organisation (30%) and religious/sectarian dynamics (15%, new in Rev 3) above structural factors (15%) and explicitly downgrades social media (5%).
  *
  * Render order: hero + headline projection → critical flips → government
  * formation scenarios → 24 per-seat blocks in GBA-1..GBA-24 order. Every
@@ -29,7 +28,7 @@ export function PredictionsPage() {
     title:
       "2026 Predictions — Gilgit-Baltistan Assembly seat-by-seat forecast | gbelections.com",
     description:
-      "Qualitative predictive model for the 24 general seats of the Gilgit-Baltistan Assembly, 7 June 2026. PPP 12, PML-N 9, PTI-backed 3-4, IPP 0-1, JUI-F 1, Independent 1. Headed for a hung assembly with PPP as the senior coalition partner.",
+      "Qualitative predictive model for the 24 general seats of the Gilgit-Baltistan Assembly, 7 June 2026. PPP 11, PML-N 8, PTI-backed 3, JUI-F 1, Independent 1, IPP 0. Coalition government expected with PPP as the senior partner.",
     path: "/predictions",
   });
 
@@ -73,7 +72,7 @@ export function PredictionsPage() {
           <div className="flex items-center gap-3">
             <span className="inline-block h-px w-10 bg-[color:var(--color-accent-gold)]" />
             <span className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
-              Author's model · Revision 2.0 · 28 May 2026
+              Author's model · Revision 3.0 · 29 May 2026
             </span>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.02]">
@@ -397,7 +396,7 @@ export function PredictionsPage() {
         </p>
         <p className="text-sm leading-relaxed">
           The model is a <strong>qualitative human-analyst</strong> framework
-          (revision 2.0, 28 May 2026), not a machine-learning output. The
+          (revision 3.0, 28 May 2026), not a machine-learning output. The
           weighting is: 30% ground organisation, 25% historical baseline, 20%
           structural factors, 20% candidate strength, 5% social-media signal.
           Confidence bands (High / Medium / Low) live alongside seat-level
