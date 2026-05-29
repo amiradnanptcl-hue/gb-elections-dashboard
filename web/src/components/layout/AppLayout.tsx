@@ -241,7 +241,7 @@ export function AppLayout() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[color:var(--color-muted-foreground)]">
           <div className="space-y-1">
             <p className="font-medium text-[color:var(--color-foreground)]">
-              GB Elections Forecast 2026
+              GB Elections 2026
             </p>
             <p>Public-records dashboard for the GB Assembly election, 7 June 2026. Data only, no forecast.</p>
           </div>
