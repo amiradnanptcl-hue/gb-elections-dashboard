@@ -281,52 +281,51 @@
     .cm-runner { animation: none !important; left: var(--target-left, 0px) !important; }
   }
 
-  /* Brand-mark "2026" treatment — a breathing gold halo behind the
-   * headline-gradient text so the year reads as the focal point of the
-   * navbar. Two layered glow underlays (a soft halo + a tighter core
-   * glow) keep the gradient text crisp; CSS text-shadow on
-   * background-clip text muddies the gradient itself. The halo animates
-   * in a 2.4s ease loop so the eye is drawn back to it. */
-  .brand-2026 {
-    position: relative;
-    isolation: isolate;
+  /* Podium-card glow — gold / silver / bronze rings on the CM Race
+   * top-3 cards pulse softly so the eye is drawn to the rankings.
+   * Each ring uses its own colour via the --podium-color custom
+   * property and a staggered delay so the three cards breathe in
+   * sequence, not in unison. */
+  @keyframes podiumGlowPulse {
+    0%, 100% {
+      box-shadow:
+        0 0 0 0 var(--podium-color, transparent),
+        0 0 18px -4px var(--podium-color, transparent);
+    }
+    50% {
+      box-shadow:
+        0 0 0 6px transparent,
+        0 0 36px 2px var(--podium-color, transparent);
+    }
   }
-  .brand-2026::before {
-    /* Outer breathing halo */
-    content: "";
-    position: absolute;
-    inset: -0.35em -0.55em;
-    background: radial-gradient(
-      closest-side,
-      oklch(0.80 0.13 85 / 0.55),
-      oklch(0.80 0.13 85 / 0.18) 55%,
-      transparent 80%
-    );
-    z-index: -2;
-    pointer-events: none;
-    filter: blur(6px);
-    animation: brand2026Glow 2400ms ease-in-out infinite;
+  @keyframes podiumMedalPulse {
+    0%, 100% { transform: scale(1) rotate(-2deg); filter: drop-shadow(0 0 4px rgba(0,0,0,0.3)); }
+    50%      { transform: scale(1.08) rotate(2deg); filter: drop-shadow(0 0 12px rgba(255,255,255,0.45)); }
   }
-  .brand-2026::after {
-    /* Inner core glow — tighter, brighter */
-    content: "";
-    position: absolute;
-    inset: -0.1em -0.2em;
-    background: radial-gradient(
-      closest-side,
-      oklch(0.80 0.13 85 / 0.45),
-      transparent 75%
-    );
-    z-index: -1;
-    pointer-events: none;
-    filter: blur(2px);
+  .podium-glow-gold {
+    --podium-color: rgba(251, 191, 36, 0.55);
+    animation: podiumGlowPulse 2600ms ease-in-out infinite 0ms;
   }
-  @keyframes brand2026Glow {
-    0%, 100% { opacity: 0.7; transform: scale(0.96); }
-    50%      { opacity: 1;   transform: scale(1.04); }
+  .podium-glow-silver {
+    --podium-color: rgba(203, 213, 225, 0.55);
+    animation: podiumGlowPulse 2600ms ease-in-out infinite 350ms;
+  }
+  .podium-glow-bronze {
+    --podium-color: rgba(234, 88, 12, 0.55);
+    animation: podiumGlowPulse 2600ms ease-in-out infinite 700ms;
+  }
+  .podium-medal {
+    display: inline-block;
+    animation: podiumMedalPulse 2400ms ease-in-out infinite;
+    transform-origin: center;
   }
   @media (prefers-reduced-motion: reduce) {
-    .brand-2026::before { animation: none; opacity: 0.85; transform: none; }
+    .podium-glow-gold, .podium-glow-silver, .podium-glow-bronze {
+      animation: none;
+      box-shadow: 0 0 0 1px var(--podium-color, transparent),
+                  0 0 14px -2px var(--podium-color, transparent);
+    }
+    .podium-medal { animation: none; transform: none; }
   }
 
   /* Headline gradient text accent. */

@@ -81,16 +81,17 @@ export function AppLayout() {
             </span>
             <div className="flex flex-col min-w-0">
               <span
-                className="font-display font-bold tracking-tight leading-none truncate text-base sm:text-xl lg:text-2xl"
+                className="font-display font-bold tracking-tight leading-tight text-[13px] sm:text-lg lg:text-2xl"
                 style={{
                   fontFeatureSettings: '"ss01", "ss02", "liga", "calt"',
                   letterSpacing: "-0.018em",
                 }}
               >
-                <span className="text-[color:var(--color-foreground)]">GB</span>{" "}
-                <span className="text-[color:var(--color-foreground)]">Elections</span>{" "}
+                <span className="text-[color:var(--color-foreground)]">
+                  GB Elections Forecast{" "}
+                </span>
                 <span
-                  className="text-headline-gradient font-black brand-2026"
+                  className="font-black text-[color:var(--color-accent-gold)]"
                   style={{ letterSpacing: "-0.02em" }}
                 >
                   2026
@@ -241,7 +242,7 @@ export function AppLayout() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[color:var(--color-muted-foreground)]">
           <div className="space-y-1">
             <p className="font-medium text-[color:var(--color-foreground)]">
-              GB Elections 2026
+              GB Elections Forecast 2026
             </p>
             <p>Public-records dashboard for the GB Assembly election, 7 June 2026. Data only, no forecast.</p>
           </div>

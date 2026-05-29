@@ -83,16 +83,18 @@ export function CMRaceMeter() {
         <p className="text-sm sm:text-base text-[color:var(--color-muted-foreground)] max-w-xl mx-auto">
           Three parties racing toward an assembly majority. Each lane below
           is one bloc; the gold flag is the 17-seat finish line. No bloc
-          has crossed it, so the verdict is a hung assembly.
+          crosses it on its own — so the verdict is a coalition government.
         </p>
       </header>
 
       {/* RACE PANEL — three horizontal lanes */}
       <div className="space-y-4">
-        <div className="flex items-baseline justify-between gap-3 text-[11px] uppercase tracking-[0.22em] font-bold">
+        <div className="flex items-center justify-between gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] sm:tracking-[0.22em] font-bold whitespace-nowrap">
           <span className="text-[color:var(--color-muted-foreground)]">0 seats</span>
-          <span className="text-[color:var(--color-accent-gold)] inline-flex items-center gap-1">
-            <span aria-hidden>⚑</span> Finish line · 17 of 33
+          <span className="text-[color:var(--color-accent-gold)] inline-flex items-center gap-1 whitespace-nowrap">
+            <span aria-hidden>⚑</span>
+            <span className="hidden sm:inline">Finish line ·&nbsp;</span>
+            <span>17 of 33</span>
           </span>
           <span className="text-[color:var(--color-muted-foreground)]">24 seats</span>
         </div>
@@ -168,20 +170,26 @@ export function CMRaceMeter() {
                       boxShadow: `0 0 0 1px ${meta.color}55, 0 2px 12px -2px ${meta.color}66`,
                     }}
                   />
-                  {/* Runner emoji at the leading edge — a small visual cue
-                     that this is a literal race. Positioned at the bar tip
-                     and animated alongside the fill. */}
+                  {/* Runner / trophy glyph at the leading edge — sized
+                     up for clear visibility and flipped horizontally
+                     for the runners so they face the finish line. The
+                     trophy on the leader's lane is left upright. */}
                   <span
                     aria-hidden
-                    className="absolute top-1/2 -translate-y-1/2 text-base sm:text-lg pointer-events-none cm-runner"
+                    className="absolute top-1/2 -translate-y-1/2 text-2xl sm:text-3xl pointer-events-none cm-runner select-none"
                     style={{
-                      left: `calc(${fillPct}% - 12px)`,
-                      filter: `drop-shadow(0 0 6px ${meta.color})`,
+                      left: `calc(${fillPct}% - 18px)`,
+                      filter: `drop-shadow(0 0 8px ${meta.color}) drop-shadow(0 0 14px ${meta.color}aa)`,
                       animation: "cmRunnerSlide 1800ms cubic-bezier(0.22, 1, 0.36, 1) forwards",
-                      ["--target-left" as string]: `calc(${fillPct}% - 12px)`,
+                      ["--target-left" as string]: `calc(${fillPct}% - 18px)`,
                     } as React.CSSProperties}
                   >
-                    {i === 0 ? "🏆" : "🏃"}
+                    <span
+                      className="inline-block"
+                      style={i === 0 ? undefined : { transform: "scaleX(-1)" }}
+                    >
+                      {i === 0 ? "🏆" : "🏃"}
+                    </span>
                   </span>
                   {/* Simple majority marker (13) */}
                   <div
@@ -223,15 +231,6 @@ export function CMRaceMeter() {
           })}
         </ol>
 
-        {/* Scale labels under the lanes */}
-        <div className="flex justify-between text-[10px] uppercase tracking-[0.16em] font-bold text-[color:var(--color-muted-foreground)] pt-3">
-          <span>0</span>
-          <span className="text-[color:var(--color-foreground)]/60" style={{ marginLeft: `${SIMPLE_MAJORITY_PCT - 8}%` }}>
-            13 simple
-          </span>
-          <span className="text-[color:var(--color-accent-gold)]">17 assembly</span>
-          <span>24</span>
-        </div>
       </div>
 
       {/* Verdict ribbon */}
@@ -246,13 +245,13 @@ export function CMRaceMeter() {
           Verdict
         </p>
         <p className="font-display text-xl sm:text-2xl leading-tight">
-          Hung Assembly ·{" "}
+          Coalition Government ·{" "}
           <span style={{ color: leaderMeta.color }}>{leaderMeta.shortDisplay} leads</span>{" "}
           at {leader.seatsText} seats
         </p>
         <p className="text-sm text-[color:var(--color-muted-foreground)] mt-1.5">
           {leaderShort > 0
-            ? `${leaderShort} short of the 17-seat finish line. Coalition government expected, with ${leaderMeta.shortDisplay} as senior partner.`
+            ? `${leaderShort} short of the 17-seat finish line on their own. Coalition government expected, with ${leaderMeta.shortDisplay} as senior partner.`
             : `${leaderMeta.shortDisplay} clears the 17-seat majority threshold outright.`}
         </p>
       </div>
@@ -262,31 +261,64 @@ export function CMRaceMeter() {
         {top3.map((p, i) => {
           const meta = getParty(p.partyId);
           const podium = ["1st", "2nd", "3rd"][i];
+          const medal = ["🥇", "🥈", "🥉"][i];
           const accent =
             i === 0
-              ? { ring: "ring-[#facc15]", bg: "bg-[#facc15]/12", chip: "text-[#facc15] border-[#facc15]/40 bg-[#facc15]/15" }
+              ? {
+                  ring: "ring-2 ring-[#fbbf24]",
+                  bg: "bg-gradient-to-br from-[#fbbf24]/22 via-[#fbbf24]/10 to-transparent",
+                  chip:
+                    "text-[#451a03] bg-[#fbbf24] border-[#fbbf24] shadow-[0_0_10px_#fbbf24]",
+                  glow: "podium-glow-gold",
+                }
               : i === 1
-                ? { ring: "ring-[#cbd5e1]", bg: "bg-[#cbd5e1]/8", chip: "text-[#94a3b8] border-[#cbd5e1]/40 bg-[#cbd5e1]/12" }
-                : { ring: "ring-[#b45309]", bg: "bg-[#b45309]/12", chip: "text-[#d97706] border-[#b45309]/40 bg-[#b45309]/15" };
+                ? {
+                    ring: "ring-2 ring-[#cbd5e1]",
+                    bg: "bg-gradient-to-br from-[#cbd5e1]/22 via-[#cbd5e1]/10 to-transparent",
+                    chip:
+                      "text-[#0f172a] bg-[#cbd5e1] border-[#cbd5e1] shadow-[0_0_10px_#cbd5e1]",
+                    glow: "podium-glow-silver",
+                  }
+                : {
+                    ring: "ring-2 ring-[#ea580c]",
+                    bg: "bg-gradient-to-br from-[#ea580c]/22 via-[#ea580c]/10 to-transparent",
+                    chip:
+                      "text-[#1c1917] bg-[#fb923c] border-[#fb923c] shadow-[0_0_10px_#fb923c]",
+                    glow: "podium-glow-bronze",
+                  };
           return (
             <li
               key={p.partyId}
               className={cn(
-                "card-elevated p-4 sm:p-5 space-y-3 relative top-edge ring-1",
+                "card-elevated p-4 sm:p-5 space-y-3 relative top-edge",
                 accent.ring,
                 accent.bg,
+                accent.glow,
               )}
             >
               <div className="flex items-center justify-between gap-2">
-                <span
-                  className={cn(
-                    "text-[10px] font-bold uppercase tracking-[0.22em] px-2 py-0.5 rounded-md border",
-                    accent.chip,
-                  )}
-                >
-                  {podium}
+                <span className="inline-flex items-center gap-2">
+                  <span
+                    aria-hidden
+                    className="text-2xl sm:text-3xl drop-shadow-[0_0_8px_rgba(0,0,0,0.5)] podium-medal"
+                  >
+                    {medal}
+                  </span>
+                  <span
+                    className={cn(
+                      "text-[11px] font-black uppercase tracking-[0.22em] px-2 py-0.5 rounded-md border-2",
+                      accent.chip,
+                    )}
+                  >
+                    {podium}
+                  </span>
                 </span>
-                <span className="stat-display text-3xl">{p.seatsText}</span>
+                <span
+                  className="stat-display text-3xl sm:text-4xl font-black"
+                  style={{ color: meta.color }}
+                >
+                  {p.seatsText}
+                </span>
               </div>
               <div className="flex items-center gap-2 min-w-0">
                 <img

@@ -57,7 +57,7 @@ export function SplashScreen() {
         <div className="splash-mark flex items-center gap-3 sm:gap-4">
           <span className="h-px w-10 bg-[color:var(--color-accent-gold)]" />
           <span className="splash-title text-sm sm:text-base font-semibold uppercase tracking-[0.22em] text-[color:var(--color-foreground)]">
-            GB Elections 2026
+            GB Elections Forecast 2026
           </span>
           <span className="h-px w-10 bg-[color:var(--color-accent-gold)]" />
         </div>
