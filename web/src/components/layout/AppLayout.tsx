@@ -81,7 +81,7 @@ export function AppLayout() {
             </span>
             <div className="flex flex-col min-w-0">
               <span
-                className="font-display font-bold tracking-tight leading-tight text-[13px] sm:text-lg lg:text-2xl"
+                className="font-display font-bold tracking-tight leading-tight text-base sm:text-lg lg:text-2xl"
                 style={{
                   fontFeatureSettings: '"ss01", "ss02", "liga", "calt"',
                   letterSpacing: "-0.018em",
