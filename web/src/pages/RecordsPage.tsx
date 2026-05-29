@@ -625,7 +625,8 @@ function OldResultsSection() {
       list.push(r);
       map.set(y, list);
     }
-    return Array.from(map.entries()).sort(([a], [b]) => a - b);
+    // Newest cycle on top: 2020 first, then 2015, then 2009.
+    return Array.from(map.entries()).sort(([a], [b]) => b - a);
   }, [runs]);
 
   return (
