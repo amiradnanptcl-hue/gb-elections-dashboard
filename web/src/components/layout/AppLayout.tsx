@@ -24,13 +24,14 @@ export function AppLayout() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close the mobile drawer on route change so a tap on a nav item never
-  // leaves the menu open over the new page.
+  // Close the mobile drawer on every route change. Important: depend on the
+  // full location object (key included), not just pathname, so taps on the
+  // already-active route still trigger close (e.g. tapping Home while on /).
   useEffect(() => {
     setMobileOpen(false);
-  }, [location.pathname]);
+  }, [location.key, location.pathname]);
 
-  // Lock body scroll while the drawer is open and ESC to close.
+  // Body-scroll lock + ESC to close.
   useEffect(() => {
     if (!mobileOpen) return;
     const prevOverflow = document.body.style.overflow;
@@ -49,7 +50,7 @@ export function AppLayout() {
     <div className="min-h-screen flex flex-col">
       <header
         className={cn(
-          "sticky top-0 z-40 glass transition-shadow duration-300",
+          "sticky top-0 z-50 glass transition-shadow duration-300",
           scrolled
             ? "shadow-[0_1px_0_0_var(--color-border-strong)]"
             : "shadow-[0_1px_0_0_var(--color-border)]",
@@ -59,7 +60,9 @@ export function AppLayout() {
           {/* Brand */}
           <NavLink
             to="/"
+            end
             className="group flex items-center gap-3 min-w-0 shrink"
+            onClick={() => setMobileOpen(false)}
           >
             <span className="relative inline-flex shrink-0">
               <span
@@ -86,8 +89,7 @@ export function AppLayout() {
             </div>
           </NavLink>
 
-          {/* Desktop nav — visible at lg breakpoint and up.
-             7 nav items wrap badly under lg, so collapse to hamburger there. */}
+          {/* Desktop nav. Visible at lg breakpoint and up so 7 items have room. */}
           <nav
             className="hidden lg:flex items-center gap-x-1 text-sm shrink-0"
             aria-label="Primary"
@@ -99,7 +101,8 @@ export function AppLayout() {
                 end={item.end}
                 className={({ isActive }) =>
                   cn(
-                    "relative px-3 py-1.5 rounded-md transition-colors whitespace-nowrap shrink-0 font-semibold tracking-wide",
+                    "relative px-3 py-2 rounded-md transition-colors whitespace-nowrap shrink-0 font-semibold tracking-wide",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)]",
                     isActive
                       ? "text-[color:var(--color-foreground)]"
                       : "text-[color:var(--color-muted-foreground)] hover:text-[color:var(--color-foreground)]",
@@ -121,29 +124,37 @@ export function AppLayout() {
             ))}
           </nav>
 
-          {/* Mobile + tablet hamburger trigger */}
+          {/* Mobile + tablet hamburger trigger. Big, labelled, with a visible
+             border so it doesn't get lost on a light photo header. */}
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav-drawer"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-md border border-[color:var(--color-border-strong)] bg-[color:var(--color-card)] hover:bg-[color:var(--color-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)] transition-colors shrink-0"
+            className={cn(
+              "lg:hidden inline-flex items-center gap-2 px-3 h-11 rounded-lg border-2 shrink-0",
+              "font-bold tracking-wide text-sm uppercase",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--color-background)]",
+              "transition-colors",
+              mobileOpen
+                ? "border-[color:var(--color-accent-gold)] bg-[color:var(--color-accent-gold-soft)]/40 text-[color:var(--color-foreground)]"
+                : "border-[color:var(--color-border-strong)] bg-[color:var(--color-card)] hover:bg-[color:var(--color-muted)]/60 text-[color:var(--color-foreground)]",
+            )}
           >
             {mobileOpen ? <CloseIcon /> : <HamburgerIcon />}
+            <span>{mobileOpen ? "Close" : "Menu"}</span>
           </button>
         </div>
 
-        {/* Mobile drawer — full-width sheet that slides down under the
-           glass header. Uses the same glass background so the layout
-           reads as a single floating header that's just expanded. */}
+        {/* Mobile drawer */}
         <div
           id="mobile-nav-drawer"
           className={cn(
             "lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-out border-t",
             mobileOpen
               ? "max-h-[80vh] opacity-100 border-[color:var(--color-border-strong)]"
-              : "max-h-0 opacity-0 border-transparent",
+              : "max-h-0 opacity-0 border-transparent pointer-events-none",
           )}
         >
           <nav
@@ -155,12 +166,14 @@ export function AppLayout() {
                 key={item.to}
                 to={item.to}
                 end={item.end}
+                onClick={() => setMobileOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    "relative flex items-center justify-between gap-3 px-3 py-3 rounded-lg transition-colors font-semibold tracking-wide text-base",
+                    "relative flex items-center justify-between gap-3 px-3 py-3.5 rounded-lg transition-colors font-semibold tracking-wide text-base min-h-[48px]",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)]",
                     isActive
                       ? "bg-[color:var(--color-accent-gold-soft)]/35 text-[color:var(--color-foreground)]"
-                      : "text-[color:var(--color-muted-foreground)] hover:text-[color:var(--color-foreground)] hover:bg-[color:var(--color-muted)]/60",
+                      : "text-[color:var(--color-muted-foreground)] hover:text-[color:var(--color-foreground)] hover:bg-[color:var(--color-muted)]/60 active:bg-[color:var(--color-muted)]/80",
                   )
                 }
               >
@@ -184,17 +197,19 @@ export function AppLayout() {
         </div>
       </header>
 
-      {/* Backdrop when the mobile drawer is open. Sits below the header
-         but above the page content so a tap outside dismisses the menu. */}
-      {mobileOpen && (
-        <button
-          type="button"
-          aria-label="Close menu"
-          onClick={() => setMobileOpen(false)}
-          className="lg:hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm cursor-default"
-          tabIndex={-1}
-        />
-      )}
+      {/* Backdrop when the mobile drawer is open. z-index between page content
+         (default) and header (z-50) so the drawer stays clickable, taps
+         outside the drawer dismiss the menu. Animated fade. */}
+      <div
+        aria-hidden
+        onClick={() => setMobileOpen(false)}
+        className={cn(
+          "lg:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300",
+          mobileOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none",
+        )}
+      />
 
       <main className="flex-1">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-12">
@@ -229,7 +244,7 @@ function HamburgerIcon() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="2.5"
       strokeLinecap="round"
       className="h-5 w-5"
       aria-hidden
@@ -247,7 +262,7 @@ function CloseIcon() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="2.5"
       strokeLinecap="round"
       className="h-5 w-5"
       aria-hidden
