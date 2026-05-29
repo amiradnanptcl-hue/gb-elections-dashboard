@@ -338,10 +338,29 @@ export function CMRaceMeter() {
                 </span>
               </div>
               {p.topCandidate && (
-                <div className="border-t border-[color:var(--color-border)] pt-2 space-y-0.5">
-                  <p className="text-[9px] uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)] font-bold">
-                    Top candidate
-                  </p>
+                <div className="border-t border-[color:var(--color-border)] pt-2 space-y-1">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <p
+                      className={cn(
+                        "text-[9px] uppercase tracking-[0.22em] font-bold",
+                        p.isAppointedCmNominee
+                          ? "text-[color:var(--color-accent-gold)]"
+                          : "text-[color:var(--color-muted-foreground)]",
+                      )}
+                    >
+                      {p.isAppointedCmNominee
+                        ? "CM Nominee"
+                        : "Top candidate"}
+                    </p>
+                    {p.isAppointedCmNominee && (
+                      <span
+                        className="text-[8px] font-bold uppercase tracking-[0.18em] text-[#451a03] bg-[#fbbf24] border-2 border-[#fbbf24] rounded-md px-1.5 py-0.5 shadow-[0_0_8px_#fbbf24]"
+                        aria-label="Appointed by the bloc as Chief Minister candidate"
+                      >
+                        ★ Appointed
+                      </span>
+                    )}
+                  </div>
                   <Link
                     to={`/constituency/${p.topCandidate.constituency_id}`}
                     className="block text-sm font-semibold leading-tight hover:underline underline-offset-4"
@@ -349,8 +368,10 @@ export function CMRaceMeter() {
                     {p.topCandidate.candidate_name}
                   </Link>
                   <p className="text-[10px] font-mono tabular text-[color:var(--color-muted-foreground)]">
-                    {p.topCandidate.constituency_id} {p.topCandidate.area_name} ·{" "}
-                    {p.topCandidate.predicted_votes_text}
+                    {p.topCandidate.constituency_id} {p.topCandidate.area_name}
+                    {p.topCandidate.predicted_votes_text
+                      ? ` · ${p.topCandidate.predicted_votes_text}`
+                      : ""}
                   </p>
                 </div>
               )}
@@ -388,7 +409,31 @@ interface TopBloc {
   seatsHigh: number;
   driver: string;
   topCandidate: Prediction2026Row | null;
+  /** When true, the bloc has formally nominated this candidate for the
+   * Chief Minister race (not just inferred from the highest-vote rank-1
+   * seat). Surface a "CM Nominee" badge in the podium card. */
+  isAppointedCmNominee?: boolean;
 }
+
+/**
+ * Appointed CM nominees. The PTI-backed (MWM) bloc has formally put
+ * Maisam Kazim (Muhammad Kazim Maisam, GBA-8 Skardu-II) forward as its
+ * Chief Minister candidate. Even if Rev 3.0 of the model projects a
+ * different MWM seat as having the highest vote, the bloc's CM face is
+ * who matters for the CM Race. This override is per-party and intentional.
+ */
+const APPOINTED_CM_NOMINEE: Record<
+  string,
+  { candidate_name: string; constituency_id: string; area_name: string; party_id: string; pti_proxy: boolean }
+> = {
+  MWM: {
+    candidate_name: "Maisam Kazim",
+    constituency_id: "GBA-8",
+    area_name: "Skardu-II",
+    party_id: "MWM",
+    pti_proxy: true,
+  },
+};
 
 function pickTopThree(
   summary: Predictions2026Summary,
@@ -405,16 +450,48 @@ function pickTopThree(
     if (pti) partyId = "MWM";
     else if (/Independent/i.test(labelRaw)) partyId = "Independent";
 
-    const rank1 = predictions.filter((r) => r.rank === 1);
-    const candidates = pti
-      ? rank1.filter((r) => r.party_id === "MWM" || (r.party_id === "Independent" && r.pti_proxy))
-      : rank1.filter((r) => r.party_id === partyId);
-    const topCandidate =
-      candidates.length === 0
-        ? null
-        : candidates.reduce((best, r) =>
-            (r.predicted_votes_estimate ?? 0) > (best.predicted_votes_estimate ?? 0) ? r : best,
-          );
+    // Appointed-CM-nominee override takes precedence over the
+    // highest-vote heuristic, since a party's CM nominee is the face of
+    // the CM Race regardless of whether their own seat tally tops the
+    // bloc.
+    const appointed = APPOINTED_CM_NOMINEE[partyId];
+    let topCandidate: Prediction2026Row | null;
+    let isAppointed = false;
+    if (appointed) {
+      topCandidate = {
+        constituency_id: appointed.constituency_id,
+        area_name: appointed.area_name,
+        rank: 1,
+        candidate_name: appointed.candidate_name,
+        party_id: appointed.party_id,
+        party_raw: pti ? "PTI-backed" : appointed.party_id,
+        pti_proxy: appointed.pti_proxy,
+        predicted_votes_text: "",
+        predicted_votes_estimate: null,
+        margin: "",
+        social_media_sentiment: "",
+        ground_reality: "Appointed CM nominee of the bloc.",
+      };
+      isAppointed = true;
+    } else {
+      const rank1 = predictions.filter((r) => r.rank === 1);
+      const candidates = pti
+        ? rank1.filter(
+            (r) =>
+              r.party_id === "MWM" ||
+              (r.party_id === "Independent" && r.pti_proxy),
+          )
+        : rank1.filter((r) => r.party_id === partyId);
+      topCandidate =
+        candidates.length === 0
+          ? null
+          : candidates.reduce((best, r) =>
+              (r.predicted_votes_estimate ?? 0) >
+              (best.predicted_votes_estimate ?? 0)
+                ? r
+                : best,
+            );
+    }
 
     return {
       partyId,
@@ -424,6 +501,7 @@ function pickTopThree(
       seatsHigh,
       driver: row.driver,
       topCandidate,
+      isAppointedCmNominee: isAppointed,
     } as TopBloc;
   });
   parsed.sort((a, b) => {
