@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { PartyBadge } from "@/components/ui/badge";
 import {
@@ -8,7 +8,7 @@ import {
 } from "@/lib/data";
 import { getParty } from "@/lib/parties";
 import { useDocumentMeta } from "@/lib/seo";
-import { cn } from "@/lib/utils";
+import { cn, formatNumber } from "@/lib/utils";
 
 /**
  * Author's qualitative prediction model, revised 28 May 2026.
@@ -37,6 +37,11 @@ export function PredictionsPage() {
   const summaryQ = usePredictions2026Summary();
   const rows = predictionsQ.data ?? [];
   const summary = summaryQ.data;
+
+  // Which party-projection card has been clicked open in the headline grid.
+  // null = no expansion; otherwise the labelRaw of the selected bloc (e.g.
+  // "PPP", "PML-N", "PTI-backed"). Toggling the same card closes it.
+  const [openBloc, setOpenBloc] = useState<string | null>(null);
 
   // Group by seat, sort GBA-1..GBA-24, then by rank within each seat.
   const grouped = useMemo(() => {
@@ -98,6 +103,9 @@ export function PredictionsPage() {
               How the 24 general seats split
             </h2>
           </div>
+          <p className="text-[11px] uppercase tracking-[0.18em] font-bold text-[color:var(--color-accent-gold)]">
+            Tap any card to see the seat-by-seat breakdown
+          </p>
           <div className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {summary.party_projection.map((p) => {
               const labelRaw = p.party_or_bloc
@@ -111,12 +119,22 @@ export function PredictionsPage() {
                 : labelRaw;
               const meta = getParty(partyId);
               const isPpp = meta.id === "PPP";
+              const isOpen = openBloc === labelRaw;
               return (
-                <article
+                <button
                   key={p.party_or_bloc}
+                  type="button"
+                  onClick={() =>
+                    setOpenBloc((cur) => (cur === labelRaw ? null : labelRaw))
+                  }
+                  aria-expanded={isOpen}
+                  aria-controls="bloc-detail-panel"
                   className={cn(
-                    "card-elevated p-5 space-y-3 relative top-edge",
+                    "card-elevated p-5 space-y-3 relative top-edge text-left w-full cursor-pointer",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)]",
                     isPpp ? "card-accent-red" : "card-accent-gold",
+                    isOpen &&
+                      "ring-2 ring-[color:var(--color-accent-gold)] -translate-y-0.5 shadow-[var(--shadow-lg)]",
                   )}
                 >
                   <div className="flex items-baseline justify-between gap-3">
@@ -127,20 +145,48 @@ export function PredictionsPage() {
                       flag={meta.flag}
                       variant="row"
                     />
-                    <span className="stat-display text-3xl">{p.seats}</span>
+                    <span
+                      className="stat-display text-3xl"
+                      style={{ color: meta.color }}
+                    >
+                      {p.seats}
+                    </span>
                   </div>
                   <p className="text-[12px] text-[color:var(--color-foreground)]/85 leading-relaxed">
                     {p.driver}
                   </p>
-                </article>
+                  <p className="text-[10px] uppercase tracking-[0.18em] font-bold text-[color:var(--color-muted-foreground)] inline-flex items-center gap-1">
+                    {isOpen ? "Hide" : "See"} winning seats
+                    <span aria-hidden className={cn("transition-transform", isOpen ? "rotate-180" : "")}>
+                      ▾
+                    </span>
+                  </p>
+                </button>
               );
             })}
           </div>
+
+          {openBloc && (
+            <BlocDetailPanel
+              labelRaw={openBloc}
+              seatsText={
+                summary.party_projection
+                  .find(
+                    (p) =>
+                      p.party_or_bloc.replace(/\s*Seats\s*$/i, "").trim() ===
+                      openBloc,
+                  )?.seats ?? ""
+              }
+              predictions={rows}
+              onClose={() => setOpenBloc(null)}
+            />
+          )}
+
           <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-relaxed max-w-3xl">
-            <strong>Verdict.</strong> Hung Assembly with PPP as the largest
-            single bloc. Coalition government inevitable. Most likely
-            scenario: PPP + PML-N coalition continues, but PPP is now the{" "}
-            <em>senior</em> partner, not junior. Possible PPP Chief Minister.
+            <strong>Verdict.</strong> Coalition government with PPP as the
+            largest single bloc. Most likely scenario: PPP + PML-N coalition
+            continues, but PPP is now the <em>senior</em> partner, not
+            junior. Possible PPP Chief Minister.
           </p>
         </section>
       )}
@@ -372,5 +418,183 @@ export function PredictionsPage() {
         </p>
       </section>
     </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Inline detail panel — shows the seats a clicked-on bloc is         */
+/* projected to win, with candidate + votes + margin + ground reality */
+/* ------------------------------------------------------------------ */
+
+interface BlocDetailPanelProps {
+  /** "PPP", "PML-N", "PTI-backed" etc. — the labelRaw from the projection card. */
+  labelRaw: string;
+  seatsText: string;
+  predictions: Prediction2026Row[];
+  onClose: () => void;
+}
+
+function BlocDetailPanel({
+  labelRaw,
+  seatsText,
+  predictions,
+  onClose,
+}: BlocDetailPanelProps) {
+  const ptiBacked = /PTI[\s-]?backed/i.test(labelRaw);
+  const partyId = ptiBacked ? "MWM" : labelRaw;
+  const meta = getParty(partyId);
+
+  // The rank-1 winners for this bloc. For PTI-backed we include both
+  // formal MWM and Independent-with-pti_proxy rows so the user sees the
+  // whole bloc, not just the formal MWM contingent.
+  const wins = useMemo(() => {
+    const rank1 = predictions.filter((r) => r.rank === 1);
+    const filtered = ptiBacked
+      ? rank1.filter(
+          (r) =>
+            r.party_id === "MWM" ||
+            (r.party_id === "Independent" && r.pti_proxy),
+        )
+      : rank1.filter((r) => r.party_id === partyId);
+    return filtered.sort((a, b) => {
+      const ai = parseInt(a.constituency_id.split("-")[1], 10);
+      const bi = parseInt(b.constituency_id.split("-")[1], 10);
+      return ai - bi;
+    });
+  }, [predictions, ptiBacked, partyId]);
+
+  return (
+    <section
+      id="bloc-detail-panel"
+      aria-label={`${meta.display} projected wins`}
+      className="card-elevated p-5 sm:p-6 space-y-4 relative top-edge"
+      style={{
+        borderColor: `${meta.color}66`,
+        background: `linear-gradient(135deg, ${meta.color}10, transparent 70%)`,
+      }}
+    >
+      <header className="flex items-start justify-between gap-3 flex-wrap">
+        <div className="space-y-1 min-w-0">
+          <p
+            className="text-[10px] uppercase tracking-[0.22em] font-bold"
+            style={{ color: meta.color }}
+          >
+            Seat-by-seat breakdown
+          </p>
+          <h3 className="font-display text-2xl sm:text-3xl leading-tight">
+            <span style={{ color: meta.color }}>{labelRaw}</span> ·{" "}
+            <span className="font-mono tabular">{seatsText}</span>{" "}
+            <span className="text-[color:var(--color-muted-foreground)] text-base">
+              projected wins
+            </span>
+          </h3>
+          <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-relaxed">
+            Every seat below is one the model calls for{" "}
+            {meta.shortDisplay}. Each row carries the projected winning
+            candidate, their indicative vote count, the margin band, and the
+            single line of ground-reality reasoning the analyst applied.
+            Click any row to open that constituency's full profile.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          className="shrink-0 inline-flex items-center justify-center h-9 w-9 rounded-md border border-[color:var(--color-border-strong)] bg-[color:var(--color-card)] hover:bg-[color:var(--color-muted)]/60 text-[color:var(--color-foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)] transition-colors"
+          aria-label="Close breakdown"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            className="h-4 w-4"
+            aria-hidden
+          >
+            <line x1="6" y1="6" x2="18" y2="18" />
+            <line x1="18" y1="6" x2="6" y2="18" />
+          </svg>
+        </button>
+      </header>
+
+      {wins.length === 0 ? (
+        <p className="text-sm text-[color:var(--color-muted-foreground)] py-4">
+          The model lists this bloc at {seatsText} seats but no rank-1
+          per-seat row resolves to it yet. (For some smaller blocs the
+          per-seat detail is not in the published per-row predictions —
+          see the methodology page for how the bloc totals are estimated.)
+        </p>
+      ) : (
+        <ol className="space-y-2.5">
+          {wins.map((r, i) => {
+            const rowMeta = getParty(r.party_id);
+            return (
+              <li key={`${r.constituency_id}-${r.rank}`}>
+                <Link
+                  to={`/constituency/${r.constituency_id}`}
+                  className="block rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-card)]/70 hover:bg-[color:var(--color-muted)]/40 hover:border-[color:var(--color-border-strong)] transition-colors p-3 sm:p-4 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)]"
+                  aria-label={`Open ${r.constituency_id} ${r.area_name} profile`}
+                >
+                  <div className="flex items-baseline justify-between gap-3 flex-wrap">
+                    <div className="flex items-baseline gap-2.5 min-w-0">
+                      <span className="font-mono text-[11px] tabular text-[color:var(--color-muted-foreground)] w-5 shrink-0">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-mono font-semibold text-sm shrink-0">
+                        {r.constituency_id}
+                      </span>
+                      <span className="font-display text-base sm:text-lg leading-tight truncate">
+                        {r.candidate_name}
+                      </span>
+                    </div>
+                    <div className="shrink-0 inline-flex items-center gap-2 flex-wrap">
+                      <PartyBadge
+                        party={rowMeta.shortDisplay}
+                        color={rowMeta.color}
+                        textOnColor={rowMeta.textOnColor}
+                        flag={rowMeta.flag}
+                        variant="row"
+                      />
+                      {r.pti_proxy && r.party_id !== "MWM" && (
+                        <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-[color:var(--color-accent-red)] border border-[color:var(--color-accent-red)]/40 bg-[color:var(--color-accent-red-soft)]/30 rounded-md px-1.5 py-0.5">
+                          PTI-backed
+                        </span>
+                      )}
+                      <span className="font-mono tabular text-sm font-bold">
+                        {r.predicted_votes_text}
+                      </span>
+                      {r.margin && (
+                        <span className="text-[10px] uppercase tracking-[0.18em] font-bold text-[color:var(--color-accent-gold)] border border-[color:var(--color-accent-gold)]/40 bg-[color:var(--color-accent-gold-soft)]/30 rounded-md px-1.5 py-0.5">
+                          {r.margin}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-[11px] text-[color:var(--color-muted-foreground)] mt-1.5">
+                    {r.area_name}
+                    {r.predicted_votes_estimate != null
+                      ? ` · ${formatNumber(r.predicted_votes_estimate)} predicted votes`
+                      : ""}
+                  </p>
+                  {r.ground_reality && (
+                    <p className="text-[12px] text-[color:var(--color-foreground)]/85 leading-relaxed mt-2 line-clamp-2 group-hover:line-clamp-none transition-all">
+                      <span className="font-bold text-[10px] uppercase tracking-[0.18em] text-[color:var(--color-accent-gold)] mr-1.5">
+                        Why ·
+                      </span>
+                      {r.ground_reality}
+                    </p>
+                  )}
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
+      )}
+
+      <p className="text-[10px] uppercase tracking-[0.18em] font-bold text-[color:var(--color-muted-foreground)] inline-flex items-center gap-1.5">
+        <span aria-hidden>↩</span>
+        Tap the {labelRaw} card again to close · or open another bloc
+      </p>
+    </section>
   );
 }
