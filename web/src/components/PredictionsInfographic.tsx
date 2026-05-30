@@ -207,23 +207,41 @@ function DistrictCard({ block }: DistrictCardProps) {
       )}
 
       {/* Voter rollup */}
-      <div className="pt-1 border-t border-[color:var(--color-border)] space-y-1">
+      <div className="pt-1.5 border-t border-[color:var(--color-border)] space-y-1.5">
         <p className="font-mono text-[10px] tabular text-[color:var(--color-muted-foreground)] uppercase tracking-[0.14em] font-bold">
           {formatNumber(block.totalVoters)} voters
         </p>
-        <div className="flex h-1 rounded-full overflow-hidden bg-[color:var(--color-muted)]/60">
+        <div className="flex h-1.5 rounded-full overflow-hidden bg-[color:var(--color-muted)]/60">
           <div
             className="h-full bg-[#1d4ed8]"
             style={{ width: `${malePct.toFixed(2)}%` }}
+            aria-label={`Male voters ${malePct.toFixed(1)}%`}
           />
           <div
             className="h-full bg-[#be185d]"
             style={{ width: `${femalePct.toFixed(2)}%` }}
+            aria-label={`Female voters ${femalePct.toFixed(1)}%`}
           />
         </div>
-        <div className="flex justify-between text-[9px] font-bold tabular">
-          <span className="text-[#1d4ed8]">♂ {malePct.toFixed(1)}%</span>
-          <span className="text-[#be185d]">♀ {femalePct.toFixed(1)}%</span>
+        {/* Coloured dots + spelled-out labels so the male / female
+            split reads clearly without relying on the Unicode ♂ / ♀
+            glyphs (which render inconsistently and were too small
+            on the previous version). */}
+        <div className="flex justify-between text-[11px] font-bold tabular">
+          <span className="inline-flex items-center gap-1.5 text-[#1d4ed8]">
+            <span
+              aria-hidden
+              className="inline-block h-2 w-2 rounded-full bg-[#1d4ed8] ring-1 ring-[#1d4ed8]/30"
+            />
+            Male {malePct.toFixed(1)}%
+          </span>
+          <span className="inline-flex items-center gap-1.5 text-[#be185d]">
+            <span
+              aria-hidden
+              className="inline-block h-2 w-2 rounded-full bg-[#be185d] ring-1 ring-[#be185d]/30"
+            />
+            Female {femalePct.toFixed(1)}%
+          </span>
         </div>
       </div>
     </div>
