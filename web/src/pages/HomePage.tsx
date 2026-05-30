@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CMRaceMeter } from "@/components/CMRaceMeter";
-import { PredictionsInfographic } from "@/components/PredictionsInfographic";
 import { getCandidateField2026, getParty } from "@/lib/parties";
 import { useCandidateRuns, useElections } from "@/lib/data";
 import { useDocumentMeta } from "@/lib/seo";
@@ -34,14 +33,10 @@ export function HomePage() {
 
   return (
     <div className="space-y-16">
-      {/* 2026 CM Race — first thing the visitor sees */}
+      {/* 2026 CM Race — first thing the visitor sees. Now contains
+          the district-by-district breakdown folded inside the same
+          card, so the whole predictions view sits in one panel. */}
       <CMRaceMeter />
-
-      {/* Geographic + demographic infographic — district cartogram,
-          per-district seat allocation, ECGB voter rolls. Renders right
-          below the headline lanes so the eye travels from "who wins
-          the assembly" to "where on the map are those wins". */}
-      <PredictionsInfographic />
 
       {/* Hero — editorial */}
       <section className="grid lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-12 items-center">

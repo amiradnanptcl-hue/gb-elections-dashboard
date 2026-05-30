@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { getParty } from "@/lib/parties";
+import { DistrictBreakdown } from "@/components/PredictionsInfographic";
 import {
   usePredictions2026,
   usePredictions2026Summary,
@@ -315,6 +316,11 @@ export function CMRaceMeter() {
           })}
         </ol>
       </section>
+
+      {/* District-by-district breakdown — folded into the same card
+         so visitors get the full geography + demographics view
+         without leaving the predictions panel. */}
+      <DistrictBreakdown />
 
       {/* Sources + methodology disclaimer. Small print so readers know
          the per-seat call is sourced externally, not self-attributed. */}
