@@ -94,15 +94,19 @@ export function CMRaceMeter() {
       {/* Heading */}
       <header className="space-y-2 text-center">
         <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.32em] text-[color:var(--color-accent-gold)]">
-          Forecast 2026 · As of 30 May 2026 · Updated every 24 hours
+          Forecast 2026 · Polling 7 June 2026 · As of 30 May · Updated every 24 hours
         </p>
         <h2 id="cm-race-heading" className="font-display text-3xl sm:text-5xl leading-[1.02]">
           2026 <span className="text-headline-gradient">Predictions</span>
         </h2>
         <p className="text-sm sm:text-base text-[color:var(--color-muted-foreground)] max-w-xl mx-auto">
-          Six blocs racing toward an assembly majority. Each lane below is
-          one party; the gold flag is the 17-seat finish line. No bloc
-          crosses it on its own, so the verdict is a coalition government.
+          Six blocs racing toward an assembly majority on{" "}
+          <strong className="text-[color:var(--color-foreground)]">
+            7 June 2026
+          </strong>
+          . Each lane below is one party; the gold flag is the 17-seat
+          finish line. No bloc crosses it on its own, so the verdict is
+          a coalition government.
         </p>
       </header>
 
