@@ -22,7 +22,7 @@ const ANTHEMS: Anthem[] = [
     note: "Latest flagship anthem reel by PPP TEAM AI.",
   },
   {
-    title: "Showcase reel",
+    title: "Shair Ka Shikaar Teera Karay Ga",
     url: "https://www.facebook.com/reel/1376764577618071/?s=single_unit",
     note: "Flagship anthem reel by PPP TEAM AI.",
   },
