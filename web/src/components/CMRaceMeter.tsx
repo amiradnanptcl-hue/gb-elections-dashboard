@@ -179,24 +179,56 @@ export function CMRaceMeter() {
                   {/* Runner / trophy glyph at the leading edge — sized
                      up for clear visibility and flipped horizontally
                      for the runners so they face the finish line. The
-                     trophy on the leader's lane is left upright. */}
-                  <span
-                    aria-hidden
-                    className="absolute top-1/2 -translate-y-1/2 text-2xl sm:text-3xl pointer-events-none cm-runner select-none"
-                    style={{
-                      left: `calc(${fillPct}% - 18px)`,
-                      filter: `drop-shadow(0 0 8px ${meta.color}) drop-shadow(0 0 14px ${meta.color}aa)`,
-                      animation: "cmRunnerSlide 1800ms cubic-bezier(0.22, 1, 0.36, 1) forwards",
-                      ["--target-left" as string]: `calc(${fillPct}% - 18px)`,
-                    } as React.CSSProperties}
-                  >
-                    <span
-                      className="inline-block"
-                      style={i === 0 ? undefined : { transform: "scaleX(-1)" }}
+                     PPP lane gets the Amjad Hussain Azar character
+                     looping continuously instead of the trophy emoji;
+                     other lanes keep the existing one-shot 🏃 / 🏆
+                     glyph at the fill's leading edge. */}
+                  {p.partyId === "PPP" ? (
+                    <div
+                      aria-label="Amjad Hussain Azar running toward the finish line"
+                      className="cm-amjad-track"
+                      style={{
+                        ["--amjad-distance" as string]: `calc(${fillPct}% - 56px)`,
+                      } as React.CSSProperties}
                     >
-                      {i === 0 ? "🏆" : "🏃"}
+                      <div className="cm-amjad-bob">
+                        <img
+                          src="/runners/amjad-hussain-azar.png"
+                          alt=""
+                          className="h-10 sm:h-14 w-auto select-none pointer-events-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.45)]"
+                          loading="eager"
+                          decoding="async"
+                          onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                          }}
+                        />
+                        <span
+                          className="absolute -top-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.18em] text-[#451a03] bg-[#fbbf24] border border-[#fbbf24] rounded-sm px-1.5 py-0.5 shadow-[0_0_6px_#fbbf24aa]"
+                          aria-hidden
+                        >
+                          Amjad Hussain Azar
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <span
+                      aria-hidden
+                      className="absolute top-1/2 -translate-y-1/2 text-2xl sm:text-3xl pointer-events-none cm-runner select-none"
+                      style={{
+                        left: `calc(${fillPct}% - 18px)`,
+                        filter: `drop-shadow(0 0 8px ${meta.color}) drop-shadow(0 0 14px ${meta.color}aa)`,
+                        animation: "cmRunnerSlide 1800ms cubic-bezier(0.22, 1, 0.36, 1) forwards",
+                        ["--target-left" as string]: `calc(${fillPct}% - 18px)`,
+                      } as React.CSSProperties}
+                    >
+                      <span
+                        className="inline-block"
+                        style={i === 0 ? undefined : { transform: "scaleX(-1)" }}
+                      >
+                        {i === 0 ? "🏆" : "🏃"}
+                      </span>
                     </span>
-                  </span>
+                  )}
                   {/* Simple majority marker (13) */}
                   <div
                     aria-hidden
