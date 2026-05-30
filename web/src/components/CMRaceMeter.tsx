@@ -109,7 +109,6 @@ export function CMRaceMeter() {
           {racingBlocs.map((p, i) => {
             const meta = getParty(p.partyId);
             const fillPct = (p.seatsHigh / TOTAL_GENERAL_SEATS) * 100;
-            const reachedMajority = p.seatsHigh >= ASSEMBLY_MAJORITY;
             return (
               <li key={p.partyId} className="space-y-1.5">
                 {/* Label row — party identity + seat count */}
@@ -220,15 +219,6 @@ export function CMRaceMeter() {
                       }}
                     >
                       ⚑
-                    </span>
-                  )}
-                  {/* "Gap to majority" callout, only when not reached */}
-                  {!reachedMajority && (
-                    <span
-                      className="absolute -bottom-5 text-[10px] uppercase tracking-[0.18em] font-bold whitespace-nowrap text-[color:var(--color-muted-foreground)]"
-                      style={{ left: `calc(${fillPct}% + 6px)` }}
-                    >
-                      −{Math.max(ASSEMBLY_MAJORITY - p.seatsHigh, 0)} to majority
                     </span>
                   )}
                 </div>
