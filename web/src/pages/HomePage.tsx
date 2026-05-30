@@ -332,62 +332,6 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Editorial close — clarifies that the site is a database, not a
-        forecast, and points at the methodology / data-governance page. */}
-      <section className="space-y-6">
-        <div className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
-            What this dashboard is
-          </p>
-          <h2 className="font-display text-3xl sm:text-4xl">
-            A public-records browser, not a forecast
-          </h2>
-        </div>
-        <article className="relative card-elevated card-accent-gold p-6 sm:p-8 space-y-4 top-edge">
-          <div className="flex items-center gap-2">
-            <Badge
-              variant="outline"
-              className="border-[color:var(--color-accent-gold-soft)] text-[color:var(--color-accent-gold)]"
-            >
-              Editorial position
-            </Badge>
-          </div>
-          <p className="text-base sm:text-lg leading-relaxed">
-            Every figure on this site is a database read. The 2009, 2015
-            and 2020 results come from Wikipedia constituency pages and
-            ECGB notifications. The 2026 candidate names that appear here
-            are individually verified from Wikipedia profiles and Pakistani
-            news outlets. The 2026 voter rolls come straight from the
-            ECGB Final Electoral Roll 2026 (per-constituency totals
-            reconcile to 958,480 GB-wide). The party symbols come from
-            the ECGB allotted-symbol sheet.
-          </p>
-          <p className="text-base sm:text-lg leading-relaxed">
-            We do not publish a forecast. An earlier build trained a
-            logistic-regression model on the 72 historical candidate rows
-            and ran it forward to 2026. The result was statistically thin
-            and collapsed to the federal-incumbent baseline ("PML-N wins
-            all 24"), which would have misled readers. We removed it.
-          </p>
-          <p className="text-sm text-[color:var(--color-muted-foreground)] max-w-3xl">
-            For the full data-source list, the schema, the cleaning
-            pipeline and a candid list of limitations, see the data
-            governance page.
-          </p>
-          <div className="flex flex-wrap gap-2 pt-1">
-            <Badge variant="muted">
-              <Link to="/methodology" className="underline">
-                Read the data governance page
-              </Link>
-            </Badge>
-            <Badge variant="muted">
-              <Link to="/sources" className="underline">
-                Browse the source list
-              </Link>
-            </Badge>
-          </div>
-        </article>
-      </section>
     </div>
   );
 }
