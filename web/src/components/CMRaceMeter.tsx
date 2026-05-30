@@ -296,8 +296,8 @@ export function CMRaceMeter() {
                   }}
                   aria-label={`${r.constituency_id} ${r.area_name}, ${r.candidate_name} (${meta.shortDisplay})`}
                 >
-                  <span className="font-mono text-[9px] font-bold tabular text-[color:var(--color-muted-foreground)] shrink-0 w-6 text-center">
-                    {r.constituency_id.replace("GBA-", "")}
+                  <span className="font-mono text-[9px] font-bold tabular text-[color:var(--color-muted-foreground)] shrink-0 w-11 text-center">
+                    {r.constituency_id}
                   </span>
                   <img
                     src={meta.flag}
