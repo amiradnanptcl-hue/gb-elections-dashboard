@@ -185,8 +185,8 @@ export function PredictionsInfographic() {
         />
       </div>
 
-      {/* Geographic cartogram */}
-      <DistrictCartogram blocks={blocks} />
+      {/* GB choropleth — real map outline */}
+      <GBChoroplethMap blocks={blocks} />
 
       {/* Per-district demographic cards */}
       <div className="space-y-3">
@@ -373,101 +373,295 @@ function DistrictCard({ block }: DistrictCardProps) {
 }
 
 /* ------------------------------------------------------------------ */
-/* DistrictCartogram — hand-positioned 5x3 grid that roughly mirrors  */
-/* the geographic layout of the GB districts. Each cell is filled     */
-/* with the dominant predicted winning party's colour.                */
+/* GBChoroplethMap — SVG-based map of Gilgit-Baltistan with each       */
+/* district drawn as a hand-crafted polygon path. Polygons are filled  */
+/* by the dominant predicted winning party. Labels with leader lines   */
+/* sit around the perimeter in the style of the user-supplied          */
+/* "REGIONAL SEAT BREAKDOWN" reference graphic.                        */
+/*                                                                      */
+/* The viewBox is 1000x520. Path coordinates were hand-tuned against    */
+/* the ECGB tehsil map and the reference choropleth. The result is a   */
+/* STYLISED cartogram — geographically suggestive but not precise.     */
 /* ------------------------------------------------------------------ */
 
-interface DistrictCartogramProps {
+interface GBChoroplethMapProps {
   blocks: DistrictBlock[];
 }
 
-// Hand-placed roughly-geographic grid. col/row are 1-indexed positions
-// on a 5-wide × 3-tall layout. Choices anchored to the labelled
-// tehsil reference: Ghizer west, Hunza north-east of Nagar, Skardu
-// east-central with Shigar to its north and Kharmang south, Ghanche
-// far east, Diamer south-west, Astore south of Gilgit.
-const CARTOGRAM_GRID: Record<string, { col: number; row: number }> = {
-  Ghizer: { col: 1, row: 2 },
-  Hunza: { col: 2, row: 1 },
-  Nagar: { col: 2, row: 2 },
-  Gilgit: { col: 1, row: 3 },
-  Diamer: { col: 2, row: 3 },
-  Astore: { col: 3, row: 3 },
-  Shigar: { col: 3, row: 1 },
-  Skardu: { col: 4, row: 2 },
-  Kharmang: { col: 4, row: 3 },
-  Ghanche: { col: 5, row: 2 },
+interface DistrictGeo {
+  /** SVG path d-attribute for the district polygon. */
+  path: string;
+  /** Approximate centroid for in-shape labels. */
+  cx: number;
+  cy: number;
+  /** Where the label callout should sit (outside the map). */
+  labelX: number;
+  labelY: number;
+  /** Where the label anchors (start / middle / end). */
+  anchor: "start" | "middle" | "end";
+  /** Optional leader-line waypoint for cleaner routing. */
+  leader?: [number, number][];
+}
+
+// Hand-tuned polygon geometry. Coordinates are in the SVG's
+// 0..1000 x 0..520 space. Each district is a closed polygon (Z) of
+// straight-line segments — no Bezier curves, so the silhouette has a
+// crisp editorial feel like the reference graphic. Adjacent district
+// edges share vertices so the borders look continuous.
+const DISTRICT_GEO: Record<string, DistrictGeo> = {
+  Ghizer: {
+    path:
+      "M 40,180 L 110,150 L 200,160 L 270,180 L 270,250 L 200,275 L 130,275 L 70,255 L 40,220 Z",
+    cx: 155,
+    cy: 220,
+    labelX: 30,
+    labelY: 140,
+    anchor: "start",
+    leader: [[160, 165]],
+  },
+  Hunza: {
+    path: "M 290,70 L 400,55 L 470,80 L 470,140 L 290,150 Z",
+    cx: 380,
+    cy: 110,
+    labelX: 380,
+    labelY: 28,
+    anchor: "middle",
+  },
+  Nagar: {
+    path: "M 290,155 L 470,145 L 470,210 L 380,225 L 305,215 L 285,190 Z",
+    cx: 385,
+    cy: 190,
+    labelX: 540,
+    labelY: 175,
+    anchor: "start",
+    leader: [[470, 180]],
+  },
+  Gilgit: {
+    path:
+      "M 200,280 L 270,260 L 305,230 L 380,235 L 380,300 L 320,330 L 240,335 L 180,310 Z",
+    cx: 290,
+    cy: 290,
+    labelX: 80,
+    labelY: 305,
+    anchor: "start",
+    leader: [[180, 305]],
+  },
+  Diamer: {
+    path:
+      "M 60,330 L 180,320 L 245,340 L 290,375 L 285,440 L 220,475 L 130,475 L 60,445 L 40,390 Z",
+    cx: 165,
+    cy: 400,
+    labelX: 30,
+    labelY: 490,
+    anchor: "start",
+    leader: [[155, 470]],
+  },
+  Astore: {
+    path:
+      "M 295,345 L 380,310 L 445,335 L 470,380 L 455,440 L 380,460 L 310,440 L 290,400 Z",
+    cx: 380,
+    cy: 390,
+    labelX: 380,
+    labelY: 495,
+    anchor: "middle",
+    leader: [[380, 465]],
+  },
+  Shigar: {
+    path: "M 480,60 L 600,50 L 680,80 L 690,140 L 600,150 L 510,150 L 485,115 Z",
+    cx: 590,
+    cy: 105,
+    labelX: 590,
+    labelY: 28,
+    anchor: "middle",
+  },
+  Skardu: {
+    path:
+      "M 480,160 L 580,150 L 680,160 L 720,200 L 720,265 L 660,305 L 580,310 L 490,300 L 470,250 L 475,195 Z",
+    cx: 595,
+    cy: 230,
+    labelX: 870,
+    labelY: 220,
+    anchor: "end",
+    leader: [[700, 230]],
+  },
+  Kharmang: {
+    path:
+      "M 510,320 L 600,315 L 670,335 L 700,380 L 680,440 L 600,455 L 525,440 L 495,395 Z",
+    cx: 600,
+    cy: 385,
+    labelX: 600,
+    labelY: 500,
+    anchor: "middle",
+    leader: [[600, 465]],
+  },
+  Ghanche: {
+    path:
+      "M 730,170 L 820,165 L 900,200 L 950,250 L 940,310 L 870,335 L 770,325 L 720,295 L 720,220 Z",
+    cx: 830,
+    cy: 250,
+    labelX: 985,
+    labelY: 240,
+    anchor: "end",
+    leader: [[945, 250]],
+  },
 };
 
-function DistrictCartogram({ blocks }: DistrictCartogramProps) {
+function GBChoroplethMap({ blocks }: GBChoroplethMapProps) {
   const byDistrict = new Map(blocks.map((b) => [b.district, b]));
   return (
     <div className="space-y-3">
       <div className="flex items-baseline justify-between gap-3 flex-wrap">
         <h3 className="text-[11px] uppercase tracking-[0.22em] font-bold text-[color:var(--color-muted-foreground)]">
-          Geographic cartogram · dominant bloc per district
+          Regional seat breakdown · district tally
         </h3>
         <p className="text-[10px] text-[color:var(--color-muted-foreground)]">
-          Layout follows the ECGB tehsil map (Ghizer west · Skardu /
-          Ghanche east).
+          District shapes follow the ECGB tehsil map. Fill = projected
+          dominant bloc per district.
         </p>
       </div>
-      <div className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/60 p-3 sm:p-4">
-        <div
-          className="grid gap-2"
-          style={{
-            gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
-            gridTemplateRows: "repeat(3, minmax(60px, 1fr))",
-          }}
+      <div className="rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/40 p-3 sm:p-5">
+        <svg
+          viewBox="0 0 1000 520"
+          role="img"
+          aria-label="Choropleth map of Gilgit-Baltistan with each district coloured by its projected dominant winning party for the 7 June 2026 Assembly election."
+          className="w-full h-auto"
+          style={{ maxHeight: "560px" }}
         >
-          {Object.entries(CARTOGRAM_GRID).map(([district, pos]) => {
+          <defs>
+            <filter id="districtShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+              <feOffset dx="0" dy="2" result="offsetblur" />
+              <feComponentTransfer>
+                <feFuncA type="linear" slope="0.4" />
+              </feComponentTransfer>
+              <feMerge>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* District polygons */}
+          {Object.entries(DISTRICT_GEO).map(([district, geo]) => {
             const b = byDistrict.get(district);
             if (!b) return null;
             const meta = getParty(b.dominantParty);
             return (
-              <div
-                key={district}
-                className="relative rounded-lg p-2 flex flex-col justify-between min-h-[60px] sm:min-h-[80px] border transition-transform hover:-translate-y-0.5"
-                style={{
-                  gridColumn: pos.col,
-                  gridRow: pos.row,
-                  background: `linear-gradient(135deg, ${meta.color}, ${meta.color}cc)`,
-                  borderColor: `${meta.color}88`,
-                  color: meta.textOnColor === "light" ? "#fff" : "#0f172a",
-                  boxShadow: `0 4px 12px -4px ${meta.color}88`,
-                }}
-              >
-                <div className="space-y-0.5">
-                  <p className="font-display text-[11px] sm:text-sm leading-tight font-bold">
-                    {district}
-                  </p>
-                  <p className="text-[9px] uppercase tracking-[0.14em] font-bold opacity-80">
-                    {b.totalSeats} {b.totalSeats === 1 ? "seat" : "seats"}
-                  </p>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <img
-                    src={meta.flag}
-                    alt=""
-                    width="20"
-                    height="13"
-                    className="h-3 w-5 rounded-sm ring-1 ring-white/40"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span className="font-mono font-bold text-[10px] uppercase tracking-[0.14em]">
-                    {meta.shortDisplay}
-                  </span>
-                </div>
-              </div>
+              <g key={`shape-${district}`}>
+                <path
+                  d={geo.path}
+                  fill={meta.color}
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                  filter="url(#districtShadow)"
+                >
+                  <title>
+                    {district}: {b.totalSeats} seats. Dominant bloc {meta.shortDisplay} with{" "}
+                    {b.seats[0]?.count ?? 0} seats.
+                  </title>
+                </path>
+                {/* In-shape label: district name + seat count */}
+                <text
+                  x={geo.cx}
+                  y={geo.cy - 4}
+                  textAnchor="middle"
+                  fill={meta.textOnColor === "light" ? "#ffffff" : "#0f172a"}
+                  fontSize="14"
+                  fontWeight="800"
+                  style={{ pointerEvents: "none", fontFamily: "var(--font-display)" }}
+                >
+                  {district}
+                </text>
+                <text
+                  x={geo.cx}
+                  y={geo.cy + 12}
+                  textAnchor="middle"
+                  fill={meta.textOnColor === "light" ? "#ffffff" : "#0f172a"}
+                  fontSize="11"
+                  fontWeight="700"
+                  letterSpacing="1.4"
+                  style={{ pointerEvents: "none" }}
+                >
+                  {b.totalSeats} {b.totalSeats === 1 ? "SEAT" : "SEATS"}
+                </text>
+              </g>
             );
           })}
-        </div>
-        <p className="mt-3 text-[10px] text-[color:var(--color-muted-foreground)] leading-relaxed">
-          Districts with mixed results (e.g. Skardu — PPP 1, PML-N 1,
-          MWM 1, ITP 2) are coloured by the largest single bloc. The
-          full party split per district is shown in the cards below.
+
+          {/* Leader lines for label callouts that sit outside the map */}
+          {Object.entries(DISTRICT_GEO).map(([district, geo]) => {
+            const b = byDistrict.get(district);
+            if (!b || !geo.leader) return null;
+            const meta = getParty(b.dominantParty);
+            const pts: [number, number][] = [
+              [geo.labelX, geo.labelY],
+              ...geo.leader,
+              [geo.cx, geo.cy],
+            ];
+            const d = pts
+              .map((p, i) => `${i === 0 ? "M" : "L"} ${p[0]},${p[1]}`)
+              .join(" ");
+            return (
+              <path
+                key={`leader-${district}`}
+                d={d}
+                stroke={meta.color}
+                strokeWidth="1.2"
+                strokeDasharray="3 3"
+                fill="none"
+                opacity="0.55"
+              />
+            );
+          })}
+
+          {/* External label callouts: District (N seats) + party breakdown */}
+          {Object.entries(DISTRICT_GEO).map(([district, geo]) => {
+            const b = byDistrict.get(district);
+            if (!b) return null;
+            return (
+              <g key={`label-${district}`}>
+                <text
+                  x={geo.labelX}
+                  y={geo.labelY}
+                  textAnchor={geo.anchor}
+                  fill="var(--color-foreground)"
+                  fontSize="13"
+                  fontWeight="800"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {district}{" "}
+                  <tspan fontSize="11" fontWeight="600" fillOpacity="0.7">
+                    ({b.totalSeats} seats)
+                  </tspan>
+                </text>
+                {b.seats.map((s, i) => {
+                  const m = getParty(s.partyId);
+                  return (
+                    <text
+                      key={`${district}-${s.partyId}`}
+                      x={geo.labelX}
+                      y={geo.labelY + 16 + i * 14}
+                      textAnchor={geo.anchor}
+                      fontSize="11"
+                      fontWeight="700"
+                    >
+                      <tspan fill={m.color}>●</tspan>{" "}
+                      <tspan fill="var(--color-foreground)" fillOpacity="0.85">
+                        {m.shortDisplay} ({s.count})
+                      </tspan>
+                    </text>
+                  );
+                })}
+              </g>
+            );
+          })}
+        </svg>
+        <p className="mt-3 text-[10px] text-[color:var(--color-muted-foreground)] leading-relaxed text-center">
+          Stylised cartogram. District fill shows the largest single
+          winning bloc; the labels alongside list the full party
+          breakdown. Mixed-result districts (e.g. Skardu — PPP 1, PML-N 1,
+          MWM 1, ITP 2) are coloured by the dominant bloc.
         </p>
       </div>
     </div>
