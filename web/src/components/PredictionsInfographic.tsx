@@ -223,23 +223,27 @@ function DistrictCard({ block }: DistrictCardProps) {
             aria-label={`Female voters ${femalePct.toFixed(1)}%`}
           />
         </div>
-        {/* Coloured dots + spelled-out labels so the male / female
-            split reads clearly without relying on the Unicode ♂ / ♀
-            glyphs (which render inconsistently and were too small
-            on the previous version). */}
+        {/* Big bold ♂ / ♀ glyph + spelled-out label + percentage.
+            The Unicode symbol is sized up (text-base) and given its
+            own coloured pill so it reads as a clear gender marker
+            even at thumbnail scale. */}
         <div className="flex justify-between text-[11px] font-bold tabular">
           <span className="inline-flex items-center gap-1.5 text-[#1d4ed8]">
             <span
               aria-hidden
-              className="inline-block h-2 w-2 rounded-full bg-[#1d4ed8] ring-1 ring-[#1d4ed8]/30"
-            />
+              className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-[#1d4ed8] text-white text-[11px] leading-none font-black"
+            >
+              ♂
+            </span>
             Male {malePct.toFixed(1)}%
           </span>
           <span className="inline-flex items-center gap-1.5 text-[#be185d]">
             <span
               aria-hidden
-              className="inline-block h-2 w-2 rounded-full bg-[#be185d] ring-1 ring-[#be185d]/30"
-            />
+              className="inline-flex items-center justify-center h-4 w-4 rounded-full bg-[#be185d] text-white text-[11px] leading-none font-black"
+            >
+              ♀
+            </span>
             Female {femalePct.toFixed(1)}%
           </span>
         </div>
