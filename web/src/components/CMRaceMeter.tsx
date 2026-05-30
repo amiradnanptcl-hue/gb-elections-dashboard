@@ -179,62 +179,24 @@ export function CMRaceMeter() {
                   {/* Runner / trophy glyph at the leading edge — sized
                      up for clear visibility and flipped horizontally
                      for the runners so they face the finish line. The
-                     PPP lane gets the Amjad Hussain Azar character
-                     looping continuously instead of the trophy emoji;
-                     other lanes keep the existing one-shot 🏃 / 🏆
-                     glyph at the fill's leading edge. */}
-                  {p.partyId === "PPP" ? (
-                    <div
-                      aria-label="Amjad Hussain Azar running toward the finish line"
-                      className="cm-amjad-track"
-                      style={{
-                        // Run him from the lane's left edge to roughly
-                        // (fillPct - charWidth) so he never overruns
-                        // the gold finish flag.
-                        ["--amjad-distance" as string]: `calc(${fillPct}% - 36px)`,
-                        bottom: "0",
-                      } as React.CSSProperties}
-                    >
-                      <div className="cm-amjad-bob relative">
-                        {/* scaleX(-1) flips the right-profile crop so
-                            the character faces the finish line (right
-                            edge of the lane) instead of the start. The
-                            translateX in cmAmjadRun moves him right,
-                            so without this flip he looked like he was
-                            moonwalking backward. Name label removed
-                            per user request. */}
-                        <img
-                          src="/runners/amjad-hussain-azar.png"
-                          alt=""
-                          className="h-12 sm:h-16 w-auto select-none pointer-events-none drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]"
-                          style={{ transform: "scaleX(-1)" }}
-                          loading="eager"
-                          decoding="async"
-                          onError={(e) => {
-                            e.currentTarget.style.display = "none";
-                          }}
-                        />
-                      </div>
-                    </div>
-                  ) : (
+                     trophy on the leader's lane is left upright. */}
+                  <span
+                    aria-hidden
+                    className="absolute top-1/2 -translate-y-1/2 text-2xl sm:text-3xl pointer-events-none cm-runner select-none"
+                    style={{
+                      left: `calc(${fillPct}% - 18px)`,
+                      filter: `drop-shadow(0 0 8px ${meta.color}) drop-shadow(0 0 14px ${meta.color}aa)`,
+                      animation: "cmRunnerSlide 1800ms cubic-bezier(0.22, 1, 0.36, 1) forwards",
+                      ["--target-left" as string]: `calc(${fillPct}% - 18px)`,
+                    } as React.CSSProperties}
+                  >
                     <span
-                      aria-hidden
-                      className="absolute top-1/2 -translate-y-1/2 text-2xl sm:text-3xl pointer-events-none cm-runner select-none"
-                      style={{
-                        left: `calc(${fillPct}% - 18px)`,
-                        filter: `drop-shadow(0 0 8px ${meta.color}) drop-shadow(0 0 14px ${meta.color}aa)`,
-                        animation: "cmRunnerSlide 1800ms cubic-bezier(0.22, 1, 0.36, 1) forwards",
-                        ["--target-left" as string]: `calc(${fillPct}% - 18px)`,
-                      } as React.CSSProperties}
+                      className="inline-block"
+                      style={i === 0 ? undefined : { transform: "scaleX(-1)" }}
                     >
-                      <span
-                        className="inline-block"
-                        style={i === 0 ? undefined : { transform: "scaleX(-1)" }}
-                      >
-                        {i === 0 ? "🏆" : "🏃"}
-                      </span>
+                      {i === 0 ? "🏆" : "🏃"}
                     </span>
-                  )}
+                  </span>
                   {/* Simple majority marker (13) */}
                   <div
                     aria-hidden

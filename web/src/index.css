@@ -281,60 +281,6 @@
     .cm-runner { animation: none !important; left: var(--target-left, 0px) !important; }
   }
 
-  /* Continuous "Amjad Hussain Azar running" character on the PPP lane.
-   * The outer track slides translateX from 0 to the leading edge of the
-   * PPP fill, then fades out, snaps back to the start, and fades back
-   * in — a treadmill-style infinite loop. The inner bob layer adds a
-   * quick vertical oscillation so the static-image character reads as
-   * "running" rather than "sliding". Asset lives at
-   *   web/public/runners/amjad-hussain-azar.png
-   * If the file is absent the onError handler hides the <img> and the
-   * floating name label keeps moving on its own. */
-  @keyframes cmAmjadRun {
-    0%   { transform: translateX(0); opacity: 1; }
-    90%  { transform: translateX(var(--amjad-distance, 200px)); opacity: 1; }
-    93%  { transform: translateX(var(--amjad-distance, 200px)); opacity: 0; }
-    94%  { transform: translateX(0); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
-  }
-  @keyframes cmAmjadBob {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-3px); }
-  }
-  .cm-amjad-track {
-    position: absolute;
-    /* Sit ON TOP of the lane bar (his feet at the bar's top edge)
-     * rather than INSIDE it where the 32-40 px sprite would be
-     * clipped by the 28-32 px lane height. */
-    bottom: 0;
-    left: 0;
-    pointer-events: none;
-    animation: cmAmjadRun 9s linear infinite;
-    will-change: transform, opacity;
-    display: flex;
-    align-items: flex-end;
-    /* Force above the cm-lane-fill (red bar) and its ::after stripe
-     * layer. The lane container is `relative overflow-visible`, so a
-     * large positive z-index sits the runner clearly in front. */
-    z-index: 20;
-  }
-  .cm-amjad-bob {
-    animation: cmAmjadBob 360ms ease-in-out infinite;
-    will-change: transform;
-    position: relative;
-    /* Anchor the sprite by its bottom edge to the bottom of the
-     * track so the running gait reads as "feet on the track". */
-    transform-origin: 50% 100%;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .cm-amjad-track {
-      animation: none !important;
-      transform: translateX(var(--amjad-distance, 0));
-      opacity: 1 !important;
-    }
-    .cm-amjad-bob { animation: none !important; }
-  }
-
   /* Podium-card glow — gold / silver / bronze rings on the CM Race
    * top-3 cards pulse softly so the eye is drawn to the rankings.
    * Each ring uses its own colour via the --podium-color custom
