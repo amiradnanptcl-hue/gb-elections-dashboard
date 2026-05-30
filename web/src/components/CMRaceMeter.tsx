@@ -188,14 +188,24 @@ export function CMRaceMeter() {
                       aria-label="Amjad Hussain Azar running toward the finish line"
                       className="cm-amjad-track"
                       style={{
-                        ["--amjad-distance" as string]: `calc(${fillPct}% - 56px)`,
+                        // The character image is ~28px wide rendered at
+                        // h-14 (56px) sm size. Run him from the lane's
+                        // left edge to roughly (fillPct - charWidth) so
+                        // he never overruns the gold finish flag.
+                        ["--amjad-distance" as string]: `calc(${fillPct}% - 36px)`,
+                        // Lift the entire track up so the character's
+                        // feet sit ON the lane bar rather than inside
+                        // it. translateY(-100%) of the lane height
+                        // raises him by his full body so head + torso
+                        // are clearly visible above the track.
+                        bottom: "0",
                       } as React.CSSProperties}
                     >
-                      <div className="cm-amjad-bob">
+                      <div className="cm-amjad-bob relative">
                         <img
                           src="/runners/amjad-hussain-azar.png"
                           alt=""
-                          className="h-10 sm:h-14 w-auto select-none pointer-events-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.45)]"
+                          className="h-12 sm:h-16 w-auto select-none pointer-events-none drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]"
                           loading="eager"
                           decoding="async"
                           onError={(e) => {
@@ -203,7 +213,7 @@ export function CMRaceMeter() {
                           }}
                         />
                         <span
-                          className="absolute -top-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.18em] text-[#451a03] bg-[#fbbf24] border border-[#fbbf24] rounded-sm px-1.5 py-0.5 shadow-[0_0_6px_#fbbf24aa]"
+                          className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.18em] text-[#451a03] bg-[#fbbf24] border border-[#fbbf24] rounded-sm px-1.5 py-0.5 shadow-[0_0_6px_#fbbf24aa]"
                           aria-hidden
                         >
                           Amjad Hussain Azar

@@ -303,7 +303,9 @@
   }
   .cm-amjad-track {
     position: absolute;
-    top: 0;
+    /* Sit ON TOP of the lane bar (his feet at the bar's top edge)
+     * rather than INSIDE it where the 32-40 px sprite would be
+     * clipped by the 28-32 px lane height. */
     bottom: 0;
     left: 0;
     pointer-events: none;
@@ -311,12 +313,18 @@
     will-change: transform, opacity;
     display: flex;
     align-items: flex-end;
-    z-index: 2;
+    /* Force above the cm-lane-fill (red bar) and its ::after stripe
+     * layer. The lane container is `relative overflow-visible`, so a
+     * large positive z-index sits the runner clearly in front. */
+    z-index: 20;
   }
   .cm-amjad-bob {
     animation: cmAmjadBob 360ms ease-in-out infinite;
     will-change: transform;
     position: relative;
+    /* Anchor the sprite by its bottom edge to the bottom of the
+     * track so the running gait reads as "feet on the track". */
+    transform-origin: 50% 100%;
   }
   @media (prefers-reduced-motion: reduce) {
     .cm-amjad-track {
