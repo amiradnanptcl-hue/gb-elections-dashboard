@@ -11,7 +11,7 @@ export function HomePage() {
   useDocumentMeta({
     title: "GB Elections 2026 — Gilgit-Baltistan Assembly election dashboard",
     description:
-      "Public-records dashboard for the Gilgit-Baltistan Assembly election on 7 June 2026. 24 general seats, 403 candidates, 958,480 voters, ECGB polling-station data. Historical results 2009, 2015, 2020.",
+      "Public-records dashboard plus a qualitative seat-by-seat forecast (Rev 4.0, Independent Survey 2026) for the Gilgit-Baltistan Assembly election on 7 June 2026. 24 general seats, 403 candidates, 958,480 voters, ECGB polling-station data. Historical results 2009, 2015, 2020.",
     path: "/",
   });
   const navigate = useNavigate();
