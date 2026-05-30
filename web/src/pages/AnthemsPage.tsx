@@ -17,6 +17,11 @@ interface Anthem {
 // display indexes only.
 const ANTHEMS: Anthem[] = [
   {
+    title: "Shaheedo K Khoon Ki Pechan Hai Bilawal",
+    url: "https://www.facebook.com/reel/938896962520011",
+    note: "Latest flagship anthem reel by PPP TEAM AI.",
+  },
+  {
     title: "Showcase reel",
     url: "https://www.facebook.com/reel/1376764577618071/?s=single_unit",
     note: "Flagship anthem reel by PPP TEAM AI.",
