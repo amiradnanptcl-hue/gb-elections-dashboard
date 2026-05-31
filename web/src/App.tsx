@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { AppLayout } from "@/components/layout/AppLayout";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 // Lazy-load route components so the initial bundle ships only the home page
 // path. recharts (used in constituency detail) is the largest dependency and
@@ -64,7 +65,9 @@ function PageFallback() {
 
 export default function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
       <Route
         element={
           <Suspense fallback={<PageFallback />}>
@@ -88,6 +91,7 @@ export default function App() {
         <Route path="about" element={<AboutPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-    </Routes>
+      </Routes>
+    </>
   );
 }
