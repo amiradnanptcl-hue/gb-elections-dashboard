@@ -440,8 +440,22 @@ export function ConstituencyPage() {
             </p>
           )}
           <p className="text-[11px] text-[color:var(--color-muted-foreground)] leading-relaxed pt-1">
-            This dashboard does not publish a 2026 forecast for this seat.
-            See the data governance page for why.
+            The 2026 forecast for this seat is published on the{" "}
+            <Link
+              to="/predictions"
+              className="underline underline-offset-2 text-[color:var(--color-accent-gold)] font-semibold"
+            >
+              predictions page
+            </Link>{" "}
+            (Rev 4.0, Independent Survey 2026). Methodology and source list
+            on the{" "}
+            <Link
+              to="/methodology"
+              className="underline underline-offset-2 text-[color:var(--color-accent-gold)] font-semibold"
+            >
+              methodology page
+            </Link>
+            .
           </p>
         </CardContent>
       </Card>
