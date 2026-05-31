@@ -163,7 +163,7 @@ export function AboutPage() {
           public records and a qualitative human-analyst forecast. It is
           not a prediction of certainty and not an instruction to vote.
           Every per-seat call is a reasoned reading of the available
-          ground evidence as of 30 May 2026, will be wrong on some
+          ground evidence as of 31 May 2026, will be wrong on some
           seats, and will be re-scored against the official ECGB result
           after the 7 June poll.
         </p>
