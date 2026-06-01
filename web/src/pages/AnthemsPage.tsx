@@ -18,7 +18,7 @@ interface Anthem {
 const ANTHEMS: Anthem[] = [
   {
     title: "Shaheedo K Khoon Ki Pechan Hai Bilawal",
-    url: "https://www.facebook.com/reel/938896962520011",
+    url: "https://www.facebook.com/watch/?ref=saved&v=2092690798798033",
     note: "Latest flagship anthem reel by PPP TEAM AI.",
   },
   {
@@ -81,13 +81,26 @@ const ANTHEMS: Anthem[] = [
   },
 ];
 
-/** Last non-empty path segment before any query string. Used as the small
- * reel-id chip inside each showcase card so visitors can match a card back
- * to its Facebook URL at a glance. */
+/** Extract a stable Facebook ID for display in the small chip on each
+ * showcase card. Supports three URL shapes used by the team's links:
+ *   /reel/<id>            -> <id>
+ *   /share/[rv]/<id>/     -> <id>
+ *   /watch/?v=<id>        -> <id>
+ * Falls back to the last non-empty path segment. */
 function extractReelId(url: string): string {
-  const path = url.split("?")[0].replace(/\/$/, "");
-  const segments = path.split("/");
-  return segments[segments.length - 1] ?? "";
+  try {
+    const u = new URL(url);
+    const v = u.searchParams.get("v");
+    if (v) return v;
+    const path = u.pathname.replace(/\/$/, "");
+    const segments = path.split("/").filter(Boolean);
+    return segments[segments.length - 1] ?? "";
+  } catch {
+    // Defensive: malformed URL string. Fall back to the old behaviour.
+    const path = url.split("?")[0].replace(/\/$/, "");
+    const segments = path.split("/");
+    return segments[segments.length - 1] ?? "";
+  }
 }
 
 export function AnthemsPage() {
