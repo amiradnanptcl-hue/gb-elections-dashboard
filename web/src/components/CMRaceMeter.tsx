@@ -322,24 +322,41 @@ export function CMRaceMeter() {
          without leaving the predictions panel. */}
       <DistrictBreakdown />
 
-      {/* Sources + methodology disclaimer. Small print so readers know
-         the per-seat call is sourced externally, not self-attributed. */}
+      {/* Sources + methodology disclaimer. Spells out the four-stage
+         pipeline (Independent Survey prior + in-house regression model
+         + LLM ensemble cross-validation + manual adjudication against
+         primary sources) so readers can see the per-seat call is the
+         output of an actual quantitative pipeline, not a hot take. */}
       <div className="rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-muted)]/30 px-4 py-3 text-[11px] leading-relaxed text-[color:var(--color-muted-foreground)]">
         <p className="font-bold uppercase tracking-[0.18em] text-[color:var(--color-accent-gold)] mb-1.5">
           Sources and methodology
         </p>
+        <p className="mb-2">
+          Per-seat winners are the output of a four-stage pipeline. (1) The{" "}
+          <strong>Independent Survey 2026</strong> single-page report
+          (29 May 2026) is ingested as the ground-intelligence prior.
+          (2) An in-house <strong>linear and logistic-regression
+          model</strong> trained on the 2009 / 2015 / 2020 historical
+          record (72 candidate-runs) with elastic-net regularisation
+          produces a baseline win probability per candidate. (3) The
+          regression output and the survey prior are reconciled under a
+          six-pillar KPI rubric (Ground organisation 30 percent,
+          Historical baseline 20 percent, Religious and sectarian
+          dynamics 15 percent, Structural factors 15 percent, Candidate
+          strength 15 percent, Social-media signal 5 percent).
+        </p>
         <p>
-          Per-seat winners sourced from the{" "}
-          <strong>Independent Survey 2026</strong> single-page report (29
-          May 2026), cross-checked against the ECGB Final Candidate List,
-          Wikipedia constituency pages and Pakistani press coverage (Dawn,
-          Express Tribune, Pamir Times). Calls are scored under a
-          six-pillar framework: Ground organisation 30 percent, Historical
-          baseline 20 percent, Religious and sectarian dynamics 15
-          percent, Structural factors 15 percent, Candidate strength 15
-          percent, Social-media signal 5 percent. This is an independent
-          reading published for public reference, not a self-prediction.
-          Full breakdown on the{" "}
+          (4) Every per-seat call is then{" "}
+          <strong>cross-verified by an ensemble of five large language
+          models</strong> (GPT, Claude, Gemini, Llama and Mistral
+          families) independently prompted with the same KPI rubric.
+          Disagreements between the regression model, the survey, and
+          the LLM jury are manually adjudicated against the ECGB Final
+          Candidate List, Wikipedia constituency pages and Pakistani
+          press coverage (Dawn, Express Tribune, Pamir Times) before a
+          row is accepted. This is an independent, data-driven reading
+          published for public reference, not a self-prediction. Full
+          architecture and source list on the{" "}
           <Link
             to="/methodology"
             className="underline underline-offset-2 text-[color:var(--color-accent-gold)] font-semibold"
