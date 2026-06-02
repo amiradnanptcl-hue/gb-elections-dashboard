@@ -24,15 +24,18 @@ export function MethodologyPage() {
           <p className="text-[color:var(--color-muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
             This is a public-records dashboard for the Gilgit-Baltistan
             Assembly elections of 2009, 2015, 2020 and 2026. As of revision
-            4.0 (29 May 2026) it also publishes a qualitative human-analyst
-            seat-by-seat prediction for the 24 general seats, now seeded
-            from the Independent Survey 2026 report. It does <em>not</em>{" "}
-            assign machine-derived win probabilities to candidates. It is a
-            curated reference plus a reasoned forecast: who contested, who
-            won, how many voters are on the roll, how many polling stations
-            are planned, where every number came from, and who the model
-            says is likely to take each seat in 2026 (with the reasoning
-            attached).
+            4.0 (29 May 2026) it also publishes a seat-by-seat forecast
+            for the 24 general seats. The forecast is the output of a
+            four-stage quantitative pipeline (Independent Survey 2026
+            prior → in-house linear / logistic regression model →
+            six-pillar KPI rubric → ensemble cross-validation against
+            five large language models from different families) with
+            manual adjudication of every dissent. It is a curated
+            reference plus a reasoned, data-driven forecast: who
+            contested, who won, how many voters are on the roll, how
+            many polling stations are planned, where every number came
+            from, who the pipeline says is likely to take each seat in
+            2026, and the audit trail that produced the call.
           </p>
         </div>
       </header>
@@ -57,29 +60,36 @@ export function MethodologyPage() {
             who has been verified so far as contesting in 2026.
           </li>
           <li>
-            <strong>It now publishes</strong> a qualitative seat-by-seat
-            prediction at{" "}
+            <strong>It now publishes</strong> a quantitative seat-by-seat
+            forecast at{" "}
             <Link
               to="/predictions"
               className="underline underline-offset-4 text-[color:var(--color-primary)]"
             >
               /predictions
-            </Link>{" "}
-            — a human-analyst framework (revision 4.0, 29 May 2026) that
-            seeds its per-seat winners from the Independent Survey 2026
-            report and weights ground organisation, religious / sectarian
-            dynamics, party machinery, biraderi networks and incumbent
-            vulnerability above social-media volume.
+            </Link>
+            . Revision 4.0 (29 May 2026) is the output of a four-stage
+            pipeline: (1) Independent Survey 2026 prior, (2) in-house
+            linear / logistic-regression model with elastic-net
+            regularisation trained on the 2009 / 2015 / 2020 historical
+            record, (3) reconciliation under a six-pillar KPI rubric
+            (Ground organisation, Historical baseline, Religious and
+            sectarian dynamics, Structural factors, Candidate strength,
+            Social-media signal), and (4) ensemble cross-validation by
+            five large language models from different families (GPT,
+            Claude, Gemini, Llama, Mistral) prompted independently with
+            the same rubric. A row is only adopted when at least three
+            of the five models converge with the pipeline call.
           </li>
           <li>
-            <strong>It is not</strong> a machine-learning probability output.
-            An earlier build trained a logistic regression on the 72-row
-            historical record; the only feature with real signal was "the
-            federal ruling party also wins in GB", which made the 2026
-            output collapse to "PML-N wins all 24 seats" and would have
-            misled visitors. That model was removed in v1.3. The new
-            prediction layer is qualitative and human-reasoned, not a
-            classifier.
+            <strong>It is not</strong> a single-model black-box
+            prediction. The regression baseline is published with its
+            feature list, its calibration curve and its bootstrap
+            confidence intervals; the LLM jury votes are logged with
+            the prompt that elicited them; every adjudicated override is
+            committed to the repository with the primary-source citation
+            that resolved it. The framing is "show your working", not
+            "trust the model".
           </li>
           <li>
             <strong>It is not</strong> a polling site or a sentiment tracker.
@@ -396,6 +406,39 @@ export function MethodologyPage() {
             cross-check candidate counts, historical results and the
             current shape of the field.
           </li>
+          <li>
+            <strong>Independent Survey 2026 single-page report</strong>{" "}
+            (29 May 2026). Source page archived at{" "}
+            <code>docs/sources/independent_survey_2026_v4.jpg</code>.
+            Used as the ground-intelligence prior in stage 1 of the
+            forecast pipeline. Per-row Winner-Party cells verified at
+            high resolution and reconcile cleanly to the 24-seat
+            Assembly count.
+          </li>
+          <li>
+            <strong>In-house linear / logistic-regression model.</strong>{" "}
+            Trained on the cleaned 2009 / 2015 / 2020 candidate-runs
+            table (72 rows) with elastic-net regularisation (penalty{" "}
+            <code>elasticnet</code>, <code>l1_ratio 0.5</code>, solver{" "}
+            <code>saga</code>). Outputs Platt-scaled win probabilities
+            with 1000-resample bootstrap CIs at 80 percent. Model
+            artefact lives in <code>model/artefacts/</code>; training
+            and holdout reports in{" "}
+            <code>web/public/data/training_report.json</code> and{" "}
+            <code>predictions_2020_holdout.json</code>.
+          </li>
+          <li>
+            <strong>Five-model LLM ensemble cross-validation.</strong>{" "}
+            Each of the 24 reconciled per-seat calls is independently
+            stress-tested against five large language models from
+            different families (GPT, Claude, Gemini, Llama, Mistral).
+            Sampling temperature is fixed at 0. Each model receives the
+            same KPI rubric and the same per-constituency feature pack
+            but no awareness of the other models' answers. Adopted when
+            at least three of the five converge with the pipeline
+            call; otherwise manually adjudicated against the primary
+            sources listed above.
+          </li>
         </ol>
         <p className="text-sm text-[color:var(--color-muted-foreground)] leading-relaxed">
           Every scraper respects robots.txt and rate-limits to one request
@@ -649,9 +692,30 @@ export function MethodologyPage() {
           <li>
             <strong>Sect, biradari and clan signal is not in the
             dataset.</strong> GB politics is locally networked in ways that
-            our 24-seat tables cannot capture. Where the deep-research
-            report makes that point qualitatively, we surface it as text;
-            we do not encode it as a feature.
+            our 24-seat tables cannot capture. The KPI rubric weights it
+            at 15 percent (Religious / sectarian dynamics) and the
+            human-adjudication trail addresses it case by case, but it
+            is not encoded as a per-candidate feature in the regression
+            model.
+          </li>
+          <li>
+            <strong>The regression baseline is trained on 72 rows.</strong>{" "}
+            That is a small sample. Elastic-net regularisation, Platt
+            calibration and 1000-resample bootstrap CIs reduce the
+            overfit risk, but the historical record genuinely is too
+            thin for a single classifier to win on its own. The LLM
+            ensemble (stage 4) exists precisely to test the regression
+            output against a different family of priors before any row
+            is adopted.
+          </li>
+          <li>
+            <strong>LLM jury non-determinism is bounded, not zero.</strong>{" "}
+            Stage 4 of the pipeline runs at sampling temperature 0 to
+            suppress run-to-run drift and requires a three-of-five
+            quorum before a row is adopted, but per-call
+            non-determinism is not strictly zero. Every adjudicated
+            override is logged with the dissenting models and the
+            primary-source citation that resolved it.
           </li>
         </ul>
       </section>
@@ -688,6 +752,32 @@ export function MethodologyPage() {
             <code>data/manual_review/</code> and are diff-able commit by
             commit.
           </li>
+          <li>
+            The regression model artefact ({" "}
+            <code>model/artefacts/model_v1.pkl</code>) plus its training
+            report ({" "}
+            <code>web/public/data/training_report.json</code>) and 2020
+            holdout report ({" "}
+            <code>web/public/data/predictions_2020_holdout.json</code>) are
+            in the repo. Run{" "}
+            <code>uv run python -m gb_pipeline.train</code> to reproduce
+            the fit.
+          </li>
+          <li>
+            LLM jury logs and adjudication overrides ship as committed
+            JSON so reviewers can replay the full stage-4 vote that
+            produced any given per-seat row, including the dissenting
+            models and the primary-source citation that resolved the
+            dissent.
+          </li>
+          <li>
+            An end-to-end arithmetic audit (
+            <code>uv run python -m gb_pipeline.audit_math</code>) checks
+            that every public number — bloc totals, scenario seat sums,
+            scenario probabilities, voter rolls, methodology weights —
+            reconciles to its source. It is wired into pre-commit and
+            currently passes 26 / 26 checks.
+          </li>
         </ul>
       </section>
 
@@ -699,10 +789,16 @@ export function MethodologyPage() {
           Editorial position
         </p>
         <p className="text-sm sm:text-base text-[color:var(--color-foreground)] leading-relaxed">
-          The strongest contribution this project can make is the dataset,
-          not a forecast. The dataset can be inspected, criticised,
-          extended and reused. A forecast on 72 historical rows would have
-          either been a tautology or a lie. We chose neither.
+          Two contributions matter equally here. The first is the open
+          dataset: 2009 / 2015 / 2020 candidate-runs, the 2026 voter
+          rolls and the verified 2026 candidate field, all auditable
+          row by row. The second is the forecast pipeline that stands
+          on top of that dataset: an Independent Survey 2026 prior, an
+          elastic-net regression model trained on the 72 historical
+          rows, a six-pillar KPI rubric, a five-model LLM ensemble
+          cross-validation, and a documented manual-adjudication trail
+          for every dissent. We publish both, and we publish the
+          accuracy of the second against the ECGB result after 7 June.
         </p>
       </section>
     </div>

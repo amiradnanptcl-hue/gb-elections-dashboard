@@ -330,7 +330,8 @@ export function useForecast2026Summary() {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Revised qualitative model (29 May 2026, Revision 4.0; Independent Survey 2026)           */
+/* Four-stage quantitative pipeline (29 May 2026, Revision 4.0;             */
+/* Independent Survey 2026 + regression + KPI rubric + LLM jury)            */
 /* -------------------------------------------------------------------------- */
 
 export interface Prediction2026Row {

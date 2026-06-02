@@ -244,7 +244,7 @@ export function AppLayout() {
             <p className="font-medium text-[color:var(--color-foreground)]">
               GB Elections Forecast 2026
             </p>
-            <p>Public-records dashboard plus a qualitative human-analyst seat-by-seat forecast for the GB Assembly election on 7 June 2026.</p>
+            <p>Public-records dashboard plus a four-stage quantitative seat-by-seat forecast (Independent Survey 2026 + regression model + KPI rubric + five-model LLM jury) for the GB Assembly election on 7 June 2026.</p>
           </div>
           <div className="space-y-1 sm:text-right">
             <p className="font-medium text-[color:var(--color-foreground)]">

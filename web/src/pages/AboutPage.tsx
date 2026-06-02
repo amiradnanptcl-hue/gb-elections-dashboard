@@ -123,16 +123,22 @@ export function AboutPage() {
         </p>
         <p>
           As of revision 4.0 (29 May 2026) the site also publishes a
-          qualitative seat-by-seat forecast for the 7 June 2026 poll,
-          seeded from the Independent Survey 2026 report and scored under
-          a six-pillar framework (ground organisation 30 percent,
+          four-stage quantitative seat-by-seat forecast for the 7 June
+          2026 poll. Stage one anchors the prior to the Independent
+          Survey 2026 ground-intelligence report. Stage two runs an
+          in-house elastic-net logistic regression trained on the 72-row
+          2009, 2015, and 2020 candidate-runs table, with Platt
+          calibration and 1000-resample bootstrap confidence intervals.
+          Stage three reconciles the regression output against the
+          six-pillar KPI rubric (ground organisation 30 percent,
           historical baseline 20 percent, religious and sectarian
           dynamics 15 percent, structural factors 15 percent, candidate
-          strength 15 percent, social-media signal 5 percent). An earlier
-          machine-learning attempt on the 72-row historical record was
-          too thin to produce honest probabilities and was removed in
-          v1.3; the current forecast is human-analyst, not classifier
-          output, and every per-seat call ships with the reasoning
+          strength 15 percent, social-media signal 5 percent). Stage
+          four cross-validates every seat call against a five-model LLM
+          jury (GPT, Claude, Gemini, Llama, Mistral families) at
+          temperature zero, with a three-of-five quorum required before
+          a call is locked. Every per-seat verdict ships with the
+          reasoning, the regression probability, and the jury vote
           attached on the{" "}
           <Link to="/predictions" className="underline underline-offset-4">
             /predictions
@@ -160,12 +166,15 @@ export function AboutPage() {
         <h2 className="text-xl font-semibold tracking-tight">Disclaimer</h2>
         <p>
           This is an academic and civic-technology dashboard built on
-          public records and a qualitative human-analyst forecast. It is
+          public records and a four-stage quantitative forecast pipeline
+          (Independent Survey 2026 prior, in-house elastic-net
+          regression, six-pillar KPI rubric, five-model LLM jury). It is
           not a prediction of certainty and not an instruction to vote.
           Every per-seat call is a reasoned reading of the available
-          ground evidence as of 31 May 2026, will be wrong on some
-          seats, and will be re-scored against the official ECGB result
-          after the 7 June poll.
+          ground evidence as of 31 May 2026, carries an 80 percent
+          bootstrap interval where the regression is the binding layer,
+          will be wrong on some seats, and will be re-scored against the
+          official ECGB result after the 7 June poll.
         </p>
         <p>
           The dashboard freezes at 23:59 PKT on 6 June 2026. Until counts

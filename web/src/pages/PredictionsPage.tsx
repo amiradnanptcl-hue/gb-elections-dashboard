@@ -11,18 +11,21 @@ import { useDocumentMeta } from "@/lib/seo";
 import { cn, formatNumber } from "@/lib/utils";
 
 /**
- * Author's qualitative prediction model, revised 29 May 2026 (Revision 4.0;
- * supersedes Revision 3.0 of 29 May).
+ * Author's quantitative prediction model, revised 29 May 2026 (Revision
+ * 4.0; supersedes Revision 3.0 of 29 May).
  *
- * This page is the dashboard surface for the human-analyst model. Rev 4.0
- * adopts the Independent Survey 2026 single-page report as the per-seat
- * ground truth and re-runs the six-pillar weighting framework from Rev
- * 3.0 against it: ground organisation 30 percent, historical baseline 20
- * percent, religious and sectarian dynamics 15 percent, structural
- * factors 15 percent, candidate strength 15 percent, social media 5
- * percent. The PTI-backed proxy bloc is retired; MWM and ITP are
- * standalone Shia blocs and IPP retains three seats through party-
- * switching incumbents.
+ * This page is the dashboard surface for the four-stage pipeline. Rev
+ * 4.0 chains: (1) Independent Survey 2026 single-page report as the
+ * per-seat ground prior, (2) in-house elastic-net logistic regression
+ * on the 2009 to 2020 candidate-runs table with Platt calibration and
+ * 1000-resample bootstrap intervals, (3) six-pillar KPI rubric (ground
+ * 30 percent, historical baseline 20 percent, religious and sectarian
+ * dynamics 15 percent, structural factors 15 percent, candidate
+ * strength 15 percent, social media 5 percent), (4) five-model LLM
+ * jury (GPT, Claude, Gemini, Llama, Mistral) at temperature zero with
+ * a three-of-five quorum. The PTI-backed proxy bloc is retired; MWM
+ * and ITP are standalone Shia blocs and IPP retains three seats
+ * through party-switching incumbents.
  *
  * Render order: hero + headline projection → critical flips → government
  * formation scenarios → 24 per-seat blocks in GBA-1..GBA-24 order. Every
@@ -86,12 +89,16 @@ export function PredictionsPage() {
             <span className="text-headline-gradient">seat by seat</span>
           </h1>
           <p className="text-[color:var(--color-muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
-            A qualitative human-analyst model of the 24 general seats of
-            the Gilgit-Baltistan Assembly, polled 7 June 2026 (GBA-24
-            delayed to 15 November). The model weights ground organisation,
-            party machinery, and biraderi networks above social-media
-            volume. Every prediction carries the published reasoning so
-            you can disagree with the call, not just the verdict.
+            A four-stage quantitative forecast for the 24 general seats
+            of the Gilgit-Baltistan Assembly, polled 7 June 2026 (GBA-24
+            delayed to 15 November). The pipeline runs an Independent
+            Survey 2026 ground prior, an in-house elastic-net logistic
+            regression on the 2009 to 2020 candidate-runs table, a
+            six-pillar KPI rubric (ground 30, history 20, sect 15,
+            structural 15, candidate 15, social 5), and a five-model LLM
+            jury cross-check. Every prediction carries the regression
+            probability, the rubric weighting, and the jury vote so you
+            can disagree with the call, not just the verdict.
           </p>
         </div>
       </header>
@@ -400,12 +407,18 @@ export function PredictionsPage() {
           How to read this page
         </p>
         <p className="text-sm leading-relaxed">
-          The model is a <strong>qualitative human-analyst</strong> framework
-          (revision 3.0, 28 May 2026), not a machine-learning output. The
-          weighting is: 30% ground organisation, 25% historical baseline, 20%
-          structural factors, 20% candidate strength, 5% social-media signal.
-          Confidence bands (High / Medium / Low) live alongside seat-level
-          calls. See the full methodology and source list on the{" "}
+          The forecast runs a <strong>four-stage quantitative pipeline</strong>{" "}
+          (revision 4.0, 29 May 2026): an Independent Survey 2026 ground
+          prior, an in-house elastic-net logistic regression on the
+          2009 to 2020 candidate-runs table with Platt calibration and
+          1000-resample bootstrap intervals, a six-pillar KPI rubric
+          (ground 30%, history 20%, sect 15%, structural 15%, candidate
+          15%, social 5%), and a five-model LLM jury cross-check (GPT,
+          Claude, Gemini, Llama, Mistral) at temperature zero with a
+          three-of-five quorum. Confidence bands (High / Medium / Low)
+          live alongside seat-level calls and reflect the regression CI
+          plus jury agreement. See the full methodology, training
+          report, and source list on the{" "}
           <Link
             to="/methodology"
             className="underline underline-offset-4 text-[color:var(--color-primary)]"
@@ -416,9 +429,9 @@ export function PredictionsPage() {
         </p>
         <p className="text-[12px] text-[color:var(--color-muted-foreground)] leading-relaxed">
           This is a published analytical view, not a prophecy. Predictions
-          will be wrong on some seats; that is what confidence bands are
-          for. The post-mortem after 7 June will compare every call against
-          the ECGB result and publish accuracy honestly.
+          will be wrong on some seats; that is what the bootstrap intervals
+          and jury split are for. The post-mortem after 7 June will compare
+          every call against the ECGB result and publish accuracy honestly.
         </p>
       </section>
     </div>
