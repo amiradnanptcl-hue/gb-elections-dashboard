@@ -45,6 +45,17 @@ export function AboutPage() {
                 linkedin.com/in/sa-adnan
               </a>
             </p>
+            <p className="text-sm">
+              <a
+                href="https://wa.me/atoshi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[color:var(--color-primary)] font-medium underline-offset-4 hover:underline"
+              >
+                <span aria-hidden>↗</span>
+                wa.me/atoshi
+              </a>
+            </p>
           </div>
         </div>
       </section>
