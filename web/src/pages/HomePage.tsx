@@ -35,25 +35,29 @@ export function HomePage() {
     <div className="space-y-16">
       {/* Live announcement chip — pinned to the very top so it is the
           first thing every visitor sees. Blinking gold dot signals
-          "fresh update incoming", text gently breathes for readability,
-          and the whole row collapses to a still chip under
-          prefers-reduced-motion. */}
-      <div className="flex justify-center -mb-10">
+          "fresh update incoming", text gently breathes for readability.
+          The whole row collapses to a still chip under
+          prefers-reduced-motion.
+
+          Spacing note: the chip lives inside the parent space-y-16
+          rhythm (64px gap to the CM Race below) without negative
+          margin trickery so its drop-shadow has clear air and does
+          not collide with the card. */}
+      <div className="flex justify-center">
         <div
           role="status"
-          aria-live="polite"
-          className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[color:var(--color-accent-gold)]/60 bg-[color:var(--color-accent-gold-soft)]/40 shadow-[0_2px_12px_-4px_var(--color-accent-gold-soft)]"
+          className="inline-flex max-w-full items-center gap-2.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full sm:rounded-full border border-[color:var(--color-accent-gold)]/60 bg-[color:var(--color-accent-gold-soft)]/40 shadow-[0_2px_12px_-4px_var(--color-accent-gold-soft)]"
         >
-          <span aria-hidden className="announcement-blink-dot" />
-          <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] font-bold text-[color:var(--color-foreground)] announcement-blink-text">
-            New Predictions Based on Data Coming Soon
+          <span aria-hidden className="announcement-blink-dot shrink-0" />
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.22em] font-bold text-[color:var(--color-foreground)] announcement-blink-text leading-tight text-center">
+            New predictions based on data coming soon
           </span>
         </div>
       </div>
 
-      {/* 2026 CM Race — first thing the visitor sees. Now contains
-          the district-by-district breakdown folded inside the same
-          card, so the whole predictions view sits in one panel. */}
+      {/* 2026 CM Race — the main predictions view, now sitting one
+          rhythm-step below the live announcement chip. Contains the
+          district-by-district breakdown folded inside the same card. */}
       <CMRaceMeter />
 
       {/* Hero — editorial */}
