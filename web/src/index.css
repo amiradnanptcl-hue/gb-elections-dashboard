@@ -493,64 +493,77 @@
     border: 1px solid var(--color-border);
   }
 
-  /* "Coming soon" announcement banner — gold-accent chip pinned to the
-   * top of the home page. The dot hard-blinks (on/off feel with a soft
-   * fade so it reads as an alert, not a strobe). The text breathes a
-   * subtler 100%-to-78% opacity cycle so it stays legible at every
-   * frame. Both animations stop entirely under prefers-reduced-motion. */
-  .announcement-blink-text {
-    animation: announcementTextBreathe 1700ms ease-in-out infinite;
+  /* Live-dispatch announcement bar — editorial card pinned to the top
+   * of the home page. Built on top of the card-elevated + card-accent-
+   * gold + top-edge primitives so it shares the visual language of the
+   * CM Race card it announces.
+   *
+   * Animation layers (all stop under prefers-reduced-motion):
+   *   1. announcement-sheen  — slow diagonal gold sweep across surface
+   *   2. announcement-radar  — two staggered concentric rings expanding
+   *                            outward from the live indicator dot
+   *   3. announcement-blink-text — gentle opacity breathe on the
+   *                                display-serif headline (kept from
+   *                                v1, still useful as a quiet pulse)
+   */
+  .announcement-bar {
+    border-radius: 0.875rem;
+    text-decoration: none;
   }
-  .announcement-blink-dot {
-    position: relative;
-    width: 8px;
-    height: 8px;
-    border-radius: 999px;
-    background: var(--color-accent-gold);
-    box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent-gold) 0%, transparent);
-    animation: announcementDotBlink 1100ms steps(1, end) infinite;
+  .announcement-bar:hover {
+    box-shadow: var(--shadow-glow-gold);
   }
-  .announcement-blink-dot::after {
-    content: "";
-    position: absolute;
-    inset: -4px;
-    border-radius: 999px;
-    background: color-mix(in oklab, var(--color-accent-gold) 40%, transparent);
+  .announcement-sheen {
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 35%,
+      color-mix(in oklab, var(--color-accent-gold) 16%, transparent) 50%,
+      transparent 65%,
+      transparent 100%
+    );
+    background-size: 240% 100%;
+    background-repeat: no-repeat;
+    animation: announcementSheen 5200ms ease-in-out infinite;
+    mix-blend-mode: screen;
+  }
+  @keyframes announcementSheen {
+    0%   { background-position: 240% 0; }
+    100% { background-position: -140% 0; }
+  }
+  .announcement-radar {
+    border: 1.5px solid color-mix(in oklab, var(--color-accent-gold) 60%, transparent);
     opacity: 0;
-    animation: announcementDotHalo 1700ms ease-out infinite;
-    pointer-events: none;
+    transform: scale(0.35);
+    animation: announcementRadar 2200ms cubic-bezier(0, 0.55, 0.45, 1) infinite;
+  }
+  .announcement-radar-delayed {
+    animation-delay: 1100ms;
+  }
+  @keyframes announcementRadar {
+    0% {
+      transform: scale(0.35);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+  .announcement-blink-text {
+    animation: announcementTextBreathe 2400ms ease-in-out infinite;
   }
   @keyframes announcementTextBreathe {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.78; }
-  }
-  @keyframes announcementDotBlink {
-    0%, 60% {
-      opacity: 1;
-      background: var(--color-accent-gold);
-    }
-    61%, 100% {
-      opacity: 0.25;
-      background: color-mix(in oklab, var(--color-accent-gold) 30%, transparent);
-    }
-  }
-  @keyframes announcementDotHalo {
-    0% {
-      opacity: 0.55;
-      transform: scale(0.6);
-    }
-    70% {
-      opacity: 0;
-      transform: scale(1.9);
-    }
-    100% { opacity: 0; }
+    50%      { opacity: 0.82; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .announcement-blink-text,
-    .announcement-blink-dot,
-    .announcement-blink-dot::after {
+    .announcement-sheen,
+    .announcement-radar,
+    .announcement-blink-text {
       animation: none !important;
       opacity: 1 !important;
     }
+    .announcement-sheen { display: none; }
   }
 }
