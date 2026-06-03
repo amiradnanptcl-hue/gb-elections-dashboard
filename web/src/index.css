@@ -492,4 +492,65 @@
     border-radius: 2px;
     border: 1px solid var(--color-border);
   }
+
+  /* "Coming soon" announcement banner — gold-accent chip pinned to the
+   * top of the home page. The dot hard-blinks (on/off feel with a soft
+   * fade so it reads as an alert, not a strobe). The text breathes a
+   * subtler 100%-to-78% opacity cycle so it stays legible at every
+   * frame. Both animations stop entirely under prefers-reduced-motion. */
+  .announcement-blink-text {
+    animation: announcementTextBreathe 1700ms ease-in-out infinite;
+  }
+  .announcement-blink-dot {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-accent-gold);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent-gold) 0%, transparent);
+    animation: announcementDotBlink 1100ms steps(1, end) infinite;
+  }
+  .announcement-blink-dot::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--color-accent-gold) 40%, transparent);
+    opacity: 0;
+    animation: announcementDotHalo 1700ms ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes announcementTextBreathe {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.78; }
+  }
+  @keyframes announcementDotBlink {
+    0%, 60% {
+      opacity: 1;
+      background: var(--color-accent-gold);
+    }
+    61%, 100% {
+      opacity: 0.25;
+      background: color-mix(in oklab, var(--color-accent-gold) 30%, transparent);
+    }
+  }
+  @keyframes announcementDotHalo {
+    0% {
+      opacity: 0.55;
+      transform: scale(0.6);
+    }
+    70% {
+      opacity: 0;
+      transform: scale(1.9);
+    }
+    100% { opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .announcement-blink-text,
+    .announcement-blink-dot,
+    .announcement-blink-dot::after {
+      animation: none !important;
+      opacity: 1 !important;
+    }
+  }
 }
