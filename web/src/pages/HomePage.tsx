@@ -56,11 +56,10 @@ export function HomePage() {
             Election Records 2026
           </h1>
           <p className="text-[color:var(--color-muted-foreground)] text-lg max-w-xl leading-relaxed">
-            A public-records dashboard for the GB Assembly
-            elections of 2009, 2015, 2020 and 2026. Open dataset,
-            traceable sources, no forecast. Browse the seats, the parties,
-            the candidates and the voter rolls — each figure linked to
-            where it came from.
+            Public records for the 2009, 2015 and 2020 GB Assembly
+            elections, plus a four-stage quantitative forecast for 7
+            June 2026. Open dataset, traceable sources, every figure
+            linked to its primary record.
           </p>
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <Button asChild size="lg">
