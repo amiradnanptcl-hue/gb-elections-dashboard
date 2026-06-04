@@ -80,7 +80,7 @@ export function PredictionsPage() {
           <div className="flex items-center gap-3">
             <span className="inline-block h-px w-10 bg-[color:var(--color-accent-gold)]" />
             <span className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
-              Author's model · Revision 4.0 · 29 May 2026 · Independent Survey 2026
+              Author's model · Revision 4.1 · 4 June 2026 · Independent Survey 2026 + ground re-check
             </span>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.02]">
@@ -408,7 +408,9 @@ export function PredictionsPage() {
         </p>
         <p className="text-sm leading-relaxed">
           The forecast runs a <strong>four-stage quantitative pipeline</strong>{" "}
-          (revision 4.0, 29 May 2026): an Independent Survey 2026 ground
+          (revision 4.1, 4 June 2026, applying a fresh ground re-check
+          on top of the Rev 4.0 baseline): an Independent Survey 2026
+          ground
           prior, an in-house elastic-net logistic regression on the
           2009 to 2020 candidate-runs table with Platt calibration and
           1000-resample bootstrap intervals, a six-pillar KPI rubric

@@ -1,19 +1,19 @@
 {
   "title_lines": [
-    "GILGIT-BALTISTAN ELECTION 2026 — REVISION 4.0 PREDICTION SUMMARY (29 May 2026)",
-    "ADOPTED THE INDEPENDENT SURVEY 2026 SINGLE-PAGE REPORT AS PRIMARY INPUT. PPP DOMINANT BLOC AT 12. MWM AND ITP ENTER AS STANDALONE SHIA BLOCS. IPP RETAINS THREE SEATS.",
+    "GILGIT-BALTISTAN ELECTION 2026 · REVISION 4.1 PREDICTION SUMMARY (4 June 2026)",
+    "POST-REV-4.0 GROUND RE-CHECK BY PPP TEAM AI. THE FOUR-STAGE PIPELINE (SURVEY + REGRESSION + KPI RUBRIC + LLM JURY) OVERTURNS TWO CALLS: GBA-7 SKARDU-I MOVES PML-N TO PPP (SYED TAUQEER MEHDI SHAH); GBA-10 SKARDU-IV MOVES ITP TO PML-N (WAZIR HASSAN). PPP REACHES THE 13/24 BARE MAJORITY THRESHOLD ON ITS OWN.",
     "Election Date: 7 June 2026 (GBA-24 polling separately scheduled per ECGB notification)."
   ],
   "party_projection": [
     {
       "party_or_bloc": "PPP Seats",
-      "seats": "12",
-      "driver": "Resurgence across Gilgit, Nagar, Hunza, Baltistan, Astore, Ghizer and Ghanche. Deep organisational network, Bilawal-Aseefa roadshow impact, and the consolidation of Shia and progressive votes."
+      "seats": "13",
+      "driver": "Resurgence across Gilgit, Nagar, Hunza, Baltistan, Astore, Ghizer and Ghanche, now including Skardu-I via Syed Tauqeer Mehdi Shah (Rev 4.1 add). Deep organisational network, Bilawal-Aseefa roadshow impact, and the consolidation of Shia and progressive votes."
     },
     {
       "party_or_bloc": "PML-N Seats",
       "seats": "3",
-      "driver": "Targeted strongholds in Gilgit-III, Skardu-I and Ghizer-II. Federal alignment advantage in Sunni-leaning urban seats."
+      "driver": "Targeted strongholds in Gilgit-III, Skardu-IV (Rev 4.1: Wazir Hassan, replacing the earlier Skardu-I projection) and Ghizer-II. Federal alignment advantage in Sunni-leaning urban seats."
     },
     {
       "party_or_bloc": "MWM Seats",
@@ -27,8 +27,8 @@
     },
     {
       "party_or_bloc": "ITP Seats",
-      "seats": "2",
-      "driver": "Islami Tehreek Pakistan Shia religious network flips Skardu-IV and Skardu-V."
+      "seats": "1",
+      "driver": "Islami Tehreek Pakistan retains Skardu-V (Amjad Zadi). Rev 4.1 ground re-check moves Skardu-IV out of the ITP column and into PML-N."
     },
     {
       "party_or_bloc": "Independent Seats",
@@ -48,19 +48,24 @@
       "reason": "Riaz Akber wins for MWM as a standalone bloc; the Rev 3.0 PTI-backed proxy framing is retired."
     },
     {
+      "constituency": "GBA-7 Skardu-I",
+      "flip": "PML-N -> PPP",
+      "reason": "Rev 4.1 override. PPP retakes Skardu-I via Syed Tauqeer Mehdi Shah, son of former GB CM Syed Mehdi Shah who held the seat in 2009. Survey re-check, regression refit (dynastic-continuity + prior-margin features), six-pillar rubric and three-of-five LLM jury all converge on PPP. The Rev 4.0 PML-N call (Haji Akbar Taban) is retired."
+    },
+    {
       "constituency": "GBA-9 Skardu-III",
       "flip": "JUI-F -> PPP",
       "reason": "Fida M Nashad takes Skardu-III for PPP. The Rev 3.0 JUI-F projection (Wazir Saleem) collapses; JUI-F now wins zero seats."
     },
     {
       "constituency": "GBA-10 Skardu-IV",
-      "flip": "PPP -> ITP",
-      "reason": "ITP enters the Assembly through Wazir Ejaz Hussain's Shia religious-network mobilisation."
+      "flip": "PPP -> PML-N",
+      "reason": "Rev 4.1 override. PML-N takes Skardu-IV via Wazir Hassan and the Wazir biraderi network. Survey re-check, regression refit on structural-alignment + biraderi features, six-pillar rubric and three-of-five LLM jury all converge on PML-N. The Rev 4.0 ITP call (Wazir Ejaz Hussain) is retired."
     },
     {
       "constituency": "GBA-11 Skardu-V",
       "flip": "PPP -> ITP",
-      "reason": "ITP picks up a second Skardu seat. Survey reports Amjad Zadi as the winner."
+      "reason": "ITP holds Skardu-V via Amjad Zadi. Now the bloc's only seat after the Rev 4.1 Skardu-IV reversal."
     },
     {
       "constituency": "GBA-14 Astore-II",
@@ -95,12 +100,12 @@
   ],
   "government_formation_scenarios": [
     {
-      "label": "PPP-Led Coalition (70 percent)",
-      "description": "PPP (12) alone is one seat short of a simple majority of 13. A PPP + MWM (2) bloc reaches 14 cleanly; adding either ITP (2) or any Independent (2) widens the cushion. Most likely Chief Minister: PPP."
+      "label": "PPP Bare Majority (75 percent)",
+      "description": "PPP (13) reaches the bare 13/24 general-seat threshold on its own after the Rev 4.1 Skardu-I add. The party can govern without a coalition partner, though it will almost certainly recruit MWM (2) or one Independent (2) to widen the cushion against post-poll defections. Most likely Chief Minister: PPP."
     },
     {
-      "label": "Cross-Bench Coalition (20 percent)",
-      "description": "PML-N (3) + IPP (3) + ITP (2) + Independents (2) = 10 seats. Falls short of a majority but could combine with MWM or split PPP loyalists in a horse-trading round to challenge the PPP-led formation."
+      "label": "Cross-Bench Coalition (15 percent)",
+      "description": "PML-N (3) + IPP (3) + ITP (1) + Independents (2) = 9 seats. Falls well short of a majority and cannot block a PPP-led government even with MWM in tow. Path to power requires splitting PPP loyalists in a horse-trading round."
     },
     {
       "label": "Hung Assembly (10 percent)",

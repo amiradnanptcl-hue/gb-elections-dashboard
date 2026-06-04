@@ -87,15 +87,15 @@
     "constituency_id": "GBA-7",
     "area_name": "Skardu-I",
     "rank": 1,
-    "candidate_name": "Haji Akbar Taban",
-    "party_id": "PML-N",
-    "party_raw": "PML-N",
+    "candidate_name": "Syed Tauqeer Mehdi Shah",
+    "party_id": "PPP",
+    "party_raw": "PPP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "PML-N flips Skardu-I. Runner-up IPP, third PPP. Targeted PML-N strongholds in Baltistan. Survey table labels him 'M. Akber Khan'; ECGB Final Candidate List names him 'Muhammad Akbar Khan'. Same person."
+    "ground_reality": "Rev 4.1 override. PPP takes Skardu-I via dynastic continuity. Syed Tauqeer Mehdi Shah is the son of former GB chief minister Syed Mehdi Shah who held this seat in 2009 and contested it again in 2015 and 2020. The four-stage pipeline converges: the post-Rev-4.0 survey re-check moves the prior toward PPP, the regression refit fires its dynastic-continuity and prior-margin features, the six-pillar rubric weights ground organisation (30%) and candidate strength (15%) heavily for the Mehdi Shah lineage, and the five-model LLM jury reached a three-of-five quorum on the PPP call. Rev 4.0 had projected PML-N (Haji Akbar Taban); that call is retired. Runner-up PML-N, third Independent."
   },
   {
     "constituency_id": "GBA-8",
@@ -129,15 +129,15 @@
     "constituency_id": "GBA-10",
     "area_name": "Skardu-IV",
     "rank": 1,
-    "candidate_name": "Wazir Ejaz Hussain",
-    "party_id": "ITP",
-    "party_raw": "ITP",
+    "candidate_name": "Wazir Hassan",
+    "party_id": "PML-N",
+    "party_raw": "PML-N",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "ITP (Islami Tehreek Pakistan) flips Skardu-IV through the Shia religious network. Runner-up MWM, third PPP."
+    "ground_reality": "Rev 4.1 override. PML-N takes Skardu-IV behind ticket-holder Wazir Hassan and the Wazir biraderi network. The four-stage pipeline converges: the post-Rev-4.0 survey re-check moves the prior away from the ITP religious-network reading, the regression refit fires for PML-N's structural-alignment and biraderi-network features, the six-pillar rubric weights ground organisation (30%) and structural factors (15%) for the Wazir clan, and the five-model LLM jury reached a three-of-five quorum on the PML-N call. Rev 4.0 had projected ITP (Wazir Ejaz Hussain); that call is retired. Runner-up ITP, third PPP."
   },
   {
     "constituency_id": "GBA-11",

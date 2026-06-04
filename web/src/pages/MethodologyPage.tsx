@@ -68,7 +68,7 @@ export function MethodologyPage() {
             >
               /predictions
             </Link>
-            . Revision 4.0 (29 May 2026) is the output of a four-stage
+            . Revision 4.1 (4 June 2026) is the output of a four-stage
             pipeline: (1) Independent Survey 2026 prior, (2) in-house
             linear / logistic-regression model with elastic-net
             regularisation trained on the 2009 / 2015 / 2020 historical
@@ -79,7 +79,11 @@ export function MethodologyPage() {
             five large language models from different families (GPT,
             Claude, Gemini, Llama, Mistral) prompted independently with
             the same rubric. A row is only adopted when at least three
-            of the five models converge with the pipeline call.
+            of the five models converge with the pipeline call. Rev 4.1
+            applies the pipeline to a post-Rev-4.0 ground re-check that
+            overturns two seats: GBA-7 Skardu-I moves to PPP (Syed
+            Tauqeer Mehdi Shah) and GBA-10 Skardu-IV moves to PML-N
+            (Wazir Hassan).
           </li>
           <li>
             <strong>It is not</strong> a single-model black-box
@@ -111,7 +115,7 @@ export function MethodologyPage() {
           Predictive model
         </h2>
         <h3 className="font-display text-2xl sm:text-3xl">
-          The 2026 seat-by-seat prediction framework (Revision 4.0)
+          The 2026 seat-by-seat prediction framework (Revision 4.1)
         </h3>
         <p className="text-sm leading-relaxed">
           The{" "}
@@ -121,7 +125,7 @@ export function MethodologyPage() {
           >
             /predictions
           </Link>{" "}
-          page calls every general seat by name. Revision 4.0 (29 May
+          page calls every general seat by name. Revision 4.1 (4 June
           2026) is the output of a four-stage quantitative pipeline.
           Stage 1 ingests the{" "}
           <em>Independent Survey 2026</em> single-page report as the
@@ -333,12 +337,16 @@ export function MethodologyPage() {
           (BNF entry in GBA-19, AAC protest vote, GBA-24 schedule).
         </p>
         <p className="text-sm leading-relaxed">
-          <strong>Headline projection (Rev 4.0).</strong> PPP 12, PML-N 3,
-          MWM 2, IPP 3, ITP 2, Independent 2, JUI-F 0, PTI-backed 0
-          (bloc retired). Coalition government expected, with PPP as the
-          largest single bloc by a wide margin and most likely the senior
-          partner; Maisam Kazim (MWM, GBA-8 Skardu-II) is the formally
-          appointed CM nominee of the MWM bloc.
+          <strong>Headline projection (Rev 4.1).</strong> PPP 13, PML-N 3,
+          MWM 2, IPP 3, ITP 1, Independent 2, JUI-F 0, PTI-backed 0
+          (bloc retired). The 4 June post-Rev-4.0 ground re-check moved
+          GBA-7 Skardu-I from PML-N (Haji Akbar Taban) to PPP (Syed
+          Tauqeer Mehdi Shah) and GBA-10 Skardu-IV from ITP (Wazir
+          Ejaz Hussain) to PML-N (Wazir Hassan); the net effect is PPP
+          +1 to the 13/24 bare majority threshold and ITP -1. PPP can
+          now form government on its own, though MWM (Maisam Kazim,
+          GBA-8 Skardu-II, the bloc's formally appointed CM nominee)
+          or one Independent remains a likely insurance partner.
         </p>
         <p className="text-sm leading-relaxed">
           <strong>Post-mortem.</strong> Every per-seat call will be

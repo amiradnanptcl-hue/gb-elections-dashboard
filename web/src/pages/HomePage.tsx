@@ -11,7 +11,7 @@ export function HomePage() {
   useDocumentMeta({
     title: "GB Elections 2026 — Gilgit-Baltistan Assembly election dashboard",
     description:
-      "Public-records dashboard plus a four-stage quantitative seat-by-seat forecast (Rev 4.0) for the Gilgit-Baltistan Assembly election on 7 June 2026. Pipeline: Independent Survey 2026 prior, in-house elastic-net regression, six-pillar KPI rubric, and a five-model LLM ensemble cross-validation. 24 general seats, 403 candidates, 958,480 voters, ECGB polling-station data. Historical results 2009, 2015, 2020.",
+      "Public-records dashboard plus a four-stage quantitative seat-by-seat forecast (Rev 4.1, 4 June 2026) for the Gilgit-Baltistan Assembly election on 7 June 2026. Pipeline: Independent Survey 2026 prior, in-house elastic-net regression, six-pillar KPI rubric, and a five-model LLM ensemble cross-validation. PPP at 13, PML-N 3, MWM 2, IPP 3, ITP 1, Independent 2. 24 general seats, 403 candidates, 958,480 voters, ECGB polling-station data. Historical results 2009, 2015, 2020.",
     path: "/",
   });
   const navigate = useNavigate();
