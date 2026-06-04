@@ -95,7 +95,7 @@ export function CMRaceMeter() {
       {/* Heading */}
       <header className="space-y-2 text-center">
         <p className="text-[11px] sm:text-xs font-black uppercase tracking-[0.26em] sm:tracking-[0.28em] text-[color:var(--color-accent-gold)] drop-shadow-[0_1px_0_color-mix(in_oklab,var(--color-accent-gold)_25%,transparent)]">
-          Forecast 2026 · Polling 7 June 2026 · As of 4th June
+          Forecast 2026 (As of 4th June) · Polling 7th June 2026
         </p>
         <h2 id="cm-race-heading" className="font-display text-3xl sm:text-5xl leading-[1.02]">
           7 June 2026 <span className="text-headline-gradient">Predictions</span>
