@@ -33,84 +33,10 @@ export function HomePage() {
 
   return (
     <div className="space-y-16">
-      {/* Live dispatch bar — the top-of-page editorial slot, designed
-          to match the CM Race card system (card-elevated + card-accent-
-          gold + top-edge), not a generic alert chip. Three text levels
-          (eyebrow, headline, sub-meta), a radar-pulse live indicator,
-          a slow diagonal sheen drifting across the surface, and a
-          clickable chevron that smooth-scrolls to the forecast card
-          directly below. All animations stop under prefers-reduced-
-          motion; the structure stays visible as a static dispatch. */}
-      <div className="flex justify-center">
-        <a
-          href="#forecast"
-          aria-label="New predictions arriving soon. Jump to current forecast."
-          className="announcement-bar group relative overflow-hidden card-elevated card-accent-gold top-edge inline-flex w-full max-w-2xl items-center gap-3 sm:gap-5 px-3.5 py-3 sm:px-6 sm:py-4 no-underline"
-        >
-          {/* Slow diagonal sheen sweeping across the gold surface */}
-          <span aria-hidden className="announcement-sheen pointer-events-none absolute inset-0" />
-
-          {/* Live indicator — concentric gold radar rings + central dot.
-              Slightly smaller on mobile so the icon doesn't dwarf the
-              compressed mobile text. */}
-          <span
-            aria-hidden
-            className="relative shrink-0 inline-flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-full"
-          >
-            <span className="absolute inset-0 rounded-full bg-[color:var(--color-accent-gold-soft)]/55 border border-[color:var(--color-accent-gold)]/40" />
-            <span className="announcement-radar absolute inset-0 rounded-full" />
-            <span className="announcement-radar announcement-radar-delayed absolute inset-0 rounded-full" />
-            <span className="relative inline-block w-2.5 h-2.5 rounded-full bg-[color:var(--color-accent-gold)] shadow-[0_0_10px_var(--color-accent-gold)]" />
-          </span>
-
-          {/* Stacked text lockup: eyebrow + headline + sub.
-              Mobile shows only eyebrow + headline (3 lines max).
-              Tablet and up reveal the secondary eyebrow piece and the
-              sub-meta line for the full editorial lockup. */}
-          <div className="flex flex-col min-w-0 flex-1 gap-0.5 relative">
-            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.22em] font-bold text-[color:var(--color-accent-gold)] inline-flex items-center gap-2 whitespace-nowrap">
-              <span>Live dispatch</span>
-              <span aria-hidden className="hidden sm:inline opacity-40">·</span>
-              <span className="hidden sm:inline font-mono tabular text-[color:var(--color-muted-foreground)] tracking-[0.12em] normal-case">
-                Update incoming
-              </span>
-            </span>
-            <span className="font-display text-[15px] sm:text-lg lg:text-xl leading-[1.15] font-semibold text-[color:var(--color-foreground)] announcement-blink-text">
-              New predictions based on fresh data
-            </span>
-            <span className="hidden sm:block text-[11px] sm:text-xs text-[color:var(--color-muted-foreground)] leading-snug">
-              Ground re-check + regression refit · arriving shortly
-            </span>
-          </div>
-
-          {/* Chevron — soft circular badge, animates on hover. Slightly
-              smaller on mobile to match the compressed bar height. */}
-          <span
-            aria-hidden
-            className="shrink-0 ml-1 inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[color:var(--color-accent-gold-soft)]/50 text-[color:var(--color-accent-gold)] transition-all duration-300 group-hover:bg-[color:var(--color-accent-gold)] group-hover:text-[color:var(--color-card)] group-hover:translate-y-0.5"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </span>
-        </a>
-      </div>
-
-      {/* 2026 CM Race — the main predictions view, target of the
-          live-dispatch chevron above. The scroll-mt-24 keeps it clear
-          of the sticky header when anchored to. */}
-      <div id="forecast" className="scroll-mt-24">
-        <CMRaceMeter />
-      </div>
+      {/* 2026 CM Race — first thing the visitor sees. Contains the
+          district-by-district breakdown folded inside the same card,
+          so the whole predictions view sits in one panel. */}
+      <CMRaceMeter />
 
       {/* Hero — editorial */}
       <section className="grid lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-12 items-center">
