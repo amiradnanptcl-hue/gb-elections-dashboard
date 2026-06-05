@@ -44,10 +44,12 @@ export function PollingStationsPage() {
   );
 
   // For each constituency, estimate the 2026 polling-station count by
-  // distributing the 2,220 total in proportion to 2020 registered voters.
-  // This is an approximation only — the ECGB has not yet published a
-  // per-constituency breakdown for 2026. The estimate uses the 2020 voter
-  // distribution as the best available proxy.
+  // distributing the 1,389 final operational total in proportion to 2020
+  // registered voters. The 1,389 figure is the ECGB's final operational
+  // allocation as reported on 5 June 2026 (The Nation, ARY News), down
+  // from the 2,220 planning figure published on 23 April 2026. The
+  // ECGB has not yet published a per-constituency Form-21 breakdown,
+  // so the 2020 voter distribution is the best available proxy.
   const summaryByCz = new Map(summary2020.map((s) => [s.constituency_id, s]));
 
   const rows = constituencies
@@ -108,18 +110,23 @@ export function PollingStationsPage() {
             Polling stations by constituency
           </h1>
           <p className="text-[color:var(--color-muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
-            The ECGB has planned{" "}
+            The ECGB has established{" "}
             <span className="font-mono tabular font-semibold text-[color:var(--color-foreground)]">
               {totalStations2026
                 ? formatNumber(totalStations2026)
                 : "…"}
             </span>{" "}
-            polling stations for the 2026 GB Assembly election. The
-            per-constituency allocation has not been published yet, so the
-            table below shows the closest honest proxy: each seat's 2020
-            registered-voter and turnout record, plus an estimate of its
-            likely 2026 station count derived from its share of the 2020
-            voter roll.
+            polling stations for the 2026 GB Assembly election (The
+            Nation and ARY News, 5 June 2026, citing the ECGB media
+            coordinator). This is down from the April planning figure
+            of 2,220 stations as operational arrangements were
+            finalised. Per-station staffing: 1,389 Presiding Officers,
+            2,450 Assistant Presiding Officers, 2,450 Polling Officers.
+            The per-constituency Form-21 breakdown has not been
+            published yet, so the table below shows the closest honest
+            proxy: each seat's 2020 registered-voter and turnout
+            record, plus an estimate of its likely 2026 station count
+            derived from its share of the 2020 voter roll.
           </p>
         </div>
       </header>
@@ -134,7 +141,7 @@ export function PollingStationsPage() {
             {totalStations2026 ? formatNumber(totalStations2026) : "…"}
           </p>
           <p className="text-xs text-[color:var(--color-muted-foreground)]">
-            ECGB planning figure across the 24 general seats.
+            ECGB final operational figure (5 Jun 2026), down from the 2,220 April planning figure.
           </p>
         </article>
         <article className="card-elevated card-accent-green p-5 space-y-2">

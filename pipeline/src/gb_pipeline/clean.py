@@ -509,8 +509,16 @@ def main() -> int:
             # the official ECP/ECGB figure and SUPERSEDES the earlier
             # 774,319 Vision Gilgit Baltistan figure I had briefly adopted.
             # 24-seat / 10-district sums all reconcile exactly to 958,480.
+            # polling_stations: 1,389 is the ECGB FINAL OPERATIONAL count
+            # per The Nation and ARY News (both 5 June 2026), citing the
+            # ECGB media coordinator. This supersedes the 2,220 PLANNING
+            # figure reported by Pamir Times on 23 April 2026 (1,000 male
+            # + 1,000 female + 220 combined). The ECGB consolidated to
+            # 1,389 as operational arrangements were finalised closer to
+            # polling day. Staffing: 1,389 Presiding Officers + 2,450
+            # Assistant Presiding Officers + 2,450 Polling Officers.
             "year": 2026, "poll_date": "2026-06-07", "ruling_party_centre": "PML-N",
-            "registered_voters": 958480, "turnout_pct": None, "polling_stations": 2220,
+            "registered_voters": 958480, "turnout_pct": None, "polling_stations": 1389,
         },
     ]
     elections_df = pd.DataFrame(elections_rows)

@@ -165,9 +165,10 @@ export function ConstituencyPage() {
       ? Math.round(shareWithinDistrict * districtRow.male_voters_2026)
       : null;
 
-  // Polling-station estimate: GB-wide 2026 total (2,220 per ECGB) distributed
-  // proportionally to each seat's share of the 2020 roll. Same method as
-  // /polling-stations.
+  // Polling-station estimate: GB-wide 2026 final operational total (1,389
+  // per ECGB media coordinator, reported by The Nation and ARY News on 5
+  // June 2026) distributed proportionally to each seat's share of the 2020
+  // roll. Same method as /polling-stations.
   const allSummary2020TotalRegistered = allSummary2020.reduce(
     (sum, s) => sum + (s.registered_voters ?? 0),
     0,
@@ -367,7 +368,7 @@ export function ConstituencyPage() {
               {estStations2026 != null ? formatNumber(estStations2026) : "—"}
             </p>
             <p className="text-[10px] text-[color:var(--color-muted-foreground)]/80">
-              Share of 2,220 ECGB stations.
+              Share of 1,389 ECGB stations (final 5 Jun figure).
             </p>
           </article>
         </div>

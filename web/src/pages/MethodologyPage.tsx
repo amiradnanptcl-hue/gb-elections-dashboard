@@ -638,7 +638,9 @@ export function MethodologyPage() {
             >
               Polling stations
             </Link>{" "}
-            — the ECGB's 2,220 station total distributed across the 24
+            — the ECGB's 1,389 station total (final operational figure
+            per The Nation / ARY News, 5 June 2026; revised down from
+            the 2,220 April planning figure) distributed across the 24
             seats in proportion to the 2020 roll.
           </p>
           <p>
@@ -691,11 +693,14 @@ export function MethodologyPage() {
           </li>
           <li>
             <strong>Per-constituency polling-station counts are estimates,
-            not the official Form-21.</strong> The ECGB has published 2,220
-            stations GB-wide but not the per-seat breakdown. Our per-seat
-            number is each constituency's 2020 voter share applied to the
-            2,220 total. Replace with the Form-21 numbers when the ECGB
-            publishes them.
+            not the official Form-21.</strong> The ECGB's final
+            operational total is 1,389 stations GB-wide (The Nation and
+            ARY News, 5 June 2026, citing the ECGB media coordinator;
+            consolidated down from the 2,220 April planning figure).
+            The per-seat breakdown has not been published, so our
+            per-seat number is each constituency's 2020 voter share
+            applied to the 1,389 total. Replace with the Form-21
+            numbers when the ECGB publishes them.
           </li>
           <li>
             <strong>Sect, biradari and clan signal is not in the

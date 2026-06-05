@@ -40,9 +40,9 @@ const SECTION_META: Record<
       "Winners and runners-up of every Gilgit-Baltistan Assembly election since 2009. Per-seat vote counts and margins. Source-traceable open data.",
   },
   "voting-stations": {
-    title: "GB polling-day logistics — 2,220 stations | gbelections.com",
+    title: "GB polling-day logistics · 1,389 stations | gbelections.com",
     description:
-      "Polling-day footprint for the 2026 GB Assembly election: 2,220 stations across 24 seats, 958,480 registered voters, all-cycle logistics comparison.",
+      "Polling-day footprint for the 2026 GB Assembly election: 1,389 stations established across 24 seats (down from the 2,220 April planning figure), 958,480 registered voters, all-cycle logistics comparison.",
   },
   "polling-stations": {
     title: "Polling stations per GB seat — 2026 estimates | gbelections.com",
@@ -825,7 +825,7 @@ function VotingStationsSection() {
     <SectionShell
       eyebrow="Voting stations"
       title="Polling-day footprint at a glance"
-      caption="The ECGB plans 2,220 stations across the 24 general seats for 7 June 2026."
+      caption="The ECGB has established 1,389 stations across the 24 general seats for 7 June 2026 (final operational figure, 5 Jun; revised down from the 2,220 April planning figure)."
     >
       <div className="grid gap-4 sm:grid-cols-3">
         <article className="card-elevated card-accent-gold p-5 space-y-2">
@@ -975,7 +975,7 @@ function PollingStationsSection() {
     <SectionShell
       eyebrow="Polling stations"
       title="Per-constituency 2026 station estimate"
-      caption="Each seat's share of the 2020 voter roll, scaled to the 2,220-station ECGB planning total. Swap in Form-21 once the ECGB publishes the official allocation."
+      caption="Each seat's share of the 2020 voter roll, scaled to the 1,389-station ECGB final operational total (5 Jun 2026). Swap in Form-21 once the ECGB publishes the official allocation."
     >
       <div className="overflow-x-auto rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/40">
         <table className="w-full text-sm">
