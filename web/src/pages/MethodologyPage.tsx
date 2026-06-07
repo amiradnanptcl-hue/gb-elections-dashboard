@@ -339,22 +339,6 @@ export function MethodologyPage() {
           (BNF entry in GBA-19, AAC protest vote, GBA-24 schedule).
         </p>
         <p className="text-sm leading-relaxed">
-          <strong>Headline projection (Rev 4.3).</strong> PPP 13, PML-N 3,
-          MWM 1, IPP 3, ITP 1, Independent 3, JUI-F 0, PTI-backed 0
-          (bloc retired). Three rolling ground re-checks since Rev 4.0:
-          (a) the 4 June Rev 4.1 update moved GBA-7 Skardu-I from PML-N
-          to PPP (Syed Tauqeer Mehdi Shah) and GBA-10 Skardu-IV from
-          ITP to PML-N (Wazir Hassan); (b) the 6 June Rev 4.2 update
-          moved GBA-24 Ghanche-III from PPP (M. Ismail) to Independent
-          (Dr Asad Shafiq, backed by PML-N); (c) the 6 June Rev 4.3
-          update moves GBA-5 Nagar-II from MWM (Riaz Akber) to PPP
-          (Zulfiqar Ali Murad). Net effect vs Rev 4.0: PPP +1, ITP -1,
-          MWM -1, Independent +1. PPP at 13 clears the 13/24 bare
-          majority threshold on its own; MWM drops to one seat (Maisam
-          Kazim at GBA-8 Skardu-II, the bloc's formally appointed CM
-          nominee and likely PPP coalition partner).
-        </p>
-        <p className="text-sm leading-relaxed">
           <strong>Post-mortem.</strong> Every per-seat call will be
           compared against the ECGB result after 7 June and the accuracy
           rate published here. This is what holds the model honest.
