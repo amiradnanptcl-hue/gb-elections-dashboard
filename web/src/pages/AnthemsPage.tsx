@@ -128,11 +128,101 @@ export function AnthemsPage() {
           </h1>
           <p className="text-[color:var(--color-muted-foreground)] text-base sm:text-lg max-w-2xl leading-relaxed">
             A collection of campaign anthems produced by PPP TEAM AI for the
-            2026 cycle. Every link opens the original Facebook reel or video
-            in a new tab so the views accrue on the source platform.
+            2026 cycle. Every link opens the original YouTube video or
+            Facebook reel in a new tab so the views accrue on the source
+            platform.
           </p>
         </div>
       </header>
+
+      {/* Featured anthem — single hero card above the showcase pair.
+         Treated as the lead reel of the entire collection: full-width
+         card, 16:9 YouTube thumbnail with play-button overlay on the
+         left, editorial text panel on the right. */}
+      <section className="space-y-3">
+        <div className="space-y-1">
+          <p className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-accent-gold)] font-bold">
+            Featured anthem
+          </p>
+          <h2 className="font-display text-3xl">
+            The headline reel of the cycle
+          </h2>
+        </div>
+        <a
+          href="https://www.youtube.com/watch?v=379eb8GqmJw"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Talha Anjum — Yeh Urta Nahi Chalta Teer Hai (opens on YouTube)"
+          className="card-elevated card-accent-gold top-edge group block relative overflow-hidden"
+        >
+          <div className="grid sm:grid-cols-[1.15fr_1fr] gap-0">
+            {/* Thumbnail panel */}
+            <div className="relative aspect-video sm:aspect-auto overflow-hidden bg-black">
+              <img
+                src="https://img.youtube.com/vi/379eb8GqmJw/hqdefault.jpg"
+                srcSet="https://img.youtube.com/vi/379eb8GqmJw/hqdefault.jpg 480w, https://img.youtube.com/vi/379eb8GqmJw/maxresdefault.jpg 1280w"
+                sizes="(min-width: 640px) 60vw, 100vw"
+                alt="Talha Anjum — Yeh Urta Nahi Chalta Teer Hai (YouTube thumbnail)"
+                loading="eager"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+              {/* Bottom gradient for legibility */}
+              <span
+                aria-hidden
+                className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/65 via-black/20 to-transparent pointer-events-none"
+              />
+              {/* Centred play button */}
+              <span
+                aria-hidden
+                className="absolute inset-0 grid place-items-center pointer-events-none"
+              >
+                <span className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/95 text-[#FF0000] shadow-[0_8px_28px_rgba(0,0,0,0.45)] transition-transform duration-300 group-hover:scale-110">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="36"
+                    height="36"
+                    fill="currentColor"
+                    aria-hidden
+                  >
+                    <polygon points="7,4 7,20 20,12" />
+                  </svg>
+                </span>
+              </span>
+              {/* YouTube badge top-left */}
+              <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-white bg-black/75 backdrop-blur-sm px-2 py-1 rounded-md">
+                <YouTubeIcon />
+                YouTube
+              </span>
+            </div>
+
+            {/* Text panel */}
+            <div className="p-6 sm:p-7 lg:p-8 flex flex-col gap-4 min-w-0">
+              <div className="space-y-2 min-w-0">
+                <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[color:var(--color-accent-gold)] font-bold">
+                  Featured · most-watched reel
+                </p>
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-[color:var(--color-muted-foreground)]">
+                  Talha Anjum
+                </p>
+                <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl leading-[1.1] break-words">
+                  Yeh Urta Nahi Chalta Teer Hai
+                </h3>
+                <p className="text-sm text-[color:var(--color-muted-foreground)] leading-relaxed pt-1">
+                  The headline reel of the PPP TEAM AI campaign output for
+                  the 2026 cycle. Tap the play button to watch on YouTube.
+                </p>
+              </div>
+              <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-[color:var(--color-foreground)] group-hover:text-[color:var(--color-accent-gold)] transition-colors whitespace-nowrap">
+                Watch on YouTube
+                <span aria-hidden className="text-base transition-transform group-hover:translate-x-1">
+                  ↗
+                </span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </section>
 
       {/* Showcase: flagship reel + just-released anthem, side by side in one box. */}
       <section className="space-y-3">
@@ -190,7 +280,7 @@ export function AnthemsPage() {
             All anthems
           </p>
           <h2 className="font-display text-2xl sm:text-3xl">
-            {ANTHEMS.length} reels in the playlist
+            {ANTHEMS.length + 1} reels in the playlist
           </h2>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -231,5 +321,29 @@ export function AnthemsPage() {
         </p>
       </section>
     </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* YouTube brand glyph (Simple Icons path), used inside the featured  */
+/* anthem card's "YouTube" badge. Renders sharply at any DPI; no      */
+/* extra network request.                                             */
+/* ------------------------------------------------------------------ */
+function YouTubeIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="12"
+      height="12"
+      aria-hidden
+      className="shrink-0"
+      role="img"
+    >
+      <title>YouTube</title>
+      <path
+        fill="#FF0000"
+        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+      />
+    </svg>
   );
 }
