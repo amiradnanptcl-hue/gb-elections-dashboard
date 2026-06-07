@@ -36,7 +36,7 @@ export function PredictionsPage() {
     title:
       "2026 Predictions — Gilgit-Baltistan Assembly seat-by-seat forecast | gbelections.com",
     description:
-      "Four-stage quantitative predictive model for the 24 general seats of the Gilgit-Baltistan Assembly, 7 June 2026 (Revision 4.2, 6 June 2026). PPP 12, PML-N 3, MWM 2, IPP 3, ITP 1, Independent 3. PPP-led coalition expected with PPP as the senior partner; Maisam Kazim is the appointed MWM CM nominee.",
+      "Four-stage quantitative predictive model for the 24 general seats of the Gilgit-Baltistan Assembly, 7 June 2026 (Revision 4.3, 6 June 2026). PPP 13, PML-N 3, MWM 1, IPP 3, ITP 1, Independent 3. PPP reaches the 13/24 bare majority threshold on its own; MWM (Maisam Kazim, CM nominee) likely PPP coalition partner.",
     path: "/predictions",
   });
 
@@ -80,7 +80,7 @@ export function PredictionsPage() {
           <div className="flex items-center gap-3">
             <span className="inline-block h-px w-10 bg-[color:var(--color-accent-gold)]" />
             <span className="text-xs uppercase tracking-[0.22em] text-[color:var(--color-muted-foreground)]">
-              Author's model · Revision 4.2 · 6 June 2026 · Independent Survey 2026 + rolling ground re-checks
+              Author's model · Revision 4.3 · 6 June 2026 · Independent Survey 2026 + rolling ground re-checks
             </span>
           </div>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.02]">
@@ -408,7 +408,7 @@ export function PredictionsPage() {
         </p>
         <p className="text-sm leading-relaxed">
           The forecast runs a <strong>four-stage quantitative pipeline</strong>{" "}
-          (revision 4.2, 6 June 2026, applying two rolling ground
+          (revision 4.3, 6 June 2026, applying three rolling ground
           re-checks on top of the Rev 4.0 baseline): an Independent
           Survey 2026 ground
           prior, an in-house elastic-net logistic regression on the

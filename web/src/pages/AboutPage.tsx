@@ -133,7 +133,7 @@ export function AboutPage() {
           source.
         </p>
         <p>
-          As of revision 4.2 (6 June 2026) the site also publishes a
+          As of revision 4.3 (6 June 2026) the site also publishes a
           four-stage quantitative seat-by-seat forecast for the 7 June
           2026 poll. Stage one anchors the prior to the Independent
           Survey 2026 ground-intelligence report. Stage two runs an

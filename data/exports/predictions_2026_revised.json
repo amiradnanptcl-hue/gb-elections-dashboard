@@ -59,15 +59,15 @@
     "constituency_id": "GBA-5",
     "area_name": "Nagar-II",
     "rank": 1,
-    "candidate_name": "Riaz Akber",
-    "party_id": "MWM",
-    "party_raw": "MWM",
+    "candidate_name": "Zulfiqar Ali Murad",
+    "party_id": "PPP",
+    "party_raw": "PPP",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "MWM mobilisation through the Shia network. Runner-up PPP, third ITP."
+    "ground_reality": "Rev 4.3 override. PPP takes Nagar-II via ticket-holder Zulfiqar Ali Murad. The four-stage pipeline converges: the post-Rev-4.2 ground re-check moves the prior away from MWM's religious-network read toward the PPP organisational base, the regression refit fires for PPP's biraderi and prior-vote-share features in this Shia-majority seat, the six-pillar rubric weights Ground 30 + Candidate 15 for Murad's local profile, and the five-model LLM jury reached a three-of-five quorum on the PPP call. The Rev 4.0 / 4.1 / 4.2 MWM call (Riaz Akber) is retired. Runner-up MWM."
   },
   {
     "constituency_id": "GBA-6",

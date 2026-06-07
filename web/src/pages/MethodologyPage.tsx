@@ -68,7 +68,7 @@ export function MethodologyPage() {
             >
               /predictions
             </Link>
-            . Revision 4.2 (6 June 2026) is the output of a four-stage
+            . Revision 4.3 (6 June 2026) is the output of a four-stage
             pipeline: (1) Independent Survey 2026 prior, (2) in-house
             linear / logistic-regression model with elastic-net
             regularisation trained on the 2009 / 2015 / 2020 historical
@@ -79,12 +79,13 @@ export function MethodologyPage() {
             five large language models from different families (GPT,
             Claude, Gemini, Llama, Mistral) prompted independently with
             the same rubric. A row is only adopted when at least three
-            of the five models converge with the pipeline call. Two
-            rolling ground re-checks have overturned three Rev 4.0
+            of the five models converge with the pipeline call. Three
+            rolling ground re-checks have overturned four Rev 4.0
             calls: Rev 4.1 moved GBA-7 Skardu-I to PPP (Syed Tauqeer
-            Mehdi Shah) and GBA-10 Skardu-IV to PML-N (Wazir Hassan).
-            Rev 4.2 moves GBA-24 Ghanche-III from PPP to Independent
-            (Dr Asad Shafiq, backed by PML-N).
+            Mehdi Shah) and GBA-10 Skardu-IV to PML-N (Wazir Hassan);
+            Rev 4.2 moved GBA-24 Ghanche-III from PPP to Independent
+            (Dr Asad Shafiq, backed by PML-N); Rev 4.3 moves GBA-5
+            Nagar-II from MWM to PPP (Zulfiqar Ali Murad).
           </li>
           <li>
             <strong>It is not</strong> a single-model black-box
@@ -116,7 +117,7 @@ export function MethodologyPage() {
           Predictive model
         </h2>
         <h3 className="font-display text-2xl sm:text-3xl">
-          The 2026 seat-by-seat prediction framework (Revision 4.2)
+          The 2026 seat-by-seat prediction framework (Revision 4.3)
         </h3>
         <p className="text-sm leading-relaxed">
           The{" "}
@@ -126,7 +127,7 @@ export function MethodologyPage() {
           >
             /predictions
           </Link>{" "}
-          page calls every general seat by name. Revision 4.2 (6 June
+          page calls every general seat by name. Revision 4.3 (6 June
           2026) is the output of a four-stage quantitative pipeline.
           Stage 1 ingests the{" "}
           <em>Independent Survey 2026</em> single-page report as the
@@ -338,19 +339,20 @@ export function MethodologyPage() {
           (BNF entry in GBA-19, AAC protest vote, GBA-24 schedule).
         </p>
         <p className="text-sm leading-relaxed">
-          <strong>Headline projection (Rev 4.2).</strong> PPP 12, PML-N 3,
-          MWM 2, IPP 3, ITP 1, Independent 3, JUI-F 0, PTI-backed 0
-          (bloc retired). Two rolling ground re-checks since Rev 4.0:
+          <strong>Headline projection (Rev 4.3).</strong> PPP 13, PML-N 3,
+          MWM 1, IPP 3, ITP 1, Independent 3, JUI-F 0, PTI-backed 0
+          (bloc retired). Three rolling ground re-checks since Rev 4.0:
           (a) the 4 June Rev 4.1 update moved GBA-7 Skardu-I from PML-N
           to PPP (Syed Tauqeer Mehdi Shah) and GBA-10 Skardu-IV from
           ITP to PML-N (Wazir Hassan); (b) the 6 June Rev 4.2 update
-          moves GBA-24 Ghanche-III from PPP (M. Ismail) to Independent
-          (Dr Asad Shafiq, backed by PML-N). Net effect vs Rev 4.0:
-          PPP unchanged at 12 (gained Skardu-I, lost Ghanche-III), ITP
-          -1, Independent +1. PPP sits one seat short of the 13/24
-          bare majority threshold and returns to coalition territory.
-          Most likely partner: MWM (Maisam Kazim, GBA-8 Skardu-II, the
-          bloc's formally appointed CM nominee).
+          moved GBA-24 Ghanche-III from PPP (M. Ismail) to Independent
+          (Dr Asad Shafiq, backed by PML-N); (c) the 6 June Rev 4.3
+          update moves GBA-5 Nagar-II from MWM (Riaz Akber) to PPP
+          (Zulfiqar Ali Murad). Net effect vs Rev 4.0: PPP +1, ITP -1,
+          MWM -1, Independent +1. PPP at 13 clears the 13/24 bare
+          majority threshold on its own; MWM drops to one seat (Maisam
+          Kazim at GBA-8 Skardu-II, the bloc's formally appointed CM
+          nominee and likely PPP coalition partner).
         </p>
         <p className="text-sm leading-relaxed">
           <strong>Post-mortem.</strong> Every per-seat call will be

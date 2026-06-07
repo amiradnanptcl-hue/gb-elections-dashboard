@@ -369,7 +369,7 @@ export function CMRaceMeter() {
 
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
         <p className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)] font-bold">
-          Model · four-stage quantitative pipeline, Revision 4.2 (6 June 2026) · Independent Survey 2026 + regression + LLM jury
+          Model · four-stage quantitative pipeline, Revision 4.3 (6 June 2026) · Independent Survey 2026 + regression + LLM jury
         </p>
         <Link
           to="/predictions"
