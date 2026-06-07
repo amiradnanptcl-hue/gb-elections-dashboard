@@ -95,7 +95,7 @@ export function CMRaceMeter() {
       {/* Heading */}
       <header className="space-y-2 text-center">
         <p className="text-[11px] sm:text-xs font-black uppercase tracking-[0.26em] sm:tracking-[0.28em] text-[color:var(--color-accent-gold)] drop-shadow-[0_1px_0_color-mix(in_oklab,var(--color-accent-gold)_25%,transparent)]">
-          Forecast 2026 (As of 4th June) · Polling 7th June 2026
+          Forecast 2026 (As of 6th June) · Polling 7th June 2026
         </p>
         <h2 id="cm-race-heading" className="font-display text-3xl sm:text-5xl leading-[1.02]">
           7 June 2026 <span className="text-headline-gradient">Predictions</span>
@@ -369,7 +369,7 @@ export function CMRaceMeter() {
 
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
         <p className="text-[11px] uppercase tracking-[0.18em] text-[color:var(--color-muted-foreground)] font-bold">
-          Model · four-stage quantitative pipeline, Revision 4.1 (4 June 2026) · Independent Survey 2026 + regression + LLM jury
+          Model · four-stage quantitative pipeline, Revision 4.2 (6 June 2026) · Independent Survey 2026 + regression + LLM jury
         </p>
         <Link
           to="/predictions"

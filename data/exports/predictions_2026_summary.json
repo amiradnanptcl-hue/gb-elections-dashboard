@@ -1,19 +1,19 @@
 {
   "title_lines": [
-    "GILGIT-BALTISTAN ELECTION 2026 · REVISION 4.1 PREDICTION SUMMARY (4 June 2026)",
-    "POST-REV-4.0 GROUND RE-CHECK BY PPP TEAM AI. THE FOUR-STAGE PIPELINE (SURVEY + REGRESSION + KPI RUBRIC + LLM JURY) OVERTURNS TWO CALLS: GBA-7 SKARDU-I MOVES PML-N TO PPP (SYED TAUQEER MEHDI SHAH); GBA-10 SKARDU-IV MOVES ITP TO PML-N (WAZIR HASSAN). PPP REACHES THE 13/24 BARE MAJORITY THRESHOLD ON ITS OWN.",
+    "GILGIT-BALTISTAN ELECTION 2026 · REVISION 4.2 PREDICTION SUMMARY (6 June 2026)",
+    "POST-REV-4.1 GROUND RE-CHECK BY PPP TEAM AI. THE FOUR-STAGE PIPELINE OVERTURNS GBA-24 GHANCHE-III FROM PPP (M. ISMAIL) TO INDEPENDENT (DR ASAD SHAFIQ, BACKED BY PML-N). PPP RETURNS TO 12 SEATS, ONE SHORT OF THE 13/24 BARE MAJORITY THRESHOLD; PPP-LED COALITION REMAINS THE CENTRAL SCENARIO.",
     "Election Date: 7 June 2026 (GBA-24 polling separately scheduled per ECGB notification)."
   ],
   "party_projection": [
     {
       "party_or_bloc": "PPP Seats",
-      "seats": "13",
-      "driver": "Resurgence across Gilgit, Nagar, Hunza, Baltistan, Astore, Ghizer and Ghanche, now including Skardu-I via Syed Tauqeer Mehdi Shah (Rev 4.1 add). Deep organisational network, Bilawal-Aseefa roadshow impact, and the consolidation of Shia and progressive votes."
+      "seats": "12",
+      "driver": "Resurgence across Gilgit, Nagar, Hunza, Baltistan, Astore and Ghizer, plus Skardu-I via Syed Tauqeer Mehdi Shah (Rev 4.1 add). Deep organisational network, Bilawal-Aseefa roadshow impact, and the consolidation of Shia and progressive votes. Rev 4.2 ground re-check moves Ghanche-III out of the PPP column to an Independent (Dr Asad Shafiq) backed by PML-N."
     },
     {
       "party_or_bloc": "PML-N Seats",
       "seats": "3",
-      "driver": "Targeted strongholds in Gilgit-III, Skardu-IV (Rev 4.1: Wazir Hassan, replacing the earlier Skardu-I projection) and Ghizer-II. Federal alignment advantage in Sunni-leaning urban seats."
+      "driver": "Targeted strongholds in Gilgit-III, Skardu-IV (Rev 4.1: Wazir Hassan, replacing the earlier Skardu-I projection) and Ghizer-II. Federal alignment advantage in Sunni-leaning urban seats. PML-N also backs two Independents (Seth Anwar in Ghanche-II, Dr Asad Shafiq in Ghanche-III) where it is not fielding its own ticket-holder."
     },
     {
       "party_or_bloc": "MWM Seats",
@@ -32,8 +32,8 @@
     },
     {
       "party_or_bloc": "Independent Seats",
-      "seats": "2",
-      "driver": "Diamer-I personal vote and Ghanche-II open-seat fragmentation."
+      "seats": "3",
+      "driver": "Diamer-I personal vote (M. Dilpazir), Ghanche-II PML-N-backed Independent (Seth Anwar), and Ghanche-III PML-N-backed Independent (Dr Asad Shafiq, Rev 4.2 add). Both Ghanche Independents are aligned with PML-N which has not fielded its own ticket-holders in those seats."
     }
   ],
   "critical_flips": [
@@ -94,18 +94,18 @@
     },
     {
       "constituency": "GBA-24 Ghanche-III",
-      "flip": "PML-N -> PPP",
-      "reason": "Muhammad Ismail flips Ghanche-III to PPP. GBA-24 polling date subject to ECGB revision."
+      "flip": "PML-N -> Independent",
+      "reason": "Rev 4.2 override. Dr Asad Shafiq takes Ghanche-III as an Independent backed by PML-N (which is not fielding its own ticket-holder here). Survey re-check, regression refit on biraderi + structural-alignment features, six-pillar rubric and three-of-five LLM jury all converge on the Independent call. The Rev 4.1 PPP projection (M. Ismail) is retired. GBA-24 polling date subject to ECGB revision."
     }
   ],
   "government_formation_scenarios": [
     {
-      "label": "PPP Bare Majority (75 percent)",
-      "description": "PPP (13) reaches the bare 13/24 general-seat threshold on its own after the Rev 4.1 Skardu-I add. The party can govern without a coalition partner, though it will almost certainly recruit MWM (2) or one Independent (2) to widen the cushion against post-poll defections. Most likely Chief Minister: PPP."
+      "label": "PPP-Led Coalition (70 percent)",
+      "description": "PPP (12) sits one seat short of the bare 13/24 general-seat majority after the Rev 4.2 Ghanche-III flip. A PPP + MWM (2) bloc reaches 14 cleanly; adding any of the three Independents (two of whom are PML-N-backed) is harder. Most likely Chief Minister: PPP."
     },
     {
-      "label": "Cross-Bench Coalition (15 percent)",
-      "description": "PML-N (3) + IPP (3) + ITP (1) + Independents (2) = 9 seats. Falls well short of a majority and cannot block a PPP-led government even with MWM in tow. Path to power requires splitting PPP loyalists in a horse-trading round."
+      "label": "Cross-Bench Coalition (20 percent)",
+      "description": "PML-N (3) + IPP (3) + ITP (1) + the two PML-N-backed Independents (Seth Anwar in Ghanche-II, Dr Asad Shafiq in Ghanche-III) = 9 seats with the PML-N + Independent caucus block at 8. Falls short of a majority but could combine with MWM or split PPP loyalists in a horse-trading round to challenge the PPP-led formation."
     },
     {
       "label": "Hung Assembly (10 percent)",

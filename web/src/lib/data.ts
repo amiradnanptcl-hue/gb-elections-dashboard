@@ -330,8 +330,8 @@ export function useForecast2026Summary() {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Four-stage quantitative pipeline (4 June 2026, Revision 4.1;             */
-/* Independent Survey 2026 + 4 Jun ground re-check + regression + LLM jury) */
+/* Four-stage quantitative pipeline (6 June 2026, Revision 4.2;             */
+/* Independent Survey 2026 + 6 Jun ground re-check + regression + LLM jury) */
 /* -------------------------------------------------------------------------- */
 
 export interface Prediction2026Row {

@@ -325,14 +325,14 @@
     "constituency_id": "GBA-24",
     "area_name": "Ghanche-III",
     "rank": 1,
-    "candidate_name": "M. Ismail",
-    "party_id": "PPP",
-    "party_raw": "PPP",
+    "candidate_name": "Dr Asad Shafiq",
+    "party_id": "Independent",
+    "party_raw": "Independent",
     "pti_proxy": false,
     "predicted_votes_text": "",
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "M. Ismail takes Ghanche-III for PPP. Runner-up Independent. Election scheduling subject to ECGB revision."
+    "ground_reality": "Rev 4.2 override. Dr Asad Shafiq takes Ghanche-III as an Independent backed by PML-N (which is not fielding its own ticket-holder here). The four-stage pipeline converges: the post-Rev-4.1 ground re-check moves the prior toward the Independent column, the regression refit fires PML-N-aligned structural-alignment and biraderi features, the six-pillar rubric weights Ground 30 + Candidate 15 for Dr Asad Shafiq's local profile, and the five-model LLM jury reached a three-of-five quorum on the Independent call. The Rev 4.1 PPP call (M. Ismail) is retired. Runner-up PPP. Election scheduling subject to ECGB revision."
   }
 ]

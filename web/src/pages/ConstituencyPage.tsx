@@ -448,7 +448,7 @@ export function ConstituencyPage() {
             >
               predictions page
             </Link>{" "}
-            (Rev 4.1, Independent Survey 2026 plus 4 June ground re-check). Methodology and source list
+            (Rev 4.2, Independent Survey 2026 plus rolling ground re-checks through 6 June). Methodology and source list
             on the{" "}
             <Link
               to="/methodology"

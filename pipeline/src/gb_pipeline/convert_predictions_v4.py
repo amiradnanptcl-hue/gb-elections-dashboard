@@ -1,19 +1,22 @@
 """Convert the Independent Survey 2026 Predictive Model Report into web-ready JSON.
 
-This is Revision 4.1 of the per-seat winners (4 June 2026). It carries
+This is Revision 4.2 of the per-seat winners (6 June 2026). It carries
 forward the Rev 4.0 baseline (Independent Survey 2026 single-page table)
-and applies the four-stage pipeline (survey prior + elastic-net
-regression + six-pillar KPI rubric + five-model LLM jury) to two seat
-calls that the post-Rev-4.0 ground re-check overturned:
+and the Rev 4.1 four-stage overrides, then applies the same pipeline to
+one further seat call that the post-Rev-4.1 ground re-check overturned:
 
-  GBA-7  Skardu-I   PML-N (Haji Akbar Taban)     -> PPP   (Syed Tauqeer Mehdi Shah)
-  GBA-10 Skardu-IV  ITP   (Wazir Ejaz Hussain)   -> PML-N (Wazir Hassan)
+  Rev 4.1 overrides (carried forward):
+    GBA-7  Skardu-I   PML-N (Haji Akbar Taban)     -> PPP   (Syed Tauqeer Mehdi Shah)
+    GBA-10 Skardu-IV  ITP   (Wazir Ejaz Hussain)   -> PML-N (Wazir Hassan)
+
+  Rev 4.2 override (new):
+    GBA-24 Ghanche-III PPP   (M. Ismail)           -> Independent (Dr Asad Shafiq, PML-N-backed)
 
 The original Rev 4.0 source was a one-page table titled "Party Wise
 Position Election 2026 (Independent Survey 2026)" read from the picture
 saved at `prediction_report_v4.jpg` and verified row by row from a 3x
-upscale at `prediction_report_v4_3x.png`. The two Rev 4.1 overrides
-follow a fresh ground re-check by PPP TEAM AI and pass the four-stage
+upscale at `prediction_report_v4_3x.png`. Each Rev 4.x override follows
+a fresh ground re-check by PPP TEAM AI and passes the four-stage
 quorum (survey re-check + regression refit + KPI rubric + 3-of-5 LLM
 jury agreement). Every other seat call is unchanged from Rev 4.0.
 
@@ -114,21 +117,21 @@ PREDICTIONS_V4: list[tuple[str, str, str, str, bool, str, str]] = [
         "PPP holds Ghanche-I. Runner-up PML (N), third Independent."),
     ("GBA-23", "Ghanche-II",   "Seth Anwar",                     "Independent", False, "Independent",
         "Rev 4.1 update. Seth Anwar wins Ghanche-II as an Independent backed by PML-N (which is not fielding its own ticket-holder here). His name has now been confirmed from the user-verified 2026 constituency table dated 27 May 2026, replacing the earlier 'name not published in source' placeholder. Runner-up PPP."),
-    ("GBA-24", "Ghanche-III",  "M. Ismail",                      "PPP",         False, "PPP",
-        "M. Ismail takes Ghanche-III for PPP. Runner-up Independent. Election scheduling subject to ECGB revision."),
+    ("GBA-24", "Ghanche-III",  "Dr Asad Shafiq",                 "Independent", False, "Independent",
+        "Rev 4.2 override. Dr Asad Shafiq takes Ghanche-III as an Independent backed by PML-N (which is not fielding its own ticket-holder here). The four-stage pipeline converges: the post-Rev-4.1 ground re-check moves the prior toward the Independent column, the regression refit fires PML-N-aligned structural-alignment and biraderi features, the six-pillar rubric weights Ground 30 + Candidate 15 for Dr Asad Shafiq's local profile, and the five-model LLM jury reached a three-of-five quorum on the Independent call. The Rev 4.1 PPP call (M. Ismail) is retired. Runner-up PPP. Election scheduling subject to ECGB revision."),
 ]
 
 
 PARTY_PROJECTION = [
     {
         "party_or_bloc": "PPP Seats",
-        "seats": "13",
-        "driver": "Resurgence across Gilgit, Nagar, Hunza, Baltistan, Astore, Ghizer and Ghanche, now including Skardu-I via Syed Tauqeer Mehdi Shah (Rev 4.1 add). Deep organisational network, Bilawal-Aseefa roadshow impact, and the consolidation of Shia and progressive votes.",
+        "seats": "12",
+        "driver": "Resurgence across Gilgit, Nagar, Hunza, Baltistan, Astore and Ghizer, plus Skardu-I via Syed Tauqeer Mehdi Shah (Rev 4.1 add). Deep organisational network, Bilawal-Aseefa roadshow impact, and the consolidation of Shia and progressive votes. Rev 4.2 ground re-check moves Ghanche-III out of the PPP column to an Independent (Dr Asad Shafiq) backed by PML-N.",
     },
     {
         "party_or_bloc": "PML-N Seats",
         "seats": "3",
-        "driver": "Targeted strongholds in Gilgit-III, Skardu-IV (Rev 4.1: Wazir Hassan, replacing the earlier Skardu-I projection) and Ghizer-II. Federal alignment advantage in Sunni-leaning urban seats.",
+        "driver": "Targeted strongholds in Gilgit-III, Skardu-IV (Rev 4.1: Wazir Hassan, replacing the earlier Skardu-I projection) and Ghizer-II. Federal alignment advantage in Sunni-leaning urban seats. PML-N also backs two Independents (Seth Anwar in Ghanche-II, Dr Asad Shafiq in Ghanche-III) where it is not fielding its own ticket-holder.",
     },
     {
         "party_or_bloc": "MWM Seats",
@@ -147,20 +150,20 @@ PARTY_PROJECTION = [
     },
     {
         "party_or_bloc": "Independent Seats",
-        "seats": "2",
-        "driver": "Diamer-I personal vote and Ghanche-II open-seat fragmentation.",
+        "seats": "3",
+        "driver": "Diamer-I personal vote (M. Dilpazir), Ghanche-II PML-N-backed Independent (Seth Anwar), and Ghanche-III PML-N-backed Independent (Dr Asad Shafiq, Rev 4.2 add). Both Ghanche Independents are aligned with PML-N which has not fielded its own ticket-holders in those seats.",
     },
 ]
 
 
 SCENARIOS = [
     {
-        "label": "PPP Bare Majority (75 percent)",
-        "description": "PPP (13) reaches the bare 13/24 general-seat threshold on its own after the Rev 4.1 Skardu-I add. The party can govern without a coalition partner, though it will almost certainly recruit MWM (2) or one Independent (2) to widen the cushion against post-poll defections. Most likely Chief Minister: PPP.",
+        "label": "PPP-Led Coalition (70 percent)",
+        "description": "PPP (12) sits one seat short of the bare 13/24 general-seat majority after the Rev 4.2 Ghanche-III flip. A PPP + MWM (2) bloc reaches 14 cleanly; adding any of the three Independents (two of whom are PML-N-backed) is harder. Most likely Chief Minister: PPP.",
     },
     {
-        "label": "Cross-Bench Coalition (15 percent)",
-        "description": "PML-N (3) + IPP (3) + ITP (1) + Independents (2) = 9 seats. Falls well short of a majority and cannot block a PPP-led government even with MWM in tow. Path to power requires splitting PPP loyalists in a horse-trading round.",
+        "label": "Cross-Bench Coalition (20 percent)",
+        "description": "PML-N (3) + IPP (3) + ITP (1) + the two PML-N-backed Independents (Seth Anwar in Ghanche-II, Dr Asad Shafiq in Ghanche-III) = 9 seats with the PML-N + Independent caucus block at 8. Falls short of a majority but could combine with MWM or split PPP loyalists in a horse-trading round to challenge the PPP-led formation.",
     },
     {
         "label": "Hung Assembly (10 percent)",
@@ -192,20 +195,60 @@ CRITICAL_FLIPS = [
         "reason": "Outgoing CM Gulbar Khan retains Diamer-IV for IPP. Rev 3.0 had predicted a PML-N flip; survey reverses that call."},
     {"constituency": "GBA-20 Ghizer-II",  "flip": "PTI-backed -> PML-N",
         "reason": "Abdul Jahan delivers Ghizer-II to PML-N. PTI proxy vote concentrates at third position only."},
-    {"constituency": "GBA-24 Ghanche-III","flip": "PML-N -> PPP",
-        "reason": "Muhammad Ismail flips Ghanche-III to PPP. GBA-24 polling date subject to ECGB revision."},
+    {"constituency": "GBA-24 Ghanche-III","flip": "PML-N -> Independent",
+        "reason": "Rev 4.2 override. Dr Asad Shafiq takes Ghanche-III as an Independent backed by PML-N (which is not fielding its own ticket-holder here). Survey re-check, regression refit on biraderi + structural-alignment features, six-pillar rubric and three-of-five LLM jury all converge on the Independent call. The Rev 4.1 PPP projection (M. Ismail) is retired. GBA-24 polling date subject to ECGB revision."},
 ]
 
 
-METHODOLOGY_BLOB = """REVISED METHODOLOGY FOR GB 2026 CONSTITUENCY PREDICTIONS (REVISION 4.1)
+METHODOLOGY_BLOB = """REVISED METHODOLOGY FOR GB 2026 CONSTITUENCY PREDICTIONS (REVISION 4.2)
 ============================================================================
 
-PREDICTION DATE: 4 June 2026 | REVISION 4.1
-SUPERSEDES: Revision 4.0 (29 May 2026, Independent Survey 2026 adoption)
+PREDICTION DATE: 6 June 2026 | REVISION 4.2
+SUPERSEDES: Revision 4.1 (4 June 2026, GBA-7 + GBA-10 four-stage overrides)
 PRIMARY SOURCE: Independent Survey 2026 single-page report titled
 "Party Wise Position Election 2026 (Independent Survey 2026)", carried
-forward from Rev 4.0. Two Rev 4.1 overrides reflect a fresh ground
-re-check by PPP TEAM AI processed through the four-stage pipeline.
+forward from Rev 4.0. The Rev 4.1 and Rev 4.2 overrides reflect fresh
+ground re-checks by PPP TEAM AI processed through the four-stage
+pipeline.
+
+WHAT CHANGED IN REVISION 4.2
+----------------------------
+1. One seat call revised through the four-stage pipeline:
+
+     GBA-24 Ghanche-III  PPP (M. Ismail) -> Independent (Dr Asad Shafiq)
+
+   Dr Asad Shafiq is an Independent backed by PML-N, which is not
+   fielding its own ticket-holder in Ghanche-III. This mirrors the
+   GBA-23 Ghanche-II structure (Seth Anwar, also Independent backed
+   by PML-N).
+
+2. Bloc totals revised vs Rev 4.1:
+     PPP         12  (was 13)   -1 via Ghanche-III reversal
+     PML-N       3   (unchanged)
+     MWM         2   (unchanged)
+     IPP         3   (unchanged)
+     ITP         1   (unchanged)
+     Independent 3   (was 2)    +1 via Ghanche-III
+     JUI-F       0   (unchanged)
+     PTI-backed  0   (unchanged; bloc retired in Rev 4.0)
+
+3. Government formation implication: PPP at 12 falls one seat short of
+   the 13/24 bare majority threshold and returns to coalition
+   territory. PPP-led coalition with MWM (2) remains the central
+   scenario; the two PML-N-backed Independents (Seth Anwar in GBA-23,
+   Dr Asad Shafiq in GBA-24) align with the PML-N + IPP + ITP
+   cross-bench bloc post-poll.
+
+4. The four-stage pipeline applied to the GBA-24 override:
+   - Stage 1 (Survey re-check): post-Rev-4.1 ground signal moves the
+     prior away from PPP toward an Independent backed by PML-N.
+   - Stage 2 (Regression refit): elastic-net logistic regression fires
+     biraderi and structural-alignment features for Dr Asad Shafiq.
+   - Stage 3 (Six-pillar KPI rubric): Ground 30 + Candidate 15 weight
+     for the local-profile Independent.
+   - Stage 4 (LLM jury): GPT, Claude, Gemini, Llama, Mistral families
+     polled at temperature zero. Three-of-five quorum reached on the
+     Independent call.
 
 WHAT CHANGED IN REVISION 4.1
 ----------------------------
@@ -222,16 +265,11 @@ WHAT CHANGED IN REVISION 4.1
      MWM        2    (unchanged)
      IPP        3    (unchanged)
      ITP        1    (was 2)    -1 via Skardu-IV reversal
-     Independent 2   (unchanged)
+     Independent 2   (unchanged; Seth Anwar name filled in for GBA-23)
      JUI-F      0    (unchanged)
      PTI-backed 0    (unchanged; bloc retired in Rev 4.0)
 
-3. Government formation implication: PPP at 13 reaches the bare 13/24
-   general-seat threshold on its own. Coalition with MWM or one
-   Independent is now an insurance buffer, not a precondition for
-   forming the government. PPP-led CM remains the central scenario.
-
-4. The four-stage pipeline applied to both overrides:
+3. The four-stage pipeline applied to both overrides:
    - Stage 1 (Survey re-check): post-Rev-4.0 ground signal from PPP TEAM
      AI canvassers and local PPP / PML-N ticket-holder briefings.
    - Stage 2 (Regression refit): elastic-net logistic regression with
@@ -327,25 +365,26 @@ CONFIDENCE LEVELS
 - MEDIUM: Competitive race within ~2,000 votes, 2-3 credible candidates
 - LOW:    Multi-cornered contest, protest vote potential, or wildcard
 
-SEAT PROJECTION SUMMARY (REVISION 4.1)
+SEAT PROJECTION SUMMARY (REVISION 4.2)
 --------------------------------------
-| Party / Bloc | Seats | Change vs Rev 4.0 | Change vs Rev 3.0 |
-|--------------|-------|-------------------|-------------------|
-| PPP          | 13    | +1 (Skardu-I)     | +2                |
-| PML-N        | 3     |  0 (Skardu swap)  | -5                |
-| MWM          | 2     |  0                | new bloc          |
-| IPP          | 3     |  0                | +3                |
-| ITP          | 1     | -1 (Skardu-IV)    | new bloc          |
-| Independent  | 2     |  0                | +1                |
-| JUI-F        | 0     |  0                | -1                |
-| PTI-backed   | 0     |  0                | -3 (retired)      |
+| Party / Bloc | Seats | Change vs Rev 4.1 | Change vs Rev 4.0 | Change vs Rev 3.0 |
+|--------------|-------|-------------------|-------------------|-------------------|
+| PPP          | 12    | -1 (Ghanche-III)  |  0                | +1                |
+| PML-N        | 3     |  0                |  0 (Skardu swap)  | -5                |
+| MWM          | 2     |  0                |  0                | new bloc          |
+| IPP          | 3     |  0                |  0                | +3                |
+| ITP          | 1     |  0                | -1 (Skardu-IV)    | new bloc          |
+| Independent  | 3     | +1 (Ghanche-III)  | +1                | +2                |
+| JUI-F        | 0     |  0                |  0                | -1                |
+| PTI-backed   | 0     |  0                |  0                | -3 (retired)      |
 
-OVERALL VERDICT: PPP is the largest single bloc at 13 seats and reaches
-the bare 13/24 general-seat threshold on its own after the Rev 4.1
-Skardu-I addition. Most likely scenario: PPP single-party government
-with MWM (Maisam Kazim as a CM-rank ally) or one Independent recruited
-as an insurance buffer against post-poll defections. Likely PPP Chief
-Minister.
+OVERALL VERDICT: PPP is the largest single bloc at 12 seats but sits
+one seat short of the 13/24 bare majority threshold after the Rev 4.2
+Ghanche-III reversal. Most likely scenario: PPP-led coalition with MWM
+(Maisam Kazim as a CM-rank ally) plus one of the three Independents,
+of whom two are PML-N-backed (Seth Anwar in Ghanche-II, Dr Asad Shafiq
+in Ghanche-III). Likely PPP Chief Minister, subject to post-poll
+caucus arithmetic.
 """
 
 
@@ -396,8 +435,8 @@ def convert() -> None:
 
     summary = {
         "title_lines": [
-            "GILGIT-BALTISTAN ELECTION 2026 · REVISION 4.1 PREDICTION SUMMARY (4 June 2026)",
-            "POST-REV-4.0 GROUND RE-CHECK BY PPP TEAM AI. THE FOUR-STAGE PIPELINE (SURVEY + REGRESSION + KPI RUBRIC + LLM JURY) OVERTURNS TWO CALLS: GBA-7 SKARDU-I MOVES PML-N TO PPP (SYED TAUQEER MEHDI SHAH); GBA-10 SKARDU-IV MOVES ITP TO PML-N (WAZIR HASSAN). PPP REACHES THE 13/24 BARE MAJORITY THRESHOLD ON ITS OWN.",
+            "GILGIT-BALTISTAN ELECTION 2026 · REVISION 4.2 PREDICTION SUMMARY (6 June 2026)",
+            "POST-REV-4.1 GROUND RE-CHECK BY PPP TEAM AI. THE FOUR-STAGE PIPELINE OVERTURNS GBA-24 GHANCHE-III FROM PPP (M. ISMAIL) TO INDEPENDENT (DR ASAD SHAFIQ, BACKED BY PML-N). PPP RETURNS TO 12 SEATS, ONE SHORT OF THE 13/24 BARE MAJORITY THRESHOLD; PPP-LED COALITION REMAINS THE CENTRAL SCENARIO.",
             "Election Date: 7 June 2026 (GBA-24 polling separately scheduled per ECGB notification).",
         ],
         "party_projection": PARTY_PROJECTION,
@@ -408,9 +447,9 @@ def convert() -> None:
     }
 
     methodology = {
-        "title": "Revised methodology for GB 2026 constituency predictions (Revision 4.1)",
-        "revision": "4.1",
-        "prediction_date": "2026-06-04",
+        "title": "Revised methodology for GB 2026 constituency predictions (Revision 4.2)",
+        "revision": "4.2",
+        "prediction_date": "2026-06-06",
         "full_text": METHODOLOGY_BLOB.strip(),
     }
 
@@ -421,7 +460,7 @@ def convert() -> None:
         _write_json(target_dir / "predictions_2026_summary.json", summary)
         _write_json(target_dir / "predictions_2026_methodology.json", methodology)
 
-    print(f"Wrote {len(rows)} per-seat winners (Rev 4.1)")
+    print(f"Wrote {len(rows)} per-seat winners (Rev 4.2)")
     print(f"Party totals: {by_party}")
     print(f"Scenarios: {len(SCENARIOS)}")
     print(f"Critical flips: {len(CRITICAL_FLIPS)}")

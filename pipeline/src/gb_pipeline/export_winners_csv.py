@@ -1,4 +1,4 @@
-"""Print a designer-friendly CSV of the 24 Rev 4.1 winners.
+"""Print a designer-friendly CSV of the 24 Rev 4.2 winners.
 
 Columns
 =======
