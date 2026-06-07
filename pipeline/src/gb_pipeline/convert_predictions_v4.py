@@ -112,8 +112,8 @@ PREDICTIONS_V4: list[tuple[str, str, str, str, bool, str, str]] = [
         "PPP holds Ghizer-III. Runner-up PML-N, third PTI."),
     ("GBA-22", "Ghanche-I",    "Ashiq Hussain",                  "PPP",         False, "PPP",
         "PPP holds Ghanche-I. Runner-up PML (N), third Independent."),
-    ("GBA-23", "Ghanche-II",   "(name not published in source)", "Independent", False, "Independent",
-        "Independent leads Ghanche-II with PPP runner-up. Winner name is blank in the source CSV row 23."),
+    ("GBA-23", "Ghanche-II",   "Seth Anwar",                     "Independent", False, "Independent",
+        "Rev 4.1 update. Seth Anwar wins Ghanche-II as an Independent backed by PML-N (which is not fielding its own ticket-holder here). His name has now been confirmed from the user-verified 2026 constituency table dated 27 May 2026, replacing the earlier 'name not published in source' placeholder. Runner-up PPP."),
     ("GBA-24", "Ghanche-III",  "M. Ismail",                      "PPP",         False, "PPP",
         "M. Ismail takes Ghanche-III for PPP. Runner-up Independent. Election scheduling subject to ECGB revision."),
 ]

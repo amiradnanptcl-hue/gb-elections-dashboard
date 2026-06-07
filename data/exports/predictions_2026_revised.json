@@ -311,7 +311,7 @@
     "constituency_id": "GBA-23",
     "area_name": "Ghanche-II",
     "rank": 1,
-    "candidate_name": "(name not published in source)",
+    "candidate_name": "Seth Anwar",
     "party_id": "Independent",
     "party_raw": "Independent",
     "pti_proxy": false,
@@ -319,7 +319,7 @@
     "predicted_votes_estimate": null,
     "margin": "",
     "social_media_sentiment": "",
-    "ground_reality": "Independent leads Ghanche-II with PPP runner-up. Winner name is blank in the source CSV row 23."
+    "ground_reality": "Rev 4.1 update. Seth Anwar wins Ghanche-II as an Independent backed by PML-N (which is not fielding its own ticket-holder here). His name has now been confirmed from the user-verified 2026 constituency table dated 27 May 2026, replacing the earlier 'name not published in source' placeholder. Runner-up PPP."
   },
   {
     "constituency_id": "GBA-24",
